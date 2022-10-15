@@ -1,0 +1,25 @@
+package codetoon.argument;
+
+public class StringArgument extends Argument<String, String> {
+
+    @Override
+    public String indentification(String s) {
+        StringBuilder builder = new StringBuilder().append(s);
+        if(builder.charAt(0) == '\"'){
+             return convertStringAll(builder);
+        }else{
+            return s;
+        }
+    }
+    public String convertStringAll(StringBuilder s){
+        StringBuilder t = new StringBuilder();
+        for(int i = 1; i < s.length(); i ++){
+            if(s.charAt(i) != '\"'){
+                t.append(s.charAt(i));
+            }
+        
+        }
+        return t.toString();
+    }
+
+}
