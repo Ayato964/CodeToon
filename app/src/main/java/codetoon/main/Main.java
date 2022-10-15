@@ -36,6 +36,7 @@ public class Main extends JFrame{
     public static  Graphics getMainGraphics(){
         return g;
     }
+    
     public static void main(String[] args) {
         Main m = new Main("Hacking Pazzle");
         m.setVisible(true);
