@@ -18,6 +18,9 @@ public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, Strin
         registory.add(obj);
         return obj;
     }
+    public String getID(){
+        return ID;
+    }
     public T get(String id){
         for(int i = 0; i < registory.size(); i ++){
             if(id.equals(registory.get(i).getID())){
