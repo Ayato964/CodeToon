@@ -36,13 +36,12 @@ public class Main extends JFrame{
     public static  Graphics getMainGraphics(){
         return g;
     }
-    
+
     public static void main(String[] args) {
         Main m = new Main("Hacking Pazzle");
         m.setVisible(true);
-        m.run(new Title());
+        m.run(new Title());     
     }
-
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
         displayMap = map;
