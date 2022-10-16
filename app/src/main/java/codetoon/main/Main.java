@@ -40,6 +40,7 @@ public class Main extends JFrame{
         Main m = new Main("Hacking Pazzle");
         m.setVisible(true);
         m.run(new Title());
+
     }
 
     public void run(Map map){
