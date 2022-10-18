@@ -4,10 +4,11 @@ import java.util.*;
 import codetoon.method.*;
 
 public class Indentification{
+    private static final Indentification instance = new Indentification();
     StringBuilder program;
     ArrayList<StringBuilder> programs;
     ArrayList<MyMethod> method;
-    public Indentification(String str){
+    private Indentification(String str){
         program = new StringBuilder();
         programs = new ArrayList<StringBuilder>();
         method = new ArrayList<>();
@@ -15,7 +16,7 @@ public class Indentification{
         indent();
 
     }
-    public Indentification(){
+    private Indentification(){
 
     }
     
@@ -108,5 +109,7 @@ public class Indentification{
         return indent.method.isEmpty() ? null : indent.method;
         
     }
-
+    public static Indentification getInstance(){
+        return instance;
+    }
 }

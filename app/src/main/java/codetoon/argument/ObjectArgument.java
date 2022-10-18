@@ -20,7 +20,7 @@ public class ObjectArgument extends Argument<Object, String> {
             if(ObjName.toString() != ERROR.toString()){
                 if(ObjName instanceof MyMethod){
                     MyMethod method = (MyMethod) ObjName;
-                    method.set(new Indentification().getArgument(builder));
+                    method.set(Indentification.getInstance().getArgument(builder));
                     return method;
                 }
                 
