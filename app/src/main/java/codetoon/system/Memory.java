@@ -1,6 +1,10 @@
 package codetoon.system;
 
+import codetoon.util.TickHelper;
+
 import java.awt.*;
+import java.util.function.Supplier;
+
 /** メモリーを描画、処理するクラス。 **/
 public class Memory extends Player{
     int x, y, w, h, idI, idC;
@@ -13,6 +17,10 @@ public class Memory extends Player{
       this.idI = idI;
       this.idC = idC;
     }
+
+    public static void tick(){
+        System.out.println("This is Memory !!!!!!!");
+    }
     public void display(Graphics g){
         g.setColor(Color.WHITE);
       g.fillRect(x, y, w, h);
@@ -24,5 +32,11 @@ public class Memory extends Player{
     public String getName(){
       return "Memory_" + idI + "_" + idC;
     }
-    
-  }
+
+    @Override
+    protected TickHelper getTick() {
+        return Memory::tick;
+    }
+
+
+}
