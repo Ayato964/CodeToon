@@ -2,8 +2,13 @@ package codetoon.main;
 
 import javax.swing.*;
 import codetoon.map.*;
+import codetoon.map.Map;
+
 import java.awt.image.*;
 import java.awt.*;
+import java.util.*;
+import java.util.Timer;
+
 public class Main extends JFrame{
     protected static Main main;
     public Map displayMap;

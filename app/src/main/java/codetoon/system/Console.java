@@ -186,8 +186,6 @@ public class Console extends JFrame implements KeyListener{
           if(host instanceof Admin){
             host.run();  
             panel.resetAll();
-          }else{
-
           }
         }
         //System.out.println(methods == null);
