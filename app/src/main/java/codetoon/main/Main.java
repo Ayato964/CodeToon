@@ -41,6 +41,8 @@ public class Main extends JFrame{
     public static  Graphics getMainGraphics(){
         return g;
     }
+
+    /** Main Method !!! **/
     public static void main(String[] args) {
         Main m = new Main("CodeToon");
         m.setVisible(true);
