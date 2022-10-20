@@ -8,11 +8,12 @@ import codetoon.util.Tick;
 import codetoon.util.TickHelper;
 import codetoon.util.TickRegistory;
 
-public abstract class Player implements IsTick {
+
+public abstract class Player {
     ArrayList<MyMethod> method = new ArrayList<>();
+    protected TickRegistory<Player> ticker = getTick();
 
     public Player(){
-        Tick.getInstance().add(getTick());
     }
     public void setRunMethod(ArrayList<MyMethod> m){
         method = m;

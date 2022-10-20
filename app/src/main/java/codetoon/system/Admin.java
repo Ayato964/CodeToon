@@ -6,8 +6,6 @@ import codetoon.util.TickHelper;
 import codetoon.util.TickRegistory;
 
 import java.util.ArrayList;
-
-
 public class Admin extends Player{
     public Admin(){
         
@@ -23,10 +21,10 @@ public class Admin extends Player{
 
     @Override
     public TickRegistory getTick() {
-        return TickRegistory.createTicker(this, Admin::tick);
+        return TickRegistory.createTicker( this, Admin::tick);
     }
 
-    public static <T extends IsTick> void tick(T t){
+    public static <T> void tick(T t){
         if(GameMaster.isGameStart) {
             System.out.println("This is Admin!!!!!!");
         }

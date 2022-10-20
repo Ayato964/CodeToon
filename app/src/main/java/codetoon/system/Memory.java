@@ -21,7 +21,7 @@ public class Memory extends Player{
       this.idC = idC;
     }
 
-    public static <R extends IsTick> void tick(R t){
+    public static <R> void tick(R t){
         if(GameMaster.isGameStart){
 
         }
