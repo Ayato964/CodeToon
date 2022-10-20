@@ -1,28 +1,27 @@
 package codetoon.util;
 
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Tick {
     private static final Tick INSTANCE = new Tick();
-    private final ArrayList<TickHelper> method = new ArrayList<>();
+    private final ArrayList<TickRegistory> method = new ArrayList<>();
     private Tick(){
 
         Timer timer = new Timer(false);
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                for (TickHelper tickHelper : method) {
-                    tickHelper.tick();
+                for (TickRegistory tickHelper : method) {
+                    tickHelper.run_tick();
                 }
             }
         };
         timer.scheduleAtFixedRate(task, 0,1);
 
     }
-    public void add(TickHelper t){
-        method.add(t);
+    public void add(TickRegistory run_tick){
+
+        method.add(run_tick);
     }
     public static Tick getInstance(){
         return INSTANCE;

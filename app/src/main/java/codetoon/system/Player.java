@@ -1,14 +1,14 @@
 package codetoon.system;
 
 import java.util.ArrayList;
-import java.util.function.IntConsumer;
-import java.util.function.Supplier;
 
 import codetoon.method.*;
+import codetoon.util.IsTick;
 import codetoon.util.Tick;
 import codetoon.util.TickHelper;
+import codetoon.util.TickRegistory;
 
-public abstract class Player {
+public abstract class Player implements IsTick {
     ArrayList<MyMethod> method = new ArrayList<>();
 
     public Player(){
@@ -25,5 +25,5 @@ public abstract class Player {
     }
 
     public abstract String getName();
-    protected abstract TickHelper getTick();
+    public abstract TickRegistory getTick();
 }

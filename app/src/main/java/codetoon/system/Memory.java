@@ -1,6 +1,8 @@
 package codetoon.system;
 
+import codetoon.util.IsTick;
 import codetoon.util.TickHelper;
+import codetoon.util.TickRegistory;
 
 import java.awt.*;
 import java.util.function.Supplier;
@@ -8,6 +10,7 @@ import java.util.function.Supplier;
 /** メモリーを描画、処理するクラス。 **/
 public class Memory extends Player{
     int x, y, w, h, idI, idC;
+    private int counter = 0;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
       this.x = x;
@@ -18,8 +21,10 @@ public class Memory extends Player{
       this.idC = idC;
     }
 
-    public static void tick(){
-        System.out.println("This is Memory !!!!!!!");
+    public static <R extends IsTick> void tick(R t){
+        if(GameMaster.isGameStart){
+
+        }
     }
     public void display(Graphics g){
         g.setColor(Color.WHITE);
@@ -34,8 +39,8 @@ public class Memory extends Player{
     }
 
     @Override
-    protected TickHelper getTick() {
-        return Memory::tick;
+    public TickRegistory getTick() {
+        return TickRegistory.createTicker(this, Memory::tick);
     }
 
 

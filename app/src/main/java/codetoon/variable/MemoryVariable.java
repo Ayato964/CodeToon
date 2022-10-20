@@ -25,7 +25,6 @@ public class MemoryVariable extends Variable<Memory> {
     }
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
         return 2;
     }
     

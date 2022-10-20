@@ -23,7 +23,7 @@ public class PazzleStage extends Map{
       c = new Console(140, 50, 120, 60);
       c.setHost(console_host);
       c.setVisible(true);
-      
+      GameMaster.isGameStart = true;
     }
     public Console getConsole() {
         return c;
