@@ -1,6 +1,5 @@
 package codetoon.util;
 
-import java.util.function.Supplier;
 
 public interface TickHelper {
 

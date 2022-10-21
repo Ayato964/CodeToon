@@ -24,7 +24,7 @@ public class Memory extends Player{
         if(CodeToon.isGameStart){
             Memory memory = (Memory)t;
             memory.counter ++;
-            if(memory.counter / 500 >= 1){
+            if(memory.counter / 1000 >= 5){
                 memory.counter = 0;
                 memory.run();
             }

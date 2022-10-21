@@ -1,5 +1,7 @@
 package codetoon.util;
 
+import codetoon.system.CodeToon;
+
 import java.util.*;
 
 public class Tick {
@@ -11,8 +13,8 @@ public class Tick {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                for (TickRegistory tickHelper : method) {
-                    if(tickHelper != null) {
+                if(!method.isEmpty() && CodeToon.isGameStart) {
+                    for (TickRegistory tickHelper : method) {
                         tickHelper.run_tick();
                     }
                 }

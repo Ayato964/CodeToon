@@ -57,7 +57,6 @@ public class Console extends JFrame implements KeyListener{
     
     /** テキストエディタ作成 **/
     public void drawInputKey(KeyEvent e){
-      System.out.println(program_count);
       if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
         program.deleteCharAt(program_count - 1);
         program_count --;
