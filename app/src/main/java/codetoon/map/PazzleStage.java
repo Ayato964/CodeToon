@@ -13,17 +13,15 @@ public class PazzleStage extends Map{
     public final int MEMORY_SIZE; 
     private final Field field;
     private final Console c;
-    public static Player console_host;
     
     public PazzleStage(int size){
       MEMORY_SIZE = size;
-      console_host = new Admin();
       field = new Field(5, 20, 130, 83);
       field.setMemoryCapability(MEMORY_SIZE);
       c = new Console(140, 50, 120, 60);
-      c.setHost(console_host);
+      c.setHost(Admin.getInstance());
       c.setVisible(true);
-      GameMaster.isGameStart = true;
+      CodeToon.isGameStart = true;
     }
     public Console getConsole() {
         return c;

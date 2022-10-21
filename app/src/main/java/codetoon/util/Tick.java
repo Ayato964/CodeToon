@@ -12,7 +12,9 @@ public class Tick {
             @Override
             public void run() {
                 for (TickRegistory tickHelper : method) {
-                    tickHelper.run_tick();
+                    if(tickHelper != null) {
+                        tickHelper.run_tick();
+                    }
                 }
             }
         };

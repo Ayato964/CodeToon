@@ -4,7 +4,7 @@ import codetoon.main.Main;
 
 import java.awt.*;
 
-public class GameMaster {
+public class CodeToon {
     public static boolean isCliant = true;
     public static boolean isGameStart = false;
 

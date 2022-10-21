@@ -1,11 +1,10 @@
 package codetoon.system;
 
-import codetoon.util.IsTick;
-import codetoon.util.TickHelper;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.util.TickRegistory;
 
 import java.awt.*;
-import java.util.function.Supplier;
 
 /** メモリーを描画、処理するクラス。 **/
 public class Memory extends Player{
@@ -21,11 +20,20 @@ public class Memory extends Player{
       this.idC = idC;
     }
 
-    public static <R> void tick(R t){
-        if(GameMaster.isGameStart){
+    public static void tick(Object t){
+        if(CodeToon.isGameStart){
+            Memory memory = (Memory)t;
+            memory.counter ++;
+            if(memory.counter / 500 >= 1){
+                memory.counter = 0;
+                memory.run();
+            }
+
 
         }
+
     }
+
     public void display(Graphics g){
         g.setColor(Color.WHITE);
       g.fillRect(x, y, w, h);
@@ -41,6 +49,13 @@ public class Memory extends Player{
     @Override
     public TickRegistory getTick() {
         return TickRegistory.createTicker(this, Memory::tick);
+    }
+
+    @Override
+    public void endMethod() {
+        Console c =((PazzleStage) Main.getInstance().getMap()).getConsole();
+        setRunMethod(c.getMethods());
+        c.panel.resetAll();
     }
 
 

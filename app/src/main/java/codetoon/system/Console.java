@@ -18,7 +18,7 @@ public class Console extends JFrame implements KeyListener{
   public ConsolePanel panel;
   private Player host;
 
-  ArrayList<MyMethod> methods;
+  private ArrayList<MyMethod> methods;
   public Console(int x, int y, int w, int h){
     this.x = x * Main.DW;
     this.y = y * Main.DH;
@@ -35,6 +35,10 @@ public class Console extends JFrame implements KeyListener{
 
   public void setHost(Player h){
     host = h;
+  }
+
+  public ArrayList<MyMethod> getMethods() {
+    return methods;
   }
 
   public class ConsolePanel extends JLabel{
@@ -180,13 +184,9 @@ public class Console extends JFrame implements KeyListener{
    public void keyTyped(KeyEvent e){
         panel.drawInputKey(e);
         methods = Indentification.indentification(panel.program.toString());
-        host.setRunMethod(methods);
 
         if(isHave(Methods.END)){
-          if(host instanceof Admin){
-            host.run();  
-            panel.resetAll();
-          }
+            host.endMethod();
         }
         //System.out.println(methods == null);
    }

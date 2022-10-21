@@ -2,7 +2,7 @@ package codetoon.util;
 
 import java.io.IOError;
 
-public class TickRegistory<T> {
+public class TickRegistory<T extends IsTick> {
     private final T t;
     private final TickHelper tick_method;
     public  TickRegistory(T t, TickHelper tick){
@@ -14,7 +14,7 @@ public class TickRegistory<T> {
         tick_method.tick(t);
     }
 
-    public static  TickRegistory createTicker(Object r, TickHelper t){
+    public static <A extends IsTick> TickRegistory createTicker(A r, TickHelper t){
             return new TickRegistory(r, t);
     }
 }

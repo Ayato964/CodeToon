@@ -9,7 +9,7 @@ import codetoon.util.TickHelper;
 import codetoon.util.TickRegistory;
 
 
-public abstract class Player {
+public abstract class Player implements IsTick {
     ArrayList<MyMethod> method = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
 
@@ -19,12 +19,15 @@ public abstract class Player {
         method = m;
     }
     public void run(){
-        for(int i = 0; i < method.size(); i ++){
-            method.get(i).action(i);
+        if(!method.isEmpty()) {
+            for (int i = 0; i < method.size(); i++) {
+                method.get(i).action(i);
 
+            }
         }
     }
 
     public abstract String getName();
     public abstract TickRegistory getTick();
+    public abstract void endMethod();
 }
