@@ -22,7 +22,8 @@ public class Connect extends MyMethod {
     @Override
     public void action(int i) {
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();      
-        p.getConsole().setHost(memory);  
+        p.getConsole().setHost(memory);
+        p.getConsole().panel.setProgram(memory.getSource() != null ? memory.getSource() : new StringBuilder());
     }
 
     

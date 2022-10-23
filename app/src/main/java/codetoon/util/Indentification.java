@@ -19,16 +19,26 @@ public class Indentification{
     private Indentification(){
 
     }
-    
+
+    public static StringBuilder removeEnd(StringBuilder source) {
+        int v = source.indexOf("end(");
+        int ev = source.indexOf(";", v);
+        source.delete(v, v + 6);
+        return source;
+    }
+
     public HashMap<Integer, String> getArgument(StringBuilder text){
         StringBuilder argments = new StringBuilder();
         HashMap<Integer, String> argment = new HashMap<Integer, String>();
         int  i = 0;
         boolean arg = false;
-        while(i < text.length()){
+        while(i < text.length() - 1){
+            /*
             if(text.charAt(i) == ')' ){
                 arg = false;
             }
+            */
+
             if(arg){
                 argments.append(text.charAt(i));
             }
