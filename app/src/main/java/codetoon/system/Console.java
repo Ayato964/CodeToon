@@ -4,6 +4,7 @@ import codetoon.main.*;
 import codetoon.util.*;
 import codetoon.method.*;
 import codetoon.regi.*;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.image.*;
@@ -54,8 +55,13 @@ public class Console extends JFrame implements KeyListener{
       g = image.createGraphics(); 
       program = new StringBuilder();
     }
-    
+
+    public void setProgram(StringBuilder program) {
+      this.program = program;
+    }
+
     /** テキストエディタ作成 **/
+
     public void drawInputKey(KeyEvent e){
       if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
         program.deleteCharAt(program_count - 1);
@@ -113,7 +119,7 @@ public class Console extends JFrame implements KeyListener{
       for(int i = beginLine - 1; !(i + 1 >= program.length() || program.charAt(i + 1) == '\n'); i ++){
         count ++;
       }
-      System.out.println("Length::" + count);
+      //System.out.println("Length::" + count);
       return count;
     }
     
@@ -139,9 +145,10 @@ public class Console extends JFrame implements KeyListener{
         }
       }
       return i;
+
     }
     
-    private void drawString(String str, int x, int y){
+    private void drawString(@NotNull String str, int x, int y){
       int yy = y;
       reset();
       for(String line : str.split("\n")){
@@ -160,10 +167,13 @@ public class Console extends JFrame implements KeyListener{
       g.clearRect(0, 0, getWidth(), getHeight());
     }
     public void resetAll(){
-      program = new StringBuilder();
-      program_count = 0;
       g.clearRect(0, 0, getWidth(), getHeight());
-      
+      if(!isHave(Methods.CONNECT)) {
+        program = new StringBuilder();
+      }
+      program_count = 0;
+      drawPoint(20, 30);
+
     }
     
   }
@@ -185,7 +195,7 @@ public class Console extends JFrame implements KeyListener{
         methods = Indentification.indentification(panel.program.toString());
 
         if(isHave(Methods.END)){
-            host.endMethod();
+            host.endMethod(this, methods, panel.program);
         }
         //System.out.println(methods == null);
    }

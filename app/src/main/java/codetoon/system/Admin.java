@@ -4,6 +4,7 @@ import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.util.TickRegistory;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 public class Admin extends Player{
@@ -31,11 +32,10 @@ public class Admin extends Player{
     }
 
     @Override
-    public void endMethod() {
-        Console c = ((PazzleStage)Main.getInstance().getMap()).getConsole();
-        setRunMethod(c.getMethods());
+    public void endMethod(@NotNull Console console, ArrayList<MyMethod> methods, StringBuilder source) {
+        setRunMethod(methods);
         run();
-        c.panel.resetAll();
+        console.panel.resetAll();
     }
 
     public static <T> void tick(T t){

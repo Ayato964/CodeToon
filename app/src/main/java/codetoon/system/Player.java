@@ -29,5 +29,5 @@ public abstract class Player implements IsTick {
 
     public abstract String getName();
     public abstract TickRegistory getTick();
-    public abstract void endMethod();
+    public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
 }
