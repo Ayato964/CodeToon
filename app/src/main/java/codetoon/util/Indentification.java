@@ -23,7 +23,7 @@ public class Indentification{
     public static StringBuilder removeEnd(StringBuilder source) {
         int v = source.indexOf("end(");
         int ev = source.indexOf(";", v);
-        source.delete(v, v + 6);
+        source.delete(v, ev + 1);
         return source;
     }
 
