@@ -19,7 +19,6 @@ public class PazzleStage extends Map{
       field = new Field(5, 20, 130, 83);
       field.setMemoryCapability(MEMORY_SIZE);
       c = new Console(140, 50, 120, 60);
-      c.setHost(Admin.getInstance());
       c.setVisible(true);
       CodeToon.isGameStart = true;
     }
