@@ -54,6 +54,8 @@ public class Console extends JFrame implements KeyListener{
       setIcon(new ImageIcon(image));
       g = image.createGraphics(); 
       program = new StringBuilder();
+      setHost(Admin.getInstance());
+      drawString(program.isEmpty() ? "" : program.toString(), 20, 30);
     }
 
     public void setProgram(StringBuilder program) {
@@ -73,7 +75,7 @@ public class Console extends JFrame implements KeyListener{
       //System.out.println(program.toString());
       
       g.setFont(font); 
-      drawString(program.toString(), 20, 30);
+      drawString(program.toString(), 20, 20);
       repaint();
     }
     public void setCarsor(KeyEvent e){
@@ -147,7 +149,9 @@ public class Console extends JFrame implements KeyListener{
       return i;
 
     }
-    
+    public void drawString(){
+      drawString(program.isEmpty() ? " " : program.toString(), 20, 30);
+    }
     private void drawString(@NotNull String str, int x, int y){
       int yy = y;
       reset();
@@ -172,7 +176,7 @@ public class Console extends JFrame implements KeyListener{
         program = new StringBuilder();
       }
       program_count = 0;
-      drawPoint(20, 30);
+      drawString(program.isEmpty() ? "" : program.toString(),20, 30);
 
     }
     

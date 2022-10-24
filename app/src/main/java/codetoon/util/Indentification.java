@@ -10,7 +10,7 @@ public class Indentification{
     ArrayList<MyMethod> method;
     private Indentification(String str){
         program = new StringBuilder();
-        programs = new ArrayList<StringBuilder>();
+        programs = new ArrayList<>();
         method = new ArrayList<>();
         program.append(str);
         indent();
@@ -29,7 +29,7 @@ public class Indentification{
 
     public HashMap<Integer, String> getArgument(StringBuilder text){
         StringBuilder argments = new StringBuilder();
-        HashMap<Integer, String> argment = new HashMap<Integer, String>();
+        HashMap<Integer, String> argment = new HashMap<>();
         int  i = 0;
         boolean arg = false;
         while(i < text.length() - 1){
@@ -68,10 +68,10 @@ public class Indentification{
         program = removeSpace(program);
         programs = getBuilder(program);   
         if(programs != null){
-            for(int i = 0; i < programs.size(); i ++){
-            MyMethod temp = Methods.METHODS.get("method_" + getMethodName(programs.get(i)));
-                if(temp != null){
-                    temp.set(getArgument(programs.get(i))); 
+            for (StringBuilder stringBuilder : programs) {
+                MyMethod temp = Methods.METHODS.get("method_" + getMethodName(stringBuilder));
+                if (temp != null) {
+                    temp.set(getArgument(stringBuilder));
                     method.add(temp);
                 }
             }

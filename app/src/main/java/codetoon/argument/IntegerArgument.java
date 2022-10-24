@@ -1,7 +1,8 @@
 package codetoon.argument;
 
 public class IntegerArgument extends Argument<Integer, String> {
-
+    private static final IntegerArgument instance = new IntegerArgument();
+    private IntegerArgument(){}
     @Override
     public Integer indentification(String i) {
         StringBuilder s = new StringBuilder().append(i);
@@ -17,5 +18,8 @@ public class IntegerArgument extends Argument<Integer, String> {
             return NOT_ARGUMENT;
         }
     }
-    
+
+    public static IntegerArgument getInstance() {
+        return instance;
+    }
 }

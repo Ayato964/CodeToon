@@ -2,6 +2,8 @@ package codetoon.method;
 
 import java.util.HashMap;
 import codetoon.argument.*;
+import codetoon.system.Memory;
+
 public class Log extends MyMethod{
     private String mes;
     @Override
@@ -14,7 +16,7 @@ public class Log extends MyMethod{
     }
     @Override
     public String set(HashMap<Integer, String> map) {
-        mes = new StringArgument().indentification(map.get(0));
+        mes = StringArgument.getInstance().indentification(map.get(0));
         return map.get(0);
     }
     @Override

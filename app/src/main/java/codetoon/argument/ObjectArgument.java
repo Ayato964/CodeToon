@@ -5,7 +5,8 @@ import codetoon.util.*;
 import codetoon.variable.*;
 
 public class ObjectArgument extends Argument<Object, String> {
-
+    private static final ObjectArgument instance = new ObjectArgument();
+    private ObjectArgument(){}
     @Override
     public Object indentification(String s) {
         StringBuilder builder = new StringBuilder().append(s);
@@ -39,5 +40,7 @@ public class ObjectArgument extends Argument<Object, String> {
         return null;
     }
 
-    
+    public static ObjectArgument getInstance() {
+        return instance;
+    }
 }

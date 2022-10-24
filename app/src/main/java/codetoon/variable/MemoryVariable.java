@@ -6,13 +6,13 @@ import codetoon.system.*;
 import codetoon.argument.*;
 import codetoon.map.*;
 import codetoon.main.*;
+import org.jetbrains.annotations.NotNull;
 
 public class MemoryVariable extends Variable<Memory> {
 
     ArrayList<Memory> memory;
     Memory returnMemory;
     public MemoryVariable (ArrayList<Memory> m){
-        memory = new ArrayList<>();
         memory = m;
     }
     @Override
@@ -29,11 +29,11 @@ public class MemoryVariable extends Variable<Memory> {
     }
     
     @Override
-    public String set(HashMap<Integer, String> i) {
+    public String set(@NotNull HashMap<Integer, String> i) {
       //  System.out.println(i.get(0) + "!!!   " + i.get(1) + "!!!");
         int size = ((PazzleStage) Main.getInstance().getMap()).MEMORY_SIZE;
-        int num = new IntegerArgument().indentification(i.get(0)) + 
-                    new IntegerArgument().indentification(i.get(1)) * size;
+        int num = IntegerArgument.getInstance().indentification(i.get(0)) +
+                    IntegerArgument.getInstance().indentification(i.get(1)) * size;
         returnMemory = memory.get(num); 
         return null;
 

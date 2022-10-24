@@ -7,7 +7,7 @@ import codetoon.variable.*;
 public abstract class Argument<T, I>  {
     public static final int NOT_ARGUMENT = -99999;
     protected final StringBuilder ERROR = new StringBuilder().append("sgsihgrgmkwrgtkrthhjthmmlghmghmls");
-    public Argument(){
+    protected Argument(){
 
     } 
     protected int serch(char n, StringBuilder obj){

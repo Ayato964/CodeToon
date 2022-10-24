@@ -15,7 +15,7 @@ public class Connect extends MyMethod {
 
     @Override
     public String set(HashMap<Integer, String> map) {
-        memory = (Memory) new ObjectArgument().indentification(map.get(0));
+        memory = (Memory)ObjectArgument.getInstance().indentification(map.get(0));
         return null;
     }
 

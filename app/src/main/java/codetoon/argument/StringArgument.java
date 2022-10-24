@@ -1,7 +1,8 @@
 package codetoon.argument;
 
 public class StringArgument extends Argument<String, String> {
-
+    private static final StringArgument instance= new StringArgument();
+    private StringArgument(){}
     @Override
     public String indentification(String s) {
         StringBuilder builder = new StringBuilder().append(s);
@@ -11,6 +12,7 @@ public class StringArgument extends Argument<String, String> {
             return s;
         }
     }
+
     public String convertStringAll(StringBuilder s){
         StringBuilder t = new StringBuilder();
         for(int i = 1; i < s.length(); i ++){
@@ -22,4 +24,7 @@ public class StringArgument extends Argument<String, String> {
         return t.toString();
     }
 
+    public static StringArgument getInstance() {
+        return instance;
+    }
 }
