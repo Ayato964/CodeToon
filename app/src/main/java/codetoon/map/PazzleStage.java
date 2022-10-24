@@ -25,6 +25,8 @@ public class PazzleStage extends Map{
     }
     public Console getConsole() {
         return c;
+
+
     }
 
     @Override

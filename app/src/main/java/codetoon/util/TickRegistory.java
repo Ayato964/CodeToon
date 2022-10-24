@@ -14,7 +14,7 @@ public class TickRegistory<T extends IsTick> {
         tick_method.tick(t);
     }
 
-    public static <A extends IsTick> TickRegistory createTicker(A r, TickHelper t){
+    public static <A extends IsTick>  TickRegistory createTicker(A r, TickHelper t){
             return new TickRegistory(r, t);
     }
 }

@@ -162,7 +162,8 @@ public class Console extends JFrame implements KeyListener{
       drawPoint(x, y);
     }
     private void drawPoint(int x, int y){ 
-      g.drawString("Tarminal_Host-> " + host.getName(), 10, 20);
+      g.drawString("Terminal_Host-> " + host.getName(), 10, 20);
+      setTitle("Terminal:" + host.getName());
       int point = getEnterPoint(program_count);
       g.fillRect(x + g.getFontMetrics().stringWidth(program.substring(point, program_count)), y + (g.getFontMetrics().getHeight() * getEnterNum()) , 5, g.getFontMetrics().getHeight());
 
