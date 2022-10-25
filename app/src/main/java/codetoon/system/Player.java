@@ -16,6 +16,7 @@ public abstract class Player implements IsTick {
     public Player(){
     }
     public void setRunMethod(ArrayList<MyMethod> m){
+        m = removeBlackList(m);
         method = m;
     }
     public void run(){
@@ -30,4 +31,5 @@ public abstract class Player implements IsTick {
     public abstract String getName();
     public abstract TickRegistory getTick();
     public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
+    abstract ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m);
 }

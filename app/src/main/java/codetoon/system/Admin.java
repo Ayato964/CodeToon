@@ -38,6 +38,11 @@ public class Admin extends Player{
         console.panel.resetAll();
     }
 
+    @Override
+    ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m) {
+        return m;
+    }
+
     public static <T> void tick(T t){
         if(CodeToon.isGameStart) {
         }

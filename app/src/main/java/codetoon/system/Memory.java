@@ -72,5 +72,10 @@ public class Memory extends Player{
 
     }
 
+    @Override
+    ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m) {
+        return m;
+    }
+
 
 }
