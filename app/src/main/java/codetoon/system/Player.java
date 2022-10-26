@@ -7,13 +7,16 @@ import codetoon.util.IsTick;
 import codetoon.util.Tick;
 import codetoon.util.TickHelper;
 import codetoon.util.TickRegistory;
+import org.jetbrains.annotations.NotNull;
 
 
 public abstract class Player implements IsTick {
     ArrayList<MyMethod> method = new ArrayList<>();
+    ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
 
     public Player(){
+        blackList(blackList);
     }
     public void setRunMethod(ArrayList<MyMethod> m){
         m = removeBlackList(m);
@@ -27,9 +30,27 @@ public abstract class Player implements IsTick {
             }
         }
     }
+    private @NotNull ArrayList<MyMethod> removeBlackList(@NotNull ArrayList<MyMethod> m) {
+        ArrayList<MyMethod> tmp = new ArrayList<>();
+        for(int  i = 0; i < m.size(); i ++){
+            boolean isNotBlackList = true;
+            if(!blackList.isEmpty()){
+                for(int c = 0; c < blackList.size(); c ++){
+                    if(m.get(i).getClass() == blackList.get(c).getClass()){
+                        System.out.println(m.get(i).getClass() + "はブラックリストに載っています。");
+                        isNotBlackList = false;
+                    }
+                }
+            }
+            if(isNotBlackList){
+                tmp.add(m.get(i));
+            }
+        }
+        return tmp;
+    }
 
     public abstract String getName();
     public abstract TickRegistory getTick();
     public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
-    abstract ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m);
+    protected abstract void blackList(ArrayList<MyMethod> m);
 }

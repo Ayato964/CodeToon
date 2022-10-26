@@ -202,6 +202,9 @@ public class Console extends JFrame implements KeyListener{
         if(isHave(Methods.END)){
             host.endMethod(this, methods, panel.program);
         }
+        if(isHave(Methods.REMOVE)){
+          Methods.REMOVE.get().action(0);
+        }
         //System.out.println(methods == null);
    }
   @Override

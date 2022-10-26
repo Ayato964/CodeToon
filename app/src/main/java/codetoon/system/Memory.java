@@ -2,6 +2,7 @@ package codetoon.system;
 
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
+import codetoon.method.Methods;
 import codetoon.method.MyMethod;
 import codetoon.util.Indentification;
 import codetoon.util.TickRegistory;
@@ -73,9 +74,10 @@ public class Memory extends Player{
     }
 
     @Override
-    ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m) {
-        return m;
+    protected void blackList(ArrayList<MyMethod> m) {
+        m.add(Methods.CONNECT.get());
     }
+
 
 
 }

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="CodeToon.app.main:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/CodeToon_app_main_jar</output-path>
+    <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="CodeToon.app.main.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$USER_HOME$/Desktop/META-INF/MANIFEST.MF" />

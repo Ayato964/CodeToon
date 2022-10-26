@@ -39,10 +39,9 @@ public class Admin extends Player{
     }
 
     @Override
-    ArrayList<MyMethod> removeBlackList(ArrayList<MyMethod> m) {
-        return m;
-    }
+    protected void blackList(ArrayList<MyMethod> m) {
 
+    }
     public static <T> void tick(T t){
         if(CodeToon.isGameStart) {
         }
