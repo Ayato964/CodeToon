@@ -8,6 +8,7 @@ import codetoon.argument.*;
 
 public class Connect extends MyMethod {
     Memory memory;
+    int pass = 0;
     @Override
     public Object newInstance() {
         return new Connect();
@@ -16,14 +17,15 @@ public class Connect extends MyMethod {
     @Override
     public String set(HashMap<Integer, String> map) {
         memory = (Memory)ObjectArgument.getInstance().indentification(map.get(0));
+        if(map.get(1) != null){
+            pass = IntegerArgument.getInstance().indentification(map.get(1)).intValue();
+        }
         return null;
     }
 
     @Override
     public void action(int i) {
-        PazzleStage p = (PazzleStage) Main.getInstance().getMap();      
-        p.getConsole().setHost(memory);
-        p.getConsole().panel.setProgram(memory.getSource() != null ? memory.getSource() : new StringBuilder());
+        memory.connection(pass);
     }
 
     

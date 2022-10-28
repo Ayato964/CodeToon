@@ -78,6 +78,18 @@ public class Memory extends Player{
         m.add(Methods.CONNECT.get());
     }
 
+    @Override
+    public void connection(int password) {
+        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+        if(pass == 0 || pass == password) {
+            p.getConsole().setHost(this);
+            p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
+        }else{
+            p.getConsole().panel.setProgram(new StringBuilder());
+            System.out.println(getName() + "にはパスワードが設定されているか、パスワードが違うためコネクトを確立できません。");
+
+        }
+    }
 
 
 }

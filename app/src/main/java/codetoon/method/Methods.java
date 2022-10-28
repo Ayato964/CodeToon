@@ -7,9 +7,13 @@ public class Methods {
 
     public static RegistoryObject<MyMethod> END = METHODS.createRegistory("method_end", End::new);
 
-    public static RegistoryObject<MyMethod> LOG = METHODS.createRegistory("method_log", Log::new);
+    public static RegistoryObject<MyMethod> PRINT = METHODS.createRegistory("method_print", Print::new);
     public static RegistoryObject<MyMethod> CONNECT = METHODS.createRegistory("method_connect", Connect::new);
     public static RegistoryObject<MyMethod> REMOVE = METHODS.createRegistory("method_remove", Remove::new);
+
+    public static RegistoryObject<MyMethod> CALC = METHODS.createRegistory("method_calc", Calc::new);
+    public static RegistoryObject<MyMethod> Lock = METHODS.createRegistory("method_lock", Lock::new);
+
 }
 
 

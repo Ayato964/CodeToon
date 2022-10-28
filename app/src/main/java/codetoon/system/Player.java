@@ -2,6 +2,8 @@ package codetoon.system;
 
 import java.util.ArrayList;
 
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.util.IsTick;
 import codetoon.util.Tick;
@@ -14,6 +16,8 @@ public abstract class Player implements IsTick {
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
+
+    protected int pass = 0;
 
     public Player(){
         blackList(blackList);
@@ -53,4 +57,10 @@ public abstract class Player implements IsTick {
     public abstract TickRegistory getTick();
     public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
     protected abstract void blackList(ArrayList<MyMethod> m);
+
+    public void setPassWord(int pass) {
+        this.pass = pass;
+    }
+
+    public abstract void connection(int password);
 }

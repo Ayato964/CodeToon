@@ -2,9 +2,8 @@ package codetoon.method;
 
 import java.util.HashMap;
 import codetoon.argument.*;
-import codetoon.system.Memory;
 
-public class Log extends MyMethod{
+public class Print extends MyMethod{
     private String mes;
     @Override
     public void action(int i) {
@@ -21,6 +20,6 @@ public class Log extends MyMethod{
     }
     @Override
     public Object newInstance() {
-        return new Log();
+        return new Print();
     }
 }

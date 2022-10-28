@@ -18,10 +18,6 @@ public class Admin extends Player{
     }
 
     @Override
-    public void setRunMethod(ArrayList<MyMethod> m) {
-        super.setRunMethod(m);
-    } 
-    @Override
     public String getName(){
         return "Player";
     }
@@ -42,8 +38,16 @@ public class Admin extends Player{
     protected void blackList(ArrayList<MyMethod> m) {
 
     }
+
+    @Override
+    public void connection(int password) {
+        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+        p.getConsole().setHost(this);
+    }
+
     public static <T> void tick(T t){
         if(CodeToon.isGameStart) {
+
         }
     }
 

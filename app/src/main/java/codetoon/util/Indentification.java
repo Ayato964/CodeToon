@@ -2,10 +2,14 @@ package codetoon.util;
 
 import java.util.*;
 import codetoon.method.*;
+import codetoon.system.CodeToon;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public class Indentification{
     private static final Indentification instance = new Indentification();
     StringBuilder program;
+    StringBuilder parsent = null;
     ArrayList<StringBuilder> programs;
     ArrayList<MyMethod> method;
     private Indentification(String str){
@@ -20,7 +24,8 @@ public class Indentification{
 
     }
 
-    public static StringBuilder removeEnd(StringBuilder source) {
+    @Contract("_ -> param1")
+    public static @NotNull StringBuilder removeEnd(@NotNull StringBuilder source) {
         int v = source.indexOf("end(");
         int ev = source.indexOf(";", v);
         source.delete(v, ev + 1);
@@ -30,14 +35,13 @@ public class Indentification{
     public HashMap<Integer, String> getArgument(StringBuilder text){
         StringBuilder argments = new StringBuilder();
         HashMap<Integer, String> argment = new HashMap<>();
+        if(parsent != null){
+            argment.put(CodeToon.PARCENT_ARGUMENT, parsent.toString());
+        }
         int  i = 0;
         boolean arg = false;
         while(i < text.length() - 1){
-            /*
-            if(text.charAt(i) == ')' ){
-                arg = false;
-            }
-            */
+
 
             if(arg){
                 argments.append(text.charAt(i));
@@ -82,7 +86,12 @@ public class Indentification{
     private String getMethodName(StringBuilder b){
         StringBuilder m = new StringBuilder();
         for(int i = 0; b.charAt(i) != '('; i ++){
-            m.append(b.charAt(i));
+            if(b.charAt(i) == '.'){
+                parsent = m;
+                m = new StringBuilder();
+            }else {
+                m.append(b.charAt(i));
+            }
         }
         return m.toString();
     }
