@@ -1,5 +1,7 @@
 package codetoon.argument;
 
+import org.jetbrains.annotations.Contract;
+
 public class IntegerArgument extends Argument<Integer, String> {
     private static final IntegerArgument instance = new IntegerArgument();
     private IntegerArgument(){}
@@ -18,7 +20,7 @@ public class IntegerArgument extends Argument<Integer, String> {
             return NOT_ARGUMENT;
         }
     }
-
+    @Contract(pure = true)
     public static IntegerArgument getInstance() {
         return instance;
     }

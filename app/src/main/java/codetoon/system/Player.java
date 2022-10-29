@@ -58,9 +58,17 @@ public abstract class Player implements IsTick {
     public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
     protected abstract void blackList(ArrayList<MyMethod> m);
 
-    public void setPassWord(int pass) {
-        this.pass = pass;
+    public void setPassWord(int pass, int old_pass) {
+        if(this.pass == old_pass){
+            this.pass = pass;
+        }else{
+            System.out.println(getName() + "のパスワードが違います。");
+        }
     }
 
     public abstract void connection(int password);
+
+    public boolean getPass(int p) {
+        return pass == p;
+    }
 }

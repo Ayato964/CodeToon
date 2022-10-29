@@ -11,6 +11,7 @@ import java.util.HashMap;
 public class Lock extends MyMethod{
     private Player parcent = null;
     private int pass = 0;
+    private int parcent_pass = 0;
     @Override
     public Object newInstance() {
         return new Lock();
@@ -21,23 +22,21 @@ public class Lock extends MyMethod{
         Object t = ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
         if(t instanceof Player){
             parcent = (Player) t;
-            Integer i = IntegerArgument.getInstance().indentification(map.get(0));
-            StringBuilder temp = new StringBuilder(i.toString());
-            System.out.println(temp.length());
-            if(!temp.isEmpty()) {
-                if (temp.length() <= 4) {
-                    pass = i.intValue();
-                }
+            if(map.get(1) != null){
+                parcent_pass = IntegerArgument.getInstance().indentification(map.get(0));
+                pass = IntegerArgument.getInstance().indentification(map.get(1));
+            }else{
+                pass = IntegerArgument.getInstance().indentification(map.get(0));
             }
         }
         return null;
     }
-
     @Override
     public void action(int i) {
         if(parcent != null){
-            parcent.setPassWord(pass);
+            parcent.setPassWord(pass, parcent_pass);
+            System.out.println(parcent.getName() + "に" + pass + "のパスコードを設定しました。");
+
         }
-        System.out.println(parcent.getName() + "に" + pass + "のパスコードを設定しました。");
     }
 }
