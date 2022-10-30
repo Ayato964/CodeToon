@@ -12,8 +12,8 @@ public class Title extends Map{
       @Override
       public void action(int i){
         switch(i){
-          case 0: System.out.println("新規ゲームを始める。"); Main.getInstance().run(new PazzleStage(5)); HostServer.server.setUpServer(); break;
-          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); GuestServer.server.connect(null); break;
+          case 0: System.out.println("新規ゲームを始める。"); Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer(); break;
+          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect(null); break;
           case 2: System.exit(0); break;
         }
       }
