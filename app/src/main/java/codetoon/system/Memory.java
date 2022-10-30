@@ -10,11 +10,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /** メモリーを描画、処理するクラス。 **/
-public class Memory extends Player{
+public class Memory extends Player implements Serializable{
     private StringBuilder source = null;
     int x, y, w, h, idI, idC;
+    public  Color color = Color.WHITE;
     private int counter = 0;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
@@ -46,8 +48,12 @@ public class Memory extends Player{
 
     }
 
+    public void changeColor(){
+        color = Color.RED;
+    }
+
     public void display(Graphics g){
-        g.setColor(Color.WHITE);
+        g.setColor(color);
       g.fillRect(x, y, w, h);
       g.setColor(Color.BLACK);
       g.drawRect(x, y, w, h);
