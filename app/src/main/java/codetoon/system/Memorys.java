@@ -6,6 +6,7 @@ import codetoon.variable.*;
 public class Memorys {
 
     public static ArrayList<Memory> memory;
+    public static ArrayList<Memory> opponentMemory;
 
     public static void setInstance(int size, int x, int y, int w, int h){
         memory = new ArrayList<>();
