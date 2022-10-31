@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 public abstract class Player implements IsTick {
+    protected static boolean isCliant = true;
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
