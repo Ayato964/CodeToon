@@ -13,10 +13,14 @@ public class Tick {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                if(!method.isEmpty() && CodeToon.isGameStart) {
-                    for (TickRegistory tickHelper : method) {
-                        tickHelper.run_tick();
+                try {
+                    if (!method.isEmpty() && CodeToon.isGameStart) {
+                        for (TickRegistory tickHelper : method) {
+                            tickHelper.run_tick();
+                        }
                     }
+                }catch (Exception e){
+                    
                 }
             }
         };

@@ -5,6 +5,7 @@ import codetoon.map.PazzleStage;
 import codetoon.method.Methods;
 import codetoon.method.MyMethod;
 import codetoon.util.Indentification;
+import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,8 +33,8 @@ public class Memory extends Player implements Serializable{
         return source;
     }
 
-    public static void tick(Object t){
-/*
+    public static <T extends IsTick> void tick(T t){
+        System.out.println(t.isCliant());
         if(CodeToon.isGameStart){
             Memory memory = (Memory)t;
             memory.counter ++;
@@ -43,11 +44,8 @@ public class Memory extends Player implements Serializable{
 
                 memory.run();
             }
-
-
         }
 
- */
     }
 
     public void changeColor(){
