@@ -35,6 +35,7 @@ public class Memory extends Player implements Serializable{
     }
 
     public static void tick(Object t){
+        /*
         if(CodeToon.isGameStart && isCliant ){
             Memory memory = (Memory)t;
             memory.counter ++;
@@ -47,6 +48,8 @@ public class Memory extends Player implements Serializable{
 
 
         }
+
+         */
 
     }
 
