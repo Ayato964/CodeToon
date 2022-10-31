@@ -1,5 +1,5 @@
 package codetoon.util;
 
-public interface IsTick {
+public interface IsTick extends ServerPropaties {
 
 }

@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 public abstract class Player implements IsTick {
-    public static boolean isCliant = true;
+    private boolean isCliant = true;
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
@@ -66,7 +66,15 @@ public abstract class Player implements IsTick {
             System.out.println(getName() + "のパスワードが違います。");
         }
     }
+    @Override
+    public boolean isCliant() {
+        return isCliant;
+    }
 
+    @Override
+    public void setCliantStates(boolean b) {
+        isCliant = b;
+    }
     public abstract void connection(int password);
 
     public boolean getPass(int p) {

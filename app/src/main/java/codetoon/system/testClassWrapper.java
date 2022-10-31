@@ -8,14 +8,10 @@ public class testClassWrapper implements Serializable{
         memory = _memory;
         valid = _valid;
     }
-    void cangeFalseCliant(){
+
+    public void cangeCliant(boolean b) {
         for(int i = 0; i < memory.size(); i ++){
-            memory.get(i).isCliant = false;
-        }
-    }
-    void cangeTrueCliant(){
-        for(int i = 0; i < memory.size(); i ++){
-            memory.get(i).isCliant = true;
+            memory.get(i).setCliantStates(b);
         }
     }
 }

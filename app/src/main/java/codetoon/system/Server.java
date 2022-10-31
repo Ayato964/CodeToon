@@ -108,7 +108,7 @@ public class Server implements Runnable {
                 myCopy_nextSendValid = false;
             }
             myOutStream.reset();
-            testWrapper.cangeFalseCliant();
+            testWrapper.cangeCliant(false);
             myOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
@@ -123,7 +123,7 @@ public class Server implements Runnable {
                 opponent_nextSendValid = false;
             }
             opponentOutStream.reset();
-            testWrapper.cangeTrueCliant();
+            testWrapper.cangeCliant(true);
             opponentOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
