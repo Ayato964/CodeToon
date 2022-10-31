@@ -20,6 +20,8 @@ public class Memory extends Player implements Serializable{
     public  Color color = Color.WHITE;
     private int counter = 0;
 
+    private String name = "Memory";
+
     public Memory(int x, int y, int w, int h, int idI, int idC){
       this.x = x;
       this.y = y;
@@ -34,13 +36,14 @@ public class Memory extends Player implements Serializable{
     }
 
     public static <T extends IsTick> void tick(T t){
-        System.out.println(t.isCliant());
         if(CodeToon.isGameStart){
+
             Memory memory = (Memory)t;
             memory.counter ++;
             if(memory.counter / 1000 >= 5){
                 memory.counter = 0;
                 //System.out.println(memory.source != null ? memory.source.toString() : "ソースが入力されていません");
+                System.out.println(memory.getName() + "   " + memory);
 
                 memory.run();
             }
@@ -61,7 +64,7 @@ public class Memory extends Player implements Serializable{
 
     @Override
     public String getName(){
-      return "Memory_" + idI + "_" + idC;
+      return name + "_" + idI + "_" + idC;
     }
 
     @Override
