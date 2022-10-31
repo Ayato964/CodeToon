@@ -12,8 +12,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-import static codetoon.system.CodeToon.isCliant;
-
 /** メモリーを描画、処理するクラス。 **/
 public class Memory extends Player implements Serializable{
     private StringBuilder source = null;
@@ -35,8 +33,10 @@ public class Memory extends Player implements Serializable{
     }
 
     public static void tick(Object t){
-        /*
-        if(CodeToon.isGameStart && isCliant ){
+        if(isCliant){
+           return;
+        }
+        if(CodeToon.isGameStart){
             Memory memory = (Memory)t;
             memory.counter ++;
             if(memory.counter / 1000 >= 5){
@@ -48,9 +48,6 @@ public class Memory extends Player implements Serializable{
 
 
         }
-
-         */
-
     }
 
     public void changeColor(){
