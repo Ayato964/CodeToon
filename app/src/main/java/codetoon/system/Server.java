@@ -109,6 +109,7 @@ public class Server implements Runnable {
             }
             myOutStream.reset();
             testWrapper.cangeCliant(false);
+            System.out.println("SendMy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "   " + testWrapper.memory.get(0).isCliant());
             myOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
@@ -123,8 +124,8 @@ public class Server implements Runnable {
                 opponent_nextSendValid = false;
             }
             opponentOutStream.reset();
-            System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             testWrapper.cangeCliant(true);
+            System.out.println("Send Enenmy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "   " + testWrapper.memory.get(0).isCliant());
             opponentOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
