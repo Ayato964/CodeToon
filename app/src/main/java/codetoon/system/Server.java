@@ -123,6 +123,7 @@ public class Server implements Runnable {
                 opponent_nextSendValid = false;
             }
             opponentOutStream.reset();
+            System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             testWrapper.cangeCliant(true);
             opponentOutStream.writeObject(testWrapper);
 

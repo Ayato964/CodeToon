@@ -18,7 +18,7 @@ public class Memory extends Player implements Serializable{
     private StringBuilder source = null;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
-    private int counter = 0;
+    public int counter = 0;
 
     private String name = "Memory";
 
@@ -43,8 +43,7 @@ public class Memory extends Player implements Serializable{
             if(memory.counter / 1000 >= 5){
                 memory.counter = 0;
                 //System.out.println(memory.source != null ? memory.source.toString() : "ソースが入力されていません");
-                System.out.println(memory.getName() + "   " + memory);
-
+               // System.out.println(memory.getName() + "   " + memory + "   " + memory.isCliant());
                 memory.run();
             }
         }
@@ -55,7 +54,7 @@ public class Memory extends Player implements Serializable{
         color = Color.RED;
     }
 
-    public void display(Graphics g){
+    public void display(@NotNull Graphics g){
         g.setColor(color);
       g.fillRect(x, y, w, h);
       g.setColor(Color.BLACK);
