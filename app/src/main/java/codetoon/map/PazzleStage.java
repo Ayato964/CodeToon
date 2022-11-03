@@ -2,7 +2,8 @@ package codetoon.map;
 
 import codetoon.main.*;
 import codetoon.system.*;
-import codetoon.util.*;
+import codetoon.util.animation.Animation;
+
 import java.awt.*;
 /** 
 実際の先頭画面を描画する、描画スクリーンクラス。
@@ -22,9 +23,15 @@ public class PazzleStage extends Map{
       c.setVisible(true);
       CodeToon.isGameStart = true;
     }
+
     public Console getConsole() {
         return c;
 
+
+    }
+
+    @Override
+    public void setup(Graphics h) {
 
     }
 
@@ -33,7 +40,7 @@ public class PazzleStage extends Map{
     public void display(Graphics g){
       //background(#505050);
       field.display(g);
-      MyText.setText("My Memory List", 100, 120, Color.WHITE, 80);
+      Animation.create(g).draw("My Memory List", 10, 10);
     }
   
     private class Field{

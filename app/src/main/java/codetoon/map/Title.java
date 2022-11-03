@@ -2,7 +2,7 @@ package codetoon.map;
 
 import codetoon.util.*;
 import codetoon.main.*;
-import codetoon.system.*;
+import codetoon.util.animation.Animation;
 
 import java.awt.*;
 public class Title extends Map{
@@ -12,8 +12,10 @@ public class Title extends Map{
       @Override
       public void action(int i){
         switch(i){
-          case 0: System.out.println("新規ゲームを始める。"); Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer(); break;
-          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect(null); break;
+          case 0:
+              Main.getInstance().run(new CreateSection());
+              /*Main.getInstance().run(new PazzleStage(5));/* Server.server.setUpServer();*/ break;
+          case 1: System.out.println("途中からゲームを始める。");/*Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.13"); */break;
           case 2: System.exit(0); break;
         }
       }
@@ -32,9 +34,20 @@ public class Title extends Map{
       }
     });
   }
-  
-  public void display(Graphics g){
-    MyText.setText("名前未定", 10 * Main.DW,   10 * Main.DH);
-    box.draw();
+
+    @Override
+    public void setup(Graphics h) {
+        box.draw();
+    }
+
+    public void display(Graphics g){
+         Animation.create(g).draw("CODETOON", 10,   10,
+                                                new Animation.Properties()
+                                                        .size(60)
+                                                        .font("", Font.ITALIC)
+                                                        //.displayTime(3)
+         );
+
+         System.out.println("Hello");
   }
 }

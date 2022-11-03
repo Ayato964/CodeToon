@@ -3,9 +3,11 @@ package codetoon.main;
 import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
+import codetoon.util.Tick;
 
 import java.awt.image.*;
 import java.awt.*;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.Timer;
 
@@ -47,11 +49,17 @@ public class Main extends JFrame{
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
+        Tick.getInstance();
     }
 
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
         displayMap = map;
+        try {
+            displayMap.setup(g);
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
         displayMap.display(g);
         repaint();
     }

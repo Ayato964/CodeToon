@@ -1,6 +1,9 @@
 package codetoon.util;
 
 import codetoon.main.*;
+import codetoon.util.animation.Animation;
+import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 public class Box{
     private String mes;
@@ -37,10 +40,13 @@ public class Box{
     public void draw(){
         g.setColor(bg);
         g.drawRect(x, y, w, h);
-        MyText.setText(mes, x, y + h / 2, Color.WHITE, font);
+        Animation.create(g).draw(mes, x / Main.DW, y / Main.DH + (h / Main.DH) / 2,
+                new Animation.Properties()
+                        .size(30)
+        );
      
     }
-    public boolean mouseInBox(Point p){
+    public boolean mouseInBox(@NotNull Point p){
         return p.getX() > x && p.getX() < x + w && p.getY() > y && p.getY() < y + h; 
     }
   }

@@ -9,5 +9,6 @@ public class CodeToon {
 
     public static final Graphics GRAPHICS = Main.getMainGraphics();
     public static final int PARCENT_ARGUMENT = 1098;
+    public static final int INFINITY = -100000;
 
 }
