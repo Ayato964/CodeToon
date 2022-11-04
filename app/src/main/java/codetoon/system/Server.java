@@ -5,6 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 
 public class Server implements Runnable {
+    public static boolean isHost;
     int myPORT = 50000;
     int opponentPORT = 60000;
 
@@ -27,6 +28,7 @@ public class Server implements Runnable {
 
     public void setUpServer() {
         runServer = true;
+        isHost = true;
         try {
             svSock = new ServerSocket(myPORT);
             svReturnSock = new ServerSocket(opponentPORT);
@@ -51,6 +53,7 @@ public class Server implements Runnable {
 
     public void connect(String ipAdress) {
         boolean connect = false;
+        isHost = false;
         runServer = true;
         while (connect == false) {
             try {
@@ -108,7 +111,6 @@ public class Server implements Runnable {
                 myCopy_nextSendValid = false;
             }
             myOutStream.reset();
-            testWrapper.cangeCliant(false);
             System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
 
@@ -125,7 +127,6 @@ public class Server implements Runnable {
             }
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
-            testWrapper.cangeCliant(true);
             System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             opponentOutStream.writeObject(testWrapper);
 
