@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 public abstract class Player implements IsTick {
-    private boolean isCliant;
+    private boolean isClient;
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
@@ -67,13 +67,13 @@ public abstract class Player implements IsTick {
         }
     }
     @Override
-    public boolean isCliant() {
-        return isCliant;
+    public boolean isClient() {
+        return isClient;
     }
 
     @Override
     public void setCliantStates(boolean b) {
-        isCliant = b;
+        isClient = b;
     }
     public abstract void connection(int password);
 

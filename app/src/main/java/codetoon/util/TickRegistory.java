@@ -11,7 +11,7 @@ public class TickRegistory<T extends IsTick> {
         Tick.getInstance().add(this);
     }
     public void run_tick(){
-        if(t.isCliant()) {
+        if(t.isClient()) {
             tick_method.tick(t);
         }
     }

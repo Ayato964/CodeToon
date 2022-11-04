@@ -88,6 +88,7 @@ public class Server implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        /* 
         while (runServer) {
             sendMyCopy();
             sendOpponentCopy();
@@ -97,6 +98,7 @@ public class Server implements Runnable {
                 e.printStackTrace();
             }
         }
+        */
     }
 
     void sendMyCopy() {
@@ -107,7 +109,7 @@ public class Server implements Runnable {
             }
             myOutStream.reset();
             testWrapper.cangeCliant(false);
-            System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isCliant());
+            System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
@@ -124,7 +126,7 @@ public class Server implements Runnable {
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             testWrapper.cangeCliant(true);
-            System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isCliant());
+            System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             opponentOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
