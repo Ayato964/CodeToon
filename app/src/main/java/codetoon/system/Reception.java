@@ -20,6 +20,7 @@ public class Reception extends Thread {
     }
 
     public void run() {
+        while(true){
         try {
 
             try {
@@ -44,6 +45,6 @@ public class Reception extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    }
     }
 }

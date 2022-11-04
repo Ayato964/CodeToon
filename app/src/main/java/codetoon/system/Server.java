@@ -20,8 +20,8 @@ public class Server implements Runnable {
     ObjectOutputStream myOutStream;
     ObjectOutputStream opponentOutStream;
 
-    Reception opponentReception;
-    Reception returnReception;
+    Thread opponentReception;
+    Thread returnReception;
 
     public static Server server = new Server();
 
@@ -38,8 +38,9 @@ public class Server implements Runnable {
             opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
 
             opponentReception = new Reception(sock, false);
+            opponentReception.start();
             returnReception = new Reception(returnSock, true);
-            
+            returnReception.start();
             System.out.println("connected");
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,7 +61,9 @@ public class Server implements Runnable {
                 opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
 
                 opponentReception = new Reception(sock, false);
+                opponentReception.start();
                 returnReception = new Reception(returnSock, true);
+                returnReception.start();
                 System.out.println("connected");
                 connect = true;
             } catch (IOException e) {
@@ -80,21 +83,16 @@ public class Server implements Runnable {
     public void run() {
         System.out.println("run server");
         sendMyCopy();
-        receiveOpponent();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         while (runServer) {
             sendMyCopy();
             sendOpponentCopy();
             try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            
-            receiveOpponent();
-            receiveReturn();
-
-            try {
-                Thread.sleep(50);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -145,14 +143,6 @@ public class Server implements Runnable {
         if(runServer){
             opponent_nextSendValid = true;
         }
-    }
-
-    void receiveOpponent() {
-        opponentReception.run();
-    }
-
-    void receiveReturn() {
-        returnReception.run();
     }
 
     public void end() {
