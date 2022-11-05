@@ -5,6 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 
 public class Server implements Runnable {
+    public static boolean isHost;
     int myPORT = 50000;
     int opponentPORT = 60000;
 
@@ -20,13 +21,14 @@ public class Server implements Runnable {
     ObjectOutputStream myOutStream;
     ObjectOutputStream opponentOutStream;
 
-    Reception opponentReception;
-    Reception returnReception;
+    Thread opponentReception;
+    Thread returnReception;
 
     public static Server server = new Server();
 
     public void setUpServer() {
         runServer = true;
+        isHost = true;
         try {
             svSock = new ServerSocket(myPORT);
             svReturnSock = new ServerSocket(opponentPORT);
@@ -38,8 +40,9 @@ public class Server implements Runnable {
             opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
 
             opponentReception = new Reception(sock, false);
+            opponentReception.start();
             returnReception = new Reception(returnSock, true);
-            
+            returnReception.start();
             System.out.println("connected");
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,6 +53,7 @@ public class Server implements Runnable {
 
     public void connect(String ipAdress) {
         boolean connect = false;
+        isHost = false;
         runServer = true;
         while (connect == false) {
             try {
@@ -60,7 +64,9 @@ public class Server implements Runnable {
                 opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
 
                 opponentReception = new Reception(sock, false);
+                opponentReception.start();
                 returnReception = new Reception(returnSock, true);
+                returnReception.start();
                 System.out.println("connected");
                 connect = true;
             } catch (IOException e) {
@@ -80,25 +86,22 @@ public class Server implements Runnable {
     public void run() {
         System.out.println("run server");
         sendMyCopy();
-        receiveOpponent();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        /* 
         while (runServer) {
             sendMyCopy();
             sendOpponentCopy();
             try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            
-            receiveOpponent();
-            receiveReturn();
-
-            try {
-                Thread.sleep(50);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        */
     }
 
     void sendMyCopy() {
@@ -108,8 +111,7 @@ public class Server implements Runnable {
                 myCopy_nextSendValid = false;
             }
             myOutStream.reset();
-            testWrapper.cangeCliant(false);
-            System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isCliant());
+            System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
@@ -125,8 +127,7 @@ public class Server implements Runnable {
             }
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
-            testWrapper.cangeCliant(true);
-            System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isCliant());
+            System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             opponentOutStream.writeObject(testWrapper);
 
         } catch (IOException e) {
@@ -145,14 +146,6 @@ public class Server implements Runnable {
         if(runServer){
             opponent_nextSendValid = true;
         }
-    }
-
-    void receiveOpponent() {
-        opponentReception.run();
-    }
-
-    void receiveReturn() {
-        returnReception.run();
     }
 
     public void end() {
