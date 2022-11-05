@@ -45,9 +45,16 @@ public class Title extends Map{
                                                 new Animation.Properties()
                                                         .size(60)
                                                         .font("", Font.ITALIC)
-                                                        //.displayTime(3)
+                                                        .displayTime(3)
          );
+         /*
+         Animation.create(g).draw("テスト", 30, 30,
+                 new Animation.Properties()
+                         .size(120)
+                         .displayTime(5)
+                 );
 
+          */
          System.out.println("Hello");
   }
 }

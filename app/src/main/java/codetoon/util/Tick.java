@@ -9,6 +9,7 @@ public class Tick {
     private static final Tick INSTANCE = new Tick();
     private ArrayList<TickRegistory> method = new ArrayList<>();
     private ArrayList<TickRegistory> animation = new ArrayList<>();
+    private int count = 0;
     private Tick(){
 
         Timer timer = new Timer(false);
@@ -27,10 +28,11 @@ public class Tick {
                     
                 }
                 if(!animation.isEmpty()){
-                    for(TickRegistory registory : animation){
-
-                        registory.run_tick();
+                    while (count < animation.size()) {
+                        animation.get(count).run_tick();
+                        count ++;
                     }
+                    count = 0;
                 }
 
             }
@@ -47,6 +49,7 @@ public class Tick {
             }
         }
         animation = temp;
+        count = 0;
     }
     public void addMethod(TickRegistory run_tick){
 

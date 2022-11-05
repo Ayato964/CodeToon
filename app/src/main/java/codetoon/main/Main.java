@@ -4,12 +4,12 @@ import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
 import codetoon.util.Tick;
+import codetoon.util.animation.Animation;
 
 import java.awt.image.*;
 import java.awt.*;
 import java.net.UnknownHostException;
-import java.util.*;
-import java.util.Timer;
+
 
 public class Main extends JFrame{
     protected static Main main;
@@ -19,9 +19,12 @@ public class Main extends JFrame{
     public static int DW;
     public static int DH;
     public static Rectangle DESCTOP_BOUNDS;
-    private static Graphics g; 
+    private static  Graphics g;
+    private static  Graphics2D animationGraphics;
     public Main(String title){
         setTitle(title);
+        this.setUndecorated(true); //タイトルバーを無効化する。
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         NAME = title;
         main = this;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,21 +32,33 @@ public class Main extends JFrame{
         DW = (int) DESCTOP_BOUNDS.getWidth() / 198;
         DH =(int) DESCTOP_BOUNDS.getHeight() / 108;
         panel = new MainPanel();
+        MainPanel panel2 = new MainPanel();
         add("Center", panel);
+      //  add("Center", panel2);
         pack();
+
+       // getContentPane().add(panel2);
         g = panel.getGraphics();
+        /*
+        animationGraphics =(Graphics2D) panel2.getGraphics();
+        animationGraphics.setBackground(new Color(0, 0, 0, 0));
+
+        animationGraphics.clearRect(0, 0,(int) DESCTOP_BOUNDS.getWidth(), (int)DESCTOP_BOUNDS.getHeight());
+
+         */
+
+
         repaint();
     }
     public static Main getInstance(){
         return Main.main; 
     }
-    public JLabel getPanel(){
-        return panel;
-    }
     public static  Graphics getMainGraphics(){
         return g;
     }
-
+    public static Graphics getAnimationGraphics(){
+        return animationGraphics;
+    }
     /** Main Method !!! **/
     public static void main(String[] args) {
         Main m = new Main("CodeToon");

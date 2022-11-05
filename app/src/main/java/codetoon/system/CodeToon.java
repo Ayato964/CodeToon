@@ -11,4 +11,10 @@ public class CodeToon {
     public static final int PARCENT_ARGUMENT = 1098;
     public static final int INFINITY = -100000;
 
+    public static final Graphics MAIN_GRAPHICS = Main.getMainGraphics();
+
+    public static final Graphics ANIMATION_GRAPHICS = Main.getAnimationGraphics();
+
+
+
 }

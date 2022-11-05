@@ -1,6 +1,7 @@
 package codetoon.util.animation;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 import codetoon.main.*;
 import codetoon.system.CodeToon;
@@ -9,10 +10,10 @@ import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.plaf.ColorUIResource;
+//import javax.swing.plaf.ColorUIResource;
 
 public class Animation {
-    private Color c = new ColorUIResource(Color.WHITE);
+    //private Color c = new ColorUIResource(Color.WHITE);
     private int x, y;
     private String msg;
     private Graphics graphics;
@@ -39,13 +40,6 @@ public class Animation {
     }
     public void draw(Image image, int x, int y){
 
-    }
-    public int getWidth(int[] widths){
-        int c = 0;
-        for(int i = 0; i < widths.length; i ++){
-            c += widths[i];
-        }
-        return c;
     }
     @Contract("_ -> new")
     public static @NotNull Animation create(Graphics g) {
@@ -77,15 +71,14 @@ public class Animation {
         protected void set(Animation a, @NotNull Graphics g){
             percent = a;
             this.g = g;
-            g.setFont(new Font(fontName, fontStyle, fontSize));
-
+            font = new Font(fontName, fontStyle, fontSize);
+            g.setFont(font);
         }
         public static <T extends IsTick> void tick(T t){
             Properties p = (Properties) t;
             Animation a = p.percent;
-            p.g.clearRect(a.x, a.y, a.getWidth(a.graphics.getFontMetrics().getWidths()) * a.msg.length(),
-                    a.graphics.getFontMetrics().getHeight());
-
+            Rectangle2D temp = p.g.getFontMetrics().getStringBounds(a.msg, p.g);
+            p.g.clearRect(a.x, a.y,(int) temp.getWidth(),(int) temp.getHeight());
             p.count ++;
             p.displayAction();
 
@@ -96,7 +89,6 @@ public class Animation {
             }
         }
         private void displayAction(){
-            System.out.println(count / 1000);
             if(count / 1000 >= displayTime){
                 animationTickRegistory.remove();
                 isEnd = true;
