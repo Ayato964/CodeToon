@@ -33,6 +33,9 @@ public class PazzleStage extends Map{
     @Override
     public void setup(Graphics h) {
 
+        Animation.create(h).draw("My Memory List", 10, 10,
+                new Animation.Properties()
+                    .size(40));
     }
 
     @Override
@@ -40,7 +43,6 @@ public class PazzleStage extends Map{
     public void display(Graphics g){
       //background(#505050);
       field.display(g);
-      Animation.create(g).draw("My Memory List", 10, 10);
     }
   
     private class Field{
