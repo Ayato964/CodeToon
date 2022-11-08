@@ -13,7 +13,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.util.*;
 
-/** ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’æ‰“ã¡è¾¼ã‚€ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ **/
+/** ƒ†[ƒU[‚ªƒvƒƒOƒ‰ƒ€‚ğ‘Å‚¿‚ŞƒCƒ“ƒ^[ƒtƒF[ƒX **/
 public class Console extends JFrame implements KeyListener{
   private int x, y, w, h;
   public ConsolePanel panel;
@@ -62,7 +62,7 @@ public class Console extends JFrame implements KeyListener{
       this.program = program;
     }
 
-    /** ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ä½œæˆ **/
+    /** ƒeƒLƒXƒgƒGƒfƒBƒ^ì¬ **/
 
     public void drawInputKey(KeyEvent e){
       if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
@@ -107,7 +107,7 @@ public class Console extends JFrame implements KeyListener{
     }
     private void upCarsour(){
       int a = getEnterPoint(program_count);
-      System.out.println("ã‚ˆã£ã¦aã®å€¤ã‚’" + a + "ã¨ã™ã‚‹ã€‚");
+      System.out.println("‚æ‚Á‚Äa‚Ì’l‚ğ" + a + "‚Æ‚·‚éB");
       int b = getEnterPoint(a - 2);
       int c = program_count - a;
       if(getCountStringLine(b) >= getCountStringLine(a)){
@@ -134,7 +134,7 @@ public class Console extends JFrame implements KeyListener{
         return 0;
       }
       if(program.charAt(begin - 1) == '\n'){
-      //  System.out.println("æ”¹è¡Œã‚’æ¤œçŸ¥ã—ã¾ã—ãŸã€‚å€¤ï¼š "  + begin);
+      //  System.out.println("‰üs‚ğŒŸ’m‚µ‚Ü‚µ‚½B’lF "  + begin);
         return begin;
       }
       return 0;
@@ -182,7 +182,7 @@ public class Console extends JFrame implements KeyListener{
     }
     
   }
-  /** Programè­˜åˆ¥ **/
+  /** Program¯•Ê **/
   public <T extends MyMethod> boolean isHave(RegistoryObject<T> m){
     if(methods != null){
       for(int i = 0; i < methods.size(); i ++){

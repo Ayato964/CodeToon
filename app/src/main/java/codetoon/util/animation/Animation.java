@@ -67,6 +67,7 @@ public class Animation {
             fontName = "";
             fontStyle = Font.PLAIN;
             font = new Font(fontName, fontStyle, fontSize);
+            animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
         }
         protected void set(Animation a, @NotNull Graphics g){
             percent = a;
@@ -74,59 +75,54 @@ public class Animation {
             font = new Font(fontName, fontStyle, fontSize);
             g.setFont(font);
         }
+
         public static <T extends IsTick> void tick(T t){
             Properties p = (Properties) t;
             Animation a = p.percent;
-            Rectangle2D temp = p.g.getFontMetrics().getStringBounds(a.msg, p.g);
-            p.g.clearRect(a.x, a.y,(int) temp.getWidth(),(int) temp.getHeight());
             p.count ++;
             p.displayAction();
-
             if(p.percent.TYPE == Animation.STRING_TYPE && !p.isEnd){
                 p.percent.draw(a.msg, a.x, a.y, p);
             }else {
                 Main.getInstance().repaint();
             }
         }
+
         private void displayAction(){
-            if(count / 1000 >= displayTime){
+            if(count / 50 >= displayTime && displayTime != CodeToon.INFINITY && !isEnd){
                 animationTickRegistory.remove();
                 isEnd = true;
             }
         }
+
         public Properties font(String font, int font_type){
             fontName = font;
             fontStyle = font_type;
             return this;
         }
+
         public Properties displayTime(int time){
-            if(animationTickRegistory == null)
-              animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
             displayTime = time;
             return this;
         }
+
         public Properties Fade(int in, int out){
-            if(animationTickRegistory == null)
-                animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
 
             Fadein = in;
             Fadeout = out;
             return this;
         }
+
         public Properties size(int size){
             fontSize = size;
             return this;
         }
 
         @Override
-        public boolean isCliant() {
+        public boolean isClient() {
             return true;
         }
 
-        @Override
-        public void setCliantStates(boolean b) {
-
-        }
     }
 
 }

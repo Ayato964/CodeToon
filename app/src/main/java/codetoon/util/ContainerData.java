@@ -1,7 +1,7 @@
 package codetoon.util;
 /** 
-ãƒ‡ãƒ¼ã‚¿ã‚’ä¿ç®¡ã€å–ã‚Šå‡ºã—ã‚’å®¹æ˜“ã«ã™ã‚‹ãŸã‚ã«ä½œã‚‰ã‚ŒãŸã‚¯ãƒ©ã‚¹ã€‚
-ãƒ¼ï¼å‚è€ƒï¼šMinecraft
+ƒf[ƒ^‚ğ•ÛŠÇAæ‚èo‚µ‚ğ—eˆÕ‚É‚·‚é‚½‚ß‚Éì‚ç‚ê‚½ƒNƒ‰ƒXB
+[„QlFMinecraft
 **/
 public interface ContainerData<T, I>{
     public void action(int i);

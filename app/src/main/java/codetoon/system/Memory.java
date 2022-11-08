@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-/** ãƒ¡ãƒ¢ãƒªãƒ¼ã‚’æç”»ã€å‡¦ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚ **/
+/** ƒƒ‚ƒŠ[‚ğ•`‰æAˆ—‚·‚éƒNƒ‰ƒXB **/
 public class Memory extends Player implements Serializable{
     private StringBuilder source = null;
     int x, y, w, h, idI, idC;
@@ -40,7 +40,7 @@ public class Memory extends Player implements Serializable{
             memory.counter ++;
             if(memory.counter / 1000 >= 5){
                 memory.counter = 0;
-                //System.out.println(memory.source != null ? memory.source.toString() : "ã‚½ãƒ¼ã‚¹ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“");
+                //System.out.println(memory.source != null ? memory.source.toString() : "ƒ\[ƒX‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
 
                 memory.run();
             }
@@ -92,7 +92,7 @@ public class Memory extends Player implements Serializable{
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         }else{
             p.getConsole().panel.setProgram(new StringBuilder());
-            System.out.println(getName() + "ã«ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã†ãŸã‚ã‚³ãƒã‚¯ãƒˆã‚’ç¢ºç«‹ã§ãã¾ã›ã‚“ã€‚");
+            System.out.println(getName() + "‚É‚ÍƒpƒXƒ[ƒh‚ªİ’è‚³‚ê‚Ä‚¢‚é‚©AƒpƒXƒ[ƒh‚ªˆá‚¤‚½‚ßƒRƒlƒNƒg‚ğŠm—§‚Å‚«‚Ü‚¹‚ñB");
 
         }
     }

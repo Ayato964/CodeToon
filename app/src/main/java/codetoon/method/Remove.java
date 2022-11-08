@@ -19,7 +19,7 @@ public class Remove extends MyMethod{
 
     @Override
     public void action(int i) {
-        System.out.println("ã‚½ãƒ¼ã‚¹ã‚’å…¨ã¦ãƒªã‚»ãƒƒãƒˆã—ã¾ã—ãŸã€‚");
+        System.out.println("ƒ\[ƒX‚ğ‘S‚ÄƒŠƒZƒbƒg‚µ‚Ü‚µ‚½B");
         Console console =((PazzleStage) Main.getInstance().getMap()).getConsole();
         console.panel.setProgram(new StringBuilder());
         console.panel.resetAll();

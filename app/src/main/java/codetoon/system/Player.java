@@ -43,7 +43,7 @@ public abstract class Player implements IsTick {
             if(!blackList.isEmpty()){
                 for(int c = 0; c < blackList.size(); c ++){
                     if(m.get(i).getClass() == blackList.get(c).getClass()){
-                        System.out.println(m.get(i).getClass() + "はブラックリストに載っています。");
+                        System.out.println(m.get(i).getClass() + "�̓u���b�N���X�g�ɍڂ��Ă��܂��B");
                         isNotBlackList = false;
                     }
                 }
@@ -64,7 +64,7 @@ public abstract class Player implements IsTick {
         if(this.pass == old_pass){
             this.pass = pass;
         }else{
-            System.out.println(getName() + "のパスワードが違います。");
+            System.out.println(getName() + "�̃p�X���[�h���Ⴂ�܂��B");
         }
     }
     @Override

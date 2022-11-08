@@ -23,7 +23,7 @@ public class Main extends JFrame{
     private static  Graphics2D animationGraphics;
     public Main(String title){
         setTitle(title);
-        this.setUndecorated(true); //タイトルバーを無効化する。
+        this.setUndecorated(true);
         getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         NAME = title;
         main = this;
@@ -64,6 +64,7 @@ public class Main extends JFrame{
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
+        System.out.println("Tick Loaded");
         Tick.getInstance();
     }
 

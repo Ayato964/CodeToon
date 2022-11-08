@@ -8,7 +8,7 @@ public class End extends MyMethod {
     }
     @Override
     public void action(int i) {
-        System.out.println("ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å®Ÿè¡Œã—ã¾ã—ãŸã€‚");
+        System.out.println("ƒvƒƒOƒ‰ƒ€‚ğÀs‚µ‚Ü‚µ‚½B");
     }
     @Override
     public String set(HashMap<Integer, String> map) {

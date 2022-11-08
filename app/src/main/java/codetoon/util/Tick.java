@@ -10,6 +10,7 @@ public class Tick {
     private ArrayList<TickRegistory> method = new ArrayList<>();
     private ArrayList<TickRegistory> animation = new ArrayList<>();
     private int count = 0;
+    private float animationCount = 0;
     private Tick(){
 
         Timer timer = new Timer(false);
@@ -27,14 +28,21 @@ public class Tick {
                 }catch (Exception e){
                     
                 }
-                if(!animation.isEmpty()){
-                    while (count < animation.size()) {
-                        animation.get(count).run_tick();
-                        count ++;
-                    }
-                    count = 0;
-                }
 
+                animationCount += 1;
+                if(animationCount / 1000 >= 0.05 ) {
+                    animationCount = 0;
+                    Main.getMainGraphics().clearRect(0, 0, 2000, 1500);
+
+                    Main.getInstance().displayMap.display(Main.getMainGraphics());
+                    if (!animation.isEmpty()) {
+                        while (count < animation.size()) {
+                            animation.get(count).run_tick();
+                            count++;
+                        }
+                        count = 0;
+                    }
+                }
             }
         };
         timer.scheduleAtFixedRate(task, 0,1);

@@ -21,8 +21,8 @@ public class CreateSection extends Map{
 
     @Override
     public void display(Graphics g) {
-        Animation.create(g).draw("æ–°è¦ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¦ã„ã¾ã™.....", 198 / 2 , 108 / 2 - 10);
-        Animation.create(g).draw("ã‚ãªãŸã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã¯ä»¥ä¸‹ã®ã¨ãŠã‚Šã§ã™ã€‚", 198 / 2, 108 / 2 - 5);
+        Animation.create(g).draw("V‹KƒZƒbƒVƒ‡ƒ“‚ğŠJn‚·‚éEEE", 198 / 2 , 108 / 2 - 10);
+        Animation.create(g).draw("‚ ‚È‚½‚ÌIPƒAƒhƒŒƒX‚ÍˆÈ‰º‚Ì‚Æ‚¨‚è‚Å‚·B", 198 / 2, 108 / 2 - 5);
         Animation.create(g).draw(address.getHostAddress(), 198 / 2, 108 / 2);
     }
 }

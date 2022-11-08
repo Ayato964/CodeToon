@@ -6,9 +6,9 @@ import codetoon.util.animation.Animation;
 
 import java.awt.*;
 /** 
-å®Ÿéš›ã®å…ˆé ­ç”»é¢ã‚’æç”»ã™ã‚‹ã€æç”»ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚¯ãƒ©ã‚¹ã€‚
-ã“ã®ã‚¯ãƒ©ã‚¹ã«ã¯ã€å°ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ã€Fieldã‚¯ãƒ©ã‚¹ã‚’å«ã‚“ã§ã„ã‚‹ã€‚
-Fieldã‚¯ãƒ©ã‚¹ã¯Memoryã‚’Containerã¨ã—ã¦åå®¹ã™ã‚‹ã‚‚ã®ã§ã‚ã‚‹ã€‚
+ÀÛ‚Ìæ“ª‰æ–Ê‚ğ•`‰æ‚·‚éA•`‰æƒXƒNƒŠ[ƒ“ƒNƒ‰ƒXB
+‚±‚ÌƒNƒ‰ƒX‚É‚ÍA¬ƒNƒ‰ƒX‚Æ‚µ‚ÄAFieldƒNƒ‰ƒX‚ğŠÜ‚ñ‚Å‚¢‚éB
+FieldƒNƒ‰ƒX‚ÍMemory‚ğContainer‚Æ‚µ‚Äû—e‚·‚é‚à‚Ì‚Å‚ ‚éB
 **/
 public class PazzleStage extends Map{
     public final int MEMORY_SIZE; 
@@ -36,7 +36,7 @@ public class PazzleStage extends Map{
     }
 
     @Override
-    /** ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æç”» **/
+    /** ƒtƒB[ƒ‹ƒh‚ğ•`‰æ **/
     public void display(Graphics g){
       //background(#505050);
       field.display(g);

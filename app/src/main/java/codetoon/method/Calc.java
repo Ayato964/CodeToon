@@ -21,6 +21,6 @@ public class Calc extends  MyMethod{
 
     @Override
     public void action(int i) {
-        System.out.println(data1 + "ã¨" + data2 + "ã®æ¼”ç®—çµæœã¯" + (data1 + data2) + "ã§ã™ã€‚");
+        System.out.println(data1 + "‚Æ" + data2 + "‚Ì‰‰ZŒ‹‰Ê‚Í" + (data1 + data2) + "‚Å‚·B");
     }
 }
