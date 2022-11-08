@@ -17,7 +17,7 @@ public class Title extends Map{
              // Main.getInstance().run(new CreateSection());
               Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();
               break;
-          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.13"); break;
+          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.43"); break;
           case 2: System.exit(0); break;
         }
       }

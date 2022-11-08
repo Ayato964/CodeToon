@@ -52,7 +52,11 @@ public class Memory extends Player implements Serializable{
     }
 
     public void display(Graphics g){
+
         g.setColor(color);
+        if(idI == 0 &&idC == 0){
+            System.out.println(color);
+        }
       g.fillRect(x, y, w, h);
       g.setColor(Color.BLACK);
       g.drawRect(x, y, w, h);
