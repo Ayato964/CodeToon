@@ -1,4 +1,6 @@
-package codetoon.system;
+package codetoon.server;
+import codetoon.system.Memory;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 public class testClassWrapper implements Serializable{

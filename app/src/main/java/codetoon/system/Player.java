@@ -2,12 +2,9 @@ package codetoon.system;
 
 import java.util.ArrayList;
 
-import codetoon.main.Main;
-import codetoon.map.PazzleStage;
 import codetoon.method.*;
+import codetoon.server.Server;
 import codetoon.util.IsTick;
-import codetoon.util.Tick;
-import codetoon.util.TickHelper;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,7 +1,8 @@
 package codetoon.method;
 
 import java.util.HashMap;
-import codetoon.argument.*;
+
+import codetoon.server.Server;
 import codetoon.system.*;
 
 public class Attack extends MyMethod{

@@ -1,4 +1,6 @@
-package codetoon.system;
+package codetoon.server;
+import codetoon.system.Memorys;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.io.ObjectOutputStream;

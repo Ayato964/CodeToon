@@ -1,8 +1,9 @@
-package codetoon.system;
+package codetoon.server;
+import codetoon.system.Memorys;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
 
 public class Reception extends Thread {
     Socket sock;
