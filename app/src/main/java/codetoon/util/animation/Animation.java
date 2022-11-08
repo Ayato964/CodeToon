@@ -83,8 +83,7 @@ public class Animation {
             p.displayAction();
             if(p.percent.TYPE == Animation.STRING_TYPE && !p.isEnd){
                 p.percent.draw(a.msg, a.x, a.y, p);
-            }else {
-                Main.getInstance().repaint();
+
             }
         }
 

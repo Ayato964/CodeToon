@@ -42,6 +42,8 @@ public class Tick {
                         }
                         count = 0;
                     }
+
+                    Main.getInstance().repaint();
                 }
             }
         };

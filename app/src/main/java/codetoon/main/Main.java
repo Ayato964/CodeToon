@@ -34,18 +34,9 @@ public class Main extends JFrame{
         panel = new MainPanel();
         MainPanel panel2 = new MainPanel();
         add("Center", panel);
-      //  add("Center", panel2);
         pack();
-
-       // getContentPane().add(panel2);
         g = panel.getGraphics();
-        /*
-        animationGraphics =(Graphics2D) panel2.getGraphics();
-        animationGraphics.setBackground(new Color(0, 0, 0, 0));
 
-        animationGraphics.clearRect(0, 0,(int) DESCTOP_BOUNDS.getWidth(), (int)DESCTOP_BOUNDS.getHeight());
-
-         */
 
 
         repaint();
