@@ -14,9 +14,9 @@ public class Title extends Map{
       public void action(int i){
         switch(i){
           case 0:
-             /* Main.getInstance().run(new CreateSection());*/
-              Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer(); break;
-          case 1: System.out.println("“r’†‚©‚çƒQ[ƒ€‚ðŽn‚ß‚éB");/*Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.13"); */break;
+              Main.getInstance().run(new CreateSection());
+             /* Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();*/ break;
+          case 1: System.out.println("é€”ä¸­ã‹ã‚‰ã‚²ãƒ¼ãƒ ã‚’å§‹ã‚ã‚‹ã€‚");Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.13"); break;
           case 2: System.exit(0); break;
         }
       }
@@ -27,9 +27,9 @@ public class Title extends Map{
       @Override
       public Box set(Integer i){
         return switch (i.intValue()) {
-            case 0-> new Box("V‹K‚ÅƒZƒbƒVƒ‡ƒ“‚ðì¬‚·‚é");
-            case 1-> new Box("Šù‘¶ƒZƒbƒVƒ‡ƒ“‚ÉŽQ‰Á‚·‚é");
-            case 2-> new Box("I‚í‚é"); 
+            case 0-> new Box("æ–°è¦ã§ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚’ä½œæˆã™ã‚‹");
+            case 1-> new Box("æ—¢å­˜ã‚»ãƒƒã‚·ãƒ§ãƒ³ã«å‚åŠ ã™ã‚‹");
+            case 2-> new Box("çµ‚ã‚ã‚‹"); 
             default-> null;
         };
       }
@@ -45,10 +45,10 @@ public class Title extends Map{
                         .font("", Font.ITALIC)
                         .displayTime(3)
         );
-         Animation.create(h).draw("ƒeƒXƒg", 30, 30,
+         Animation.create(h).draw("ãƒ†ã‚¹ãƒˆ", 30, 30,
                  new Animation.Properties()
                          .size(60)
-                         //.displayTime(5)
+                         .displayTime(5)
                  );
     }
     public void display(Graphics g){

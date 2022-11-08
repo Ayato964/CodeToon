@@ -13,7 +13,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-/** メモリーを描画、処理するクラス。 **/
 public class Memory extends Player implements Serializable{
     private StringBuilder source = null;
     int x, y, w, h, idI, idC;
@@ -40,7 +39,7 @@ public class Memory extends Player implements Serializable{
             memory.counter ++;
             if(memory.counter / 1000 >= 5){
                 memory.counter = 0;
-                //System.out.println(memory.source != null ? memory.source.toString() : "ソースが入力されていません");
+                //System.out.println(memory.source != null ? memory.source.toString() : "?\?[?X????????????????");
 
                 memory.run();
             }
@@ -92,7 +91,7 @@ public class Memory extends Player implements Serializable{
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         }else{
             p.getConsole().panel.setProgram(new StringBuilder());
-            System.out.println(getName() + "にはパスワードが設定されているか、パスワードが違うためコネクトを確立できません。");
+            System.out.println(getName() + "???p?X???[?h????????????A?p?X???[?h????????R?l?N?g???m??????????B");
 
         }
     }

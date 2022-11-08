@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/PazzleStage.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Calc.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/End.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Lock.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Remove.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/system/Console.java" charset="Shift_JIS" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/PazzleStage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Calc.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/End.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Lock.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/method/Remove.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/system/Console.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" charset="Shift_JIS" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/util/ContainerData.java" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/codetoon/util/ContainerData.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

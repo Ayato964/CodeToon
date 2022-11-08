@@ -61,6 +61,7 @@ public class Main extends JFrame{
 
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
+        Tick.getInstance().removeAllAnimation();
         displayMap = map;
         try {
             displayMap.setup(g);

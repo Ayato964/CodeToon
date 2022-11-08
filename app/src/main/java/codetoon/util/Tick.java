@@ -61,6 +61,10 @@ public class Tick {
         animation = temp;
         count = 0;
     }
+    public void removeAllAnimation(){
+        animation.clear();
+        count = 0;
+    }
     public void addMethod(TickRegistory run_tick){
 
         method.add(run_tick);

@@ -21,8 +21,8 @@ public class CreateSection extends Map{
 
     @Override
     public void display(Graphics g) {
-        Animation.create(g).draw("�V�K�Z�b�V�������J�n����E�E�E", 198 / 2 , 108 / 2 - 10);
-        Animation.create(g).draw("���Ȃ���IP�A�h���X�͈ȉ��̂Ƃ���ł��B", 198 / 2, 108 / 2 - 5);
+        Animation.create(g).draw("新規セッションを開始する・・・", 198 / 2 , 108 / 2 - 10);
+        Animation.create(g).draw("あなたのIPアドレスは以下のとおりです。", 198 / 2, 108 / 2 - 5);
         Animation.create(g).draw(address.getHostAddress(), 198 / 2, 108 / 2);
     }
 }

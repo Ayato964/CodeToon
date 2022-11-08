@@ -48,6 +48,7 @@ public class ContainerBox implements Container<Box>, MouseInputListener {
         for(int i = 0; i < box.size(); i ++){
             if(box.get(i).mouseInBox(e.getPoint())){
                 data.action(i);
+                Main.getInstance().removeMouseListener(this);
             }
         }
         
