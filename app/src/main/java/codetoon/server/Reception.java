@@ -27,16 +27,14 @@ public class Reception extends Thread {
             try {
                 testClassWrapper _testWrapper = (testClassWrapper) in.readObject();
                 System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
-                if (_testWrapper.valid == true) {
                     if(isReturnReception){
                         Memorys.memory =_testWrapper.memory;
                     }else{
                         Memorys.opponentMemory = _testWrapper.memory;
 
                     }
-                    System.out.println("receivedData: " + Memorys.opponentMemory.get(0).color);
+                    System.out.println("receivedData: " + Memorys.memory.get(0).color);
                     System.out.println(Memorys.opponentMemory.get(0).getName());
-                }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

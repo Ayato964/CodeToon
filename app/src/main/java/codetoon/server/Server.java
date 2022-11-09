@@ -10,10 +10,9 @@ public class Server implements Runnable {
     public static boolean isHost;
     int myPORT = 50000;
     int opponentPORT = 60000;
+    String ipAdress;
 
     boolean runServer = false;
-    boolean myCopy_nextSendValid = true;
-    boolean opponent_nextSendValid = true;
 
     Socket sock;
     Socket returnSock;
@@ -27,6 +26,12 @@ public class Server implements Runnable {
     Thread returnReception;
 
     public static Server server = new Server();
+
+    public void startServer(String _ipAdress){
+        ipAdress = _ipAdress;
+        Thread thread = new Thread(this);
+        thread.start();
+    }
 
     public void setUpServer() {
         runServer = true;
@@ -80,13 +85,17 @@ public class Server implements Runnable {
                 }
             }
         }
-        Thread thread = new Thread(this);
-        thread.start();
+        
 
     }
 
     public void run() {
         System.out.println("run server");
+        if(isHost){
+            setUpServer();
+        }else{
+            connect(ipAdress);
+        }
         sendMyCopy();
         try {
             Thread.sleep(1000);
@@ -106,12 +115,9 @@ public class Server implements Runnable {
         */
     }
 
-    void sendMyCopy() {
+    public void sendMyCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(myCopy_nextSendValid, Memorys.memory);
-            if(myCopy_nextSendValid == true){
-                myCopy_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.memory);
             myOutStream.reset();
             System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
@@ -121,12 +127,9 @@ public class Server implements Runnable {
         }
     }
 
-    void sendOpponentCopy() {
+    public void sendOpponentCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(opponent_nextSendValid, Memorys.opponentMemory);
-            if(opponent_nextSendValid == true){
-                opponent_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.opponentMemory);
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
@@ -137,18 +140,6 @@ public class Server implements Runnable {
         }
     }
 
-    public void updateMyTest(){
-        if(runServer){
-            myCopy_nextSendValid = true;
-        }
-        
-    }
-
-    public void updateOpponentTest(){
-        if(runServer){
-            opponent_nextSendValid = true;
-        }
-    }
 
     public void end() {
         runServer = false;
