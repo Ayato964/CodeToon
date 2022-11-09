@@ -7,6 +7,7 @@ import codetoon.method.MyMethod;
 import codetoon.util.Indentification;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
+import codetoon.server.Server;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

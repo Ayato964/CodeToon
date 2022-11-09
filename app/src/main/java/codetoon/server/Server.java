@@ -10,6 +10,7 @@ public class Server implements Runnable {
     public static boolean isHost;
     int myPORT = 50000;
     int opponentPORT = 60000;
+    String ipAdress;
 
     boolean runServer = false;
 
@@ -25,6 +26,12 @@ public class Server implements Runnable {
     Thread returnReception;
 
     public static Server server = new Server();
+
+    public void startServer(String _ipAdress){
+        ipAdress = _ipAdress;
+        Thread thread = new Thread(this);
+        thread.start();
+    }
 
     public void setUpServer() {
         runServer = true;
@@ -78,13 +85,17 @@ public class Server implements Runnable {
                 }
             }
         }
-        Thread thread = new Thread(this);
-        thread.start();
+        
 
     }
 
     public void run() {
         System.out.println("run server");
+        if(isHost){
+            setUpServer();
+        }else{
+            connect(ipAdress);
+        }
         sendMyCopy();
         try {
             Thread.sleep(1000);
