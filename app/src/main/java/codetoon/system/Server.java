@@ -10,8 +10,6 @@ public class Server implements Runnable {
     int opponentPORT = 60000;
 
     boolean runServer = false;
-    boolean myCopy_nextSendValid = true;
-    boolean opponent_nextSendValid = true;
 
     Socket sock;
     Socket returnSock;
@@ -106,10 +104,7 @@ public class Server implements Runnable {
 
     void sendMyCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(myCopy_nextSendValid, Memorys.memory);
-            if(myCopy_nextSendValid == true){
-                myCopy_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.memory);
             myOutStream.reset();
             System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
@@ -121,10 +116,7 @@ public class Server implements Runnable {
 
     void sendOpponentCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(opponent_nextSendValid, Memorys.opponentMemory);
-            if(opponent_nextSendValid == true){
-                opponent_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.opponentMemory);
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
@@ -135,18 +127,6 @@ public class Server implements Runnable {
         }
     }
 
-    public void updateMyTest(){
-        if(runServer){
-            myCopy_nextSendValid = true;
-        }
-        
-    }
-
-    public void updateOpponentTest(){
-        if(runServer){
-            opponent_nextSendValid = true;
-        }
-    }
 
     public void end() {
         runServer = false;
