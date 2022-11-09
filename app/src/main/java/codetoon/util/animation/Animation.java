@@ -2,6 +2,7 @@ package codetoon.util.animation;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 
 import codetoon.main.*;
 import codetoon.system.CodeToon;
@@ -48,10 +49,10 @@ public class Animation {
 
     public static class Properties implements IsTick {
         private Animation percent;
+        private ArrayList<Decorate> prop;
         private Graphics g;
         private Font font;
-        private int displayTime;
-        private int Fadein, Fadeout;
+        private Color c;
         private String fontName;
         private int fontStyle;
         public TickRegistory<Properties> animationTickRegistory;
@@ -59,10 +60,8 @@ public class Animation {
         private int count = 0;
         private boolean isEnd = false;
         public Properties(){
-            displayTime = CodeToon.INFINITY;
-            Fadein = CodeToon.INFINITY;
-            Fadeout = CodeToon.INFINITY;
-            animationTickRegistory = null;
+            prop = new ArrayList<>();
+            c = new Color(255, 255, 255);
             fontSize = 15;
             fontName = "";
             fontStyle = Font.PLAIN;
@@ -70,6 +69,7 @@ public class Animation {
             animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
         }
         protected void set(Animation a, @NotNull Graphics g){
+            g.setColor(c);
             percent = a;
             this.g = g;
             font = new Font(fontName, fontStyle, fontSize);
@@ -77,20 +77,20 @@ public class Animation {
         }
 
         public static <T extends IsTick> void tick(T t){
+
             Properties p = (Properties) t;
-            Animation a = p.percent;
+
+
+            Animation a = p == null ? null : p.percent;
             p.count ++;
-            p.displayAction();
-            if(p.percent.TYPE == Animation.STRING_TYPE && !p.isEnd){
-                p.percent.draw(a.msg, a.x, a.y, p);
+            if(a != null) {
+                for (int i = 0; i < p.prop.size(); i++) {
+                    p.prop.get(i).displayAction(p.g);
+                }
+                if (p.percent.TYPE == Animation.STRING_TYPE && !p.isEnd) {
+                    p.percent.draw(a.msg, a.x, a.y, p);
 
-            }
-        }
-
-        private void displayAction(){
-            if(count / 50 >= displayTime && displayTime != CodeToon.INFINITY && !isEnd){
-                animationTickRegistory.remove();
-                isEnd = true;
+                }
             }
         }
 
@@ -101,20 +101,41 @@ public class Animation {
         }
 
         public Properties displayTime(int time){
-            displayTime = time;
+            prop.add(new DisplayTime(this, time));
             return this;
         }
 
-        public Properties Fade(int in, int out){
-
-            Fadein = in;
-            Fadeout = out;
+        public Properties fade(double in, double out){
+            prop.add(new Fade(this, in, out));
             return this;
         }
 
         public Properties size(int size){
             fontSize = size;
             return this;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+        public boolean isEnd() {
+            return isEnd;
+        }
+
+        public Color getColor() {
+            return c;
+        }
+
+        public void setColor(Color c) {
+            this.c = c;
+        }
+
+        public TickRegistory<Properties> getAnimationTickRegistory() {
+            return animationTickRegistory;
+        }
+        public void setIsEnd(boolean b){
+            isEnd = b;
         }
 
         @Override

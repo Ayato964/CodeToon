@@ -14,10 +14,9 @@ public class Title extends Map{
       public void action(int i){
         switch(i){
           case 0:
-             // Main.getInstance().run(new CreateSection());
-              Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();
-              break;
-          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.43"); break;
+              Main.getInstance().run(new CreateSection());
+             /* Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();*/ break;
+          case 1: System.out.println("途中からゲームを始める。");Main.getInstance().run(new PazzleStage(5)); Server.server.connect("192.168.11.13"); break;
           case 2: System.exit(0); break;
         }
       }
@@ -45,6 +44,7 @@ public class Title extends Map{
                         .size(60)
                         .font("", Font.ITALIC)
                         .displayTime(3)
+                        .fade(1, 1)
         );
          Animation.create(h).draw("テスト", 30, 30,
                  new Animation.Properties()

@@ -35,7 +35,7 @@ public class Lock extends MyMethod{
     public void action(int i) {
         if(parcent != null){
             parcent.setPassWord(pass, parcent_pass);
-            System.out.println(parcent.getName() + "‚É" + pass + "‚ÌƒpƒXƒR[ƒh‚ğİ’è‚µ‚Ü‚µ‚½B");
+            System.out.println(parcent.getName() + "ã«" + pass + "ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’è¨­å®šã—ã¾ã—ãŸã€‚");
 
         }
     }
