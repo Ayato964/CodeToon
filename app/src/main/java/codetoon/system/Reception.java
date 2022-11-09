@@ -32,7 +32,7 @@ public class Reception extends Thread {
                         Memorys.opponentMemory = _testWrapper.memory;
 
                     }
-                    System.out.println("receivedData: " + Memorys.opponentMemory.get(0).color);
+                    System.out.println("receivedData: " + Memorys.memory.get(0).color);
                     System.out.println(Memorys.opponentMemory.get(0).getName());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

@@ -9,7 +9,7 @@ public class Attack extends MyMethod{
     public void action(int i) {
         System.out.println("attack");
         Memorys.opponentMemory.get(0).changeColor();
-        
+        Server.server.sendOpponentCopy();
     }
     @Override
     public int getCount() {

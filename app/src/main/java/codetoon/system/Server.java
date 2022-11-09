@@ -102,7 +102,7 @@ public class Server implements Runnable {
         */
     }
 
-    void sendMyCopy() {
+    public void sendMyCopy() {
         try {
             testClassWrapper testWrapper = new testClassWrapper(Memorys.memory);
             myOutStream.reset();
@@ -114,7 +114,7 @@ public class Server implements Runnable {
         }
     }
 
-    void sendOpponentCopy() {
+    public void sendOpponentCopy() {
         try {
             testClassWrapper testWrapper = new testClassWrapper(Memorys.opponentMemory);
             opponentOutStream.reset();
