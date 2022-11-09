@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 
 
 public abstract class Player implements IsTick {
-    private boolean isHostMemory;
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
@@ -21,7 +20,6 @@ public abstract class Player implements IsTick {
     protected int pass = 0;
 
     public Player(){
-        isHostMemory = Server.isHost;
         blackList(blackList);
     }
     public void setRunMethod(ArrayList<MyMethod> m){
@@ -69,11 +67,7 @@ public abstract class Player implements IsTick {
     }
     @Override
     public boolean isClient() {
-        if(isHostMemory == Server.isHost){
-            return true;
-        }else{
-            return false;
-        }
+        return true;//特に意味はない
     }
 
     public abstract void connection(int password);
