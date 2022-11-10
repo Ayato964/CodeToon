@@ -19,8 +19,8 @@ public class Animation {
     private String msg;
     private Graphics graphics;
 
-    private static final int STRING_TYPE = 120120120;
-    private static final int IMAGE_TYPE = 1211211210;
+    public static final int STRING_TYPE = 120120120;
+    public static final int IMAGE_TYPE = 1211211210;
     protected int TYPE;
     private Animation(){
     }
@@ -42,6 +42,27 @@ public class Animation {
     public void draw(Image image, int x, int y){
 
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
     @Contract("_ -> new")
     public static @NotNull Animation create(Graphics g) {
         return new Animation(g);
@@ -68,6 +89,7 @@ public class Animation {
             font = new Font(fontName, fontStyle, fontSize);
             animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
         }
+
         protected void set(Animation a, @NotNull Graphics g){
             g.setColor(c);
             percent = a;
@@ -114,7 +136,10 @@ public class Animation {
             fontSize = size;
             return this;
         }
-
+        public Properties center(){
+            prop.add(new Center(this));
+            return this;
+        }
         public int getCount() {
             return count;
         }
@@ -136,6 +161,13 @@ public class Animation {
         }
         public void setIsEnd(boolean b){
             isEnd = b;
+        }
+        public Animation getAnimation(){
+            return percent;
+        }
+
+        public Font getFont() {
+            return font;
         }
 
         @Override

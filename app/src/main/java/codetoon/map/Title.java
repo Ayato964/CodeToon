@@ -44,12 +44,11 @@ public class Title extends Map{
                         .size(60)
                         .font("", Font.ITALIC)
                         .displayTime(3)
-                        .fade(1, 1)
         );
-         Animation.create(h).draw("テスト", 30, 30,
+         Animation.create(h).draw("Test Animation ", 30, 30,
                  new Animation.Properties()
                          .size(60)
-                         .displayTime(5)
+                         .center()
                  );
     }
     public void display(Graphics g){

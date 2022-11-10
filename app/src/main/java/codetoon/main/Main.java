@@ -32,7 +32,6 @@ public class Main extends JFrame{
         DW = (int) DESCTOP_BOUNDS.getWidth() / 198;
         DH =(int) DESCTOP_BOUNDS.getHeight() / 108;
         panel = new MainPanel();
-        MainPanel panel2 = new MainPanel();
         add("Center", panel);
         pack();
         g = panel.getGraphics();
