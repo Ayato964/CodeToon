@@ -15,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.util.*;
 
 /** ユーザーがプログラムを打ち込むインターフェース **/
+
 public class Console extends JFrame implements KeyListener{
   private final int x, y, w, h;
   public ConsolePanel panel;
@@ -129,7 +130,7 @@ public class Console extends JFrame implements KeyListener{
         program_count ++;
       }
     }
-    public void setCarsor(KeyEvent e){
+    public void setCarsor(@NotNull KeyEvent e){
       switch (e.getKeyCode()) {
         case KeyEvent.VK_LEFT -> {
           if (isNotOutOfIndex()) program_count--;

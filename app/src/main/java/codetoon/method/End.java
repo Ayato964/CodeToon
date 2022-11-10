@@ -11,7 +11,7 @@ public class End extends MyMethod {
     }
     @Override
     public void action(Player host) {
-        System.out.println("プログラムを実行しました");
+        System.out.println("program executed!!");
     }
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {

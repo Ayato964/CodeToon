@@ -8,11 +8,24 @@ import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
 
 import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.awt.*;
 import java.net.UnknownHostException;
 
+/**
+ * <p>This class is the main class of CodeToon.</p>
+ * <p>It is responsible for setting <code>graphics</code>, window sizing, etc.</p>
+ *
+ * <p>The {@link #run(Map)} method can be used to draw the graphics set in the Map class.</p>
+ *
+ * <p>{@link Tick} plays a major role in drawing.</p>
+ *
+ * @since First
+ * @see Map
+ * @see Tick
+ * @see MainPanel
+ * @author Ayato
+ */
 public class Main extends JFrame{
     protected static Main main;
     public Map displayMap;
@@ -58,6 +71,13 @@ public class Main extends JFrame{
         m.run(new Title());
     }
 
+    /**
+     * <p>This function draws a graphic set in the {@link Map} class.</p>
+     *
+     * <p>Pass a class inheriting from {@link Map} as an argument.</p>
+     * @see Map
+     * @param map
+     */
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
         Animation.removeMouseListener();

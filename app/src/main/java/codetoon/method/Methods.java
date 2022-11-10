@@ -5,6 +5,7 @@ import codetoon.method.setter.*;
 import codetoon.method.voider.*;
 import codetoon.regi.*;
 
+
 public class Methods {
     public static final RegistoryList<MyMethod<?>> METHODS = new RegistoryList<>("methods");
     public static final RegistoryObject<MyMethod<?>> Attack = METHODS.createRegistory("method_attack", codetoon.method.voider.Attack::new);
