@@ -9,9 +9,8 @@ public class Attack extends MyMethod{
     @Override
     public void action(int i) {
         System.out.println("attack");
-        Server.server.updateOpponentTest();
         Memorys.opponentMemory.get(0).changeColor();
-        
+        Server.server.sendOpponentCopy();
     }
     @Override
     public int getCount() {

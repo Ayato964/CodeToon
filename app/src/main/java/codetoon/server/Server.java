@@ -1,5 +1,7 @@
 package codetoon.server;
 import codetoon.system.Memorys;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -10,10 +12,9 @@ public class Server implements Runnable {
     public static boolean isHost;
     int myPORT = 50000;
     int opponentPORT = 60000;
+    String ipAdress;
 
     boolean runServer = false;
-    boolean myCopy_nextSendValid = true;
-    boolean opponent_nextSendValid = true;
 
     Socket sock;
     Socket returnSock;
@@ -28,6 +29,12 @@ public class Server implements Runnable {
 
     public static Server server = new Server();
 
+    public void startServer(String _ipAdress){
+        ipAdress = _ipAdress;
+        Thread thread = new Thread(this);
+        thread.start();
+    }
+
     public void setUpServer() {
         runServer = true;
         isHost = true;
@@ -37,20 +44,10 @@ public class Server implements Runnable {
             
             sock = svSock.accept();
             returnSock = svReturnSock.accept();
-
-            myOutStream = new ObjectOutputStream(sock.getOutputStream());
-            opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
-
-            opponentReception = new Reception(sock, false);
-            opponentReception.start();
-            returnReception = new Reception(returnSock, true);
-            returnReception.start();
             System.out.println("connected");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Thread thread = new Thread(this);
-        thread.start();
     }
 
     public void connect(String ipAdress) {
@@ -61,15 +58,9 @@ public class Server implements Runnable {
             try {
                 sock = new Socket(ipAdress, myPORT);
                 returnSock = new Socket(ipAdress, opponentPORT);
-
-                myOutStream = new ObjectOutputStream(sock.getOutputStream());
-                opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
-
-                opponentReception = new Reception(sock, false);
-                opponentReception.start();
-                returnReception = new Reception(returnSock, true);
-                returnReception.start();
                 System.out.println("connected");
+
+                
                 connect = true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -80,13 +71,34 @@ public class Server implements Runnable {
                 }
             }
         }
-        Thread thread = new Thread(this);
-        thread.start();
+        
 
+    }
+
+    public void get_reception(){
+        try {
+            myOutStream = new ObjectOutputStream(sock.getOutputStream());
+            opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
+
+            opponentReception = new Reception(sock, false);
+            opponentReception.start();
+            returnReception = new Reception(returnSock, true);
+            returnReception.start();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
     }
 
     public void run() {
         System.out.println("run server");
+        if(isHost){
+            setUpServer();
+        }else{
+            connect(ipAdress);
+        }
+        get_reception();
+        Main.getInstance().run(new PazzleStage(5));
         sendMyCopy();
         try {
             Thread.sleep(1000);
@@ -106,12 +118,9 @@ public class Server implements Runnable {
         */
     }
 
-    void sendMyCopy() {
+    public void sendMyCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(myCopy_nextSendValid, Memorys.memory);
-            if(myCopy_nextSendValid == true){
-                myCopy_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.memory);
             myOutStream.reset();
             System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
             myOutStream.writeObject(testWrapper);
@@ -121,12 +130,9 @@ public class Server implements Runnable {
         }
     }
 
-    void sendOpponentCopy() {
+    public void sendOpponentCopy() {
         try {
-            testClassWrapper testWrapper = new testClassWrapper(opponent_nextSendValid, Memorys.opponentMemory);
-            if(opponent_nextSendValid == true){
-                opponent_nextSendValid = false;
-            }
+            testClassWrapper testWrapper = new testClassWrapper(Memorys.opponentMemory);
             opponentOutStream.reset();
             System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
             System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
@@ -137,18 +143,6 @@ public class Server implements Runnable {
         }
     }
 
-    public void updateMyTest(){
-        if(runServer){
-            myCopy_nextSendValid = true;
-        }
-        
-    }
-
-    public void updateOpponentTest(){
-        if(runServer){
-            opponent_nextSendValid = true;
-        }
-    }
 
     public void end() {
         runServer = false;

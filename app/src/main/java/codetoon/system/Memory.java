@@ -7,6 +7,7 @@ import codetoon.method.MyMethod;
 import codetoon.util.Indentification;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
+import codetoon.server.Server;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -19,8 +20,10 @@ public class Memory extends Player implements Serializable{
     public  Color color = Color.WHITE;
     public int counter = 0;
     private String name = "EnemyMemory";
+    private boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
+      isHostMemory = Server.isHost;
       this.x = x;
       this.y = y;
       this.w = w;
@@ -97,6 +100,15 @@ public class Memory extends Player implements Serializable{
             p.getConsole().panel.setProgram(new StringBuilder());
             System.out.println(getName() + "???p?X???[?h????????????A?p?X???[?h????????R?l?N?g???m??????????B");
 
+        }
+    }
+
+    @Override
+    public boolean isClient() {
+        if(isHostMemory == Server.isHost){
+            return true;
+        }else{
+            return false;
         }
     }
 
