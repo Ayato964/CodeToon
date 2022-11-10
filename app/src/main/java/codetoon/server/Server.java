@@ -1,5 +1,7 @@
 package codetoon.server;
 import codetoon.system.Memorys;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -42,20 +44,10 @@ public class Server implements Runnable {
             
             sock = svSock.accept();
             returnSock = svReturnSock.accept();
-
-            myOutStream = new ObjectOutputStream(sock.getOutputStream());
-            opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
-
-            opponentReception = new Reception(sock, false);
-            opponentReception.start();
-            returnReception = new Reception(returnSock, true);
-            returnReception.start();
             System.out.println("connected");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Thread thread = new Thread(this);
-        thread.start();
     }
 
     public void connect(String ipAdress) {
@@ -66,15 +58,9 @@ public class Server implements Runnable {
             try {
                 sock = new Socket(ipAdress, myPORT);
                 returnSock = new Socket(ipAdress, opponentPORT);
-
-                myOutStream = new ObjectOutputStream(sock.getOutputStream());
-                opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
-
-                opponentReception = new Reception(sock, false);
-                opponentReception.start();
-                returnReception = new Reception(returnSock, true);
-                returnReception.start();
                 System.out.println("connected");
+
+                
                 connect = true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -89,6 +75,21 @@ public class Server implements Runnable {
 
     }
 
+    public void get_reception(){
+        try {
+            myOutStream = new ObjectOutputStream(sock.getOutputStream());
+            opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
+
+            opponentReception = new Reception(sock, false);
+            opponentReception.start();
+            returnReception = new Reception(returnSock, true);
+            returnReception.start();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
+    }
+
     public void run() {
         System.out.println("run server");
         if(isHost){
@@ -96,6 +97,8 @@ public class Server implements Runnable {
         }else{
             connect(ipAdress);
         }
+        get_reception();
+        Main.getInstance().run(new PazzleStage(5));
         sendMyCopy();
         try {
             Thread.sleep(1000);
