@@ -15,8 +15,8 @@ public class Title extends Map{
         switch(i){
           case 0:
           Server.isHost = true; Main.getInstance().run(new CreateSection());Server.server.startServer(null);
-             /* Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();*/ break;
-          case 1: System.out.println("途中からゲームを始める。");Server.isHost = false; Main.getInstance().run(new PazzleStage(5)); Server.server.startServer("192.168.11.13"); break;
+             /* Main.getInstance().run(new PazzleStage(5)); /*Server.server.setUpServer();*/ break;
+          case 1: System.out.println("途中からゲームを始める。");Server.isHost = false; Server.server.startServer("192.168.11.13"); break;
           case 2: System.exit(0); break;
         }
       }

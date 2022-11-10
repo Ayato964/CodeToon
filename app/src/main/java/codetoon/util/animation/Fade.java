@@ -14,14 +14,18 @@ public class Fade extends Decorate{
         super(properties);
         this.fadeIn = fadeIn * 100;
         this.fadeOut = fadeOut * 100;
-        inGage  = 255 / (100 * fadeIn);
-        outGage = 255 / (100 * fadeOut);
+        inGage  = 255 / (15 / fadeIn);
+        outGage = 255 / (15 /fadeOut);
         isIn = true;
     }
 
     @Override
     public void displayAction(Graphics g) {
         count += 1;
+        if(!isIn && 255 -count * outGage <= 0){
+            count = 1;
+            outGage = 255;
+        }
         Color c = properties.getColor();
         properties.setColor(new Color(c.getRed(), c.getGreen(), c.getBlue(), (int) (
                 isIn == true ? count * inGage : 255 - count * outGage)));
@@ -29,5 +33,6 @@ public class Fade extends Decorate{
             isIn = false;
             count = 0;
         }
+
     }
 }
