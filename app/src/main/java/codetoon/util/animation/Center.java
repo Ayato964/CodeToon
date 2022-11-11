@@ -16,17 +16,24 @@ public class Center extends Decorate{
 
     @Override
     public void displayAction(@NotNull Graphics g) {
-        Animation animation = properties.getAnimation();
-        FontMetrics fm = g.getFontMetrics();
-        Rectangle2D rectText = fm.getStringBounds(animation.getMsg(), g).getBounds();
+        if(isFist) {
+            int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
+            int strLength = stringWidth(properties.getAnimation().getMsg(), g);
+            System.out.println(strLength);
+            int center = DW / 2;
 
-        if (isFist) {
-            center = ((int)Main.DESCTOP_BOUNDS.getWidth() / 2 -(int) rectText.getX() / 2) ;
+            properties.getAnimation().setX((center - strLength / 2) / Main.DW);
             isFist = false;
         }
-       // System.out.println(rectText.getX() * Main.DW + "   "  +rectText.getY() * Main.DH + "   " + rectText.getWidth() * Main.DW + "   " + rectText.getHeight() * Main.DH);
-       // g.drawRect(animation.getX() * Main.DW + (int)rectText.getX() * Main.DW , animation.getY() * Main.DH + (int)rectText.getY() + (int)rectText.getY() ,(int)rectText.getWidth() * Main.DW ,(int)rectText.getHeight() * Main.DH);
-
-        animation.setX(center / Main.DW);
+    }
+    private int stringWidth(String str, Graphics g){
+        int width = 0;
+        for(int i = 0; i < str.length(); i ++){
+            width += charWidth(str.charAt(i), g);
+        }
+        return width;
+    }
+    private int charWidth(char c, Graphics g){
+        return g.getFontMetrics().charWidth(c);
     }
 }

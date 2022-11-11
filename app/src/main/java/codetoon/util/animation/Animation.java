@@ -106,6 +106,7 @@ public class Animation {
             Animation a = p == null ? null : p.percent;
             p.count ++;
             if(a != null) {
+                p.set(a, p.g);
                 for (int i = 0; i < p.prop.size(); i++) {
                     p.prop.get(i).displayAction(p.g);
                 }

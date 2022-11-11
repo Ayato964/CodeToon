@@ -125,8 +125,7 @@ public class Console extends JFrame implements KeyListener{
       return count;
     }
     
-    private int getEnterPoint(int begin){ 
-     // System.out.println(program.charAt(begin - 1));
+    private int getEnterPoint(int begin){
       if(begin - 1 > 0 && program.charAt(begin - 1) != '\n'){
         return getEnterPoint(begin - 1);
       }
@@ -134,7 +133,6 @@ public class Console extends JFrame implements KeyListener{
         return 0;
       }
       if(program.charAt(begin - 1) == '\n'){
-      //  System.out.println("改行を検知しました。値： "  + begin);
         return begin;
       }
       return 0;

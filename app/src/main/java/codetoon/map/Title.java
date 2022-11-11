@@ -39,11 +39,11 @@ public class Title extends Map{
     @Override
     public void setup(Graphics h) {
         box.draw();
-        Animation.create(h).draw("CODETOON", 10,   10,
+        Animation.create(h).draw("CODETOON Ver 1.0", 10,   10,
                 new Animation.Properties()
                         .size(60)
                         .font("", Font.ITALIC)
-                        .displayTime(3)
+                        .center()
         );
          Animation.create(h).draw("Test Animation ", 30, 30,
                  new Animation.Properties()
