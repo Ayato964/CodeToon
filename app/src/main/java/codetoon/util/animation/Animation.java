@@ -141,6 +141,10 @@ public class Animation {
             prop.add(new Center(this));
             return this;
         }
+        public Properties color(Color c){
+            prop.add(new DisplayColor(this, c));
+            return this;
+        }
         public int getCount() {
             return count;
         }
