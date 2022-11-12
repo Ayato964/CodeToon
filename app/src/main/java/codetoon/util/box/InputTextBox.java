@@ -19,6 +19,10 @@ public class InputTextBox extends Box implements KeyListener {
     private ContainerData data;
     public InputTextBox(Graphics g, int x, int y, int wid, int height, Animation.Properties properties){
         super(x, y, wid, height);
+        texts = new StringBuilder();
+        graphics = g;
+        animation = Animation.create(g);
+        animation.draw(">",30, 30, properties);
 
     }
     public InputTextBox(Graphics g, Animation.Properties properties){
@@ -31,9 +35,9 @@ public class InputTextBox extends Box implements KeyListener {
 
     @Override
     public void setSize(int x, int y, int width, int height) {
-        super.setSize(x, y, width, height);
-        animation.setX(x);
         animation.setY(y);
+        super.setSize(animation.getX(), animation.getY() - height, width, height);
+   //     System.out.println(x + "  " + y + "  " + width + "  " + height + "   ");
     }
 
     protected void add(@NotNull KeyEvent e){
@@ -48,6 +52,9 @@ public class InputTextBox extends Box implements KeyListener {
             textCount ++;
         }
         animation.setMsg(texts.toString());
+    }
+    public String getString(){
+        return texts.toString();
     }
 
     @Override
@@ -68,7 +75,7 @@ public class InputTextBox extends Box implements KeyListener {
 
     @Override
     public void draw(int x, int y, int w, int h) {
-        graphics.drawRect(animation.getX(), animation.getY(), w, h);
+        graphics.drawRect(animation.getX() * Main.DW, animation.getY() * Main.DH - h, w, h);
     }
     private void removeListenerAll(){
         KeyListener[] t = Main.getInstance().getKeyListeners();
@@ -81,6 +88,7 @@ public class InputTextBox extends Box implements KeyListener {
     public void pressedMouse(ContainerBox box, ContainerData data, int i) {
         removeListenerAll();
         Main.getInstance().addKeyListener(this);
+
         this.data = data;
         this.box = box;
         myDataId = i;

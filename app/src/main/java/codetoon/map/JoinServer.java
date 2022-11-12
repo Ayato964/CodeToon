@@ -6,6 +6,7 @@ import codetoon.util.box.Box;
 import codetoon.util.box.ContainerBox;
 import codetoon.util.box.InputTextBox;
 import codetoon.util.animation.Animation;
+import codetoon.util.box.InputTextHelper;
 
 import java.awt.*;
 
@@ -20,25 +21,15 @@ public class JoinServer extends Map{
     @Override
     public void setup(Graphics g){
         this.g = g;
-        box = new ContainerBox(40, 40, 60, 10, new ContainerData<Box, Integer>() {
+        box = new ContainerBox(40, 40, 60, 10, new InputTextHelper() {
             @Override
-            public void action(int i) {
-                switch (i){
-                    case 0: System.out.println("Entered Box");
-                }
+            public Box set() {
+                return new InputTextBox(g, new Animation.Properties().size(40));
             }
-
             @Override
-            public int getCount() {
-                return 1;
-            }
+            public void pressedEntered(InputTextBox box) {
 
-            @Override
-            public Box set(Integer integer) {
-                return switch(integer.intValue()){
-                    case 0 -> new InputTextBox(g, new Animation.Properties().size(40).center());
-                    default -> null;
-                };
+                System.out.println(box.getString());
             }
         });
 
