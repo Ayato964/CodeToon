@@ -1,4 +1,4 @@
-package codetoon.util;
+package codetoon.util.box;
 
 public interface Container<T> {
     public void add(T o);

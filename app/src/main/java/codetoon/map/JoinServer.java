@@ -1,57 +1,57 @@
 package codetoon.map;
 
 import codetoon.main.Main;
+import codetoon.util.ContainerData;
+import codetoon.util.box.Box;
+import codetoon.util.box.ContainerBox;
+import codetoon.util.box.InputTextBox;
 import codetoon.util.animation.Animation;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.net.UnknownHostException;
 
-public class JoinServer extends Map implements KeyListener {
-    StringBuilder adress;
-    Animation animationAdress;
+public class JoinServer extends Map{
     Graphics g;
+    ContainerBox box;
+    public JoinServer(){
+
+
+
+    }
     @Override
     public void setup(Graphics g){
-        adress = new StringBuilder();
         this.g = g;
+        box = new ContainerBox(40, 40, 60, 10, new ContainerData<Box, Integer>() {
+            @Override
+            public void action(int i) {
+                switch (i){
+                    case 0: System.out.println("Entered Box");
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 1;
+            }
+
+            @Override
+            public Box set(Integer integer) {
+                return switch(integer.intValue()){
+                    case 0 -> new InputTextBox(g, new Animation.Properties().size(40).center());
+                    default -> null;
+                };
+            }
+        });
+
+        box.draw();
         Animation.create(g).draw("セッションID（相手のIPアドレス）を入力してください。", 0, 20,
                 new Animation.Properties()
                         .center()
                         .size(40));
-        animationAdress = Animation.create(g);
-        animationAdress.draw(">", 0, 40, new Animation.Properties().size(40).center());
-        Main.getInstance().addKeyListener(this);
+
     }
 
     @Override
     public void display(Graphics g) {
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent keyEvent) {
-        addAdress(keyEvent);
-    }
-
-    private void addAdress(KeyEvent keyChar) {
-        if(keyChar.getKeyChar() == KeyEvent.VK_BACK_SPACE){
-            adress.deleteCharAt(adress.length() - 1);
-        }else {
-            adress.append(keyChar.getKeyChar());
-        }
-        animationAdress.setMsg(adress.toString());
-    }
-
-    @Override
-    public void keyPressed(KeyEvent keyEvent) {
-
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent keyEvent) {
-
+        box.draw();
     }
 }

@@ -15,7 +15,6 @@ public class Center extends Decorate{
     public void displayAction(@NotNull Graphics g) {
         int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
         int strLength = stringWidth(properties.getAnimation().getMsg(), g);
-        System.out.println(strLength);
         int center = DW / 2;
         properties.getAnimation().setX((center - strLength / 2) / Main.DW);
 

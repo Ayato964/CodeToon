@@ -4,6 +4,9 @@ import codetoon.server.Server;
 import codetoon.util.*;
 import codetoon.main.*;
 import codetoon.util.animation.Animation;
+import codetoon.util.box.Box;
+import codetoon.util.box.DrawingTextBox;
+import codetoon.util.box.ContainerBox;
 
 import java.awt.*;
 public class Title extends Map{
@@ -33,9 +36,9 @@ public class Title extends Map{
       @Override
       public Box set(Integer i){
         return switch (i.intValue()) {
-            case 0-> new Box("新規でセッションを作成する");
-            case 1-> new Box("既存セッションに参加する");
-            case 2-> new Box("終わる"); 
+            case 0-> new DrawingTextBox("新規でセッションを作成する");
+            case 1-> new DrawingTextBox("既存セッションに参加する");
+            case 2-> new DrawingTextBox("終わる");
             default-> null;
         };
       }
@@ -51,6 +54,11 @@ public class Title extends Map{
                         .font("", Font.ITALIC)
                         .center()
         );
+         Animation.create(h).draw("Test Animation ", 30, 30,
+                 new Animation.Properties()
+                         .size(60)
+                         .center()
+                 );
     }
     public void display(Graphics g){
         box.draw();

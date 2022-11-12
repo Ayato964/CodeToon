@@ -1,8 +1,9 @@
-package codetoon.util;
+package codetoon.util.box;
 
 import java.awt.event.MouseEvent;
 import java.util.*;
 import codetoon.main.*;
+import codetoon.util.ContainerData;
 
 import javax.swing.event.MouseInputListener;
 
@@ -28,7 +29,10 @@ public class ContainerBox implements Container<Box>, MouseInputListener {
     public void add(Box b){
       box.add(b);
     }
-    @Override 
+
+
+
+    @Override
     public void set(Box b, int i){
       box.set(i, b);
     }
@@ -47,7 +51,7 @@ public class ContainerBox implements Container<Box>, MouseInputListener {
     public void mouseClicked(MouseEvent e) {
         for(int i = 0; i < box.size(); i ++){
             if(box.get(i).mouseInBox(e.getPoint())){
-                data.action(i);
+                box.get(i).pressedMouse(this, data, i);
                 Main.getInstance().removeMouseListener(this);
             }
         }
