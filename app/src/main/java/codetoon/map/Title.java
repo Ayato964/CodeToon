@@ -17,7 +17,12 @@ public class Title extends Map{
              Server.isHost = true; Main.getInstance().run(new CreateSection());Server.server.startServer(null);
               //Main.getInstance().run(new PazzleStage(5)); Server.server.setUpServer();
               break;
-          case 1: System.out.println("途中からゲームを始める。");Server.isHost = false; Server.server.startServer("192.168.11.13"); break;
+          case 1:
+              System.out.println("途中からゲームを始める。");
+
+              //Server.isHost = false; Server.server.startServer("192.168.11.13");
+              Main.getInstance().run(new JoinServer());
+              break;
           case 2: System.exit(0); break;
         }
       }
@@ -46,11 +51,6 @@ public class Title extends Map{
                         .font("", Font.ITALIC)
                         .center()
         );
-         Animation.create(h).draw("Test Animation ", 30, 30,
-                 new Animation.Properties()
-                         .size(60)
-                         .center()
-                 );
     }
     public void display(Graphics g){
         box.draw();

@@ -7,24 +7,18 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class Center extends Decorate{
-    private boolean isFist;
-    private int center;
     public Center(Animation.Properties properties) {
         super(properties);
-        isFist = true;
     }
 
     @Override
     public void displayAction(@NotNull Graphics g) {
-        if(isFist) {
-            int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
-            int strLength = stringWidth(properties.getAnimation().getMsg(), g);
-            System.out.println(strLength);
-            int center = DW / 2;
+        int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
+        int strLength = stringWidth(properties.getAnimation().getMsg(), g);
+        System.out.println(strLength);
+        int center = DW / 2;
+        properties.getAnimation().setX((center - strLength / 2) / Main.DW);
 
-            properties.getAnimation().setX((center - strLength / 2) / Main.DW);
-            isFist = false;
-        }
     }
     private int stringWidth(String str, Graphics g){
         int width = 0;

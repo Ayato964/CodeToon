@@ -42,6 +42,9 @@ public class Animation {
     public void draw(Image image, int x, int y){
 
     }
+    public void setMsg(String str){
+        msg = str;
+    }
 
     public int getX() {
         return x;
