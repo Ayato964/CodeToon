@@ -1,6 +1,8 @@
 package codetoon.map;
 
 import codetoon.main.Main;
+import codetoon.server.Server;
+import codetoon.system.CodeToon;
 import codetoon.util.ContainerData;
 import codetoon.util.box.Box;
 import codetoon.util.box.ContainerBox;
@@ -28,8 +30,9 @@ public class JoinServer extends Map{
             }
             @Override
             public void pressedEntered(InputTextBox box) {
-
                 System.out.println(box.getString());
+                Server.server.startServer(box.getString());
+                Main.getInstance().run(new PazzleStage(CodeToon.MEMORY_SIZE));
             }
         });
 

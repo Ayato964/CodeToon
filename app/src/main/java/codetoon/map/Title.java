@@ -22,8 +22,7 @@ public class Title extends Map{
               break;
           case 1:
               System.out.println("途中からゲームを始める。");
-
-              //Server.isHost = false; Server.server.startServer("192.168.11.13");
+              Server.isHost = false;
               Main.getInstance().run(new JoinServer());
               break;
           case 2: System.exit(0); break;

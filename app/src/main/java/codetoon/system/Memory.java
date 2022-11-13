@@ -58,7 +58,7 @@ public class Memory extends Player implements Serializable{
 
         g.setColor(color);
         if(idI == 0 &&idC == 0){
-            System.out.println(color);
+       //     System.out.println(color);
         }
       g.fillRect(x, y, w, h);
       g.setColor(Color.BLACK);
