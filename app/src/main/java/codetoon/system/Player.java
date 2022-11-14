@@ -31,7 +31,7 @@ public abstract class Player implements IsTick {
             }
         }
     }
-    private @NotNull ArrayList<MyMethod> removeBlackList(@NotNull ArrayList<MyMethod> m) {
+    public @NotNull ArrayList<MyMethod> removeBlackList(@NotNull ArrayList<MyMethod> m) {
         ArrayList<MyMethod> tmp = new ArrayList<>();
         for(int  i = 0; i < m.size(); i ++){
             boolean isNotBlackList = true;
@@ -54,6 +54,7 @@ public abstract class Player implements IsTick {
     public abstract TickRegistory getTick();
     public abstract void endMethod(Console console, ArrayList<MyMethod> methods, StringBuilder source);
     protected abstract void blackList(ArrayList<MyMethod> m);
+    public abstract String getID();
 
     public void setPassWord(int pass, int old_pass) {
         if(this.pass == old_pass){

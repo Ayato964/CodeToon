@@ -19,7 +19,7 @@ public class Admin extends Player{
 
     @Override
     public String getName(){
-        return "Player";
+        return "Admin";
     }
 
     @Override
@@ -37,6 +37,11 @@ public class Admin extends Player{
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
 
+    }
+
+    @Override
+    public String getID() {
+        return "Admin";
     }
 
     @Override

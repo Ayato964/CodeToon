@@ -3,6 +3,7 @@ package codetoon.util;
 import java.util.*;
 import codetoon.method.*;
 import codetoon.system.CodeToon;
+import codetoon.system.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,11 +13,13 @@ public class Indentification{
     StringBuilder parsent = null;
     ArrayList<StringBuilder> programs;
     ArrayList<MyMethod> method;
-    private Indentification(String str){
+    private Player host;
+    private Indentification(String str, Player host){
         program = new StringBuilder();
         programs = new ArrayList<>();
         method = new ArrayList<>();
         program.append(str);
+        this.host = host;
         indent();
 
     }
@@ -53,7 +56,7 @@ public class Indentification{
             if(isInside){
                 inside.append(text.charAt(i));
             }
-            if(arg){
+            if(arg && !isInside){
                 argments.append(text.charAt(i));
             }
             
@@ -65,6 +68,8 @@ public class Indentification{
             }
             i ++;   
         }
+        argment.put(CodeToon.INSIDE_METHODS, inside.toString());
+        argment.put(CodeToon.HOST_MAP, host.getID());
         int c = 0;
         StringBuilder temp = new StringBuilder();
         for(int  z= 0; z < argments.length(); z++ ){
@@ -79,7 +84,6 @@ public class Indentification{
                 argment.put(c, temp.toString());
             }
         }
-        argment.put(CodeToon.INSIDE_METHODS, inside.toString());
         return argment.isEmpty() ? null : argment;
     }
     private void indent(){
@@ -88,9 +92,7 @@ public class Indentification{
         if(programs != null){
             for (StringBuilder stringBuilder : programs) {
                 MyMethod temp = Methods.METHODS.get("method_" + getMethodName(stringBuilder));
-                //System.out.println(stringBuilder.toString());
                 if (temp != null) {
-                   //System.out.println(getMethodName(stringBuilder) + "  " + stringBuilder);
                     temp.set(getArgument(stringBuilder));
                     method.add(temp);
                 }
@@ -145,8 +147,8 @@ public class Indentification{
         }
         return str;
     }
-    public static ArrayList<MyMethod> indentification(String program ){
-        Indentification indent = new Indentification(program);
+    public static ArrayList<MyMethod> indentification(String program, Player host ){
+        Indentification indent = new Indentification(program, host);
        // System.out.println(indent.programs == null ? "NonePrograms" : indent.programs.get(0).toString());
         return indent.method.isEmpty() ? null : indent.method;
         

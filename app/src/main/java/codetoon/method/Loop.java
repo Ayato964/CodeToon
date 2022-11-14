@@ -1,44 +1,45 @@
 package codetoon.method;
 
-import codetoon.argument.Argument;
 import codetoon.argument.IntegerArgument;
-import codetoon.main.Main;
-import codetoon.map.PazzleStage;
+import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
-import codetoon.system.Console;
+import codetoon.system.Player;
 import codetoon.util.Indentification;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class For extends MyMethod{
+public class Loop extends MyMethod{
+    Player host;
     ArrayList<MyMethod> methods = new ArrayList<>();
     StringBuilder program = new StringBuilder();
     int count;
     @Override
     public Object newInstance() {
-        return new For();
+        return new Loop();
     }
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         count = IntegerArgument.getInstance().indentification(map.get(0));
-        methods = Indentification.indentification(map.get(CodeToon.INSIDE_METHODS));
+        host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
+        methods = Indentification.indentification(map.get(CodeToon.INSIDE_METHODS), host);
         program.append(map.get(CodeToon.INSIDE_METHODS));
-        System.out.println("set::" +count);
+
         return "for";
     }
 
     @Override
     public void action(int i) {
-        System.out.println("action::" + count);
-        PazzleStage stage = (PazzleStage) Main.getInstance().getMap();
-        Console c = stage.getConsole();
-        c.getHost().endMethod(c, methods, program);
-        for(int l = 0; l < count - 1; l ++) {
-            System.out.println(l);
-            c.getHost().run();
+        methods = host.removeBlackList(methods);
+        for(int l = 0; l < count ; l ++) {
+            if(!methods.isEmpty()) {
+                for (int c = 0; c < methods.size(); c++) {
+                    methods.get(c).action(c);
+
+                }
+            }
         }
     }
 }

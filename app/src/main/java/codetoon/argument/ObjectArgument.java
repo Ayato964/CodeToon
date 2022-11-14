@@ -1,6 +1,7 @@
 package codetoon.argument;
 
 import codetoon.method.*;
+import codetoon.system.Admin;
 import codetoon.util.*;
 import codetoon.variable.*;
 
@@ -11,13 +12,16 @@ public class ObjectArgument extends Argument<Object, String> {
     public Object indentification(String s) {
         StringBuilder builder = new StringBuilder().append(s);
         int pi = serch('.', builder);
+        System.out.println(s);
         if(pi == -1){
             Object ObjName = 
             isMethod(builder) == null ? 
-            isArgument(builder) == null ? ERROR
+            isArgument(builder) == null ?
+            !builder.toString().equals(Admin.getInstance().getID()) ? ERROR
+            : Admin.getInstance()
             : isArgument(builder) 
             : isMethod(builder);
-            
+            System.out.println(ObjName.getClass());
             if(ObjName.toString() != ERROR.toString()){
                 if(ObjName instanceof MyMethod){
                     MyMethod method = (MyMethod) ObjName;
@@ -34,6 +38,9 @@ public class ObjectArgument extends Argument<Object, String> {
                         return v.action();
                     }
                     return v.action();
+                }
+                if(ObjName instanceof Admin){
+                    return ObjName;
                 }
             }
         }

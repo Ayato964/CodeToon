@@ -1,5 +1,6 @@
 package codetoon.map;
 
+import codetoon.server.Server;
 import codetoon.util.animation.Animation;
 
 import java.awt.*;

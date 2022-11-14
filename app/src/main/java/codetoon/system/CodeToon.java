@@ -9,6 +9,8 @@ public class CodeToon {
     public static int MEMORY_SIZE = 5;
     public static final int INSIDE_METHODS = 192010;
 
+    public static final int HOST_MAP = 1101;
+
     public static final Graphics GRAPHICS = Main.getMainGraphics();
     public static final int PARCENT_ARGUMENT = 1098;
     public static final int INFINITY = -100000;

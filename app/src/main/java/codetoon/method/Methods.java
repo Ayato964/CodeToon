@@ -9,7 +9,7 @@ public class Methods {
 
     public static RegistoryObject<MyMethod> PRINT = METHODS.createRegistory("method_print", Print::new);
 
-    public static RegistoryObject<MyMethod> FOR = METHODS.createRegistory("method_for", For::new);
+    public static RegistoryObject<MyMethod> LOOP = METHODS.createRegistory("method_loop", Loop::new);
     public static RegistoryObject<MyMethod> CONNECT = METHODS.createRegistory("method_connect", Connect::new);
     public static RegistoryObject<MyMethod> REMOVE = METHODS.createRegistory("method_remove", Remove::new);
 

@@ -19,7 +19,7 @@ public class Memory extends Player implements Serializable{
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     public int counter = 0;
-    private String name = "EnemyMemory";
+    private String name = "Memory";
     private boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
@@ -88,6 +88,11 @@ public class Memory extends Player implements Serializable{
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
         m.add(Methods.CONNECT.get());
+    }
+
+    @Override
+    public String getID() {
+        return "memory" +"[" + idI + "][" + idC + "]";
     }
 
     @Override
