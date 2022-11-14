@@ -38,6 +38,10 @@ public class Console extends JFrame implements KeyListener{
     host = h;
   }
 
+  public Player getHost() {
+    return host;
+  }
+
   public ArrayList<MyMethod> getMethods() {
     return methods;
   }

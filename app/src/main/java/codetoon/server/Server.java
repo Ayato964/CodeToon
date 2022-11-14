@@ -93,8 +93,10 @@ public class Server implements Runnable {
     public void run() {
         System.out.println("run server");
         if(isHost){
+            System.out.println("My Server Property is HOST");
             setUpServer();
         }else{
+            System.out.println("My Server Property is Not Host");
             connect(ipAdress);
         }
         get_reception();
@@ -119,6 +121,7 @@ public class Server implements Runnable {
     }
 
     public void sendMyCopy() {
+
         try {
             testClassWrapper testWrapper = new testClassWrapper(Memorys.memory);
             myOutStream.reset();

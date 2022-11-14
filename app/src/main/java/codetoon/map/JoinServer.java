@@ -33,6 +33,7 @@ public class JoinServer extends Map{
                 System.out.println(box.getString());
                 Server.server.startServer(box.getString());
                 Main.getInstance().run(new PazzleStage(CodeToon.MEMORY_SIZE));
+
             }
         });
 

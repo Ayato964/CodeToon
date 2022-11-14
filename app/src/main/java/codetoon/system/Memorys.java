@@ -17,7 +17,6 @@ public class Memorys {
             memory.add(t);
           }
         }
-        System.out.println("null");
         Variables.createVariable("memory", () -> new MemoryVariable(memory));
 
     }

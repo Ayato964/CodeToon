@@ -33,22 +33,35 @@ public class Indentification{
     }
 
     public HashMap<Integer, String> getArgument(StringBuilder text){
+        StringBuilder inside = new StringBuilder();
         StringBuilder argments = new StringBuilder();
         HashMap<Integer, String> argment = new HashMap<>();
+
         if(parsent != null){
             argment.put(CodeToon.PARCENT_ARGUMENT, parsent.toString());
         }
+
         int  i = 0;
         boolean arg = false;
+        boolean isInside = false;
         while(i < text.length() - 1){
 
+            if(text.charAt(i) == ')'){
+                arg = false;
+            }
 
+            if(isInside){
+                inside.append(text.charAt(i));
+            }
             if(arg){
                 argments.append(text.charAt(i));
             }
             
             if(text.charAt(i) == '('){
                 arg = true;
+            }
+            if(text.charAt(i) == '{'){
+                isInside = true;
             }
             i ++;   
         }
@@ -66,15 +79,18 @@ public class Indentification{
                 argment.put(c, temp.toString());
             }
         }
+        argment.put(CodeToon.INSIDE_METHODS, inside.toString());
         return argment.isEmpty() ? null : argment;
     }
     private void indent(){
         program = removeSpace(program);
-        programs = getBuilder(program);   
+        programs = getBuilder(program);
         if(programs != null){
             for (StringBuilder stringBuilder : programs) {
                 MyMethod temp = Methods.METHODS.get("method_" + getMethodName(stringBuilder));
+                //System.out.println(stringBuilder.toString());
                 if (temp != null) {
+                   //System.out.println(getMethodName(stringBuilder) + "  " + stringBuilder);
                     temp.set(getArgument(stringBuilder));
                     method.add(temp);
                 }
@@ -99,15 +115,22 @@ public class Indentification{
 
         StringBuilder b = new StringBuilder();
         ArrayList<StringBuilder> array = new ArrayList<StringBuilder>();
-        for(int i = 0; i < program.length(); i ++){
-            
-            if(program.charAt(i) == ';'){
+        boolean isPrivate = false;
+        for(int i = 0; i < program.length(); i ++) {
+            if (program.charAt(i) == '{') {
+                isPrivate = true;
+            }
+            if( program.charAt(i) == '}'){
+                isPrivate = false;
+            }
+            if ((program.charAt(i) == ';' || program.charAt(i) == '}') && !isPrivate) {
+                if(program.charAt(i) == '}')
+                    b.append(program.charAt(i));
                 array.add(b);
                 b = new StringBuilder();
-            }else{
+            } else {
                 b.append(program.charAt(i));
             }
-
         }
         return array.isEmpty() ? null : array;
     }
