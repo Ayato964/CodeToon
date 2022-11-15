@@ -1,5 +1,6 @@
 package codetoon.method;
 
+import java.awt.*;
 import java.util.HashMap;
 import codetoon.system.*;
 import codetoon.map.*;
@@ -26,6 +27,7 @@ public class Connect extends MyMethod {
     @Override
     public void action(int i) {
         memory.connection(pass);
+        Message.addMessage(memory.getName() + "にアクセスしました。", Color.BLACK);
     }
 
     

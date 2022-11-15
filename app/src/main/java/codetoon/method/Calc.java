@@ -1,8 +1,10 @@
 package codetoon.method;
 
 import codetoon.argument.IntegerArgument;
+import codetoon.system.Message;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.HashMap;
 
 public class Calc extends  MyMethod{
@@ -21,6 +23,6 @@ public class Calc extends  MyMethod{
 
     @Override
     public void action(int i) {
-        System.out.println(data1 + "と" + data2 + "を足した数は" + (data1 + data2) + "です。");
+        Message.addMessage(data1 + "と" + data2 + "を足した数は" + (data1 + data2) + "です。", Color.BLACK);
     }
 }

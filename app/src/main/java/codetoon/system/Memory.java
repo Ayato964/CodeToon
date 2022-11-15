@@ -99,11 +99,12 @@ public class Memory extends Player implements Serializable{
     public void connection(int password) {
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
         if(pass == 0 || pass == password) {
+            Message.addMessage(p.getConsole().getHost().getName() + "にアクセスされました", Color.BLACK);
             p.getConsole().setHost(this);
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         }else{
             p.getConsole().panel.setProgram(new StringBuilder());
-            System.out.println(getName() + "???p?X???[?h????????????A?p?X???[?h????????R?l?N?g???m??????????B");
+            Message.addMessage("パスワードが再設定されているか、パスワードが間違っている為アクセスできません", Color.BLACK);
 
         }
     }
