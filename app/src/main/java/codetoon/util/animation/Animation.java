@@ -2,7 +2,9 @@ package codetoon.util.animation;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.security.KeyStore;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import codetoon.main.*;
 import codetoon.system.CodeToon;
@@ -18,6 +20,7 @@ public class Animation {
     private int x, y;
     private String msg;
     private Graphics graphics;
+    public Properties myProp;
 
     public static final int STRING_TYPE = 120120120;
     public static final int IMAGE_TYPE = 1211211210;
@@ -35,7 +38,7 @@ public class Animation {
         this.y = y;
         msg = str;
         TYPE = STRING_TYPE;
-
+        myProp = properties;
         properties.set(this, graphics);
         graphics.drawString(str, x * Main.DW, y * Main.DH);
     }
@@ -73,6 +76,7 @@ public class Animation {
 
     public static class Properties implements IsTick {
         private Animation percent;
+        private Properties child;
         private ArrayList<Decorate> prop;
         private Graphics g;
         private Font font;
@@ -91,6 +95,7 @@ public class Animation {
             fontStyle = Font.PLAIN;
             font = new Font(fontName, fontStyle, fontSize);
             animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
+            child = null;
         }
 
         protected void set(Animation a, @NotNull Graphics g){
@@ -99,6 +104,9 @@ public class Animation {
             this.g = g;
             font = new Font(fontName, fontStyle, fontSize);
             g.setFont(font);
+            if(child != null){
+                child.c = c;
+            }
         }
 
         public static <T extends IsTick> void tick(T t){
@@ -119,10 +127,31 @@ public class Animation {
                 }
             }
         }
-
+        public int setAllPosition(int x, int y){
+            percent.x = x;
+            percent.y = y;
+            if(child != null){
+                return y + child.setAllPosition(x, y + g.getFontMetrics().getHeight() / 4);
+            }else{
+                return y;
+            }
+        }
+        public void setChild(Properties p){
+            if(child == null) {
+                child = p;
+            }else{
+                child.setChild(p);
+            }
+        }
         public Properties font(String font, int font_type){
             fontName = font;
             fontStyle = font_type;
+            return this;
+        }
+        public Properties copy(Properties p){
+            prop = p.prop;
+            fontSize = p.fontSize;
+
             return this;
         }
 
@@ -146,6 +175,14 @@ public class Animation {
         }
         public Properties color(Color c){
             prop.add(new DisplayColor(this, c));
+            return this;
+        }
+        public Properties endPosition(int x, int y, int type){
+            prop.add(new EndPosition(this, x, y, type));
+            return this;
+        }
+        public Properties setWidth(int w){
+            prop.add(new Width(this, w));
             return this;
         }
         public int getCount() {

@@ -13,6 +13,7 @@ FieldクラスはMemoryをContainerとして収容するものである。
 public class PazzleStage extends Map{
     public final int MEMORY_SIZE; 
     private final Field field;
+    private final Message messageBox;
     private final Console c;
     
     public PazzleStage(int size){
@@ -21,6 +22,7 @@ public class PazzleStage extends Map{
       field.setMemoryCapability(MEMORY_SIZE);
       c = new Console(140, 50, 120, 60);
       c.setVisible(true);
+      messageBox = new Message(Main.getMainGraphics(), 140, 20, 50, 80);
       CodeToon.isGameStart = true;
     }
 
@@ -43,6 +45,7 @@ public class PazzleStage extends Map{
     public void display(Graphics g){
       //background(#505050);
       field.display(g);
+      messageBox.draw();
     }
   
     private class Field{

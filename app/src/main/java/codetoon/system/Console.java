@@ -31,6 +31,7 @@ public class Console extends JFrame implements KeyListener{
     panel = new ConsolePanel();
     add("Center", panel);
     pack();
+
     addKeyListener(this);
   }
 

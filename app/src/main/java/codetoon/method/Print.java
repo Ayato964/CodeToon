@@ -1,13 +1,16 @@
 package codetoon.method;
 
+import java.awt.*;
 import java.util.HashMap;
 import codetoon.argument.*;
+import codetoon.system.Message;
 
 public class Print extends MyMethod{
     private String mes;
     @Override
     public void action(int i) {
-        System.out.println(mes != null ? mes : "");
+
+        Message.addMessage(mes != null ? mes : "", Color.BLACK);
     }
     @Override
     public int getCount() {
