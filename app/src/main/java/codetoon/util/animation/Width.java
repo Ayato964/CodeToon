@@ -5,17 +5,17 @@ import codetoon.main.Main;
 import javax.net.ssl.SNIHostName;
 import java.awt.*;
 
-public class Width extends Decorate{
+public class Width implements Decorate{
     int w;
     boolean isFirst = true;
     public Width(Animation.Properties properties, int w) {
-        super(properties);
         this.w = w;
     }
 
     @Override
-    public void displayAction(Graphics g) {
-        StringBuilder builder = new StringBuilder().append(properties.getAnimation().getMsg());
+    public void displayAction(Animation.Properties properties, Graphics g) {
+        AnimationText text =(AnimationText) properties.getAnimation();
+        StringBuilder builder = new StringBuilder().append(text.getMsg());
         Animation a = properties.getAnimation();
         int c = 0;
         int row = 0;
@@ -33,7 +33,7 @@ public class Width extends Decorate{
                 if (isFirstMsg) {
                     properties.getAnimation().myProp.setAllPosition(properties.getAnimation().getX(),
                             properties.getAnimation().getY() - g.getFontMetrics().getHeight() / 4 * row);
-                    properties.getAnimation().setMsg(str);
+                    text.setMsg(str);
                     isFirstMsg = false;
                 } else {
                     Animation.Properties p = new Animation.Properties().copy(properties);

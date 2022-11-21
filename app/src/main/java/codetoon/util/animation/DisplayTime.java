@@ -4,15 +4,14 @@ import codetoon.system.CodeToon;
 
 import java.awt.*;
 
-public class DisplayTime extends Decorate{
+public class DisplayTime implements Decorate{
     private int displayTime;
-    public DisplayTime(Animation.Properties properties, int time) {
-        super(properties);
+    public DisplayTime(int time) {
         displayTime = time;
     }
 
     @Override
-    public void displayAction(Graphics g) {
+    public void displayAction(Animation.Properties properties,Graphics g) {
         if(properties.getCount() / 25 >= displayTime && displayTime != CodeToon.INFINITY && !properties.isEnd()){
             properties.getAnimationTickRegistory().remove();
             properties.setIsEnd(true);

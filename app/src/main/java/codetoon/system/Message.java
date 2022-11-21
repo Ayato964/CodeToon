@@ -4,6 +4,7 @@ import codetoon.main.Main;
 import codetoon.util.Tick;
 import codetoon.util.TickRegistory;
 import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationText;
 import codetoon.util.animation.EndPosition;
 
 import java.awt.*;
@@ -31,11 +32,11 @@ public class Message {
     public static void addMessage(String str){
         instance.shiftMessage();
 
-        Animation a = Animation.create(instance.graphics);
+        AnimationText a = Animation.create(instance.graphics);
         instance.animations.add(a);
         a.draw(str, instance.x, instance.y + instance.h,
                 new Animation.Properties()
-                        .size(30)
+                        .size(20)
                         .endPosition(instance.x, instance.y, EndPosition.UNDER)
                         .setWidth(instance.w));
     }
@@ -45,10 +46,10 @@ public class Message {
     public static void addMessage(String str, Color c){
         instance.shiftMessage();
 
-        Animation a = Animation.create(instance.graphics);
+        AnimationText a = Animation.create(instance.graphics);
         a.draw(str, instance.x, instance.y + instance.h,
                 new Animation.Properties()
-                        .size(30)
+                        .size(20)
                         .color(c)
                         .endPosition(instance.x, instance.y, EndPosition.UNDER)
                         .setWidth(instance.w));

@@ -1,5 +1,6 @@
 package codetoon.system;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import codetoon.method.*;
@@ -60,7 +61,7 @@ public abstract class Player implements IsTick {
         if(this.pass == old_pass){
             this.pass = pass;
         }else{
-            System.out.println(getName() + "のパスワードが違います。");
+            Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
         }
     }
     @Override

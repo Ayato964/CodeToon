@@ -6,15 +6,16 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class Center extends Decorate{
-    public Center(Animation.Properties properties) {
-        super(properties);
+public class Center implements Decorate{
+    public Center() {
+
+
     }
 
     @Override
-    public void displayAction(@NotNull Graphics g) {
+    public void displayAction(Animation.Properties properties, @NotNull Graphics g) {
         int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
-        int strLength = stringWidth(properties.getAnimation().getMsg(), g);
+        int strLength = stringWidth(((AnimationText)properties.getAnimation()).getMsg(), g);
         int center = DW / 2;
         properties.getAnimation().setX((center - strLength / 2) / Main.DW);
 

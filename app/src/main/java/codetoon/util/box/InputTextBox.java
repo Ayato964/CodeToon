@@ -3,6 +3,7 @@ package codetoon.util.box;
 import codetoon.main.Main;
 import codetoon.util.ContainerData;
 import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationText;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.awt.event.KeyListener;
 public class InputTextBox extends Box implements KeyListener {
     private StringBuilder texts;
     private  int textCount;
-    private Animation animation;
+    private AnimationText animation;
     private Graphics graphics;
     private ContainerBox box;
     private int myDataId;

@@ -4,20 +4,19 @@ import codetoon.util.Tick;
 
 import java.awt.*;
 
-public class EndPosition extends Decorate{
+public class EndPosition implements Decorate{
     public static final int UNDER = 10000;
     public static final int UPWARDS = 20000;
     private final int type;
     int x, y;
-    public EndPosition(Animation.Properties properties, int x, int y, int type) {
-        super(properties);
+    public EndPosition(int x, int y, int type) {
         this.x = x;
         this.y = y;
         this.type = type;
 
     }
     @Override
-    public void displayAction(Graphics g) {
+    public void displayAction(Animation.Properties properties, Graphics g) {
         Animation a = properties.getAnimation();
         if(type == UNDER) {
             if (a.getX() <= x && a.getY() <= y) {

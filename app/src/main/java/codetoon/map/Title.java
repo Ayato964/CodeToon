@@ -19,9 +19,9 @@ public class Title extends Map{
           case 0:
              Server.isHost = true;
              Main.getInstance().run(new CreateSection());
-              //Server.server.setUpServer();
               //Server.server.startServer(null);
-              //Main.getInstance().run(new PazzleStage(5));
+              Main.getInstance().run(new PazzleStage(5));
+              Server.server.startServer(null);
               //Server.server.setUpServer();
               break;
           case 1:
@@ -53,8 +53,7 @@ public class Title extends Map{
         box.draw();
         Animation.create(h).draw("CODETOON Ver 1.0", 10,   10,
                 new Animation.Properties()
-                        .size(60)
-                        .font("", Font.ITALIC)
+                        .font("", Font.ITALIC, 60)
                         .center()
         );
          Animation.create(h).draw("Test Animation ", 30, 30,

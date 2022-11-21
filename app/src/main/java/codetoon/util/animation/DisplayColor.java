@@ -2,16 +2,15 @@ package codetoon.util.animation;
 
 import java.awt.*;
 
-public class DisplayColor extends Decorate{
+public class DisplayColor implements Decorate{
     private Color color;
-    public DisplayColor(Animation.Properties properties, Color c) {
-        super(properties);
+    public DisplayColor(Color c) {
         this.color = c;
     }
 
     @Override
-    public void displayAction(Graphics g) {
-        properties.setColor(color);
+    public void displayAction(Animation.Properties properties, Graphics g) {
+        g.setColor(color);
 
     }
 }

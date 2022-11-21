@@ -3,9 +3,11 @@ package codetoon.method;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
+import codetoon.system.Message;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.HashMap;
 
 public class Lock extends MyMethod{
@@ -35,7 +37,7 @@ public class Lock extends MyMethod{
     public void action(int i) {
         if(parcent != null){
             parcent.setPassWord(pass, parcent_pass);
-            System.out.println(parcent.getName() + "に" + pass + "のパスワードを設定しました。");
+            Message.addMessage(parcent.getName() + "に" + pass + "のパスワードを設定しました。", Color.RED);
 
         }
     }

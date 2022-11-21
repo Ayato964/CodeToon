@@ -2,7 +2,7 @@ package codetoon.util.animation;
 
 import java.awt.*;
 
-public class Fade extends Decorate{
+public class Fade implements Decorate{
     private final double fadeIn;
     private  final  double fadeOut;
     private  double percent;
@@ -10,8 +10,7 @@ public class Fade extends Decorate{
     private double outGage;
     private boolean isIn;
     double count = 0;
-    public Fade(Animation.Properties properties, double fadeIn, double fadeOut) {
-        super(properties);
+    public Fade( double fadeIn, double fadeOut) {
         this.fadeIn = fadeIn * 100;
         this.fadeOut = fadeOut * 100;
         inGage  = 255 / (15 / fadeIn);
@@ -20,14 +19,14 @@ public class Fade extends Decorate{
     }
 
     @Override
-    public void displayAction(Graphics g) {
+    public void displayAction(Animation.Properties properties, Graphics g) {
         count += 1;
         if(!isIn && 255 -count * outGage <= 0){
             count = 1;
             outGage = 255;
         }
-        Color c = properties.getColor();
-        properties.setColor(new Color(c.getRed(), c.getGreen(), c.getBlue(), (int) (
+        Color c = g.getColor();
+        g.setColor(new Color(c.getRed(), c.getGreen(), c.getBlue(), (int) (
                 isIn == true ? count * inGage : 255 - count * outGage)));
         if(count * inGage >= 250){
             isIn = false;
