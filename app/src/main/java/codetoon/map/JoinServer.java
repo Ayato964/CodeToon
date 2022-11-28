@@ -30,6 +30,7 @@ public class JoinServer extends Map{
             public void pressedEntered(InputTextBox box) {
                 System.out.println(box.getString());
                 Server.server.startServer(box.getString());
+                Main.getInstance().run(new PazzleStage(5));
 
             }
         });
