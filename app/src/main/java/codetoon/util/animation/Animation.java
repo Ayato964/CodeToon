@@ -66,12 +66,7 @@ public abstract class Animation {
             percent = a;
             this.g = g;
             g.setFont(font);
-        /*
-            if(child != null){
-                child.c = c;
-            }
 
-         */
             for (int i = 0; i < prop.size(); i++) {
                 prop.get(i).displayAction(this, g);
             }
@@ -88,6 +83,7 @@ public abstract class Animation {
                 p.set(a, p.g);
                 p.percent.draw();
             }
+
         }
         public int setAllPosition(int x, int y){
             percent.x = x;

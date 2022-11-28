@@ -18,9 +18,11 @@ public class Reception extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        start();
     }
 
     public void run() {
+        System.out.println("HII");
         while(true){
         try {
 

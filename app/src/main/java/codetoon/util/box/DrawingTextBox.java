@@ -38,6 +38,7 @@ public class DrawingTextBox extends Box {
         Animation.create(g).draw(mes, x / Main.DW, y / Main.DH + (h / Main.DH) / 2,
                 new Animation.Properties()
                         .size(30)
+                        .color(Color.WHITE)
         );
      
     }

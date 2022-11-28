@@ -86,6 +86,7 @@ public class Server implements Runnable {
             returnReception.start();
         } catch (Exception e) {
             // TODO: handle exception
+            System.out.println("Not Connet Server");
         }
         
     }

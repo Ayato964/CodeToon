@@ -40,8 +40,9 @@ public class JoinServer extends Map{
         box.draw();
         Animation.create(g).draw("セッションID（相手のIPアドレス）を入力してください。", 0, 20,
                 new Animation.Properties()
+                        .size(40)
                         .center()
-                        .size(40));
+        );
 
     }
 

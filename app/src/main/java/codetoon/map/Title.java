@@ -19,10 +19,7 @@ public class Title extends Map{
           case 0:
              Server.isHost = true;
              Main.getInstance().run(new CreateSection());
-              //Server.server.startServer(null);
-              Main.getInstance().run(new PazzleStage(5));
-              Server.server.startServer(null);
-              //Server.server.setUpServer();
+             Server.server.startServer(null);
               break;
           case 1:
               System.out.println("途中からゲームを始める。");
