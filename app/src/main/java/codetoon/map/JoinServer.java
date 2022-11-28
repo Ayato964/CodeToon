@@ -29,8 +29,8 @@ public class JoinServer extends Map{
             @Override
             public void pressedEntered(InputTextBox box) {
                 System.out.println(box.getString());
+                Main.getInstance().run(new PazzleStage(CodeToon.MEMORY_SIZE));
                 Server.server.startServer(box.getString());
-                Main.getInstance().run(new PazzleStage(5));
 
             }
         });
