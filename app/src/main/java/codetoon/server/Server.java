@@ -79,8 +79,8 @@ public class Server implements Runnable {
         try {
             myOutStream = new ObjectOutputStream(sock.getOutputStream());
             opponentOutStream = new ObjectOutputStream(returnSock.getOutputStream());
-
             opponentReception = new Reception(sock, false);
+
             opponentReception.start();
             returnReception = new Reception(returnSock, true);
             returnReception.start();

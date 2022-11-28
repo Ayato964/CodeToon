@@ -12,13 +12,14 @@ public class Reception extends Thread {
 
     Reception(Socket _sock, boolean _isReturnReception) {
         sock = _sock;
+
+        System.out.println("Hello");
         isReturnReception = _isReturnReception;
         try {
             in = new ObjectInputStream(sock.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        start();
     }
 
     public void run() {
