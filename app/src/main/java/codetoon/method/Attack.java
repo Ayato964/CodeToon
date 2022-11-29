@@ -1,5 +1,6 @@
 package codetoon.method;
 
+import java.awt.*;
 import java.util.HashMap;
 
 import codetoon.argument.IntegerArgument;
@@ -12,8 +13,8 @@ public class Attack extends MyMethod{
     Player enemy;
     @Override
     public void action(int i) {
-        System.out.println("attack");
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
+        Message.addMessage(enemy.getName() + "に攻撃を仕掛けました", Color.black);
         if(enemy instanceof Memory){
             ((Memory) enemy).changeColor();
         }
