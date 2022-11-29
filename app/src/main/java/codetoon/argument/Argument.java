@@ -2,6 +2,7 @@ package codetoon.argument;
 
 import java.util.HashMap;
 import codetoon.method.*;
+import codetoon.system.Memorys;
 import codetoon.variable.*;
 
 public abstract class Argument<T, I>  {
@@ -42,6 +43,11 @@ public abstract class Argument<T, I>  {
             }
         }
         return Variables.VARIABLE.get("variable_" +  builder.toString());
+    }
+    protected HashMap<Integer, String> getVariable(StringBuilder data, String percent){
+        HashMap<Integer, String> t = getVariable(data);
+        t.put(2, percent);
+        return t;
     }
     protected HashMap<Integer, String> getVariable(StringBuilder data){
         StringBuilder v = new StringBuilder();

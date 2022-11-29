@@ -3,15 +3,20 @@ package codetoon.method;
 import java.util.HashMap;
 
 import codetoon.argument.IntegerArgument;
+import codetoon.argument.ObjectArgument;
 import codetoon.server.Server;
 import codetoon.system.*;
+import org.jetbrains.annotations.NotNull;
 
 public class Attack extends MyMethod{
-    int x, y;
+    Player enemy;
     @Override
     public void action(int i) {
         System.out.println("attack");
-        Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
+        //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
+        if(enemy instanceof Memory){
+            ((Memory) enemy).changeColor();
+        }
         Server.server.sendOpponentCopy();
     }
     @Override
@@ -19,10 +24,9 @@ public class Attack extends MyMethod{
         return 1;
     }
     @Override
-    public String set(HashMap<Integer, String> map)
+    public String set(@NotNull HashMap<Integer, String> map)
     {
-        x = IntegerArgument.getInstance().indentification(map.get(0));
-        y = IntegerArgument.getInstance().indentification(map.get(1));
+        enemy = (Memory) ObjectArgument.getInstance().indentification(map.get(0));
 
         return null;
     }

@@ -34,7 +34,14 @@ public class MemoryVariable extends Variable<Memory> {
         int size = ((PazzleStage) Main.getInstance().getMap()).MEMORY_SIZE;
         int num = IntegerArgument.getInstance().indentification(i.get(0)) +
                     IntegerArgument.getInstance().indentification(i.get(1)) * size;
-        returnMemory = memory.get(num); 
+        if(i.get(2) != null) {
+            if (i.get(2).equals("enemy")) {
+                returnMemory = Memorys.opponentMemory.get(num);
+            }
+        }else {
+            returnMemory = memory.get(num);
+        }
+
         return null;
 
     }
