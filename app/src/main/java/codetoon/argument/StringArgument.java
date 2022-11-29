@@ -9,7 +9,7 @@ public class StringArgument extends Argument<String, String> {
         if(builder.charAt(0) == '\"'){
              return convertStringAll(builder);
         }else{
-            return s;
+            return null;
         }
     }
 

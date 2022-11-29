@@ -22,7 +22,7 @@ public class PazzleStage extends Map{
       field.setMemoryCapability(MEMORY_SIZE);
       c = new Console(140, 50, 120, 60);
       c.setVisible(true);
-      messageBox = new Message(Main.getMainGraphics(), 140, 20, 50, 80);
+      messageBox = new Message(Main.getMainGraphics(), 140, 20, 60, 80);
       CodeToon.isGameStart = true;
     }
 
