@@ -106,6 +106,7 @@ public class Memory extends Player implements Serializable{
 
     @Override
     public void connection(int password) {
+        System.out.println("MemoryHost:" + host + " MyAccount:" + Admin.getInstance());
         if(states == EnumMemoryStates.HACKED && host == Admin.getInstance()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
