@@ -91,7 +91,7 @@ public class Memory extends Player implements Serializable{
         source = Indentification.removeEnd(source);
         this.source = source;
         console.panel.resetAll();
-
+        Server.server.sendOpponentCopy();
     }
 
     @Override
@@ -106,6 +106,7 @@ public class Memory extends Player implements Serializable{
 
     @Override
     public void connection(int password) {
+        System.out.println(serialID + "    " + Admin.getInstance().getSerialID());
         if(states == EnumMemoryStates.HACKED && serialID == Admin.getInstance().getSerialID()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
