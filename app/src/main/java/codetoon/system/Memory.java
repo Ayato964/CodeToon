@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Memory extends Player implements Serializable{
+    private Admin host;
     private StringBuilder source = null;
+    EnumMemoryStates states;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     public int counter = 0;
@@ -23,7 +25,9 @@ public class Memory extends Player implements Serializable{
     private boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
+        host = Admin.getInstance();
       isHostMemory = Server.isHost;
+      states = EnumMemoryStates.NONE;
       this.x = x;
       this.y = y;
       this.w = w;
@@ -50,13 +54,18 @@ public class Memory extends Player implements Serializable{
 
     }
 
-    public void changeColor(){
-        color = Color.RED;
+    public void hacking(int pass){
+        if(pass == this.pass){
+            states = EnumMemoryStates.HACKED;
+            host = Admin.getInstance();
+        }else{
+            Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
+        }
     }
 
     public void display(Graphics g){
 
-        g.setColor(color);
+        g.setColor(states.getColor());
         if(idI == 0 &&idC == 0){
        //     System.out.println(color);
         }
@@ -97,15 +106,35 @@ public class Memory extends Player implements Serializable{
 
     @Override
     public void connection(int password) {
+        if(states == EnumMemoryStates.HACKED && host == Admin.getInstance()){
+            connect(password);
+        }else if(states == EnumMemoryStates.HACKED) {
+            Message.addMessage("このメモリーはハッキングされています！！", Color.RED);
+            Message.addMessage("attack()で取り返してください", Color.RED);
+
+        }else{
+            connect(password);
+        }
+    }
+    private void connect(int password){
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-        if(pass == 0 || pass == password) {
+        if (pass == 0 || pass == password) {
             Message.addMessage(p.getConsole().getHost().getName() + "にアクセスされました", Color.BLACK);
             p.getConsole().setHost(this);
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
-        }else{
+        } else {
             p.getConsole().panel.setProgram(new StringBuilder());
             Message.addMessage("パスワードが再設定されているか、パスワードが間違っている為アクセスできません", Color.BLACK);
 
+        }
+    }
+    @Override
+    public void setRunMethod(ArrayList<MyMethod> m) {
+        super.setRunMethod(m);
+        if(!m.isEmpty()) {
+            states = EnumMemoryStates.USED;
+        }else{
+            states = EnumMemoryStates.NONE;
         }
     }
 

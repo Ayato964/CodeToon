@@ -11,12 +11,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class Attack extends MyMethod{
     Player enemy;
+    private int pass = 0;
     @Override
     public void action(int i) {
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
         Message.addMessage(enemy.getName() + "に攻撃を仕掛けました", Color.black);
         if(enemy instanceof Memory){
-            ((Memory) enemy).changeColor();
+            ((Memory) enemy).hacking(pass);
         }
         Server.server.sendOpponentCopy();
     }
