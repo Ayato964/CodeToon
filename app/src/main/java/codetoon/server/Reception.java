@@ -1,4 +1,5 @@
 package codetoon.server;
+import codetoon.system.Admin;
 import codetoon.system.Memorys;
 
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class Reception extends Thread {
                         Memorys.opponentMemory = _testWrapper.memory;
 
                     }
-                    System.out.println("receivedData: " + Memorys.memory.get(0).serialID);
+                    System.out.println("receivedData: " + Memorys.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
                     System.out.println(Memorys.opponentMemory.get(0).getName());
             } catch (ClassNotFoundException e) {
           //      e.printStackTrace();

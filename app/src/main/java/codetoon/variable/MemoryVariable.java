@@ -39,7 +39,7 @@ public class MemoryVariable extends Variable<Memory> {
                 returnMemory = Memorys.opponentMemory.get(num);
             }
         }else {
-            returnMemory = memory.get(num);
+            returnMemory = Memorys.memory.get(num);
         }
 
         return null;
