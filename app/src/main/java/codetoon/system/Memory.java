@@ -132,10 +132,8 @@ public class Memory extends Player implements Serializable{
     @Override
     public void setRunMethod(ArrayList<MyMethod> m) {
         super.setRunMethod(m);
-        if(!m.isEmpty()) {
+        if(states != EnumMemoryStates.HACKED) {
             states = EnumMemoryStates.USED;
-        }else{
-            states = EnumMemoryStates.NONE;
         }
     }
 
