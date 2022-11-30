@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Memory extends Player implements Serializable{
-    private Admin host;
+    private int serialID;
     private StringBuilder source = null;
     EnumMemoryStates states;
     int x, y, w, h, idI, idC;
@@ -25,15 +25,15 @@ public class Memory extends Player implements Serializable{
     private boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
-        host = Admin.getInstance();
-      isHostMemory = Server.isHost;
-      states = EnumMemoryStates.NONE;
-      this.x = x;
-      this.y = y;
-      this.w = w;
-      this.h = h;
-      this.idI = idI;
-      this.idC = idC;
+        serialID = Admin.getInstance().getSerialID();
+        isHostMemory = Server.isHost;
+        states = EnumMemoryStates.NONE;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.idI = idI;
+        this.idC = idC;
     }
 
     public StringBuilder getSource() {
@@ -57,7 +57,7 @@ public class Memory extends Player implements Serializable{
     public void hacking(int pass){
         if(pass == this.pass){
             states = EnumMemoryStates.HACKED;
-            host = Admin.getInstance();
+            serialID = Admin.getInstance().getSerialID();
         }else{
             Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
         }
@@ -106,8 +106,7 @@ public class Memory extends Player implements Serializable{
 
     @Override
     public void connection(int password) {
-        System.out.println("MemoryHost:" + host + " MyAccount:" + Admin.getInstance());
-        if(states == EnumMemoryStates.HACKED && host == Admin.getInstance()){
+        if(states == EnumMemoryStates.HACKED && serialID == Admin.getInstance().getSerialID()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
             Message.addMessage("このメモリーはハッキングされています！！", Color.RED);

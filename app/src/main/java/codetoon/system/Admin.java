@@ -8,10 +8,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
+
 public class Admin extends Player implements Serializable {
     private static final Admin instance = new Admin();
+    private int serialID;
     private Admin(){
-        
+        serialID = new Random().nextInt(10000, 999999);
+    }
+
+    public int getSerialID() {
+        return serialID;
     }
 
     public static Admin getInstance() {
