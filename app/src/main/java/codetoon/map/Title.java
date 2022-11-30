@@ -1,6 +1,7 @@
 package codetoon.map;
 
 import codetoon.server.Server;
+import codetoon.system.CodeToon;
 import codetoon.util.*;
 import codetoon.main.*;
 import codetoon.util.animation.Animation;
@@ -24,6 +25,7 @@ public class Title extends Map{
           case 1:
               System.out.println("途中からゲームを始める。");
               Server.isHost = false;
+              //Main.getInstance().run(new PazzleStage(CodeToon.MEMORY_SIZE));
               Main.getInstance().run(new JoinServer());
 
               break;

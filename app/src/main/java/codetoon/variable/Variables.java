@@ -2,6 +2,7 @@ package codetoon.variable;
 
 import java.util.function.Supplier;
 import codetoon.regi.*;
+import codetoon.system.Admin;
 
 
 public class Variables {

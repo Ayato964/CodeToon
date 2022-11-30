@@ -48,7 +48,6 @@ public class Indentification{
         boolean arg = false;
         boolean isInside = false;
         while(i < text.length() - 1){
-
             if(text.charAt(i) == ')'){
                 arg = false;
             }
@@ -118,12 +117,21 @@ public class Indentification{
         StringBuilder b = new StringBuilder();
         ArrayList<StringBuilder> array = new ArrayList<StringBuilder>();
         boolean isPrivate = false;
+        int count = 0;
         for(int i = 0; i < program.length(); i ++) {
             if (program.charAt(i) == '{') {
-                isPrivate = true;
+                if(isPrivate) {
+                    count ++;
+                }else{
+                    isPrivate = true;
+                }
             }
             if( program.charAt(i) == '}'){
-                isPrivate = false;
+                if(count == 0) {
+                    isPrivate = false;
+                }else{
+                    count --;
+                }
             }
             if ((program.charAt(i) == ';' || program.charAt(i) == '}') && !isPrivate) {
                 if(program.charAt(i) == '}')
