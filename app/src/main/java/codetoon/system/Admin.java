@@ -6,8 +6,9 @@ import codetoon.method.*;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Admin extends Player{
+public class Admin extends Player implements Serializable {
     private static final Admin instance = new Admin();
     private Admin(){
         
