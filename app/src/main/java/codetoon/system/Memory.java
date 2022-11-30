@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Memory extends Player implements Serializable{
-    private int serialID;
+    public int serialID;
     private StringBuilder source = null;
     EnumMemoryStates states;
     int x, y, w, h, idI, idC;
