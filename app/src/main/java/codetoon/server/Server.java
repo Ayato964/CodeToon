@@ -108,17 +108,6 @@ public class Server implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        /* 
-        while (runServer) {
-            sendMyCopy();
-            sendOpponentCopy();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        */
     }
 
     public void sendMyCopy() {
