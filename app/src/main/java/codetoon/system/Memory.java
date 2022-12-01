@@ -92,6 +92,7 @@ public class Memory extends Player implements Serializable{
         this.source = source;
         console.panel.resetAll();
         Server.server.sendOpponentCopy();
+        Server.server.sendMyCopy();
     }
 
     @Override

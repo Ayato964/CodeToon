@@ -3,6 +3,7 @@ package codetoon.system;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.method.*;
+import codetoon.server.Server;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +41,8 @@ public class Admin extends Player implements Serializable {
         setRunMethod(methods);
         run();
         console.panel.resetAll();
+        Server.server.sendMyCopy();
+        Server.server.sendOpponentCopy();
     }
 
     @Override
