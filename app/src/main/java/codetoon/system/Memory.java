@@ -95,7 +95,9 @@ public class Memory extends Player implements Serializable{
         Server.server.sendOpponentCopy();
         Server.server.sendMyCopy();
     }
-
+    public int showPass(){
+        return pass;
+    }
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
         m.add(Methods.CONNECT.get());
