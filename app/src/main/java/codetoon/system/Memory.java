@@ -58,6 +58,7 @@ public class Memory extends Player implements Serializable{
         if(pass == this.pass){
             states = EnumMemoryStates.HACKED;
             serialID = Admin.getInstance().getSerialID();
+            System.out.println("Hacked");
         }else{
             Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
         }

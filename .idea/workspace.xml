@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="Test">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" afterDir="false" />
+    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="bug_fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,55 +18,24 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CodeToon" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="3ee9c6b7-2fc7-4573-9ac8-d1f730d9f4f0" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2HK6LN332cEIRGV7MV1soQaIrSC" />
+  <component name="ProjectId" id="2IFkjKIbHKjytz8XQQfCRMyyUmH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/is-admin/Downloads/CodeToon&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="codetoon.main.Main" />
@@ -80,119 +50,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="アプリケーション.Main" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="" />
-      <created>1668021371964</created>
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="" />
+      <created>1669784853977</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1668021371964</updated>
+      <updated>1669784853977</updated>
     </task>
-    <task id="LOCAL-00001" summary="Containerアップデート&#10;-デコレートパターンに変更&#10;&#10;InputTextBox.java&#10;テキストを代入できるボックスを追加">
-      <created>1668254075703</created>
+    <task id="LOCAL-00001" summary="?">
+      <created>1669785088042</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1668254075703</updated>
+      <updated>1669785088042</updated>
     </task>
-    <task id="LOCAL-00002" summary="JoinServerクラスでIPアドレスを指定することで、相手のPCに接続を試みるようになった。">
-      <created>1668363962526</created>
+    <task id="LOCAL-00002" summary="bug_fix">
+      <created>1669785280676</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1668363962526</updated>
+      <updated>1669785280676</updated>
     </task>
-    <task id="LOCAL-00003" summary="CodeToonのソースコードに新しい法則を追加。&#10;-INSIDE&#10;  *&quot;{}&quot;で括られた中のメソッドを、引数として扱うという法則。&#10; &#10; Loop.java&#10; -INSIDEを利用したコマンド&#10;   * 引数を整数とし、値の回数分INSIDEを実行する。(for文の簡易版みたいなもの)">
-      <created>1668434884440</created>
+    <task id="LOCAL-00003" summary="bug_fix">
+      <created>1669787380681</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1668434884440</updated>
+      <updated>1669787380682</updated>
     </task>
-    <task id="LOCAL-00004" summary="Animation.java&#10;-アニメーション周りをBuilderパターンに置き換えた。">
-      <created>1669023910504</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669023910504</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Serverテスト">
-      <created>1669613298147</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669613298147</updated>
-    </task>
-    <task id="LOCAL-00006" summary="JoinServerにタイトルに戻る項目を追加。">
-      <created>1669615828418</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1669615828418</updated>
-    </task>
-    <task id="LOCAL-00007" summary="JoinServerにタイトルに戻る項目を追加。">
-      <created>1669654248889</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1669654248889</updated>
-    </task>
-    <task id="LOCAL-00008" summary="ServerTest">
-      <created>1669654554360</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669654554360</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Test">
-      <created>1669789256979</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1669789256979</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Test">
-      <created>1669789551458</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669789551458</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Test">
-      <created>1669790776271</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1669790776271</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Test">
-      <created>1669791275362</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1669791275363</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Test">
-      <created>1669818657827</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1669818657827</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,14 +101,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Containerアップデート&#10;-デコレートパターンに変更&#10;&#10;InputTextBox.java&#10;テキストを代入できるボックスを追加" />
-    <MESSAGE value="JoinServerクラスでIPアドレスを指定することで、相手のPCに接続を試みるようになった。" />
-    <MESSAGE value="CodeToonのソースコードに新しい法則を追加。&#10;-INSIDE&#10;  *&quot;{}&quot;で括られた中のメソッドを、引数として扱うという法則。&#10; &#10; Loop.java&#10; -INSIDEを利用したコマンド&#10;   * 引数を整数とし、値の回数分INSIDEを実行する。(for文の簡易版みたいなもの)" />
-    <MESSAGE value="Animation.java&#10;-アニメーション周りをBuilderパターンに置き換えた。" />
-    <MESSAGE value="Serverテスト" />
-    <MESSAGE value="JoinServerにタイトルに戻る項目を追加。" />
-    <MESSAGE value="ServerTest" />
-    <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="?" />
+    <MESSAGE value="bug_fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug_fix" />
   </component>
 </project>
