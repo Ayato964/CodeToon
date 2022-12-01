@@ -21,7 +21,7 @@ public class ObjectArgument extends Argument<Object, String> {
             percent = null;
         }
 
-        System.out.println(builder);
+   //     System.out.println(builder);
         Object ObjName =
        isMethod(builder) == null ?
         isArgument(builder) == null ?
@@ -29,7 +29,7 @@ public class ObjectArgument extends Argument<Object, String> {
         : Admin.getInstance()
         : isArgument(builder)
         : isMethod(builder);
-        System.out.println(ObjName.getClass());
+      //  System.out.println(ObjName.getClass());
            if(ObjName.toString() != ERROR.toString()){
                 if(ObjName instanceof MyMethod){
                     MyMethod method = (MyMethod) ObjName;

@@ -39,7 +39,6 @@ public class Reception extends Thread {
 
                     }
                     System.out.println("receivedData: " + Memorys.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
-                    System.out.println(Memorys.opponentMemory.get(0).getName());
             } catch (ClassNotFoundException e) {
           //      e.printStackTrace();
             }
