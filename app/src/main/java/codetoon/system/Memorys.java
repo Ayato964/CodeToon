@@ -17,7 +17,7 @@ public class Memorys {
             memory.add(t);
           }
         }
-        Variables.createVariable("memory", () -> new MemoryVariable(memory));
+        Variables.createVariable("memory", () -> new MemoryVariable());
 
     }
     public static Memory get(int i){

@@ -10,14 +10,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class MemoryVariable extends Variable<Memory> {
 
-    ArrayList<Memory> memory;
     Memory returnMemory;
-    public MemoryVariable (ArrayList<Memory> m){
-        memory = m;
+    public MemoryVariable (){
     }
     @Override
     public Object newInstance() {
-        return new MemoryVariable(memory);
+        return new MemoryVariable();
     }
     @Override
     public boolean setIsArray() {
