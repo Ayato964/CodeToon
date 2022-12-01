@@ -19,7 +19,6 @@ public class Attack extends MyMethod{
         if(enemy instanceof Memory){
             ((Memory) enemy).hacking(pass);
         }
-        Server.server.sendOpponentCopy();
     }
     @Override
     public int getCount() {
