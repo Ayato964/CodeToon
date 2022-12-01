@@ -2,6 +2,7 @@ package codetoon.method;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.server.Server;
 import codetoon.system.CodeToon;
 import codetoon.system.Message;
 import codetoon.system.Player;
@@ -37,6 +38,7 @@ public class Lock extends MyMethod{
     public void action(int i) {
         if(parcent != null){
             parcent.setPassWord(pass, parcent_pass);
+            Server.server.sendMyCopy();
             Message.addMessage(parcent.getName() + "に" + pass + "のパスワードを設定しました。", Color.RED);
 
         }

@@ -60,7 +60,6 @@ public abstract class Player implements IsTick {
     public void setPassWord(int pass, int old_pass) {
         if(this.pass == old_pass){
             this.pass = pass;
-            Server.server.sendMyCopy();
         }else{
             Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
         }

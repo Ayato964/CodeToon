@@ -33,6 +33,7 @@ public class Reception extends Thread {
                 System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
                     if(isReturnReception){
                         Memorys.memory =_testWrapper.memory;
+                        System.out.println("Repaired!!");
                     }else{
                         Memorys.opponentMemory = _testWrapper.memory;
 
