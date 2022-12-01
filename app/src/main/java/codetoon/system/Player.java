@@ -2,6 +2,7 @@ package codetoon.system;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import codetoon.method.*;
 import codetoon.server.Server;
@@ -10,7 +11,7 @@ import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 
 
-public abstract class Player implements IsTick {
+public abstract class Player implements IsTick, Serializable {
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
