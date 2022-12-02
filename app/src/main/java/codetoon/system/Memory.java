@@ -62,10 +62,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 serialID = Admin.getInstance().getSerialID();
                 //   System.out.println("Hacked");
             } else {
-                Message.addMessage("ƒpƒXƒ[ƒh‚ªİ’è‚³‚ê‚Ä‚¢‚é‚©AƒpƒXƒ[ƒh‚ªˆá‚¤‚½‚ßAUŒ‚‚Å‚«‚Ü‚¹‚ñB", Color.BLACK);
+                Message.addMessage("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã†ãŸã‚ã€æ”»æ’ƒã§ãã¾ã›ã‚“ã€‚", Color.BLACK);
             }
         }else{
-            Message.addMessage("©•ª‚Ìw’n‚ğƒnƒbƒLƒ“ƒO‚·‚é‚Ì‚Í‹ğ‚©‚È‚±‚Æ‚Å‚·B");
+            Message.addMessage("è‡ªåˆ†ã®é™£åœ°ã‚’ãƒãƒƒã‚­ãƒ³ã‚°ã™ã‚‹ã®ã¯æ„šã‹ãªã“ã¨ã§ã™ã€‚");
         }
     }
 
@@ -118,12 +118,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if(states == EnumMemoryStates.HACKED && serialID == Admin.getInstance().getSerialID()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
-            Message.addMessage("‚±‚Ìƒƒ‚ƒŠ[‚ÍƒnƒbƒLƒ“ƒO‚³‚ê‚Ä‚¢‚Ü‚·II", Color.RED);
-            Message.addMessage("attack()‚Åæ‚è•Ô‚µ‚Ä‚­‚¾‚³‚¢", Color.RED);
+            Message.addMessage("ã“ã®ãƒ¡ãƒ¢ãƒªãƒ¼ã¯ãƒãƒƒã‚­ãƒ³ã‚°ã•ã‚Œã¦ã„ã¾ã™ï¼ï¼", Color.RED);
+            Message.addMessage("attack()ã§å–ã‚Šè¿”ã—ã¦ãã ã•ã„", Color.RED);
 
         }else {
             if(serialID != Admin.getInstance().getSerialID()){
-                Message.addMessage("©•ª‚Ìƒƒ‚ƒŠ[‚Å‚Í‚È‚¢‚½‚ßAÚ‘±‚Å‚«‚Ü‚¹‚ñB");
+                Message.addMessage("è‡ªåˆ†ã®ãƒ¡ãƒ¢ãƒªãƒ¼ã§ã¯ãªã„ãŸã‚ã€æ¥ç¶šã§ãã¾ã›ã‚“ã€‚");
             }else {
                 connect(password);
             }
@@ -132,12 +132,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     private void connect(int password){
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
         if (pass == 0 || pass == password) {
-            Message.addMessage(p.getConsole().getHost().getName() + "‚ÉƒAƒNƒZƒX‚³‚ê‚Ü‚µ‚½", Color.BLACK);
+            Message.addMessage(p.getConsole().getHost().getName() + "ã«ã‚¢ã‚¯ã‚»ã‚¹ã•ã‚Œã¾ã—ãŸ", Color.BLACK);
             p.getConsole().setHost(this);
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         } else {
             p.getConsole().panel.setProgram(new StringBuilder());
-            Message.addMessage("ƒpƒXƒ[ƒh‚ªÄİ’è‚³‚ê‚Ä‚¢‚é‚©AƒpƒXƒ[ƒh‚ªŠÔˆá‚Á‚Ä‚¢‚éˆ×ƒAƒNƒZƒX‚Å‚«‚Ü‚¹‚ñ", Color.BLACK);
+            Message.addMessage("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå†è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé–“é•ã£ã¦ã„ã‚‹ç‚ºã‚¢ã‚¯ã‚»ã‚¹ã§ãã¾ã›ã‚“", Color.BLACK);
 
         }
     }
@@ -167,10 +167,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 method = new ArrayList<>();
                 source = new StringBuilder();
             }else{
-                Message.addMessage("ƒpƒXƒ[ƒh‚ªŠÔˆá‚Á‚Ä‚¢‚Ü‚·", Color.BLACK);
+                Message.addMessage("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé–“é•ã£ã¦ã„ã¾ã™", Color.BLACK);
             }
         }else {
-            Message.addMessage("ƒŠƒJƒoƒŠ[‚Å‚«‚Ü‚¹‚ñB", Color.BLACK);
+            Message.addMessage("ãƒªã‚«ãƒãƒªãƒ¼ã§ãã¾ã›ã‚“ã€‚", Color.BLACK);
         }
     }
 }
