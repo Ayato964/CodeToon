@@ -16,7 +16,6 @@ public abstract class Player implements IsTick {
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();
 
-    protected int pass = 0;
 
     public Player(){
         blackList(blackList);
@@ -58,21 +57,10 @@ public abstract class Player implements IsTick {
     protected abstract void blackList(ArrayList<MyMethod> m);
     public abstract String getID();
 
-    public void setPassWord(int pass, int old_pass) {
-        if(this.pass == old_pass){
-            this.pass = pass;
-        }else{
-            Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
-        }
-    }
     @Override
     public boolean isClient() {
         return true;//特に意味はない
     }
 
     public abstract void connection(int password);
-
-    public boolean getPass(int p) {
-        return pass == p;
-    }
 }

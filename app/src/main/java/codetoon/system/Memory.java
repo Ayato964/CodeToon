@@ -14,7 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-public class Memory extends Player implements Serializable{
+public class Memory extends AbstractLockerPlayer implements Serializable{
     public int serialID;
     private StringBuilder source = null;
     EnumMemoryStates states;

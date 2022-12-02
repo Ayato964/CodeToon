@@ -3,6 +3,7 @@ package codetoon.method;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.server.Server;
+import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.CodeToon;
 import codetoon.system.Message;
 import codetoon.system.Player;
@@ -12,7 +13,7 @@ import java.awt.*;
 import java.util.HashMap;
 
 public class Lock extends MyMethod{
-    private Player parcent = null;
+    private AbstractLockerPlayer parcent = null;
     private int pass = 0;
     private int parcent_pass = 0;
     @Override
@@ -24,7 +25,7 @@ public class Lock extends MyMethod{
     public String set(@NotNull HashMap<Integer, String> map) {
         Object t = ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
         if(t instanceof Player){
-            parcent = (Player) t;
+            parcent = (AbstractLockerPlayer) t;
             if(map.get(1) != null){
                 parcent_pass = IntegerArgument.getInstance().indentification(map.get(0));
                 pass = IntegerArgument.getInstance().indentification(map.get(1));
