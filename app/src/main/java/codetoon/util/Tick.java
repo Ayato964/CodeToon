@@ -6,7 +6,7 @@ import codetoon.system.CodeToon;
 import java.io.Serializable;
 import java.util.*;
 
-public class Tick implements Serializable {
+public class Tick{
     private static final Tick INSTANCE = new Tick();
     private ArrayList<TickRegistory> method = new ArrayList<>();
     private ArrayList<TickRegistory> animation = new ArrayList<>();

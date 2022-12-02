@@ -3,7 +3,7 @@ package codetoon.util;
 import java.io.IOError;
 import java.io.Serializable;
 
-public class TickRegistory<T extends IsTick> implements Serializable {
+public class TickRegistory<T extends IsTick> {
     private final T t;
     private final TickHelper tick_method;
     public  TickRegistory(T t, TickHelper tick){

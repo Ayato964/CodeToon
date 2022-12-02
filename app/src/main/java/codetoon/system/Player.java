@@ -11,7 +11,7 @@ import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;
 
 
-public abstract class Player implements IsTick, Serializable {
+public abstract class Player implements IsTick {
     ArrayList<MyMethod> method = new ArrayList<>();
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker = getTick();

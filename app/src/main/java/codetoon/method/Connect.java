@@ -8,7 +8,7 @@ import codetoon.map.*;
 import codetoon.main.*;
 import codetoon.argument.*;
 
-public class Connect extends MyMethod implements Serializable {
+public class Connect extends MyMethod  {
     Memory memory;
     int pass = 0;
     @Override
