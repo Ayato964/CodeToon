@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.Serializable;
 
 public abstract class AbstractLockerPlayer extends Player implements Serializable {
+    //SUCSESS
     protected int pass = 0;
     public void setPassWord(int pass, int old_pass) {
         if(this.pass == old_pass){
