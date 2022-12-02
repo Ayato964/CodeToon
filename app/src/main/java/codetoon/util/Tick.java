@@ -3,9 +3,10 @@ package codetoon.util;
 import codetoon.main.Main;
 import codetoon.system.CodeToon;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Tick {
+public class Tick implements Serializable {
     private static final Tick INSTANCE = new Tick();
     private ArrayList<TickRegistory> method = new ArrayList<>();
     private ArrayList<TickRegistory> animation = new ArrayList<>();
