@@ -1,13 +1,14 @@
 package codetoon.method;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.HashMap;
 import codetoon.system.*;
 import codetoon.map.*;
 import codetoon.main.*;
 import codetoon.argument.*;
 
-public class Connect extends MyMethod {
+public class Connect extends MyMethod implements Serializable {
     Memory memory;
     int pass = 0;
     @Override
