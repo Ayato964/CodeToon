@@ -115,15 +115,18 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     @Override
     public void connection(int password) {
-        System.out.println(serialID + "    " + Admin.getInstance().getSerialID());
         if(states == EnumMemoryStates.HACKED && serialID == Admin.getInstance().getSerialID()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
             Message.addMessage("このメモリーはハッキングされています！！", Color.RED);
             Message.addMessage("attack()で取り返してください", Color.RED);
 
-        }else{
-            connect(password);
+        }else {
+            if(serialID != Admin.getInstance().getSerialID()){
+                Message.addMessage("自分のメモリーではないため、接続できません。");
+            }else {
+                connect(password);
+            }
         }
     }
     private void connect(int password){
