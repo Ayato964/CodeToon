@@ -155,5 +155,18 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
 
-
+    public void recovering(int pass) {
+        if(serialID != Admin.getInstance().getSerialID() && states == EnumMemoryStates.HACKED){
+            if(pass == this.pass){
+                serialID = Admin.getInstance().getSerialID();
+                states = EnumMemoryStates.NONE;
+                method = new ArrayList<>();
+                source = new StringBuilder();
+            }else{
+                Message.addMessage("パスワードが間違っています", Color.BLACK);
+            }
+        }else {
+            Message.addMessage("リカバリーできません。", Color.BLACK);
+        }
+    }
 }
