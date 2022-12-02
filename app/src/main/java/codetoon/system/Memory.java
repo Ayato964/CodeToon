@@ -55,12 +55,16 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
     public void hacking(int pass){
-        if(pass == this.pass){
-            states = EnumMemoryStates.HACKED;
-            serialID = Admin.getInstance().getSerialID();
-            System.out.println("Hacked");
+        if(serialID != Admin.getInstance().getSerialID() && states != EnumMemoryStates.HACKED) {
+            if (pass == this.pass) {
+                states = EnumMemoryStates.HACKED;
+                serialID = Admin.getInstance().getSerialID();
+                //   System.out.println("Hacked");
+            } else {
+                Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
+            }
         }else{
-            Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
+            Message.addMessage("自分の陣地をハッキングするのは愚かなことです。");
         }
     }
 
