@@ -1,6 +1,5 @@
 package codetoon.variable;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import codetoon.system.*;
 import codetoon.argument.*;
@@ -34,10 +33,10 @@ public class MemoryVariable extends Variable<Memory> {
                     IntegerArgument.getInstance().indentification(i.get(1)) * size;
         if(i.get(2) != null) {
             if (i.get(2).equals("enemy")) {
-                returnMemory = Memorys.opponentMemory.get(num);
+                returnMemory = Memories.opponentMemory.get(num);
             }
         }else {
-            returnMemory = Memorys.memory.get(num);
+            returnMemory = Memories.memory.get(num);
         }
 
         return null;

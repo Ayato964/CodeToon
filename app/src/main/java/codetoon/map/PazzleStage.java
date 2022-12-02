@@ -59,12 +59,12 @@ public class PazzleStage extends Map{
       }
       public void setMemoryCapability(int size){
         this.size = size;
-        Memorys.setInstance(size, x, y, w, h);
+        Memories.setInstance(size, x, y, w, h);
       }
       public void display(Graphics g){
         
         for(int i = 0; i < size * size; i ++){
-            Memorys.get(i).display(g);
+            Memories.get(i).display(g);
         }
       
       }

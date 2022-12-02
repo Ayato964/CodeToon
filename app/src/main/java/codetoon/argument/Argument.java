@@ -2,7 +2,6 @@ package codetoon.argument;
 
 import java.util.HashMap;
 import codetoon.method.*;
-import codetoon.system.Memorys;
 import codetoon.variable.*;
 
 public abstract class Argument<T, I>  {

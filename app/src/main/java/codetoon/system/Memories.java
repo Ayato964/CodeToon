@@ -3,7 +3,7 @@ package codetoon.system;
 import java.util.ArrayList;
 import codetoon.variable.*;
 
-public class Memorys {
+public class Memories {
 
     public static ArrayList<Memory> memory;
     public static ArrayList<Memory> opponentMemory;

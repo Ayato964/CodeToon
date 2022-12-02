@@ -1,6 +1,6 @@
 package codetoon.server;
 import codetoon.system.Admin;
-import codetoon.system.Memorys;
+import codetoon.system.Memories;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -32,13 +32,13 @@ public class Reception extends Thread {
                 testClassWrapper _testWrapper = (testClassWrapper) in.readObject();
                 System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
                     if(isReturnReception){
-                        Memorys.memory =_testWrapper.memory;
+                        Memories.memory =_testWrapper.memory;
                     }else{
-                        Memorys.opponentMemory = _testWrapper.memory;
-                        System.out.println("Repaired!!" + Memorys.opponentMemory.get(0).showPass());
+                        Memories.opponentMemory = _testWrapper.memory;
+                        System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 
                     }
-                    System.out.println("receivedData: " + Memorys.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
+                    System.out.println("receivedData: " + Memories.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
             } catch (ClassNotFoundException e) {
           //      e.printStackTrace();
             }

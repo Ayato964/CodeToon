@@ -2,7 +2,6 @@ package codetoon.argument;
 
 import codetoon.method.*;
 import codetoon.system.Admin;
-import codetoon.system.Memorys;
 import codetoon.util.*;
 import codetoon.variable.*;
 
