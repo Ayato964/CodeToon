@@ -20,7 +20,7 @@ public class Connect extends MyMethod  {
     public String set(HashMap<Integer, String> map) {
         memory = (Memory)ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
         if(map.get(0) != null){
-            pass = IntegerArgument.getInstance().indentification(map.get(1)).intValue();
+            pass = IntegerArgument.getInstance().indentification(map.get(0)).intValue();
         }
         return null;
     }

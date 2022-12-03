@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CodeToon:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_26______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_26______.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_46______.xml" afterDir="false" />
+    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="System">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Connect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +71,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "アーティファクト",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
@@ -352,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670029019443</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="System">
+      <created>1670083178251</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1670083178251</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -383,6 +393,7 @@
     <MESSAGE value="敵のメモリーのステータスが EnumMemoryStates.NONEの時、connectで接続ができなくなった。" />
     <MESSAGE value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正" />
     <MESSAGE value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更" />
-    <option name="LAST_COMMIT_MESSAGE" value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更" />
+    <MESSAGE value="System" />
+    <option name="LAST_COMMIT_MESSAGE" value="System" />
   </component>
 </project>
