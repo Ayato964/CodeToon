@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="bug_fix">
+    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_26______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_26______.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_46______.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022_11_30_15_46______.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,24 +20,58 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CodeToon" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="3ee9c6b7-2fc7-4573-9ac8-d1f730d9f4f0" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2IFkjKIbHKjytz8XQQfCRMyyUmH" />
+  <component name="ProjectId" id="2HK6LN332cEIRGV7MV1soQaIrSC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/is-admin/Downloads/CodeToon&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "アーティファクト",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="codetoon.main.Main" />
@@ -50,43 +86,273 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="アプリケーション.Main" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="デフォルトタスク">
-      <changelist id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="" />
-      <created>1669784853977</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="" />
+      <created>1668021371964</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669784853977</updated>
+      <updated>1668021371964</updated>
     </task>
-    <task id="LOCAL-00001" summary="?">
-      <created>1669785088042</created>
+    <task id="LOCAL-00001" summary="Containerアップデート&#10;-デコレートパターンに変更&#10;&#10;InputTextBox.java&#10;テキストを代入できるボックスを追加">
+      <created>1668254075703</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1669785088042</updated>
+      <updated>1668254075703</updated>
     </task>
-    <task id="LOCAL-00002" summary="bug_fix">
-      <created>1669785280676</created>
+    <task id="LOCAL-00002" summary="JoinServerクラスでIPアドレスを指定することで、相手のPCに接続を試みるようになった。">
+      <created>1668363962526</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1669785280676</updated>
+      <updated>1668363962526</updated>
     </task>
-    <task id="LOCAL-00003" summary="bug_fix">
-      <created>1669787380681</created>
+    <task id="LOCAL-00003" summary="CodeToonのソースコードに新しい法則を追加。&#10;-INSIDE&#10;  *&quot;{}&quot;で括られた中のメソッドを、引数として扱うという法則。&#10; &#10; Loop.java&#10; -INSIDEを利用したコマンド&#10;   * 引数を整数とし、値の回数分INSIDEを実行する。(for文の簡易版みたいなもの)">
+      <created>1668434884440</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1669787380682</updated>
+      <updated>1668434884440</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Animation.java&#10;-アニメーション周りをBuilderパターンに置き換えた。">
+      <created>1669023910504</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669023910504</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Serverテスト">
+      <created>1669613298147</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669613298147</updated>
+    </task>
+    <task id="LOCAL-00006" summary="JoinServerにタイトルに戻る項目を追加。">
+      <created>1669615828418</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669615828418</updated>
+    </task>
+    <task id="LOCAL-00007" summary="JoinServerにタイトルに戻る項目を追加。">
+      <created>1669654248889</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669654248889</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ServerTest">
+      <created>1669654554360</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669654554360</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Test">
+      <created>1669789256979</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669789256979</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Test">
+      <created>1669789551458</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669789551458</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Test">
+      <created>1669790776271</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669790776271</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Test">
+      <created>1669791275362</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669791275363</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test">
+      <created>1669818657827</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669818657827</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Bug_fix">
+      <created>1669880106501</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669880106501</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Bug_fix">
+      <created>1669880239324</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669880239324</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Bug_fix">
+      <created>1669880427442</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669880427442</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Bug_fix">
+      <created>1669880793760</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669880793760</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Bug_fix">
+      <created>1669881111032</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669881111032</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Bug_fix">
+      <created>1669881424392</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669881424392</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Bug_fix">
+      <created>1669881530509</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669881530509</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Bug_fix">
+      <created>1669947061877</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1669947061877</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Bug_fix">
+      <created>1669947193343</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1669947193343</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Bug_fix">
+      <created>1669947587011</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1669947587011</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Bug_fix">
+      <created>1669947684625</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1669947684626</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Bug_fix">
+      <created>1669948011130</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669948011130</updated>
+    </task>
+    <task id="LOCAL-00026" summary="自分で自分のメモリーを更新した際、相手に情報が転送されない不具合を修正&#10;&#10;lockをかけたMemoryがハッキングされてしまうバグを修正">
+      <created>1669948224782</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669948224782</updated>
+    </task>
+    <task id="LOCAL-00027" summary="attackし、制圧完了したメモリーを再度attackすることができなくなった。">
+      <created>1669974968644</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669974968644</updated>
+    </task>
+    <task id="LOCAL-00028" summary="attackし、制圧完了したメモリーを再度attackすることができなくなった。&#10;&#10;Recovery.java&#10;-attackによって制圧されたメモリーを復旧するメソッド">
+      <created>1669975901944</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669975901944</updated>
+    </task>
+    <task id="LOCAL-00029" summary="bug">
+      <created>1670022854769</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1670022854769</updated>
+    </task>
+    <task id="LOCAL-00030" summary="attackし、制圧完了したメモリーを再度attackすることができなくなった。&#10;&#10;Recovery.java&#10;-attackによって制圧されたメモリーを復旧するメソッド">
+      <created>1670023316406</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1670023316406</updated>
+    </task>
+    <task id="LOCAL-00031" summary="敵のメモリーのステータスが EnumMemoryStates.NONEの時、connectで接続ができなくなった。">
+      <created>1670023904582</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670023904582</updated>
+    </task>
+    <task id="LOCAL-00032" summary="敵のメモリーのステータスが EnumMemoryStates.NONEの時、connectで接続ができなくなった。">
+      <created>1670025426257</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1670025426257</updated>
+    </task>
+    <task id="LOCAL-00033" summary="敵のメモリーのステータスが EnumMemoryStates.NONEの時、connectで接続ができなくなった。">
+      <created>1670026542392</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670026542392</updated>
+    </task>
+    <task id="LOCAL-00034" summary="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正">
+      <created>1670026741917</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670026741917</updated>
+    </task>
+    <task id="LOCAL-00035" summary="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更">
+      <created>1670029019443</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1670029019443</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,8 +367,22 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="?" />
-    <MESSAGE value="bug_fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug_fix" />
+    <MESSAGE value="Containerアップデート&#10;-デコレートパターンに変更&#10;&#10;InputTextBox.java&#10;テキストを代入できるボックスを追加" />
+    <MESSAGE value="JoinServerクラスでIPアドレスを指定することで、相手のPCに接続を試みるようになった。" />
+    <MESSAGE value="CodeToonのソースコードに新しい法則を追加。&#10;-INSIDE&#10;  *&quot;{}&quot;で括られた中のメソッドを、引数として扱うという法則。&#10; &#10; Loop.java&#10; -INSIDEを利用したコマンド&#10;   * 引数を整数とし、値の回数分INSIDEを実行する。(for文の簡易版みたいなもの)" />
+    <MESSAGE value="Animation.java&#10;-アニメーション周りをBuilderパターンに置き換えた。" />
+    <MESSAGE value="Serverテスト" />
+    <MESSAGE value="JoinServerにタイトルに戻る項目を追加。" />
+    <MESSAGE value="ServerTest" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Bug_fix" />
+    <MESSAGE value="自分で自分のメモリーを更新した際、相手に情報が転送されない不具合を修正&#10;&#10;lockをかけたMemoryがハッキングされてしまうバグを修正" />
+    <MESSAGE value="attackし、制圧完了したメモリーを再度attackすることができなくなった。" />
+    <MESSAGE value="bug" />
+    <MESSAGE value="attackし、制圧完了したメモリーを再度attackすることができなくなった。&#10;&#10;Recovery.java&#10;-attackによって制圧されたメモリーを復旧するメソッド" />
+    <MESSAGE value="敵のメモリーのステータスが EnumMemoryStates.NONEの時、connectで接続ができなくなった。" />
+    <MESSAGE value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正" />
+    <MESSAGE value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更" />
+    <option name="LAST_COMMIT_MESSAGE" value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更" />
   </component>
 </project>
