@@ -21,7 +21,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     public int counter = 0;
-    private String name = "Memory";
+    private final String name = "Memory";
     private boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idI, int idC){
@@ -70,14 +70,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
     public void display(Graphics g){
-
         g.setColor(states.getColor());
-        if(idI == 0 &&idC == 0){
-       //     System.out.println(color);
-        }
-      g.fillRect(x, y, w, h);
-      g.setColor(Color.BLACK);
-      g.drawRect(x, y, w, h);
+        g.fillRect(x, y, w, h);
+        g.setColor(Color.BLACK);
+        g.drawRect(x, y, w, h);
     }
 
     @Override
@@ -96,6 +92,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         console.setHost(Admin.getInstance());
         source = Indentification.removeEnd(source);
         this.source = source;
+        if(source.isEmpty()){
+            states = EnumMemoryStates.NONE;
+        }else{
+            states = EnumMemoryStates.USED;
+        }
+
         console.panel.resetAll();
         Server.server.sendOpponentCopy();
         Server.server.sendMyCopy();
@@ -141,13 +143,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
         }
     }
-    @Override
-    public void setRunMethod(ArrayList<MyMethod> m) {
-        super.setRunMethod(m);
-        if(states != EnumMemoryStates.HACKED) {
-            states = EnumMemoryStates.USED;
-        }
-    }
+
 
     @Override
     public boolean isClient() {
