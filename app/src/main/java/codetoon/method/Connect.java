@@ -18,8 +18,8 @@ public class Connect extends MyMethod  {
 
     @Override
     public String set(HashMap<Integer, String> map) {
-        memory = (Memory)ObjectArgument.getInstance().indentification(map.get(0));
-        if(map.get(1) != null){
+        memory = (Memory)ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
+        if(map.get(0) != null){
             pass = IntegerArgument.getInstance().indentification(map.get(1)).intValue();
         }
         return null;

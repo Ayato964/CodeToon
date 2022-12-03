@@ -104,7 +104,12 @@ public class Indentification{
         StringBuilder m = new StringBuilder();
         for(int i = 0; b.charAt(i) != '('; i ++){
             if(b.charAt(i) == '.'){
-                parsent = m;
+                if(parsent == null) {
+                    parsent = m;
+                }else{
+                    parsent.append('.');
+                    parsent.append(m);
+                }
                 m = new StringBuilder();
             }else {
                 m.append(b.charAt(i));

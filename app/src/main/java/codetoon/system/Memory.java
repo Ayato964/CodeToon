@@ -95,7 +95,9 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if(source.isEmpty()){
             states = EnumMemoryStates.NONE;
         }else{
-            states = EnumMemoryStates.USED;
+            if(states != EnumMemoryStates.HACKED){
+                states = EnumMemoryStates.USED;
+            }
         }
 
         console.panel.resetAll();
