@@ -28,6 +28,9 @@ public class Attack extends MyMethod{
     public String set(@NotNull HashMap<Integer, String> map)
     {
         enemy = (Memory) ObjectArgument.getInstance().indentification(map.get(0));
+        if(map.get(1) != null){
+            pass = IntegerArgument.getInstance().indentification(map.get(1));
+        }
 
         return null;
     }
