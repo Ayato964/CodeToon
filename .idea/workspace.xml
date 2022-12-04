@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="Boolean アップデート&#10;命題論理を解く、String -&gt; Booleanに変換するプログラムを作成。&#10;&#10;BooleanArgumet.java&#10; &gt; &lt; &lt;= &gt;= == &amp;&amp; || に対応、複雑な論理式でも対応できるようになった。&#10; &#10; ＊()による優先探査やNot回路「!」は非対応">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/If.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/BooleanArgumet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/BooleanArgumet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/ObjectArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/ObjectArgument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/CodeToon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/CodeToon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Methods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670085784369</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Boolean アップデート&#10;命題論理を解く、String -&gt; Booleanに変換するプログラムを作成。&#10;&#10;BooleanArgumet.java&#10; &gt; &lt; &lt;= &gt;= == &amp;&amp; || に対応、複雑な論理式でも対応できるようになった。&#10; &#10; ＊()による優先探査やNot回路「!」は非対応">
+      <created>1670114325060</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1670114325060</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,6 +418,7 @@
     <MESSAGE value="System" />
     <MESSAGE value="Connectで正しくメモリーにアクセスできなかったバグを修正" />
     <MESSAGE value="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正" />
+    <MESSAGE value="Boolean アップデート&#10;命題論理を解く、String -&gt; Booleanに変換するプログラムを作成。&#10;&#10;BooleanArgumet.java&#10; &gt; &lt; &lt;= &gt;= == &amp;&amp; || に対応、複雑な論理式でも対応できるようになった。&#10; &#10; ＊()による優先探査やNot回路「!」は非対応" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boolean アップデート&#10;命題論理を解く、String -&gt; Booleanに変換するプログラムを作成。&#10;&#10;BooleanArgumet.java&#10; &gt; &lt; &lt;= &gt;= == &amp;&amp; || に対応、複雑な論理式でも対応できるようになった。&#10; &#10; ＊()による優先探査やNot回路「!」は非対応" />
   </component>
 </project>

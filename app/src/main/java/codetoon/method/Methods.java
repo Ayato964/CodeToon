@@ -18,6 +18,7 @@ public class Methods {
     public static RegistoryObject<MyMethod> Attack = METHODS.createRegistory("method_attack", Attack::new);
     public static RegistoryObject<MyMethod> PRINTBOOL = METHODS.createRegistory("method_printBool", PrintBool::new);
     public static RegistoryObject<MyMethod> RECOVERY = METHODS.createRegistory("method_recovery", Recovery::new);
+    public static RegistoryObject<MyMethod> IF = METHODS.createRegistory("method_if", If::new);
 
 }
 
