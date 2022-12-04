@@ -15,10 +15,9 @@ public class BooleanArgumet extends Argument<Boolean, String>{
     }
 
     public static BooleanArgumet getInstance() {
-        return INSTANCE;
+        return new BooleanArgumet();
     }
-
-    private Boolean getInBrackets(StringBuilder s) {
+    private StringBuilder getCalcAnd(StringBuilder s){
         boolean before;
         boolean after;
         int bracketCount = 0;
@@ -38,17 +37,65 @@ public class BooleanArgumet extends Argument<Boolean, String>{
             if(s.charAt(i) == '&'){
                 if(isBooleanAnd(s.substring(i, i + 2)) && !isBracket){
                     before = getUnderBool(s, i - 1);
-                    after = getUpperBool(s, i + 2 - begin);
+                    System.out.println("Before::" + before);
+                    after = getUpperBool(s, i + 1 - begin);
+                    System.out.println("After::" + after);
                     if(before && after){
-                        s.replace(i - begin, i + 1 - begin, "true");
+                        s.replace(i - begin - 1, i + 1 - begin, "true");
+                        System.out.println("Answer:" + s);
                     }else{
-                        s.replace(i - begin, i + 1 - begin, "false");
+                        s.replace(i - begin - 1, i + 1 - begin, "false");
+                        System.out.println("Answer:" + s);
                     }
                 }
                 i = 0;
                 begin = 0;
             }
         }
+        return s;
+    }
+    private StringBuilder getCalcOr(StringBuilder s){
+        boolean before;
+        boolean after;
+        int bracketCount = 0;
+        boolean isBracket = false;
+        for(int i = 0; i < s.length() - 1; i ++){
+            if(s.charAt(i) == '('){
+                isBracket = true;
+                bracketCount ++;
+            }
+            if(s.charAt(i) == ')'){
+                bracketCount --;
+                if(bracketCount == 0)
+                    isBracket = false;
+            }
+
+            /** && is must **/
+            if(s.charAt(i) == '|'){
+               // System.out.println("isOR");
+                if(isBooleanOR(s.substring(i, i + 2)) && !isBracket){
+                    before = getUnderBool(s, i - 1);
+                    System.out.println("Before::" + before);
+                    after = getUpperBool(s, i + 1 - begin);
+                    System.out.println("After::" + after);
+                    if(before || after){
+                        s.replace(i - begin - 1, i + 1 - begin, "true");
+                        System.out.println("Answer:" + s);
+                    }else{
+                        s.replace(i - begin - 1, i + 1  - begin, "false");
+                        System.out.println("Answer:" + s);
+                    }
+                }
+                i = 0;
+                begin = 0;
+            }
+        }
+        return s;
+    }
+    private Boolean getInBrackets(StringBuilder s) {
+        s = getCalcAnd(s);
+        System.out.println(s);
+        s = getCalcOr(s);
         return getBoolean(s);
     }
     private boolean getUpperBool(StringBuilder s, int count) {
@@ -74,13 +121,14 @@ public class BooleanArgumet extends Argument<Boolean, String>{
                 }
                 bracketCount --;
             }else{
-                s.delete(count, i-1);
                 break;
             }
         }
         if(end != 0){
-            return getInBrackets(new StringBuilder().append(s.substring(begin, end)));
+            return new BooleanArgumet().indentification(s.substring(begin, end));
         }
+        s.delete(count, count + b.length());
+        System.out.println(s);
         return getBoolean(b);
     }
 
@@ -116,9 +164,10 @@ public class BooleanArgumet extends Argument<Boolean, String>{
             c = i;
         }
         if(end != 0){
-            return getInBrackets(new StringBuilder().append(s.substring(begin, end)));
+            return new BooleanArgumet().indentification(s.substring(begin, end));
         }
-        s.delete(c, count);
+        s.delete(c, count + 1);
+        System.out.println(s);
         this.begin = count - c;
 
         b = getSortUnderToUpper(b);
@@ -126,7 +175,7 @@ public class BooleanArgumet extends Argument<Boolean, String>{
     }
 
     private boolean getBoolean(StringBuilder s) {
-        for(int i = 0; i < s.length(); i ++){
+        for(int i = 0; i < s.length() - 1; i ++){
             if (isBooleanOperater(s.substring(i, i + 2))) {
                 if(s.substring(i, i + 2).equals("<=")) {
                     return (Integer) this.getValue(s, 0) <= (Integer) this.getValue(s, i + 2);
@@ -164,7 +213,7 @@ public class BooleanArgumet extends Argument<Boolean, String>{
     private Object getValue(StringBuilder b, int i) {
         StringBuilder value = new StringBuilder();
         for (int c = i; c < b.length(); c++) {
-            if (!(isBooleanOperater(b.charAt(c)) || (c + 1 >= b.length() ? false : isBooleanOperater(b.substring(c, c + 2))))) {
+            if (!(isBooleanOperater(b.charAt(c)) || (c + 1 < b.length() && isBooleanOperater(b.substring(c, c + 2))))) {
                 value.append(b.charAt(c));
             }else{
                 break;
@@ -211,6 +260,9 @@ public class BooleanArgumet extends Argument<Boolean, String>{
 
     private boolean isBooleanAnd(String s) {
         return s.equals("&&");
+    }
+    private boolean isBooleanOR(String s){
+        return s.equals("||");
     }
 
 }

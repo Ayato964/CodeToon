@@ -54,6 +54,6 @@ public class ObjectArgument extends Argument<Object, String> {
     }
 
     public static ObjectArgument getInstance() {
-        return instance;
+        return new ObjectArgument();
     }
 }

@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class CodeToon {
     public static boolean isGameStart = false;
+    public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
     public static final int INSIDE_METHODS = 192010;
 

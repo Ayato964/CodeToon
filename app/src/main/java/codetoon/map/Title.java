@@ -30,11 +30,12 @@ public class Title extends Map{
 
               break;
           case 2: System.exit(0); break;
+            case 3:CodeToon.DEBUG = true;Main.getInstance().run(new PazzleStage(5));
         }
       }
       @Override
       public int getCount(){
-        return 3;
+        return 4;
       }
       @Override
       public Box set(Integer i){
@@ -42,6 +43,7 @@ public class Title extends Map{
             case 0-> new DrawingTextBox("新規でセッションを作成する");
             case 1-> new DrawingTextBox("既存セッションに参加する");
             case 2-> new DrawingTextBox("終わる");
+            case 3-> new DrawingTextBox("デバッグする");
             default-> null;
         };
       }

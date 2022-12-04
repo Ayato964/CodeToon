@@ -9,8 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="Connectで正しくメモリーにアクセスできなかったバグを修正">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Attack.java" afterDir="false" />
+    <list default="true" id="43c07369-dada-49ec-87e1-711ac00717e5" name="Changes" comment="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/BooleanArgumet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/BooleanArgumet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/ObjectArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/ObjectArgument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/CodeToon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/CodeToon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,16 +72,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "アーティファクト",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;アーティファクト&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="codetoon.main.Main" />
@@ -368,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670085255858</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正">
+      <created>1670085784369</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670085784369</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,6 +416,7 @@
     <MESSAGE value="メソッドをnullにしたとき、StatesがUSEDからNONEに変わらない不具合を修正&#10;Connect.java&#10;-メソッドの定義を変更" />
     <MESSAGE value="System" />
     <MESSAGE value="Connectで正しくメモリーにアクセスできなかったバグを修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connectで正しくメモリーにアクセスできなかったバグを修正" />
+    <MESSAGE value="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attackでロックがかかっているメモリーにアクセスする際、謎のエラーが出ていた不具合を修正" />
   </component>
 </project>

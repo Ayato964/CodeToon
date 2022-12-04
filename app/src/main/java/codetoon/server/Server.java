@@ -1,4 +1,5 @@
 package codetoon.server;
+import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
@@ -111,28 +112,31 @@ public class Server implements Runnable {
     }
 
     public void sendMyCopy() {
+        if(!CodeToon.DEBUG) {
+            try {
+                testClassWrapper testWrapper = new testClassWrapper(Memories.memory);
+                myOutStream.reset();
+                System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).showPass());
+                myOutStream.writeObject(testWrapper);
 
-        try {
-            testClassWrapper testWrapper = new testClassWrapper(Memories.memory);
-            myOutStream.reset();
-            System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).showPass());
-            myOutStream.writeObject(testWrapper);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void sendOpponentCopy() {
-        try {
-            testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory);
-            opponentOutStream.reset();
-            System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
-            System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
-            opponentOutStream.writeObject(testWrapper);
+        if(!CodeToon.DEBUG) {
+            try {
+                testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory);
+                opponentOutStream.reset();
+                System.out.println(testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter);
+                System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).counter + "    " + testWrapper.memory.get(0).isClient());
+                opponentOutStream.writeObject(testWrapper);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

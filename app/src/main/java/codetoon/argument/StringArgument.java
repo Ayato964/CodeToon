@@ -25,6 +25,6 @@ public class StringArgument extends Argument<String, String> {
     }
 
     public static StringArgument getInstance() {
-        return instance;
+        return new StringArgument();
     }
 }
