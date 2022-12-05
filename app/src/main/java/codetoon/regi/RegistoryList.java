@@ -18,8 +18,31 @@ public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, Strin
         registory.add(obj);
         return obj;
     }
-    public String getID(){
-        return ID;
+    public boolean search(String s){
+        for(int i = 0; i < registory.size(); i ++){
+            if(registory.get(i).getID().equals(s)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public void deleteAll(String id){
+        for(int i = 0; i < registory.size(); i ++){
+            if(isInClude(registory.get(i).getID(), id)){
+                registory.remove(i);
+                i = 0;
+            }
+        }
+    }
+    private boolean isInClude(String id, String search){
+        StringBuilder s = new StringBuilder();
+        for(int i = 0; i < id.length(); i ++){
+            s.append(id.charAt(i));
+            if(s.toString().equals(search)){
+                return true;
+            }
+        }
+        return false;
     }
     public T get(String id){
         for(int i = 0; i < registory.size(); i ++){

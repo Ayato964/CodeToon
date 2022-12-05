@@ -5,6 +5,7 @@ import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.server.Server;
 import codetoon.util.TickRegistory;
+import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -41,6 +42,7 @@ public class Admin extends Player implements Serializable {
         setRunMethod(methods);
         run();
         console.panel.resetAll();
+        Variables.VARIABLE.deleteAll("variable_" + getID());
         Server.server.sendMyCopy();
         Server.server.sendOpponentCopy();
     }
