@@ -23,15 +23,7 @@ public class IntegerArgument extends Argument<Integer, String> {
         if(isAllInteger){
             return Integer.parseInt(i);
         }else{
-            Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
-            String variable_ID = p.getID() + "_" + i;
-            System.out.println(variable_ID);
-            if(Variables.VARIABLE.search("variable_" + variable_ID)){
-                Variable<?> re =  Variables.VARIABLE.get("variable_" + variable_ID);
-                return (Integer) re.action();
-            }else {
-                return NOT_ARGUMENT;
-            }
+           return convertVariableTo(i) == null ? NOT_ARGUMENT : convertVariableTo(i);
         }
     }
     @Contract(pure = true)

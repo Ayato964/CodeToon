@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="bug_fix">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/PrintInt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/variable/CustomVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/variable/VariableMode.java" afterDir="false" />
+    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/regi/RegistoryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/regi/RegistoryList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/Argument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669787380682</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス">
+      <created>1670273744763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670273744763</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +118,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="?" />
     <MESSAGE value="bug_fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug_fix" />
+    <MESSAGE value="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス" />
+    <option name="LAST_COMMIT_MESSAGE" value="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス" />
   </component>
 </project>

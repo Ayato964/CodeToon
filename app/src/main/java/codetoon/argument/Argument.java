@@ -1,7 +1,11 @@
 package codetoon.argument;
 
 import java.util.HashMap;
+
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.method.*;
+import codetoon.system.Player;
 import codetoon.variable.*;
 
 public abstract class Argument<T, I>  {
@@ -31,6 +35,17 @@ public abstract class Argument<T, I>  {
         }
 
         return Methods.METHODS.get("method_" + builder.toString());
+    }
+    public T convertVariableTo(String s){
+        Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
+        String variable_ID = p.getID() + "_" + s;
+        System.out.println(variable_ID);
+        if(Variables.VARIABLE.search("variable_" + variable_ID)){
+            Variable<?> re =  Variables.VARIABLE.get("variable_" + variable_ID);
+            return (T) re.action();
+        }else{
+            return null;
+        }
     }
     protected Variable<?> isArgument(StringBuilder data){
         StringBuilder builder = new StringBuilder();

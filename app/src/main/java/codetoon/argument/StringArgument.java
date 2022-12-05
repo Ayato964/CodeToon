@@ -1,5 +1,8 @@
 package codetoon.argument;
 
+import codetoon.variable.Variable;
+import codetoon.variable.Variables;
+
 public class StringArgument extends Argument<String, String> {
     private static final StringArgument instance= new StringArgument();
     private StringArgument(){}
@@ -9,7 +12,7 @@ public class StringArgument extends Argument<String, String> {
         if(builder.charAt(0) == '\"'){
              return convertStringAll(builder);
         }else{
-            return null;
+            return convertVariableTo(s);
         }
     }
 
