@@ -1,5 +1,8 @@
 package codetoon.variable;
 
+import codetoon.argument.IntegerArgument;
+import codetoon.argument.StringArgument;
+
 import java.util.HashMap;
 
 public class CustomVariable<T> extends Variable<T>{
@@ -13,7 +16,13 @@ public class CustomVariable<T> extends Variable<T>{
     }
 
     @Override
-    public String set(HashMap<Integer, String> integerStringHashMap) {
+    public String set(HashMap<Integer, String> map) {
+        if(obj instanceof Integer){
+            obj = (T) IntegerArgument.getInstance().indentification(map.get(0));
+        }
+        if(obj instanceof String){
+            obj = (T) StringArgument.getInstance().indentification(map.get(0));
+        }
         return null;
     }
 

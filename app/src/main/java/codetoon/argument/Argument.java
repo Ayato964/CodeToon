@@ -41,7 +41,7 @@ public abstract class Argument<T, I>  {
         String variable_ID = p.getID() + "_" + s;
         System.out.println(variable_ID);
         if(Variables.VARIABLE.search("variable_" + variable_ID)){
-            Variable<?> re =  Variables.VARIABLE.get("variable_" + variable_ID);
+            Variable<?> re =  Variables.VARIABLE.getThis("variable_" + variable_ID);
             return (T) re.action();
         }else{
             return null;

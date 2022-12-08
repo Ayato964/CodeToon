@@ -53,4 +53,13 @@ public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, Strin
         return null;
 
     }
+    public T getThis(String id){
+        for(int i = 0; i < registory.size(); i ++){
+            if(id.equals(registory.get(i).getID())){
+                return  (T) registory.get(i).get();
+            }
+        }
+        return null;
+
+    }
 }

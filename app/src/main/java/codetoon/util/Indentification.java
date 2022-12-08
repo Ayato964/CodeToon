@@ -173,11 +173,11 @@ public class Indentification{
         }
         Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
         String variable_ID = p.getID() + "_" + variable_name;
-        System.out.println("variable_" + variable_ID);
-        if(Variables.VARIABLE.search(variable_ID)){
+        System.out.println("variable_" + variable_ID + "   value:" + variable);
+        if(Variables.VARIABLE.search("variable_" + variable_ID)){
             HashMap<Integer, String> h = new HashMap<>();
             h.put(0, variable.toString());
-            Variables.VARIABLE.get(variable_ID).set(h);
+            Variables.VARIABLE.getThis("variable_" + variable_ID).set(h);
         }else {
             switch (states) {
                 case INT:

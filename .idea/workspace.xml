@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス">
+    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="String型の変数に対応した。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/Argument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/StringArgument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/argument/IntegerArgument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/regi/RegistoryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/regi/RegistoryList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/variable/CustomVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/variable/CustomVariable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670273744763</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="String型の変数に対応した。">
+      <created>1670274613856</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670274613856</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +129,7 @@
     <MESSAGE value="?" />
     <MESSAGE value="bug_fix" />
     <MESSAGE value="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス" />
-    <option name="LAST_COMMIT_MESSAGE" value="変数アップデート&#10;*変数の概念を追加&#10;*Integer型の変数を追加&#10;&#10;CustomVariable.java&#10;*変数を保管するクラス" />
+    <MESSAGE value="String型の変数に対応した。" />
+    <option name="LAST_COMMIT_MESSAGE" value="String型の変数に対応した。" />
   </component>
 </project>

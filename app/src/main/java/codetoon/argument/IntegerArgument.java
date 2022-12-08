@@ -1,12 +1,5 @@
 package codetoon.argument;
 
-import codetoon.main.Main;
-import codetoon.map.PazzleStage;
-import codetoon.regi.RegistoryList;
-import codetoon.system.Player;
-import codetoon.variable.CustomVariable;
-import codetoon.variable.Variable;
-import codetoon.variable.Variables;
 import org.jetbrains.annotations.Contract;
 
 public class IntegerArgument extends Argument<Integer, String> {
