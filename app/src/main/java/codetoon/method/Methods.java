@@ -14,11 +14,17 @@ public class Methods {
     public static RegistoryObject<MyMethod> REMOVE = METHODS.createRegistory("method_remove", Remove::new);
 
     public static RegistoryObject<MyMethod> CALC = METHODS.createRegistory("method_calc", Calc::new);
+
     public static RegistoryObject<MyMethod> Lock = METHODS.createRegistory("method_lock", Lock::new);
+
     public static RegistoryObject<MyMethod> Attack = METHODS.createRegistory("method_attack", Attack::new);
+
     public static RegistoryObject<MyMethod> PRINTBOOL = METHODS.createRegistory("method_printBool", PrintBool::new);
+
     public static RegistoryObject<MyMethod> PRINTINT = METHODS.createRegistory("method_printInt", PrintInt::new);
+
     public static RegistoryObject<MyMethod> RECOVERY = METHODS.createRegistory("method_recovery", Recovery::new);
+
     public static RegistoryObject<MyMethod> IF = METHODS.createRegistory("method_if", If::new);
 
 }

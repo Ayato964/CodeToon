@@ -8,5 +8,6 @@ import codetoon.argument.StringArgument;
 public enum VariableMode {
     STRING,
     INT,
+    NONE,
     BOOLEAN;
 }

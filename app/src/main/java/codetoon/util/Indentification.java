@@ -18,6 +18,8 @@ import codetoon.variable.Variables;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import static codetoon.variable.VariableMode.NONE;
+
 public class Indentification{
     private static final Indentification instance = new Indentification();
     StringBuilder program;
@@ -117,7 +119,8 @@ public class Indentification{
        // System.out.println(programs !=  null ? programs.get(0) : "None Method");
         
     }
-    private boolean isMethod(@NotNull StringBuilder s){
+    private boolean isMethod(@NotNull StringBuilder builder){
+        StringBuilder s = new StringBuilder().append(builder);
         boolean a = false;
         StringBuilder t = new StringBuilder();
         for(int i = 0; i < s.length(); i ++){
@@ -142,64 +145,66 @@ public class Indentification{
         //System.out.println(t);
         return a;
     }
-    public static void convertVariable(String s){
+    public static void convertVariable(String s) {
         StringBuilder variable = new StringBuilder().append(s);
         String variable_name = "";
-        VariableMode states = null;
-        for(int i = 0; i < variable.length(); i ++){
-
-            if(variable.substring(0, i).equals("String")){
+        VariableMode states = NONE;
+        for (int i = 0; i < variable.length(); i++) {
+            if (variable.substring(0, i).equals("String")) {
                 states = VariableMode.STRING;
                 variable.delete(0, i);
                 i = 0;
 
             }
-            if(variable.substring(0, i).equals("int")){
+            if (variable.substring(0, i).equals("int")) {
                 states = VariableMode.INT;
                 variable.delete(0, i);
                 i = 0;
             }
-            if(variable.substring(0, i).equals("boolean")){
+            if (variable.substring(0, i).equals("boolean")) {
                 states = VariableMode.BOOLEAN;
                 variable.delete(0, i);
                 i = 0;
             }
-
-            if(variable.charAt(i) == '='){
+            if (variable.charAt(i) == '=') {
                 variable_name = variable.substring(0, i);
                 variable.delete(0, i + 1);
                 i = 0;
             }
         }
-        Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
-        String variable_ID = p.getID() + "_" + variable_name;
-        System.out.println("variable_" + variable_ID + "   value:" + variable);
-        if(Variables.VARIABLE.search("variable_" + variable_ID)){
-            HashMap<Integer, String> h = new HashMap<>();
-            h.put(0, variable.toString());
-            Variables.VARIABLE.getThis("variable_" + variable_ID).set(h);
-        }else {
-            switch (states) {
-                case INT:
-                    Variables.createVariable(variable_ID, () ->
-                            new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(
-                                    variable.toString())));
-                    break;
-                case STRING:
-                    Variables.createVariable(variable_ID, () ->
-                            new CustomVariable<String>(StringArgument.getInstance().indentification(variable.toString())));
-                    break;
-                case BOOLEAN:
-                    Variables.createVariable(variable_ID, () ->
-                            new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable.toString())));
-                    break;
+        if (states == NONE) {
+
+        } else {
+            Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
+            String variable_ID = p.getID() + "_" + variable_name;
+            System.out.println("variable_" + variable_ID + "   value:" + variable);
+            if (Variables.VARIABLE.search("variable_" + variable_ID)) {
+                HashMap<Integer, String> h = new HashMap<>();
+                h.put(0, variable.toString());
+                Variables.VARIABLE.getThis("variable_" + variable_ID).set(h);
+            } else {
+                switch (states) {
+                    case INT:
+                        Variables.createVariable(variable_ID, () ->
+                                new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(
+                                        variable.toString())));
+                        break;
+                    case STRING:
+                        Variables.createVariable(variable_ID, () ->
+                                new CustomVariable<String>(StringArgument.getInstance().indentification(variable.toString())));
+                        break;
+                    case BOOLEAN:
+                        Variables.createVariable(variable_ID, () ->
+                                new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable.toString())));
+                        break;
+                }
             }
         }
     }
     private String getMethodName(StringBuilder b){
         StringBuilder m = new StringBuilder();
         for(int i = 0; b.charAt(i) != '('; i ++){
-
+            System.out.print(b.charAt(i));
             m.append(b.charAt(i));
         }
         return m.toString();

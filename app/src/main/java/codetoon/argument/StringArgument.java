@@ -1,7 +1,5 @@
 package codetoon.argument;
 
-import codetoon.variable.Variable;
-import codetoon.variable.Variables;
 
 public class StringArgument extends Argument<String, String> {
     private static final StringArgument instance= new StringArgument();
