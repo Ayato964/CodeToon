@@ -119,8 +119,7 @@ public class Indentification{
        // System.out.println(programs !=  null ? programs.get(0) : "None Method");
         
     }
-    private boolean isMethod(@NotNull StringBuilder builder){
-        StringBuilder s = new StringBuilder().append(builder);
+    private boolean isMethod(@NotNull StringBuilder s){
         boolean a = false;
         StringBuilder t = new StringBuilder();
         for(int i = 0; i < s.length(); i ++){
@@ -138,6 +137,7 @@ public class Indentification{
                 if(Methods.METHODS.get("method_" + t.toString()) != null){
                     a = true;
                 }
+                break;
             }else{
                 t.append(s.charAt(i));
             }
