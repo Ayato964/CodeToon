@@ -11,11 +11,18 @@ public class Fade implements Decorate{
     private boolean isIn;
     double count = 0;
     public Fade( double fadeIn, double fadeOut) {
+        if(fadeIn == -1){
+            fadeIn = 0;
+        }
+        if(fadeOut == -1){
+            fadeOut = 999999;
+        }
         this.fadeIn = fadeIn * 100;
         this.fadeOut = fadeOut * 100;
-        inGage  = 255 / (15 / fadeIn);
-        outGage = 255 / (15 /fadeOut);
+        inGage = 255 / (15 / fadeIn);
+        outGage = 255 / (15 / fadeOut);
         isIn = true;
+
     }
 
     @Override

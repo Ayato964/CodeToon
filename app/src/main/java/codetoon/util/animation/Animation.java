@@ -44,6 +44,9 @@ public abstract class Animation {
     public static @NotNull AnimationText create(Graphics g) {
         return new AnimationText(g);
     }
+    public static @NotNull AnimationImage createImage(Graphics g){
+        return new AnimationImage(g);
+    }
     public abstract void draw();
 
     public static class Properties implements IsTick {

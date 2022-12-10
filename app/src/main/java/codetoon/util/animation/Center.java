@@ -15,9 +15,17 @@ public class Center implements Decorate{
     @Override
     public void displayAction(Animation.Properties properties, @NotNull Graphics g) {
         int DW = (int) Main.DESCTOP_BOUNDS.getWidth();
-        int strLength = stringWidth(((AnimationText)properties.getAnimation()).getMsg(), g);
         int center = DW / 2;
-        properties.getAnimation().setX((center - strLength / 2) / Main.DW);
+
+        if(properties.getAnimation() instanceof AnimationText) {
+            int strLength = stringWidth(((AnimationText) properties.getAnimation()).getMsg(), g);
+            properties.getAnimation().setX((center - strLength / 2) / Main.DW);
+        }
+        if(properties.getAnimation() instanceof AnimationImage){
+            AnimationImage ai = (AnimationImage) properties.getAnimation();
+
+            properties.getAnimation().setX((center - ai.getW() * Main.DW / 2) / Main.DW);
+        }
 
     }
     private int stringWidth(String str, Graphics g){

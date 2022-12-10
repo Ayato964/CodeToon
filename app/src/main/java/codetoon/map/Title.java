@@ -13,7 +13,7 @@ import java.awt.*;
 public class Title extends Map{
     private ContainerBox box;
     public Title(){
-    box = new ContainerBox(60, 40, 70, 40, new ContainerData<Box, Integer>(){
+    box = new ContainerBox(60, 70, 70, 40, new ContainerData<Box, Integer>(){
       @Override
       public void action(int i){
         switch(i){
@@ -52,17 +52,8 @@ public class Title extends Map{
 
     @Override
     public void setup(Graphics h) {
-        box.draw();
-        Animation.create(h).draw("CODETOON Ver 1.0", 10,   10,
-                new Animation.Properties()
-                        .font("", Font.ITALIC, 60)
-                        .center()
-        );
-         Animation.create(h).draw("Test Animation ", 30, 30,
-                 new Animation.Properties()
-                         .size(60)
-                         .center()
-                 );
+        Animation.createImage(h).draw("title/title", 30, 0, 80, 80, new Animation.Properties().center().fade(2, -1));
+         box.draw();
     }
     public void display(Graphics g){
         box.draw();
