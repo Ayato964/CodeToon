@@ -4,13 +4,20 @@ import java.awt.*;
 import java.io.Serializable;
 
 public abstract class AbstractLockerPlayer extends Player implements Serializable {
+    public int serialID;
     //SUCSESS
     protected int pass = 0;
     public void setPassWord(int pass, int old_pass) {
-        if(this.pass == old_pass){
-            this.pass = pass;
+        if(Admin.getInstance().getSerialID() == serialID) {
+            if (this.pass == old_pass) {
+                this.pass = pass;
+
+                Message.addMessage(getName() + "に" + pass + "のパスワードを設定しました。", Color.RED);
+            } else {
+                Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
+            }
         }else{
-            Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
+            Message.addMessage(Admin.getInstance().getName() + "が所有しているメモリーではないため、パスワードを変更できません。");
         }
     }
 

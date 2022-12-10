@@ -12,7 +12,7 @@ public class Memories {
         memory = new ArrayList<>();
         for(int i = 0; i < size; i ++){
           for(int c = 0; c < size; c ++){
-            Memory t = new Memory(x + c * (w / size), y + i * (h / size), w / size, h / size, c, i);
+            Memory t = new Memory(x + i * (w / size), y + c * (h / size), w / size, h / size, i, c);
             
             memory.add(t);
           }

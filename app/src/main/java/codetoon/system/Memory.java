@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Memory extends AbstractLockerPlayer implements Serializable{
-    public int serialID;
+   // public int serialID;
     private StringBuilder source = null;
     EnumMemoryStates states;
     int x, y, w, h, idI, idC;
@@ -25,7 +25,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     private final String name = "Memory";
     private boolean isHostMemory;
 
-    public Memory(int x, int y, int w, int h, int idI, int idC){
+    public Memory(int x, int y, int w, int h, int idC, int idI){
         serialID = Admin.getInstance().getSerialID();
         isHostMemory = Server.isHost;
         states = EnumMemoryStates.NONE;

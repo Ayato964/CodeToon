@@ -39,7 +39,6 @@ public class Lock extends MyMethod{
     public void action(int i) {
         if(parcent != null){
             parcent.setPassWord(pass, parcent_pass);
-            Message.addMessage(parcent.getName() + "に" + pass + "のパスワードを設定しました。", Color.RED);
 
         }
     }
