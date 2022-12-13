@@ -40,10 +40,10 @@ public class Title extends Map{
       @Override
       public Box set(Integer i){
         return switch (i.intValue()) {
-            case 0-> new DrawingTextBox("新規でセッションを作成する");
-            case 1-> new DrawingTextBox("既存セッションに参加する");
-            case 2-> new DrawingTextBox("終わる");
-            case 3-> new DrawingTextBox("デバッグする");
+            case 0-> new DrawingTextBox("title.chooser1");
+            case 1-> new DrawingTextBox("title.chooser2");
+            case 2-> new DrawingTextBox("title.chooser3");
+            case 3-> new DrawingTextBox("title.chooser4");
             default-> null;
         };
       }

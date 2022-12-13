@@ -1,6 +1,7 @@
 package codetoon.util.animation;
 
 import codetoon.main.Main;
+import codetoon.util.lang.LangLoader;
 
 import java.awt.*;
 
@@ -21,7 +22,9 @@ public class AnimationText extends Animation{
     public void draw(String str, int x, int y, Properties properties){
         super.setX(x);
         super.setY(y);
-        msg = str;
+
+        msg = LangLoader.getInstance().get(str);
+      //  msg = str;
         myProp = properties;
         properties.set(this, g);
         draw();

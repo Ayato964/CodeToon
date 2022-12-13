@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="bug_fix">
+    <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/lang/LangLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/method/End.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/method/End.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Reception.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/server/Reception.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memories.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Memory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/system/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Indentification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Tick.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Tick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/TickRegistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/TickRegistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Fade.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Fade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/JoinServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/JoinServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/AnimationText.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/AnimationText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/assets/codetoon/lang/ja_jp.lang" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/assets/codetoon/lang/ja_jp.lang" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670568465361</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Memory.java&#10;-メモリーの完全スレッド化の実現&#10;&#10;Bug_fix&#10;相手のハッキングしたメモリーにコードを埋め込んでも、実行されなかった不具合を修正">
+      <created>1670892632703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670892632703</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +171,7 @@
     <MESSAGE value="String型の変数に対応した。" />
     <MESSAGE value="変数の中身を取り出す際のバグを修正" />
     <MESSAGE value="bug_fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug_fix" />
+    <MESSAGE value="Memory.java&#10;-メモリーの完全スレッド化の実現&#10;&#10;Bug_fix&#10;相手のハッキングしたメモリーにコードを埋め込んでも、実行されなかった不具合を修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="Memory.java&#10;-メモリーの完全スレッド化の実現&#10;&#10;Bug_fix&#10;相手のハッキングしたメモリーにコードを埋め込んでも、実行されなかった不具合を修正" />
   </component>
 </project>

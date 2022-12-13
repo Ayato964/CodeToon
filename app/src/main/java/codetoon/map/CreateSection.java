@@ -17,13 +17,13 @@ public class CreateSection extends Map{
     }
     @Override
     public void setup(Graphics g){
-        Animation.create(g).draw("新規セッションを開始しています・・・", 198 / 2 , 20,
+        Animation.create(g).draw("session.mes1", 198 / 2 , 20,
                 new Animation.Properties()
                         .size(40)
                         .center()
         );
 
-        Animation.create(g).draw("あなたのIPアドレスは以下のとおりです。", 198 / 2, 40,
+        Animation.create(g).draw("session.mes2", 198 / 2, 40,
                 new Animation.Properties()
                         .size(40)
                         .center()
@@ -34,7 +34,7 @@ public class CreateSection extends Map{
                     .size(50)
                     .center()
         );
-        Animation.create(g).draw("相手にIPアドレスを入力してもらってください。", 0, 80,
+        Animation.create(g).draw("session.mes3", 0, 80,
                 new Animation.Properties()
                         .size(40)
                         .center()

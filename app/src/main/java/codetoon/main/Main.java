@@ -5,6 +5,7 @@ import codetoon.map.*;
 import codetoon.map.Map;
 import codetoon.util.Tick;
 import codetoon.util.animation.Animation;
+import codetoon.util.lang.LangLoader;
 
 import java.awt.image.*;
 import java.awt.*;
@@ -51,6 +52,7 @@ public class Main extends JFrame{
     }
     /** Main Method !!! **/
     public static void main(String[] args) {
+        LangLoader.create();
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());

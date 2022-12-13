@@ -46,12 +46,12 @@ public class JoinServer extends Map{
 
             @Override
             public Box set(Integer integer) {
-                return new DrawingTextBox("タイトルに戻る");
+                return new DrawingTextBox("join.mes2");
             }
         });
         box.draw();
         exit.draw();
-        Animation.create(g).draw("セッションID（相手のIPアドレス）を入力してください。", 0, 20,
+        Animation.create(g).draw("join.mes1", 0, 20,
                 new Animation.Properties()
                         .size(40)
                         .center()
