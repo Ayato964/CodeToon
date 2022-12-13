@@ -45,11 +45,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if(CodeToon.isGameStart){
             Memory memory = (Memory)t;
             memory.counter ++;
-            if(memory.counter / 1000 >= 5){
+            if(memory.counter / 100 >= 5 && memory.source != null){
+                System.out.println("Hello");
                 memory.counter = 0;
                 ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
                 memory.setRunMethod(methods);
-                memory.run();
+                memory.runMethod();
                 Variables.VARIABLE.deleteAll("variable_" + memory.getID());
             }
         }

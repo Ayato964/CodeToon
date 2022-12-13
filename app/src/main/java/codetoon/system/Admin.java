@@ -40,7 +40,7 @@ public class Admin extends Player implements Serializable {
     @Override
     public void endMethod(@NotNull Console console, ArrayList<MyMethod> methods, StringBuilder source) {
         setRunMethod(methods);
-        run();
+        runMethod();
         console.panel.resetAll();
         Variables.VARIABLE.deleteAll("variable_" + getID());
         Server.server.sendMyCopy();

@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Tick{
     private static final Tick INSTANCE = new Tick();
-    private ArrayList<TickRegistory> method = new ArrayList<>();
     private ArrayList<TickRegistory> animation = new ArrayList<>();
     private int count = 0;
     private float animationCount = 0;
@@ -18,17 +17,6 @@ public class Tick{
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                try {
-
-                    if (!method.isEmpty() && CodeToon.isGameStart) {
-                        for (TickRegistory tickHelper : method) {
-                            tickHelper.run_tick();
-                        }
-                    }
-
-                }catch (Exception e){
-                    
-                }
 
                 animationCount += 1;
                 if(animationCount / 1000 >= 0.05 ) {
@@ -65,10 +53,6 @@ public class Tick{
     public void removeAllAnimation(){
         animation.clear();
         count = 0;
-    }
-    public void addMethod(TickRegistory run_tick){
-
-        method.add(run_tick);
     }
     public void addAnimation(TickRegistory run_tick){
         animation.add(run_tick);

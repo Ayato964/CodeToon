@@ -32,9 +32,11 @@ public class Fade implements Decorate{
             count = 1;
             outGage = 255;
         }
-        Color c = g.getColor();
-        g.setColor(new Color(c.getRed(), c.getGreen(), c.getBlue(), (int) (
-                isIn == true ? count * inGage : 255 - count * outGage)));
+        if(properties.getAnimation() instanceof AnimationText) {
+            Color c = g.getColor();
+            g.setColor(new Color(c.getRed(), c.getGreen(), c.getBlue(), (int) (
+                    isIn == true ? count * inGage : 255 - count * outGage)));
+        }
         if(count * inGage >= 250){
             isIn = false;
             count = 0;

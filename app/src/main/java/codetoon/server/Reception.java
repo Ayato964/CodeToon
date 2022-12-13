@@ -24,7 +24,6 @@ public class Reception extends Thread {
     }
 
     public void run() {
-        System.out.println("HII");
         while(true){
         try {
 
@@ -32,7 +31,9 @@ public class Reception extends Thread {
                 testClassWrapper _testWrapper = (testClassWrapper) in.readObject();
                 System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
                     if(isReturnReception){
-                        Memories.memory =_testWrapper.memory;
+                        Memories.updateMemory(_testWrapper.memory);
+                       // Memories.memory =_testWrapper.memory;
+
                     }else{
                         Memories.opponentMemory = _testWrapper.memory;
                         System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());

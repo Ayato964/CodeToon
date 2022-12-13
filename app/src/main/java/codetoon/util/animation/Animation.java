@@ -69,7 +69,7 @@ public abstract class Animation {
             percent = a;
             this.g = g;
             g.setFont(font);
-
+            g.setColor(Color.white);
             for (int i = 0; i < prop.size(); i++) {
                 prop.get(i).displayAction(this, g);
             }

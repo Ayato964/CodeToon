@@ -21,7 +21,6 @@ public class TickRegistory<T extends IsTick> {
     }
     public static <A extends IsTick>  TickRegistory createTicker(A r, TickHelper t){
         TickRegistory tr = new TickRegistory(r, t);
-        Tick.getInstance().addMethod(tr);
             return tr;
     }
     public static <A extends  IsTick> TickRegistory createTickerAnimation(A r, TickHelper t){

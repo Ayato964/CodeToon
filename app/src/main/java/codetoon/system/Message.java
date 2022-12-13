@@ -24,6 +24,7 @@ public class Message {
         this.h = h;
         animations = new ArrayList<>();
         instance = this;
+        addMessage("ここに、プログラムの結果が抽出されます。", Color.BLACK);
     }
     public void draw(){
         graphics.setColor(Color.WHITE);

@@ -4,13 +4,11 @@ import java.util.*;
 
 import codetoon.argument.BooleanArgumet;
 import codetoon.argument.IntegerArgument;
-import codetoon.argument.ObjectArgument;
 import codetoon.argument.StringArgument;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.system.CodeToon;
-import codetoon.system.Console;
 import codetoon.system.Player;
 import codetoon.variable.CustomVariable;
 import codetoon.variable.VariableMode;
