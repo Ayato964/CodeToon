@@ -25,21 +25,23 @@ public class LangLoader {
             FileReader reader = new FileReader(file);
             StringBuilder b = new StringBuilder();
             int charCode;
-
+            boolean isNonSpaceCollider = false;
+            System.out.println("------------Language Loading-------------");
+            System.out.println(reader.getEncoding());
             while ((charCode = reader.read()) != -1) {
-                System.out.println((char) charCode == ' ');
-                if(!((char) charCode == ' ' || (char) charCode == '\n')){
+                if(!((char) charCode == ' ' || (char) charCode == '\n') || isNonSpaceCollider){
                     if((char) charCode == ','){
                         System.out.println(b.toString());
                         addHashMap(b);
                         b = new StringBuilder();
+                    }else if((char) charCode == '\"') {
+                        isNonSpaceCollider = !isNonSpaceCollider;
                     }else {
                         b.append((char) charCode);
                     }
-                }else {
-                    System.out.println("Spaced");
                 }
             }
+            System.out.println("----------------------------------------");
         }catch (IOException e){
 
         }
@@ -63,7 +65,6 @@ public class LangLoader {
             code.put(s.toString(), s.toString());
         }else {
             code.put(s.substring(0, eq), s.substring(eq + 1, s.length()));
-            System.out.println(code.get(s.substring(0, eq)));
         }
     }
     public static void create(String lang){

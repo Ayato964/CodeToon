@@ -52,7 +52,7 @@ public class Main extends JFrame{
     }
     /** Main Method !!! **/
     public static void main(String[] args) {
-        LangLoader.create("en_us");
+        LangLoader.create("ja_jp");
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
