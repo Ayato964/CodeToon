@@ -28,6 +28,5 @@ public class Recovery extends MyMethod{
     @Override
     public void action(int i) {
         memory.recovering(pass);
-        Message.addMessage("制圧データを取り戻しました。");
     }
 }

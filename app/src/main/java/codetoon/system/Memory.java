@@ -64,10 +64,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 serialID = Admin.getInstance().getSerialID();
                 //   System.out.println("Hacked");
             } else {
-                Message.addMessage("パスワードが設定されているか、パスワードが違うため、攻撃できません。", Color.BLACK);
+                Message.addMessage("memory.attack.mes1", Color.BLACK);
             }
         }else{
-            Message.addMessage("自分の陣地をハッキングするのは愚かなことです。");
+            Message.addMessage("memory.attack.mes2");
         }
     }
 
@@ -124,12 +124,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if(states == EnumMemoryStates.HACKED && serialID == Admin.getInstance().getSerialID()){
             connect(password);
         }else if(states == EnumMemoryStates.HACKED) {
-            Message.addMessage("このメモリーはハッキングされています！！", Color.RED);
-            Message.addMessage("attack()で取り返してください", Color.RED);
+            Message.addMessage("memory.connection.mes1", Color.RED);
+            Message.addMessage("memory.connection.mes2", Color.RED);
 
         }else {
             if(serialID != Admin.getInstance().getSerialID()){
-                Message.addMessage("自分のメモリーではないため、接続できません。");
+                Message.addMessage("memory.connection.mes3");
             }else {
                 connect(password);
             }
@@ -143,7 +143,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         } else {
             p.getConsole().panel.setProgram(new StringBuilder());
-            Message.addMessage("パスワードが再設定されているか、パスワードが間違っている為アクセスできません", Color.BLACK);
+            Message.addMessage("memory.connection.mes4", Color.BLACK);
 
         }
     }
@@ -166,11 +166,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 states = EnumMemoryStates.NONE;
                 method = new ArrayList<>();
                 source = new StringBuilder();
+                Message.addMessage("memory.recovery.mes3", Color.BLACK);
             }else{
-                Message.addMessage("パスワードが間違っています", Color.BLACK);
+                Message.addMessage("memory.recovery.mes1", Color.BLACK);
             }
         }else {
-            Message.addMessage("リカバリーできません。", Color.BLACK);
+            Message.addMessage("memory.recovery.mes2", Color.BLACK);
         }
     }
 }

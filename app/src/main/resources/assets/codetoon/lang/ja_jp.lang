@@ -8,7 +8,19 @@ session.mes1 = "新規セッションを開始しています・・・",
 session.mes2 = "あなたのIPアドレスは以下のとおりです",
 session.mes3 = "相手にIPアドレスを入力してもらってください",
 session.back.title = "タイトルへ戻る",
+
 join.mes1 = "セッションID（相手のIPアドレス）を入力してください。",
 join.mes2 = "タイトルへ戻る",
 
 stage.memory.list = "自分の陣地",
+
+memory.attack.mes1 = "パスワードが設定されているか、パスワードが違うため、攻撃できません。",
+memory.attack.mes2 = "自分の陣地をハッキングするのは愚かなことです。",
+memory.connection.mes1 = "このメモリーはハッキングされています！！",
+memory.connection.mes2 = "attack()で取り返してください",
+memory.connection.mes3 = "自分のメモリーではないため、接続できません。",
+memory.connection.mes4 = "パスワードが再設定されているか、パスワードが間違っている為アクセスできません。",
+memory.recovery.mes1 = "パスワードが間違っています",
+memory.recovery.mes2 = "リカバリーできません。",
+memory.recovery.mes3 = "リカバリーに成功しました！！",
+
