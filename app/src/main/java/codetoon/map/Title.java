@@ -23,9 +23,7 @@ public class Title extends Map{
              Server.server.startServer(null);
               break;
           case 1:
-              System.out.println("途中からゲームを始める。");
               Server.isHost = false;
-              //Main.getInstance().run(new PazzleStage(CodeToon.MEMORY_SIZE));
               Main.getInstance().run(new JoinServer());
 
               break;
