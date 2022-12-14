@@ -33,6 +33,7 @@ public class Server implements Runnable {
     public void startServer(String _ipAdress){
         ipAdress = _ipAdress;
         Thread thread = new Thread(this);
+
         thread.start();
     }
 

@@ -7,7 +7,7 @@ title.chooser4 = "デバッグする",
 session.mes1 = "新規セッションを開始しています・・・",
 session.mes2 = "あなたのIPアドレスは以下のとおりです",
 session.mes3 = "相手にIPアドレスを入力してもらってください",
-
+session.back.title = "タイトルへ戻る",
 join.mes1 = "セッションID（相手のIPアドレス）を入力してください。",
 join.mes2 = "タイトルへ戻る",
 
