@@ -10,3 +10,5 @@ session.mes3 = 相手にIPアドレスを入力してもらってください,
 
 join.mes1 = セッションID（相手のIPアドレス）を入力してください。,
 join.mes2 = タイトルへ戻る,
+
+stage.memory.list = 自分の陣地,

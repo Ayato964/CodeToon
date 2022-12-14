@@ -35,7 +35,7 @@ public class PazzleStage extends Map{
     @Override
     public void setup(Graphics h) {
 
-        Animation.create(h).draw("My Memory List", 10, 10,
+        Animation.create(h).draw("stage.memory.list", 10, 10,
                 new Animation.Properties()
                     .size(40));
     }

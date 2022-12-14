@@ -52,12 +52,12 @@ public class Main extends JFrame{
     }
     /** Main Method !!! **/
     public static void main(String[] args) {
-        LangLoader.create();
+        LangLoader.create("en_us");
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
-        System.out.println("Tick Loaded");
         Tick.getInstance();
+        System.out.println("Tick Loaded");
     }
 
     public void run(Map map){

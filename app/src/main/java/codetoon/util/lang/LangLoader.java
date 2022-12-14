@@ -66,9 +66,9 @@ public class LangLoader {
             System.out.println(code.get(s.substring(0, eq)));
         }
     }
-    public static void create(){
+    public static void create(String lang){
         if(INSTANCE == null) {
-            INSTANCE = new LangLoader("ja_jp");
+            INSTANCE = new LangLoader(lang);
         }
     }
 
