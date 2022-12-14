@@ -50,10 +50,30 @@ public class LangLoader {
 
         }
     }
-    public String get(String s){
+    public String get(String[] value, String s){
        // System.out.println(code.get(s));
-        return code.get(s) != null ? code.get(s) : s;
+            return code.get(s) != null ? getString(value, code.get(s)) : s;
     }
+
+    private String getString(String[] value, String s) {
+            int valueCount = 0;
+            StringBuilder newString = new StringBuilder();
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '$') {
+                    if (valueCount < value.length) {
+                        newString.append(value[valueCount]);
+                        valueCount++;
+                    } else {
+                        newString.append("NaN");
+                    }
+                } else {
+                    newString.append(s.charAt(i));
+                }
+            }
+            return newString.toString();
+    }
+
+
     private void addHashMap(StringBuilder s){
         int eq = -1;
         for(int i = 0; i < s.length(); i ++){

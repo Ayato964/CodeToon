@@ -15,7 +15,7 @@ public class Attack extends MyMethod{
     @Override
     public void action(int i) {
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
-        Message.addMessage(enemy.getName() + "に攻撃を仕掛けました", Color.black);
+        Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){
             ((Memory) enemy).hacking(pass);
         }

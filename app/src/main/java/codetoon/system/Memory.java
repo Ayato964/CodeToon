@@ -138,7 +138,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     private void connect(int password){
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
         if (pass == 0 || pass == password) {
-            Message.addMessage(p.getConsole().getHost().getName() + "にアクセスされました", Color.BLACK);
+            Message.addMessage(new String[]{p.getConsole().getHost().getName()},"memory.connection.mes5", Color.BLACK);
             p.getConsole().setHost(this);
             p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
         } else {

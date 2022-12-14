@@ -31,24 +31,21 @@ public class Message {
         graphics.fillRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
     }
     public static void addMessage(String str){
-        instance.shiftMessage();
-
-        AnimationText a = Animation.create(instance.graphics);
-        instance.animations.add(a);
-        a.draw(str, instance.x, instance.y + instance.h,
-                new Animation.Properties()
-                        .size(20)
-                        .endPosition(instance.x, instance.y, EndPosition.UNDER)
-                        .setWidth(instance.w));
+        addMessage(null, str);
+    }
+    public static void addMessage(String[] values, String str){
+        addMessage(values, str, Color.BLACK);
     }
 
 
-
     public static void addMessage(String str, Color c){
+        addMessage(null, str, c);
+    }
+    public static void addMessage(String[] values, String str, Color c){
         instance.shiftMessage();
 
         AnimationText a = Animation.create(instance.graphics);
-        a.draw(str, instance.x, instance.y + instance.h,
+        a.draw(values, str, instance.x, instance.y + instance.h,
                 new Animation.Properties()
                         .size(20)
                         .color(c)

@@ -14,12 +14,16 @@ join.mes2 = "Back to the Title",
 
 stage.memory.list = "My Memory List",
 
-memory.attack.mes1 = "Can't Attack, Because is setting password or different password on the Memory.",
+memory.attack.mes1 = "Can't Attack. Because is setting password or different password on the Memory.",
 memory.attack.mes2 = "Are you kidding me!? Why hacking myself?",
 memory.connection.mes1 = "This memory is hacked by The Enemy",
 memory.connection.mes2 = "Get Back it on use recovery()",
 memory.connection.mes3 = "Can't connect!! because That memory isn't mine",
 memory.connection.mes4 = "Can't access! Because  is setting password or different on the  Memory.",
+memory.connection.mes5 = "Was accessed by $",
 memory.recovery.mes1 = "Different password!!",
 memory.recovery.mes2 = "Can't recovery...",
 memory.recovery.mes3 = "recovery is successful",
+
+method.attack.mes = "Was attacked to $",
+method.calc.mes = "$ and $ is $",

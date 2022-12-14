@@ -19,15 +19,18 @@ public class AnimationText extends Animation{
     public void draw(String str, int x, int y){
         draw(str, x, y, new Properties());
     }
-    public void draw(String str, int x, int y, Properties properties){
+    public void draw(String[] value, String str, int x, int y, Properties properties){
         super.setX(x);
         super.setY(y);
 
-        msg = LangLoader.getInstance().get(str);
-      //  msg = str;
+        msg = LangLoader.getInstance().get(value, str);
+        //  msg = str;
         myProp = properties;
         properties.set(this, g);
         draw();
+    }
+    public void draw(String str, int x, int y, Properties properties){
+        draw(null, str, x, y, properties);
     }
 
     public String getMsg() {

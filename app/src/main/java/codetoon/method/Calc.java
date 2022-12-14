@@ -23,6 +23,9 @@ public class Calc extends  MyMethod{
 
     @Override
     public void action(int i) {
-        Message.addMessage(data1 + "と" + data2 + "を足した数は" + (data1 + data2) + "です。", Color.BLACK);
+        String s1 = new StringBuilder().append(data1).toString();
+        String s2 = new StringBuilder().append(data2).toString();
+        String s3 = new StringBuilder().append(data1 + data2).toString();
+        Message.addMessage(new String[]{s1, s2, s3}, "method.calc.mes");
     }
 }
