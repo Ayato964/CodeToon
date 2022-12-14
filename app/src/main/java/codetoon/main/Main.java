@@ -53,6 +53,7 @@ public class Main extends JFrame{
     /** Main Method !!! **/
     public static void main(String[] args) {
         LangLoader.create("ja_jp");
+        System.out.println();
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());

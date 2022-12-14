@@ -4,7 +4,7 @@ title.chooser2 = "Join session",
 title.chooser3 = "Back to the Desktop",
 title.chooser4 = "Debug",
 
-session.mes1 = "Match making・・・",
+session.mes1 = "Match making...",
 session.mes2 = "your IP is this",
 session.mes3 = "Please tell opponent to input this IP",
 
