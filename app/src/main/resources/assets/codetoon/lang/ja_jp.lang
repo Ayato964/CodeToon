@@ -26,5 +26,4 @@ memory.recovery.mes2 = "リカバリーできません。",
 memory.recovery.mes3 = "リカバリーに成功しました！！",
 
 method.attack.mes = "$に攻撃を仕掛けました",
-method.calc.mes = "$と$を足した数は$です。",
 method.states.mes = "$のステータス:$",
