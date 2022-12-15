@@ -9,8 +9,7 @@ public class Print extends MyMethod{
     private String mes;
     @Override
     public void action(int i) {
-
-        Message.addMessage(mes != null ? mes : "", Color.BLACK);
+        Message.addMessage(mes);
     }
     @Override
     public int getCount() {
@@ -18,7 +17,22 @@ public class Print extends MyMethod{
     }
     @Override
     public String set(HashMap<Integer, String> map) {
-        mes = StringArgument.getInstance().indentification(map.get(0));
+
+        if(StringArgument.getInstance().indentification(map.get(0)) == null){
+            if(IntegerArgument.getInstance().indentification(map.get(0)) == Argument.NOT_ARGUMENT){
+                if(BooleanArgumet.getInstance().indentification(map.get(0)) == null){
+                    mes = map.get(0);
+                }else{
+                    mes = new StringBuilder().append(BooleanArgumet.getInstance().indentification(map.get(0))).toString();
+                }
+            }else {
+                mes = new StringBuilder().append(IntegerArgument.getInstance().indentification(map.get(0))).toString();
+
+            }
+        }else {
+            mes = new StringBuilder().append(StringArgument.getInstance().indentification(map.get(0))).toString();
+
+        }
         return map.get(0);
     }
     @Override

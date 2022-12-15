@@ -27,3 +27,4 @@ memory.recovery.mes3 = "recovery is successful",
 
 method.attack.mes = "Was attacked to $",
 method.calc.mes = "$ and $ is $",
+method.states.mes = "States of $:$",

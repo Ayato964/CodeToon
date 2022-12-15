@@ -175,7 +175,7 @@ public class Indentification{
         } else {
             Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
             String variable_ID = p.getID() + "_" + variable_name;
-            System.out.println("variable_" + variable_ID + "   value:" + variable);
+          //  System.out.println("variable_" + variable_ID + "   value:" + variable);
             if (Variables.VARIABLE.search("variable_" + variable_ID)) {
                 HashMap<Integer, String> h = new HashMap<>();
                 h.put(0, variable.toString());
@@ -202,7 +202,7 @@ public class Indentification{
     private String getMethodName(StringBuilder b){
         StringBuilder m = new StringBuilder();
         for(int i = 0; b.charAt(i) != '('; i ++){
-            System.out.print(b.charAt(i));
+    //        System.out.print(b.charAt(i));
             m.append(b.charAt(i));
         }
         return m.toString();
@@ -237,7 +237,7 @@ public class Indentification{
                 b.append(program.charAt(i));
             }
         }
-        System.out.println(array);
+   //     System.out.println(array);
         return array.isEmpty() ? null : array;
     }
 
