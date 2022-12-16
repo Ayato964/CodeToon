@@ -53,12 +53,12 @@ public class Message {
                         .setWidth(instance.w));
         instance.animations.add(a);
     }
-    private void shiftMessage() {
-        if(!animations.isEmpty()) {
+    public static void shiftMessage() {
+        if(!instance.animations.isEmpty()) {
 
-            for (int i = 0; i < animations.size(); i++) {
-                Animation a = animations.get(i);
-                a.myProp.setAllPosition(a.getX(), a.getY() - graphics.getFontMetrics().getHeight() / 4);
+            for (int i = 0; i < instance.animations.size(); i++) {
+                Animation a = instance.animations.get(i);
+                a.myProp.setAllPosition(a.getX(), a.getY() - instance.graphics.getFontMetrics().getHeight() / 4);
 
             }
         }

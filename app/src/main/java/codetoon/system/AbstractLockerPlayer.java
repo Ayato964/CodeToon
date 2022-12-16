@@ -12,12 +12,13 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
             if (this.pass == old_pass) {
                 this.pass = pass;
 
-                Message.addMessage(getName() + "に" + pass + "のパスワードを設定しました。", Color.RED);
+                Message.addMessage(new String[]{getName(), "" +pass},"memory.pass.mes1", Color.RED);
             } else {
-                Message.addMessage(getName() + "のパスワードが違います。", Color.RED);
+                Message.addMessage(new String[]{getName()},"memory.pass.mes2", Color.RED);
             }
         }else{
             Message.addMessage(Admin.getInstance().getName() + "が所有しているメモリーではないため、パスワードを変更できません。");
+            Message.addMessage(new String[]{Admin.getInstance().getName()},"memory.pass.mes3");
         }
     }
 

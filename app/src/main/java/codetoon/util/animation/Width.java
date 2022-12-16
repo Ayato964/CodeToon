@@ -1,6 +1,7 @@
 package codetoon.util.animation;
 
 import codetoon.main.Main;
+import codetoon.system.Message;
 
 import javax.net.ssl.SNIHostName;
 import java.awt.*;
@@ -22,6 +23,7 @@ public class Width implements Decorate{
         for(int i = 0; i < builder.length(); i ++){
             c += g.getFontMetrics().charWidth(builder.charAt(i));
             if(c >= w * Main.DW){
+                Message.shiftMessage();
                 builder.insert(i, '\n');
                 row ++;
                 c = 0;
