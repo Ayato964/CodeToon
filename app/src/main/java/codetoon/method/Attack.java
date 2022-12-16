@@ -13,13 +13,14 @@ import org.jetbrains.annotations.NotNull;
 
 public class Attack extends MyMethod{
     Player enemy;
+    Player host;
     private int pass = 0;
     @Override
     public void action(int i) {
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
         Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){
-            ((Memory) enemy).hacking(pass, ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost().getSerialID());
+            ((Memory) enemy).hacking(pass, host.getSerialID());
         }
     }
     @Override
@@ -30,6 +31,7 @@ public class Attack extends MyMethod{
     public String set(@NotNull HashMap<Integer, String> map)
     {
         enemy = (Memory) ObjectArgument.getInstance().indentification(map.get(0));
+        host =(Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
         if(map.get(1) != null){
             pass = IntegerArgument.getInstance().indentification(map.get(1));
         }
