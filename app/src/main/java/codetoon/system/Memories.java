@@ -33,7 +33,7 @@ public class Memories {
         for(Memory memory1 : m){
             memory1.running = true;
             Thread t = new Thread(memory1);
-            t.run();
+            t.start();
         }
     }
     public static Memory get(int i){
