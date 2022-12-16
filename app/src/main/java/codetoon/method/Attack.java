@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.server.Server;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +19,7 @@ public class Attack extends MyMethod{
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
         Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){
-            ((Memory) enemy).hacking(pass);
+            ((Memory) enemy).hacking(pass, ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost().getSerialID());
         }
     }
     @Override

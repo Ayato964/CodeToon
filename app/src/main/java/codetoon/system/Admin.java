@@ -18,7 +18,7 @@ public class Admin extends Player implements Serializable {
     private Admin(){
         serialID = new Random().nextInt(10000, 999999);
     }
-
+    @Override
     public int getSerialID() {
         return serialID;
     }

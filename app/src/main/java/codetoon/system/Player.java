@@ -86,4 +86,5 @@ public abstract class Player implements IsTick, Runnable{
     }
 
     public abstract void connection(int password);
+    public abstract int getSerialID();
 }

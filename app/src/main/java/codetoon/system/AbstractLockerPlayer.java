@@ -21,6 +21,11 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
         }
     }
 
+    @Override
+    public int getSerialID() {
+        return serialID;
+    }
+
     public boolean getPass(int p) {
         return pass == p;
     }
