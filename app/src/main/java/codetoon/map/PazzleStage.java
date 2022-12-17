@@ -46,6 +46,7 @@ public class PazzleStage extends Map{
       //background(#505050);
       field.display(g);
       messageBox.draw();
+      PopUpWindow.popUpWindow.drawPopUpWindow();
     }
   
     private class Field{

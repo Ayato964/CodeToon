@@ -1,0 +1,32 @@
+title.title = CODETOON,
+title.chooser1 = "新的游戏",
+title.chooser2 = "参加游戏",
+title.chooser3 = "结束游戏",
+title.chooser4 = "修改程序",
+
+session.mes1 = "正在准备新的游戏环境・・・",
+session.mes2 = "你的IP地址如下",
+session.mes3 = "请输入对方的IP地址",
+session.back.title = "返回标题",
+
+join.mes1 = "请输入游戏ID（对方的IP地址）",
+join.mes2 = "返回标题",
+
+stage.memory.list = "你的领地",
+
+memory.attack.mes1 = "无法攻击，由于对方设定了密码或密码不正确。",
+memory.attack.mes2 = "攻击自己的领地，这很愚蠢。",
+memory.connection.mes1 = "正在攻击这里！！",
+memory.connection.mes2 = "请使用attack()进行攻防",
+memory.connection.mes3 = "由于不是自己的地盘，无法连接。",
+memory.connection.mes4 = "无法进入，由于密码错误或重设了新的密码。",
+memory.connection.mes5 = "已进入到$。",
+memory.recovery.mes1 = "密码错误。",
+memory.recovery.mes2 = "无法取回这块地盘",
+memory.recovery.mes3 = "地盘取回成功！！",
+memory.pass.mes1 = "$に$のパスワードを設定しました。",
+memory.pass.mes2 = "$のパスワードが違います。",
+memory.pass.mes3 = "$が所有しているメモリーではないため、パスワードを変更できません。",
+
+method.attack.mes = "$被攻击了！！",
+method.states.mes = "$的情报:$",
