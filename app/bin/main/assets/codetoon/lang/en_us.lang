@@ -1,0 +1,32 @@
+title.title = CODETOON,
+title.chooser1 = "Create new Session",
+title.chooser2 = "Join session",
+title.chooser3 = "Back to the Desktop",
+title.chooser4 = "Debug",
+
+session.mes1 = "Match making...",
+session.mes2 = "your IP is this",
+session.mes3 = "Please tell opponent to input this IP",
+session.back.title = "Back to the Title",
+
+join.mes1 = "Please input IP here in the opponent",
+join.mes2 = "Back to the Title",
+
+stage.memory.list = "My Memory List",
+
+memory.attack.mes1 = "Can't Attack. Because is setting password or different password on the Memory.",
+memory.attack.mes2 = "Are you kidding me!? Why hacking myself?",
+memory.connection.mes1 = "This memory is hacked by The Enemy",
+memory.connection.mes2 = "Get Back it on use recovery()",
+memory.connection.mes3 = "Can't connect!! because That memory isn't mine",
+memory.connection.mes4 = "Can't access! Because  is setting password or different on the  Memory.",
+memory.connection.mes5 = "Was accessed by $",
+memory.recovery.mes1 = "Different password!!",
+memory.recovery.mes2 = "Can't recovery...",
+memory.recovery.mes3 = "recovery is successful",
+memory.pass.mes1 = "Successful set password for $ !! Password is $",
+memory.pass.mes2 = "Different password for $",
+memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
+
+method.attack.mes = "Was attacked to $",
+method.states.mes = "States of $:$",
