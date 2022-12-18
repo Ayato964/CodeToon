@@ -17,7 +17,6 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
                 Message.addMessage(new String[]{getName()},"memory.pass.mes2", Color.RED);
             }
         }else{
-            Message.addMessage(Admin.getInstance().getName() + "が所有しているメモリーではないため、パスワードを変更できません。");
             Message.addMessage(new String[]{Admin.getInstance().getName()},"memory.pass.mes3");
         }
     }
