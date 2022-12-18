@@ -113,7 +113,7 @@ public class Server implements Runnable {
     }
 
     public void sendMyCopy() {
-        if(!CodeToon.DEBUG) {
+        if(runServer && !CodeToon.DEBUG) {
             try {
                 testClassWrapper testWrapper = new testClassWrapper(Memories.memory);
                 myOutStream.reset();
@@ -127,7 +127,7 @@ public class Server implements Runnable {
     }
 
     public void sendOpponentCopy() {
-        if(!CodeToon.DEBUG) {
+        if(runServer && !CodeToon.DEBUG) {
             try {
                 testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory);
                 opponentOutStream.reset();

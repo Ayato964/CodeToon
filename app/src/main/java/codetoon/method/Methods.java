@@ -21,6 +21,7 @@ public class Methods {
 
     public static RegistoryObject<MyMethod> IF = METHODS.createRegistory("method_if", If::new);
     public static RegistoryObject<MyMethod> STATES = METHODS.createRegistory("method_states", States::new);
+    public static RegistoryObject<MyMethod> DISCONNECT = METHODS.createRegistory("method_disconnect", Disconnect::new);
 }
 
 
