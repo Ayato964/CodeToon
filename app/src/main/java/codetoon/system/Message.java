@@ -24,7 +24,6 @@ public class Message {
         this.h = h;
         animations = new ArrayList<>();
         instance = this;
-        addMessage("ここに、プログラムの結果が抽出されます。", Color.BLACK);
     }
     public void draw(){
         graphics.setColor(Color.WHITE);
@@ -43,9 +42,8 @@ public class Message {
     }
     public static void addMessage(String[] values, String str, Color c){
         instance.shiftMessage();
-
         AnimationText a = Animation.create(instance.graphics);
-        a.draw(values, str, instance.x, instance.y + instance.h,
+        a.draw(values, str, instance.x + 2, instance.y + instance.h - 1,
                 new Animation.Properties()
                         .size(20)
                         .color(c)
@@ -55,11 +53,9 @@ public class Message {
     }
     public static void shiftMessage() {
         if(!instance.animations.isEmpty()) {
-
             for (int i = 0; i < instance.animations.size(); i++) {
                 Animation a = instance.animations.get(i);
                 a.myProp.setAllPosition(a.getX(), a.getY() - instance.graphics.getFontMetrics().getHeight() / 4);
-
             }
         }
     }

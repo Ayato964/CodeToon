@@ -41,5 +41,6 @@ public class Attack extends MyMethod{
     @Override
     public Object newInstance() {
         return new Attack();
+
     }
 }

@@ -14,7 +14,7 @@ public abstract class Argument<T, I>  {
     protected Argument(){
 
     } 
-    protected int serch(char n, StringBuilder obj){
+    protected int search(char n, StringBuilder obj){
         for(int i = 0; i < obj.length(); i ++){
             if(obj.charAt(i) == n){
                 return i;
@@ -34,12 +34,11 @@ public abstract class Argument<T, I>  {
 
         }
 
-        return Methods.METHODS.get("method_" + builder.toString());
+        return Methods.METHODS.get("method_" + builder);
     }
-    public T convertVariableTo(String s){
+    protected T convertVariableTo(String s){
         Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
         String variable_ID = p.getID() + "_" + s;
-        System.out.println(variable_ID);
         if(Variables.VARIABLE.search("variable_" + variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis("variable_" + variable_ID);
             return (T) re.action();
@@ -56,7 +55,7 @@ public abstract class Argument<T, I>  {
                 break;
             }
         }
-        return Variables.VARIABLE.get("variable_" +  builder.toString());
+        return Variables.VARIABLE.get("variable_" +  builder);
     }
     protected HashMap<Integer, String> getVariable(StringBuilder data, String percent){
         HashMap<Integer, String> t = getVariable(data);

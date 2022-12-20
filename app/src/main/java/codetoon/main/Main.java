@@ -4,13 +4,11 @@ import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
 import codetoon.util.Tick;
-import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
 
 import java.awt.image.*;
 import java.awt.*;
 import java.net.UnknownHostException;
-
 
 public class Main extends JFrame{
     protected static Main main;
@@ -21,7 +19,6 @@ public class Main extends JFrame{
     public static int DH;
     public static Rectangle DESCTOP_BOUNDS;
     private static  Graphics g;
-    private static  Graphics2D animationGraphics;
     public Main(String title){
         setTitle(title);
         this.setUndecorated(true);
@@ -47,17 +44,14 @@ public class Main extends JFrame{
     public static  Graphics getMainGraphics(){
         return g;
     }
-    public static Graphics getAnimationGraphics(){
-        return animationGraphics;
-    }
     /** Main Method !!! **/
     public static void main(String[] args) {
-        LangLoader.create("zh_cn");
+        LangLoader.create("ja_jp");
         System.out.println();
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
-        Tick.getInstance();
+        //Tick.getInstance();
         System.out.println("Tick Loaded");
     }
 

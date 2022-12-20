@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import static codetoon.variable.VariableMode.NONE;
-
+//@Deprecated(since = "0.0")
 public class Indentification{
     private static final Indentification instance = new Indentification();
     StringBuilder program;

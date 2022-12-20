@@ -12,7 +12,7 @@ public class ObjectArgument extends Argument<Object, String> {
     @Override
     public Object indentification(String s) {
         StringBuilder builder = new StringBuilder().append(s);
-        int pi = serch('.', builder);
+        int pi = search('.', builder);
         if(pi != -1){
             percent = builder.substring(0, pi);
             builder.delete(0, pi + 1);

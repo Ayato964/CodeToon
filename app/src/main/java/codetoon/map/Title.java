@@ -51,6 +51,8 @@ public class Title extends Map{
     @Override
     public void setup(Graphics h) {
         Animation.createImage(h).draw("title/title", 30, 0, 80, 80, new Animation.Properties().center().fade(2, -1));
+        Animation.create(h).draw("Version." + CodeToon.GAME_VERSION, 160, 110,
+                new Animation.Properties().font("", Font.ITALIC, 32));
          box.draw();
     }
     public void display(Graphics g){

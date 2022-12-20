@@ -33,7 +33,6 @@ public class Server implements Runnable {
     public void startServer(String _ipAdress){
         ipAdress = _ipAdress;
         Thread thread = new Thread(this);
-
         thread.start();
     }
 
@@ -113,6 +112,7 @@ public class Server implements Runnable {
     }
 
     public void sendMyCopy() {
+
         if(runServer && !CodeToon.DEBUG) {
             try {
                 testClassWrapper testWrapper = new testClassWrapper(Memories.memory);

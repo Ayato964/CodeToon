@@ -1,6 +1,7 @@
 package codetoon.map;
 
 import codetoon.main.*;
+import codetoon.server.Server;
 import codetoon.system.*;
 import codetoon.util.animation.Animation;
 
@@ -63,7 +64,6 @@ public class PazzleStage extends Map{
         Memories.setInstance(size, x, y, w, h);
       }
       public void display(Graphics g){
-        
         for(int i = 0; i < size * size; i ++){
             Memories.get(i).display(g);
         }
