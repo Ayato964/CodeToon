@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import static codetoon.variable.VariableMode.NONE;
-//@Deprecated(since = "0.0")
+@Deprecated(since = "Beta.0.1.0")
 public class Indentification{
     private static final Indentification instance = new Indentification();
     StringBuilder program;
@@ -251,6 +251,7 @@ public class Indentification{
         }
         return str;
     }
+    @Deprecated(since = "Beta.1.1")
     public static ArrayList<MyMethod> indentification(String program, Player host ){
         Indentification indent = new Indentification(program, host);
        // System.out.println(indent.programs == null ? "NonePrograms" : indent.programs.get(0).toString());

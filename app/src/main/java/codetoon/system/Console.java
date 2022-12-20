@@ -4,6 +4,7 @@ import codetoon.main.*;
 import codetoon.util.*;
 import codetoon.method.*;
 import codetoon.regi.*;
+import codetoon.util.converter.ConvertSource;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -76,6 +77,12 @@ public class Console extends JFrame implements KeyListener{
       }else{
         program.insert(program_count, e.getKeyChar());
         program_count ++;
+        if(e.getKeyChar() == '\n' && program.charAt(program_count - 2) == '{') {
+          for(int i = 0; i < 4; i ++){
+            program.insert(program_count, ' ');
+            program_count ++;
+          }
+        }
       }
       //System.out.println(program.toString());
       
@@ -201,7 +208,7 @@ public class Console extends JFrame implements KeyListener{
    public void keyTyped(KeyEvent e){
         panel.drawInputKey(e);
         methods = Indentification.indentification(panel.program.toString(), host);
-
+       // methods = ConvertSource.convert(panel.program.toString(), host);
         if(isHave(Methods.END)){
             host.endMethod(this, methods, panel.program);
         }
