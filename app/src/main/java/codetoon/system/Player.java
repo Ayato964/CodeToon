@@ -59,7 +59,7 @@ public abstract class Player implements IsTick, Runnable{
                 if (!blackList.isEmpty()) {
                     for (int c = 0; c < blackList.size(); c++) {
                         if (m.get(i).getClass() == blackList.get(c).getClass()) {
-                            System.out.println(m.get(i).getClass() + "はブラックリストに載っています。");
+                            System.out.println(m.get(i).getClass() + "is BlackList");
                             isNotBlackList = false;
                         }
                     }

@@ -28,4 +28,9 @@ public class StringArgument extends Argument<String, String> {
     public static StringArgument getInstance() {
         return new StringArgument();
     }
+
+    @Override
+    public String getSample() {
+        return "";
+    }
 }

@@ -9,6 +9,7 @@ import codetoon.system.Player;
 import codetoon.variable.*;
 
 public abstract class Argument<T, I>  {
+    T sample = getSample();
     public static final int NOT_ARGUMENT = -99999;
     protected final StringBuilder ERROR = new StringBuilder().append("sgsihgrgmkwrgtkrthhjthmmlghmghmls");
     protected Argument(){
@@ -38,10 +39,10 @@ public abstract class Argument<T, I>  {
     }
     protected T convertVariableTo(String s){
         Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
-        String variable_ID = p.getID() + "_" + s;
-        if(Variables.VARIABLE.search("variable_" + variable_ID)){
-            Variable<?> re =  Variables.VARIABLE.getThis("variable_" + variable_ID);
-            return (T) re.action();
+        String variable_ID = p.getID() + "_" + p.getSerialID() + "_" + s;
+        if(Variables.VARIABLE.search(variable_ID)){
+            Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
+            return sample.getClass() == re.action().getClass() ? (T) re.action() : null;
         }else{
             return null;
         }
@@ -88,4 +89,5 @@ public abstract class Argument<T, I>  {
         return temp.isEmpty() ? null : temp;
     }
     public abstract  T indentification(I i);
+    public abstract T getSample();
 }

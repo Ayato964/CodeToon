@@ -8,6 +8,7 @@ import codetoon.util.Indentification;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import codetoon.server.Server;
+import codetoon.util.converter.ConvertSource;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
@@ -47,10 +48,11 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             memory.counter ++;
             if(memory.counter / 100 >= 5 && memory.source != null){
                 memory.counter = 0;
-                ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
+                //ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
+                ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
                 memory.setRunMethod(methods);
                 memory.runMethod();
-                Variables.VARIABLE.deleteAll("variable_" + memory.getID());
+                Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
             }
         }
 

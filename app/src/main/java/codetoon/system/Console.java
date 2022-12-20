@@ -207,8 +207,8 @@ public class Console extends JFrame implements KeyListener{
   @Override
    public void keyTyped(KeyEvent e){
         panel.drawInputKey(e);
-        methods = Indentification.indentification(panel.program.toString(), host);
-       // methods = ConvertSource.convert(panel.program.toString(), host);
+      //  methods = Indentification.indentification(panel.program.toString(), host);
+        methods = ConvertSource.convert(panel.program.toString(), host);
         if(isHave(Methods.END)){
             host.endMethod(this, methods, panel.program);
         }

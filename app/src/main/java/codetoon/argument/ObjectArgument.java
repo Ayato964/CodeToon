@@ -56,4 +56,9 @@ public class ObjectArgument extends Argument<Object, String> {
     public static ObjectArgument getInstance() {
         return new ObjectArgument();
     }
+
+    @Override
+    public Object getSample() {
+        return null;
+    }
 }

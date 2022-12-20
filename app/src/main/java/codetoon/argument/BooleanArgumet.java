@@ -265,4 +265,8 @@ public class BooleanArgumet extends Argument<Boolean, String>{
         return s.equals("||");
     }
 
+    @Override
+    public Boolean getSample() {
+        return true;
+    }
 }

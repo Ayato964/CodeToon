@@ -23,4 +23,9 @@ public class IntegerArgument extends Argument<Integer, String> {
     public static IntegerArgument getInstance() {
         return new IntegerArgument();
     }
+
+    @Override
+    public Integer getSample() {
+        return 1;
+    }
 }

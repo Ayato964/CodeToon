@@ -42,7 +42,7 @@ public class Admin extends Player implements Serializable {
         setRunMethod(methods);
         runMethod();
         console.panel.resetAll();
-        Variables.VARIABLE.deleteAll("variable_" + getID());
+        Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
         Server.server.sendMyCopy();
         Server.server.sendOpponentCopy();
     }

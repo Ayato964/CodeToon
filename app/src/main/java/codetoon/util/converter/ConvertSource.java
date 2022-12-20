@@ -1,6 +1,7 @@
 package codetoon.util.converter;
 
 import codetoon.method.MyMethod;
+import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -58,6 +59,8 @@ public class ConvertSource {
     private static ArrayList<MyMethod> convertAll(ArrayList<MyMethod> methods, String divide, Player host){
         if(isMethod(divide)) {
             methods.add(ConvertMethod.convert(divide, host));
+        }else{
+            ConvertVariable.convert(divide, host);
         }
         return methods;
     }
