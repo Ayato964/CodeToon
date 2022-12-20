@@ -16,7 +16,7 @@ public class ConvertSource {
         StringBuilder b = new StringBuilder().append(s);
         return divideConvert(methods, removeVoid(b, 0), 0, host);
     }
-    private static @NotNull StringBuilder removeVoid(StringBuilder b, int i){
+    private static @NotNull StringBuilder removeVoid(@NotNull StringBuilder b, int i){
         if(b.charAt(i) == ' ' || b.charAt(i) == '\n')
             return removeVoid(b.deleteCharAt(i), 0);
         if(i + 1 < b.length())
