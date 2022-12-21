@@ -5,7 +5,7 @@ import codetoon.main.Main;
 import java.awt.*;
 
 public class CodeToon {
-    public static final String GAME_VERSION = "Beta.0.3.0";
+    public static final String GAME_VERSION = "Beta.0.4.0";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
