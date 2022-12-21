@@ -46,6 +46,7 @@ public class Main extends JFrame{
     }
     /** Main Method !!! **/
     public static void main(String[] args) {
+       // JOptionPane.showMessageDialog(new JFrame(), "Test");
         LangLoader.create("ja_jp");
         System.out.println();
         Main m = new Main("CodeToon");

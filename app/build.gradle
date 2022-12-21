@@ -30,6 +30,18 @@ application {
     // Define the main class for the application.
     mainClass = 'codetoon.main.Main'
 }
+sourceSets {
+    main{
+        resources {
+            srcDir "src/main/"
+        }
+    }
+}
+jar{
+    manifest {
+        attributes 'Main-Class': 'codetoon.main.Main'
+    }
+}
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
