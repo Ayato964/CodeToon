@@ -2,12 +2,15 @@ package codetoon.util;
 
 import java.io.*;
 
-class Expr {
+/**
+ * Source is made by "BASIN"...!!
+ * **/
+public class Expr {
   char c;
   int pos = 0, val = 0;
   String str, o = "+-*/";
 
-  Expr(String s) {
+  public Expr(String s) {
     str = s;
   }
 
@@ -30,7 +33,7 @@ class Expr {
     return c = 0;
   }
 
-  int expr(int i) {
+  public int expr(int i) {
     int v;
     if (i < o.length())
       for (v = expr(i + 2); c == o.charAt(i) || c == o.charAt(i + 1);)

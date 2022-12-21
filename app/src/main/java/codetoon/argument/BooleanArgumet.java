@@ -75,15 +75,11 @@ public class BooleanArgumet extends Argument<Boolean, String>{
                // System.out.println("isOR");
                 if(isBooleanOR(s.substring(i, i + 2)) && !isBracket){
                     before = getUnderBool(s, i - 1);
-                    System.out.println("Before::" + before);
                     after = getUpperBool(s, i + 1 - begin);
-                    System.out.println("After::" + after);
                     if(before || after){
                         s.replace(i - begin - 1, i + 1 - begin, "true");
-                        System.out.println("Answer:" + s);
                     }else{
                         s.replace(i - begin - 1, i + 1  - begin, "false");
-                        System.out.println("Answer:" + s);
                     }
                 }
                 i = 0;

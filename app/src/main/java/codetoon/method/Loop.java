@@ -5,6 +5,7 @@ import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import codetoon.util.Indentification;
+import codetoon.util.converter.ConvertSource;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class Loop extends MyMethod{
     public String set(@NotNull HashMap<Integer, String> map) {
         count = IntegerArgument.getInstance().indentification(map.get(0));
         host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
-        methods = Indentification.indentification(map.get(CodeToon.INSIDE_METHODS), host);
+        methods = ConvertSource.convert(map.get(CodeToon.INSIDE_METHODS), host);
         program.append(map.get(CodeToon.INSIDE_METHODS));
 
         return "for";
