@@ -207,14 +207,17 @@ public class Console extends JFrame implements KeyListener{
   @Override
    public void keyTyped(KeyEvent e){
         panel.drawInputKey(e);
-        methods = Indentification.indentification(panel.program.toString(), host);
-       // methods = ConvertSource.convert(panel.program.toString(), host);
-        if(isHave(Methods.END)){
+       // methods = Indentification.indentification(panel.program.toString(), host);
+        if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString())) {
+          methods = ConvertSource.convert(panel.program.toString(), host);
+          if(isHave(Methods.END)) {
             host.endMethod(this, methods, panel.program);
+          }
+          if(isHave(Methods.REMOVE)){
+            Methods.REMOVE.get().action(0);
+          }
         }
-        if(isHave(Methods.REMOVE)){
-          Methods.REMOVE.get().action(0);
-        }
+
         //System.out.println(methods == null);
    }
   @Override

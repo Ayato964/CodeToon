@@ -19,6 +19,7 @@ public class CustomVariable<T> extends Variable<T>{
     public String set(HashMap<Integer, String> map) {
         if(obj instanceof Integer){
             obj = (T) IntegerArgument.getInstance().indentification(map.get(0));
+            System.out.println(obj);
         }
         if(obj instanceof String){
             obj = (T) StringArgument.getInstance().indentification(map.get(0));

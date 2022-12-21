@@ -11,6 +11,7 @@ public class ConvertArgument {
             if(argumentStr.charAt(i) == ',' || argumentStr.charAt(i) == ';'){
                 argument.put(c, b.toString());
                 b = new StringBuilder();
+                c ++;
             }else {
                 b.append(argumentStr.charAt(i));
             }

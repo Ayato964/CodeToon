@@ -1,6 +1,7 @@
 package codetoon.util.converter;
 
 import codetoon.method.MyMethod;
+import codetoon.method.PrivateVariable;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.Player;
 import org.jetbrains.annotations.Contract;
@@ -60,7 +61,11 @@ public class ConvertSource {
         if(isMethod(divide)) {
             methods.add(ConvertMethod.convert(divide, host));
         }else{
-            ConvertVariable.convert(divide, host);
+            PrivateVariable v = ConvertVariable.convert(divide, host);
+            if(v != null) {
+                methods.add(v);
+            }
+
         }
         return methods;
     }
@@ -76,5 +81,11 @@ public class ConvertSource {
             }
         }
         return true;
+    }
+    public static boolean OnEndMethod(String s){
+        return s.indexOf("end();") != -1;
+    }
+    public static boolean OnRemoveMethod(String s){
+        return s.indexOf("remove();") != -1;
     }
 }

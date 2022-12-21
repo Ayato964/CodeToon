@@ -56,7 +56,7 @@ public abstract class Argument<T, I>  {
                 break;
             }
         }
-        return Variables.VARIABLE.get("variable_" +  builder);
+        return Variables.VARIABLE.get(builder.toString());
     }
     protected HashMap<Integer, String> getVariable(StringBuilder data, String percent){
         HashMap<Integer, String> t = getVariable(data);

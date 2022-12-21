@@ -3,7 +3,7 @@ package codetoon.method;
 import codetoon.regi.*;
 
 public class Methods {
-    public static RegistoryList<MyMethod> METHODS = new RegistoryList<MyMethod>("methods");
+    public static RegistoryList<MyMethod> METHODS = new RegistoryList<>("methods");
 
     public static RegistoryObject<MyMethod> Attack = METHODS.createRegistory("method_attack", Attack::new);
     public static RegistoryObject<MyMethod> CONNECT = METHODS.createRegistory("method_connect", Connect::new);

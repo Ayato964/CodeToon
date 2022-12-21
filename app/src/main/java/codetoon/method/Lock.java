@@ -14,8 +14,8 @@ import java.util.HashMap;
 
 public class Lock extends MyMethod{
     private AbstractLockerPlayer parcent = null;
-    private int pass = 0;
-    private int parcent_pass = 0;
+    private String new_pass = "0";
+    private String old_pass = "0";
     @Override
     public Object newInstance() {
         return new Lock();
@@ -27,10 +27,11 @@ public class Lock extends MyMethod{
         if(t instanceof Player){
             parcent = (AbstractLockerPlayer) t;
             if(map.get(1) != null){
-                parcent_pass = IntegerArgument.getInstance().indentification(map.get(0));
-                pass = IntegerArgument.getInstance().indentification(map.get(1));
+                old_pass = map.get(0);
+                new_pass = map.get(1);
+                System.out.println("old:" + old_pass + "   new:" + new_pass);
             }else{
-                pass = IntegerArgument.getInstance().indentification(map.get(0));
+                new_pass = map.get(0);
             }
         }
         return null;
@@ -38,7 +39,7 @@ public class Lock extends MyMethod{
     @Override
     public void action(int i) {
         if(parcent != null){
-            parcent.setPassWord(pass, parcent_pass);
+            parcent.setPassWord(IntegerArgument.getInstance().indentification(old_pass), IntegerArgument.getInstance().indentification(new_pass));
 
         }
     }

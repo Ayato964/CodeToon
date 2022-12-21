@@ -8,16 +8,27 @@ public abstract class MyMethod implements ContainerDataClass<String, HashMap<Int
     public MyMethod(){
     
     }
+    /**
+     * Create new Instance.
+     * So return Object is "THIS".
+     * **/
     @Override
     public abstract Object newInstance();
+    /**
+     * This Method is not using.
+     * **/
     @Override
     public int getCount() {
         return 0;
     }
-    
+    /**
+     * This Method set Arguments.
+     * HashMap is coming ArgumentsCode(But String).
+     * ID of Percent, Host and INSIDE is on CodeToon.java
+     * **/
     @Override
     public abstract  String set(@NotNull HashMap<Integer, String> map);
-    
+
     @Override
     public abstract void action(int i);
 }

@@ -7,7 +7,7 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
     public int serialID;
     //SUCSESS
     protected int pass = 0;
-    public void setPassWord(int pass, int old_pass) {
+    public void setPassWord(int old_pass, int pass) {
         if(Admin.getInstance().getSerialID() == serialID) {
             if (this.pass == old_pass) {
                 this.pass = pass;
