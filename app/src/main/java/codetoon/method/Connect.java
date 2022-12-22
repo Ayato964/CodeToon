@@ -9,7 +9,7 @@ import codetoon.main.*;
 import codetoon.argument.*;
 
 public class Connect extends MyMethod  {
-    Memory memory;
+    String memoryString;
     int pass = 0;
     @Override
     public Object newInstance() {
@@ -19,8 +19,7 @@ public class Connect extends MyMethod  {
     @Override
     public String set(HashMap<Integer, String> map) {
         System.out.println(map.get(CodeToon.PARCENT_ARGUMENT));
-        memory = (Memory)ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
-        System.out.println(memory);
+        memoryString = map.get(CodeToon.PARCENT_ARGUMENT);
         if(map.get(0) != null){
             pass = IntegerArgument.getInstance().indentification(map.get(0)).intValue();
         }
@@ -29,6 +28,7 @@ public class Connect extends MyMethod  {
 
     @Override
     public void action(int i) {
+        Memory memory = (Memory)ObjectArgument.getInstance().indentification(memoryString);
         memory.connection(pass);
     }
 
