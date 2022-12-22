@@ -20,6 +20,7 @@ public class Main extends JFrame{
     public static Rectangle DESCTOP_BOUNDS;
     private static  Graphics g;
     public Main(String title){
+        //JOptionPane.showMessageDialog(new JFrame(), getClass().getClassLoader().getResource("assets/").toString());
         setTitle(title);
         this.setUndecorated(true);
         getRootPane().setWindowDecorationStyle(JRootPane.NONE);
@@ -46,14 +47,14 @@ public class Main extends JFrame{
     }
     /** Main Method !!! **/
     public static void main(String[] args) {
-       // JOptionPane.showMessageDialog(new JFrame(), "Test");
+       // JOptionPane.showMessageDialog(new JFrame(), "Say");
         LangLoader.create("ja_jp");
         System.out.println();
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
         //Tick.getInstance();
-        System.out.println("Tick Loaded");
+       // System.out.println("Tick Loaded");
     }
 
     public void run(Map map){
