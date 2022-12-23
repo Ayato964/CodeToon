@@ -30,6 +30,7 @@ application {
     // Define the main class for the application.
     mainClass = 'codetoon.main.Main'
 }
+/*
 sourceSets {
     main{
         resources {
@@ -37,6 +38,7 @@ sourceSets {
         }
     }
 }
+*/
 jar{
     manifest {
         attributes 'Main-Class': 'codetoon.main.Main'

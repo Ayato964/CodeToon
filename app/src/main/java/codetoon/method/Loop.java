@@ -3,6 +3,7 @@ package codetoon.method;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
+import codetoon.system.Memory;
 import codetoon.system.Player;
 import codetoon.util.Indentification;
 import codetoon.util.converter.ConvertSource;
@@ -12,10 +13,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Loop extends MyMethod{
-    Player host;
-    ArrayList<MyMethod> methods = new ArrayList<>();
+    String host;
+    String methods;
     StringBuilder program = new StringBuilder();
-    int count;
+    String count;
     @Override
     public Object newInstance() {
         return new Loop();
@@ -23,18 +24,25 @@ public class Loop extends MyMethod{
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
-        count = IntegerArgument.getInstance().indentification(map.get(0));
-        host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
-        methods = ConvertSource.convert(map.get(CodeToon.INSIDE_METHODS), host);
+        host = map.get(CodeToon.HOST_MAP);
+        count = map.get(0);
+        methods = map.get(CodeToon.INSIDE_METHODS);
         program.append(map.get(CodeToon.INSIDE_METHODS));
+
 
         return "for";
     }
 
     @Override
     public void action(int i) {
+        int count = IntegerArgument.getInstance().indentification(this.count);
+        Player host = (Player) ObjectArgument.getInstance().indentification(this.host);
+        ArrayList<MyMethod> methods = ConvertSource.convert(this.methods, host);
+
         methods = host.removeBlackList(methods);
         for(int l = 0; l < count ; l ++) {
+            methods = ConvertSource.convert(this.methods, host);
+            methods = host.removeBlackList(methods);
             if(!methods.isEmpty()) {
                 for (int c = 0; c < methods.size(); c++) {
                     methods.get(c).action(c);

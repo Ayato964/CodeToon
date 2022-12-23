@@ -15,9 +15,20 @@ public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, Strin
     }
     public  RegistoryObject<T> createRegistory(String ID, Supplier<T> sup){
         RegistoryObject<T> obj = new RegistoryObject<T>(ID, sup);
+        isMethod(obj);
         registory.add(obj);
         return obj;
     }
+
+    private void isMethod(RegistoryObject<T> obj) {
+        for(int i = 0; i < registory.size(); i ++){
+            if(obj.getID().equals(registory.get(i).getID())) {
+                registory.remove(i);
+                break;
+            }
+        }
+    }
+
     public boolean search(String s){
         for(int i = 0; i < registory.size(); i ++){
             if(registory.get(i).getID().equals(s)){

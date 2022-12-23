@@ -28,7 +28,7 @@ public class ConvertVariable {
         String id = host.getID() + "_" + serial + "_" + data.name;
         HashMap<Integer, String> map = getMap(id, data, host);
         map.put(10, new StringBuilder().append(type).toString());
-/*
+
         if(type != EXISTING) {
             PrivateNewVariable pvs = new PrivateNewVariable();
             pvs.set(map);
@@ -41,7 +41,7 @@ public class ConvertVariable {
             }
         }
 
- */
+ /*
         switch (type){
             case ConvertVariable.STRING :
                 Variables.VARIABLE.createRegistory(id, () ->
@@ -59,6 +59,7 @@ public class ConvertVariable {
                     return pv;
                 }
         }
+        */
         return null;
     }
     private static HashMap<Integer, String> getMap(String id, ContainerVariable data, Player host){

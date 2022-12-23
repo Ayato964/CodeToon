@@ -20,7 +20,7 @@ public class PrivateNewVariable extends PrivateVariable{
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         super.set(map);
-        type = IntegerArgument.getInstance().indentification(map.get(0));
+        type = IntegerArgument.getInstance().indentification(map.get(10));
         return null;
     }
 
