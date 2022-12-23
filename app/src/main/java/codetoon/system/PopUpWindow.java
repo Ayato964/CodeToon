@@ -24,7 +24,10 @@ public class PopUpWindow implements MouseMotionListener{
     public void drawPopUpWindow(){
         Graphics g = Main.getMainGraphics();
         if(displayMemory != null && displayMemory.states != EnumMemoryStates.NONE){
-            if(displayMemory.states != EnumMemoryStates.HACKED){
+            g.setFont(font);
+            if(displayMemory.states == EnumMemoryStates.HACKED){
+                g.setColor(rectColor);
+                g.fillRect(displayMemory.x-30, displayMemory.y-h-10, w, h);
                 g.setColor(fontColor);
                 g.drawString("This memory was hacked", displayMemory.x-25, displayMemory.y-h+10);
             }else if(displayMemory.getSource() != null){
