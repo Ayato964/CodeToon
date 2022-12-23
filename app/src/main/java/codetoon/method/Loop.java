@@ -4,6 +4,7 @@ import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Memory;
+import codetoon.system.Message;
 import codetoon.system.Player;
 import codetoon.util.Indentification;
 import codetoon.util.converter.ConvertSource;
@@ -39,16 +40,17 @@ public class Loop extends MyMethod{
         Player host = (Player) ObjectArgument.getInstance().indentification(this.host);
         ArrayList<MyMethod> methods = ConvertSource.convert(this.methods, host);
 
-        methods = host.removeBlackList(methods);
+        Message.popMessage(methods);
         for(int l = 0; l < count ; l ++) {
             methods = ConvertSource.convert(this.methods, host);
             methods = host.removeBlackList(methods);
             if(!methods.isEmpty()) {
                 for (int c = 0; c < methods.size(); c++) {
                     methods.get(c).action(c);
-
                 }
             }
+            if(count - 2 == l)
+                Message.pushMessage();
         }
     }
 }

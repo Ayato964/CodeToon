@@ -1,6 +1,8 @@
 package codetoon.system;
 
 import codetoon.main.Main;
+import codetoon.method.Methods;
+import codetoon.method.MyMethod;
 import codetoon.util.Tick;
 import codetoon.util.TickRegistory;
 import codetoon.util.animation.Animation;
@@ -14,8 +16,20 @@ public class Message {
 
     private int x, y, w, h;
     ArrayList<Animation> animations;
+    ArrayList<MyMethod> met = new ArrayList<>();
+    ArrayList<MyMethod> blackList = getBlackList();
+
+
+
+    private boolean isViewMessage = true;
     private Graphics graphics;
     private static Message instance;
+    private ArrayList<MyMethod> getBlackList() {
+        ArrayList<MyMethod> black = new ArrayList<>();
+        black.add(Methods.Attack.get());
+        black.add(Methods.Lock.get());
+        return black;
+    }
     public Message(Graphics g, int x, int y, int w, int h){
         graphics = g;
         this.x = x;
@@ -24,6 +38,25 @@ public class Message {
         this.h = h;
         animations = new ArrayList<>();
         instance = this;
+    }
+    public static void popMessage(ArrayList<MyMethod> method){
+        instance.met = method;
+        instance.isViewMessage = false;
+    }
+    public static void pushMessage(){
+        instance.isViewMessage = true;
+    }
+    private boolean isPop(){
+        if(!isViewMessage && !met.isEmpty()){
+            for(int i = 0; i < met.size(); i ++){
+                for (int c = 0; c < blackList.size(); c ++){
+                    if(met.get(i).getClass() == blackList.get(c).getClass()){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
     public void draw(){
         graphics.setColor(Color.WHITE);
@@ -41,15 +74,17 @@ public class Message {
         addMessage(null, str, c);
     }
     public static void addMessage(String[] values, String str, Color c){
-        instance.shiftMessage();
-        AnimationText a = Animation.create(instance.graphics);
-        a.draw(values, str, instance.x + 2, instance.y + instance.h - 1,
-                new Animation.Properties()
-                        .size(20)
-                        .color(c)
-                        .endPosition(instance.x, instance.y, EndPosition.UNDER)
-                        .setWidth(instance.w));
-        instance.animations.add(a);
+        if(instance.isPop()) {
+            instance.shiftMessage();
+            AnimationText a = Animation.create(instance.graphics);
+            a.draw(values, str, instance.x + 2, instance.y + instance.h - 1,
+                    new Animation.Properties()
+                            .size(20)
+                            .color(c)
+                            .endPosition(instance.x, instance.y, EndPosition.UNDER)
+                            .setWidth(instance.w));
+            instance.animations.add(a);
+        }
     }
     public static void shiftMessage() {
         if(!instance.animations.isEmpty()) {
