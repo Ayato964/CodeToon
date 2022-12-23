@@ -23,13 +23,18 @@ public class PopUpWindow implements MouseMotionListener{
 
     public void drawPopUpWindow(){
         Graphics g = Main.getMainGraphics();
-        if(displayMemory != null && displayMemory.getSource() != null){
-            g.setColor(rectColor);
-            g.fillRect(displayMemory.x-30, displayMemory.y-h-10, w, h);
-            g.fillPolygon(new int [] {displayMemory.x + 30,displayMemory.x+60, displayMemory.x+45  }, new int [] {displayMemory.y-10,displayMemory.y-10, displayMemory.y}, 3);
-            if(displayMemory != null && displayMemory.getSource() != null ){
+        if(displayMemory != null && displayMemory.states != EnumMemoryStates.NONE){
+            if(displayMemory.states != EnumMemoryStates.HACKED){
                 g.setColor(fontColor);
-                g.drawString(displayMemory.getSource().toString(), displayMemory.x-25, displayMemory.y-h+10);
+                g.drawString("This memory was hacked", displayMemory.x-25, displayMemory.y-h+10);
+            }else if(displayMemory.getSource() != null){
+                g.setColor(rectColor);
+                g.fillRect(displayMemory.x-30, displayMemory.y-h-10, w, h);
+                g.fillPolygon(new int [] {displayMemory.x + 30,displayMemory.x+60, displayMemory.x+45  }, new int [] {displayMemory.y-10,displayMemory.y-10, displayMemory.y}, 3);
+                if(displayMemory != null && displayMemory.getSource() != null ){
+                    g.setColor(fontColor);
+                    g.drawString(displayMemory.getSource().toString(), displayMemory.x-25, displayMemory.y-h+10);
+                }
             }
         }
     }
