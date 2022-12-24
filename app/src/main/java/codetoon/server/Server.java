@@ -101,13 +101,15 @@ public class Server implements Runnable {
             System.out.println("My Server Property is Not Host");
             connect(ipAdress);
         }
-        get_reception();
-        Main.getInstance().run(new PazzleStage(5));
-        sendMyCopy();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(runServer){
+            get_reception();
+            Main.getInstance().run(new PazzleStage(5));
+            sendMyCopy();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -150,7 +152,16 @@ public class Server implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public void stopConnection(){
+        runServer = false;
+        try {
+            svSock.close();
+            svReturnSock.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -26,7 +26,7 @@ public class CreateSection extends Map{
         backTitle = new ContainerBox(10, 100, 50, 10, new ContainerData<Box, Integer>() {
             @Override
             public void action(int i) {
-
+                Server.server.stopConnection();
                 Main.getInstance().run(new Title());
             }
 
