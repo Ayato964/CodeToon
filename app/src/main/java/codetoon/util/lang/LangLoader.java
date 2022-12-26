@@ -51,8 +51,7 @@ public class LangLoader {
         }
     }
     public String get(String[] value, String s){
-       // System.out.println(code.get(s));
-            return code.get(s) != null ? getString(value, code.get(s)) : s;
+        return code.get(s) != null ? getString(value, code.get(s)) : s;
     }
 
     private String getString(String[] value, String s) {

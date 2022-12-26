@@ -22,7 +22,6 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     EnumMemoryStates states;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
-    public int counter = 0;
     private final String name = "Memory";
     private boolean isHostMemory;
 
@@ -43,17 +42,13 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
     public static <T extends IsTick> void tick(T t){
-        if(CodeToon.isGameStart){
-            Memory memory = (Memory)t;
-            memory.counter ++;
-            if(memory.counter / 100 >= 5 && memory.source != null){
-                memory.counter = 0;
+        Memory memory = (Memory)t;
+        if(CodeToon.isGameStart && memory.source != null){
                 //ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
-                ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
-                memory.setRunMethod(methods);
-                memory.runMethod();
-                Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
-            }
+            ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
+            memory.setRunMethod(methods);
+            memory.runMethod();
+            Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
         }
 
     }

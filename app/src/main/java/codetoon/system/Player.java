@@ -43,7 +43,7 @@ public abstract class Player implements IsTick, Runnable{
             ticker.run_tick();
 
             try {
-                Thread.sleep(9L);
+                Thread.sleep(10000L);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

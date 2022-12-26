@@ -30,3 +30,15 @@ memory.pass.mes3 = "$が所有しているメモリーではないため、パ�
 
 method.attack.mes = "$被攻击了！！",
 method.states.mes = "$的情报:$",
+
+winner.mes1 = "YOU WIN!!!",
+winner.mes2 = "相手の全てのメモリーを制圧した！！",
+winner.chooser1 = "タイトルへ戻る",
+winner.chooser2 = "もう一度遊ぶ",
+
+
+loser.mes1 = "You LOSE!!",
+loser.mes2 = "全てのメモリーを制圧された...",
+loser.chooser1 = "もう一度遊ぶ",
+loser.chooser2 = "タイトルへ戻る",
+loser.chooser3 = "萎えたから辞める",

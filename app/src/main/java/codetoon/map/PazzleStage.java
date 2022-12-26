@@ -24,7 +24,7 @@ public class PazzleStage extends Map{
       c = new Console(140, 50, 120, 60);
       c.setVisible(true);
       messageBox = new Message(Main.getMainGraphics(), 140, 20, 60, 80);
-      CodeToon.isGameStart = true;
+      CodeToon.gameStart();
     }
 
     public Console getConsole() {
