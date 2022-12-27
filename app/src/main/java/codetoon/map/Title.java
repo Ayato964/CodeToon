@@ -53,6 +53,7 @@ public class Title extends Map{
         Animation.createImage(h).draw("title/title", 30, 0, 80, 80, new Animation.Properties().center().fade(2, -1));
         Animation.create(h).draw("Version." + CodeToon.GAME_VERSION, 160, 110,
                 new Animation.Properties().font("", Font.ITALIC, 32));
+        Animation.createImage(h).draw("other/setting", 155, 90, 13, 13, new Animation.Properties());
          box.draw();
     }
     public void display(Graphics g){

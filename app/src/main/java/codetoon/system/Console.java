@@ -210,6 +210,7 @@ public class Console extends JFrame implements KeyListener{
        // methods = Indentification.indentification(panel.program.toString(), host);
         if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString())) {
           methods = ConvertSource.convert(panel.program.toString(), host);
+
           if(isHave(Methods.END)) {
             host.endMethod(this, methods, panel.program);
           }

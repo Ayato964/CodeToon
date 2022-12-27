@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "Beta.0.5.8";
+    public static final String GAME_VERSION = "Beta.0.5.10";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;

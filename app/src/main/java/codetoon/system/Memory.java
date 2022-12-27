@@ -23,7 +23,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     private final String name = "Memory";
-    private boolean isHostMemory;
+    private final boolean isHostMemory;
 
     public Memory(int x, int y, int w, int h, int idC, int idI){
         serialID = Admin.getInstance().getSerialID();
@@ -42,13 +42,15 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
     public static <T extends IsTick> void tick(T t){
-        Memory memory = (Memory)t;
-        if(CodeToon.isGameStart && memory.source != null){
+        if(CodeToon.isGameStart){
+            Memory memory = (Memory)t;
+            if(memory.source != null) {
                 //ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
-            ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
-            memory.setRunMethod(methods);
-            memory.runMethod();
-            Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
+                ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
+                memory.setRunMethod(methods);
+                memory.runMethod();
+                Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
+            }
         }
 
     }
@@ -72,7 +74,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         }
     }
 
-    public void display(Graphics g){
+    public void display(@NotNull Graphics g){
         g.setColor(states.getColor());
         g.fillRect(x, y, w, h);
         g.setColor(Color.BLACK);
@@ -93,7 +95,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     public void endMethod(@NotNull Console console, ArrayList<MyMethod> methods, StringBuilder source) {
         setRunMethod(methods);
         console.setHost(Admin.getInstance());
-        source = Indentification.removeEnd(source);
+        Indentification.removeEnd(source);
         this.source = source;
         if(source.isEmpty()){
             states = EnumMemoryStates.NONE;

@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class CustomVariable<T> extends Variable<T>{
     T obj;
+    String objString;
     public CustomVariable(T t){
         obj = t;
     }
@@ -17,12 +18,15 @@ public class CustomVariable<T> extends Variable<T>{
 
     @Override
     public String set(HashMap<Integer, String> map) {
-        if(obj instanceof Integer){
-            obj = (T) IntegerArgument.getInstance().indentification(map.get(0));
-            System.out.println(obj);
+
+        objString = map.get(0);
+        if (obj instanceof Integer) {
+           // System.out.println("Integer:" + objString);
+            obj = (T) IntegerArgument.getInstance().indentification(objString);
+          //  System.out.println(obj);
         }
-        if(obj instanceof String){
-            obj = (T) StringArgument.getInstance().indentification(map.get(0));
+        if (obj instanceof String) {
+            obj = (T) StringArgument.getInstance().indentification(objString);
         }
         return null;
     }
@@ -35,6 +39,20 @@ public class CustomVariable<T> extends Variable<T>{
     @Override
     public boolean setIsArray() {
         return false;
+    }
+
+    @Override
+    public void action(int i) {
+        if(objString != null) {
+            if (obj instanceof Integer) {
+            //    System.out.println("Integer:" + objString);
+                obj = (T) IntegerArgument.getInstance().indentification(objString);
+                System.out.println(obj);
+            }
+            if (obj instanceof String) {
+                obj = (T) StringArgument.getInstance().indentification(objString);
+            }
+        }
     }
 
     @Override
