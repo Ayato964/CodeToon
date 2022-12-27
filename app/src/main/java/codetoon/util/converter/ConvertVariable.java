@@ -28,7 +28,6 @@ public class ConvertVariable {
         ContainerVariable data = new ContainerVariable(div);
         String id = host.getID() + "_" + serial + "_" + data.name;
         HashMap<Integer, String> map = getMap(id, data, host);
-
         map.put(10, new StringBuilder().append(type).toString());
 
         if(type != EXISTING) {
@@ -48,6 +47,7 @@ public class ConvertVariable {
         HashMap<Integer, String> map = new HashMap<>();
         map.put(0, id);
         map.put(1, data.variable);
+        map.put(2, data.name);
         map.put(CodeToon.HOST_MAP, host.getID());
         return map;
     }

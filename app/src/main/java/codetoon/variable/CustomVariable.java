@@ -15,6 +15,9 @@ public class CustomVariable<T> extends Variable<T>{
     public int getCount() {
         return 0;
     }
+    public String getName(){
+        return objString;
+    }
 
     @Override
     public String set(HashMap<Integer, String> map) {

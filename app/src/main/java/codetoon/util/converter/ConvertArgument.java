@@ -8,7 +8,7 @@ public class ConvertArgument {
         int c = 0;
         StringBuilder b = new StringBuilder();
         for(int i = 0; i < argumentStr.length(); i ++){
-            if(argumentStr.charAt(i) == ','){
+            if(argumentStr.charAt(i) == ',' || argumentStr.charAt(i) == ';'){
                 argument.put(c, b.toString());
                 b = new StringBuilder();
                 c ++;

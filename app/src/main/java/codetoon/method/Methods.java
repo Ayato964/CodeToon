@@ -9,6 +9,7 @@ public class Methods {
     public static RegistoryObject<MyMethod> CONNECT = METHODS.createRegistory("method_connect", Connect::new);
     public static RegistoryObject<MyMethod> DISCONNECT = METHODS.createRegistory("method_disconnect", Disconnect::new);
     public static RegistoryObject<MyMethod> END = METHODS.createRegistory("method_end", End::new);
+    public static RegistoryObject<MyMethod> FOR = METHODS.createRegistory("method_for", For::new);
     public static RegistoryObject<MyMethod> IF = METHODS.createRegistory("method_if", If::new);
     public static RegistoryObject<MyMethod> LOOP = METHODS.createRegistory("method_loop", Loop::new);
     public static RegistoryObject<MyMethod> Lock = METHODS.createRegistory("method_lock", Lock::new);

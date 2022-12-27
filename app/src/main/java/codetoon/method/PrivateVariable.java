@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 public class PrivateVariable extends MyMethod{
     public String id;
+    public String name;
     public String variable;
     Player host;
     @Override
@@ -21,6 +22,7 @@ public class PrivateVariable extends MyMethod{
     public String set(@NotNull HashMap<Integer, String> map) {
         id = map.get(0);
         variable = map.get(1);
+        name = map.get(2);
         host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
 
         return null;

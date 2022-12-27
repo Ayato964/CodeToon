@@ -80,7 +80,7 @@ public class ConvertSource {
                 isParent = true;
             }
         }
-        return s.indexOf("++") == -1 && s.indexOf("(") != -1;
+        return (s.indexOf("++") == -1 && s.indexOf("(") != -1) || s.indexOf("(") != -1;
     }
     public static boolean OnEndMethod(String s){
         return s.indexOf("end();") != -1;
