@@ -23,10 +23,12 @@ public class ConvertVariable {
     public static PrivateVariable convert(String divide, Player host) {
         StringBuilder div = new StringBuilder().append(divide);
         int type = getType(div, 0);
+        System.out.println(type);
         int serial = host.getSerialID();
         ContainerVariable data = new ContainerVariable(div);
         String id = host.getID() + "_" + serial + "_" + data.name;
         HashMap<Integer, String> map = getMap(id, data, host);
+
         map.put(10, new StringBuilder().append(type).toString());
 
         if(type != EXISTING) {
@@ -34,33 +36,13 @@ public class ConvertVariable {
             pvs.set(map);
             return pvs;
         }else {
-            if (Variables.VARIABLE.search(id)) {
+           // System.out.println("IS Already Variables");
                 PrivateVariable pv = new PrivateVariable();
                 pv.set(map);
                 return pv;
-            }
         }
 
- /*
-        switch (type){
-            case ConvertVariable.STRING :
-                Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<String>(StringArgument.getInstance().indentification(data.variable)));break;
-            case ConvertVariable.INTEGER:
-                Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(data.variable)));break;
-            case ConvertVariable.BOOLEAN:
-                Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(data.variable)));break;
-            case EXISTING:
-                if (Variables.VARIABLE.search(id)) {
-                    PrivateVariable pv = new PrivateVariable();
-                    pv.set(map);
-                    return pv;
-                }
-        }
-        */
-        return null;
+    //    return null;
     }
     private static HashMap<Integer, String> getMap(String id, ContainerVariable data, Player host){
         HashMap<Integer, String> map = new HashMap<>();
@@ -70,7 +52,7 @@ public class ConvertVariable {
         return map;
     }
     public static int getType(@NotNull StringBuilder divide, int c){
-        if(divide.charAt(c) == '=')
+        if(divide.charAt(c) == '=' || divide.indexOf("++") != -1 || divide.indexOf("--") != -1)
             return EXISTING;
 
         String type = divide.substring(0, c);
@@ -95,13 +77,37 @@ public class ConvertVariable {
             variable = v;
         }
         public ContainerVariable(StringBuilder s){
+
             for(int i = 0; i < s.length(); i ++){
                 if(s.charAt(i) == '=') {
                     name = s.substring(0, i);
                     variable = s.substring(i + 1, s.length());
                 }
+                convert(s, i, "+=");
+                convert(s, i, "-=");
+                convert(s, i, "/=");
+                convert(s, i, "*=");
+
             }
         }
+        private void convert(StringBuilder s, int i, String str){
+            if(s.charAt(i) == '=') {
+                if (s.substring(i - 1, i + 1).equals(str)) {
+                    name = s.substring(0, i - 1);
+                    variable = name + str.charAt(0);
+                    variable += s.substring(i + 1, s.length());
+                }
+            }else if(s.charAt(i) == '+' || s.charAt(i) == '-'){
+                StringBuilder eq = new StringBuilder().append(s.charAt(i)).append(s.charAt(i));
+                int c = s.indexOf(eq.toString());
+                if(c != -1){
+                    StringBuilder one = new StringBuilder().append(1);
+                    name = s.substring(0, c);
+                    variable = name + s.charAt(i) + one;
+                }
 
+
+            }
+        }
     }
 }

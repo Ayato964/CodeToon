@@ -29,6 +29,7 @@ public class PrivateVariable extends MyMethod{
     @Override
     public void action(int i) {
         HashMap<Integer, String> data = new HashMap<>();
+       // System.out.println("Variable;;" + variable);
         data.put(0, variable);
         Variables.VARIABLE.getThis(id).set(data);
     }

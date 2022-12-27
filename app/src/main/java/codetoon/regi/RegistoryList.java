@@ -31,6 +31,7 @@ public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, Strin
 
     public boolean search(String s){
         for(int i = 0; i < registory.size(); i ++){
+            //System.out.println(s + "   " + registory.get(i).getID() + "   " + registory.get(i).getID().equals(s));
             if(registory.get(i).getID().equals(s)){
                 return true;
             }

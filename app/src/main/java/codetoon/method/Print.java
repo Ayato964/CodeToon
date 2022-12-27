@@ -11,21 +11,16 @@ public class Print extends MyMethod{
     @Override
     public void action(int i) {
 
-        if(StringArgument.getInstance().indentification(map) == null){
-            if(IntegerArgument.getInstance().indentification(map) == Argument.NOT_ARGUMENT){
-                if(BooleanArgumet.getInstance().indentification(map) == null){
+        if(StringArgument.getInstance().indentification(map) == null)
+            if(IntegerArgument.getInstance().indentification(map) == Argument.NOT_ARGUMENT)
+                if(BooleanArgumet.getInstance().indentification(map) == null)
                     mes = map;
-                }else{
+                else
                     mes = new StringBuilder().append(BooleanArgumet.getInstance().indentification(map)).toString();
-                }
-            }else {
+            else
                 mes = new StringBuilder().append(IntegerArgument.getInstance().indentification(map)).toString();
-
-            }
-        }else {
+        else
             mes = new StringBuilder().append(StringArgument.getInstance().indentification(map)).toString();
-
-        }
 
         Message.addMessage(mes);
     }
