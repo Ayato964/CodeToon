@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "Beta.0.6.1";
+    public static final String GAME_VERSION = "Beta.0.7.0";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
@@ -27,15 +27,19 @@ public class CodeToon{
     }
     public static void gameObserver(){
         while (isGameStart && !DEBUG){
-            ArrayList<Memory> om = Memories.opponentMemory;
-            ArrayList<Memory> o = Memories.memory;
-            if(isAllHacked(om)){
-                isGameStart = false;
-                Main.getInstance().run(new Winner());
-            }
-            if(isAllHacked(o)){
-                isGameStart = false;
-                Main.getInstance().run(new Loser());
+            if(Memories.memory != null) {
+                ArrayList<Memory> om = Memories.opponentMemory;
+                ArrayList<Memory> o = Memories.memory;
+                if (isAllHacked(om)) {
+                    isGameStart = false;
+                    Memories.stopAll();
+                    Main.getInstance().run(new Winner());
+                }
+                if (isAllHacked(o)) {
+                    isGameStart = false;
+                    Memories.stopAll();
+                    Main.getInstance().run(new Loser());
+                }
             }
         }
     }

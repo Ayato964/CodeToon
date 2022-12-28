@@ -22,6 +22,14 @@ public class Memories {
         Variables.createVariable("memory", () -> new MemoryVariable());
 
     }
+    public static void stopAll(){
+        for(Memory memory1 : memory){
+            memory1.running = false;
+        }
+        for (Memory memory1 : opponentMemory){
+            memory1.running = false;
+        }
+    }
     public static void updateMemory(ArrayList<Memory> m){
         for(Memory memory1 : memory){
             memory1.running = false;

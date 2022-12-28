@@ -8,6 +8,8 @@ import java.util.Properties;
 
 import codetoon.main.*;
 import codetoon.system.CodeToon;
+import codetoon.util.Action;
+import codetoon.util.ContainerData;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.Contract;
@@ -115,6 +117,14 @@ public abstract class Animation {
 
         public Properties displayTime(int time){
             prop.add(new DisplayTime(time));
+            return this;
+        }
+        public Properties frame(Color c){
+            prop.add(new Frame(c));
+            return this;
+        }
+        public Properties button(Action data){
+            prop.add(new Button(data));
             return this;
         }
 
