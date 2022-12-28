@@ -50,29 +50,30 @@ public class Title extends Map{
 
     @Override
     public void setup(Graphics h) {
-        Animation.createImage(h).draw("title/title", 30, 0, 80, 80, new Animation.Properties().center().fade(2, -1));
+        Animation.createImage(h).draw("title/title", 50, 0, 80, 80, new Animation.Properties().center().fade(2, -1));
         Animation.create(h).draw("Version." + CodeToon.GAME_VERSION, 160, 110,
                 new Animation.Properties().font("", Font.ITALIC, 32));
         Animation.createImage(h).draw("other/setting", 155, 90, 13, 13, new Animation.Properties().button(i -> Main.getInstance().run(new Setting())));
 
-        Animation.create(h).draw("title.chooser1", 20, 70, new Animation.Properties().size(40).center()
-                .frame(Color.WHITE).button(i->
+        Animation.create(h).draw("title.chooser1", 75, 70, new Animation.Properties().size(40)
+                .frame(Color.WHITE, 60, 60, ()->true)
+                .button(i->
                 {
                     Server.isHost = true;
                     Main.getInstance().run(new CreateSection());
                     Server.server.startServer(null);
                 }));
-        Animation.create(h).draw("title.chooser2", 20, 78, new Animation.Properties().size(40).center()
-                .frame(Color.WHITE)
+        Animation.create(h).draw("title.chooser2", 75, 78, new Animation.Properties().size(40)
+                .frame(Color.WHITE, 60, 60, ()->true)
                 .button(i-> {
                     Server.isHost = false;
                     Main.getInstance().run(new JoinServer());
 
                 }));
-        Animation.create(h).draw("title.chooser3", 20, 86, new Animation.Properties().size(40).center()
-                .frame(Color.WHITE).button(i->System.exit(-1)));
-        Animation.create(h).draw("title.chooser4", 20, 93, new Animation.Properties().size(40).center()
-                .frame(Color.WHITE).button(i->{
+        Animation.create(h).draw("title.chooser3", 75, 86, new Animation.Properties().size(40)
+                .frame(Color.WHITE, 60, 60, ()->true).button(i->System.exit(-1)));
+        Animation.create(h).draw("title.chooser4", 75, 93, new Animation.Properties().size(40)
+                .frame(Color.WHITE, 60, 60, ()->true).button(i->{
                     CodeToon.DEBUG = true;Main.getInstance().run(new PazzleStage(5));
     }));
     }
