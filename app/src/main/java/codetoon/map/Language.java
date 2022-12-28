@@ -15,11 +15,11 @@ public class Language extends Map{
                 .frame(Color.WHITE, ()->LangLoader.LANGUAGE.equals(LangLoader.JAPANESE))
                 .button(i ->this.changeLang(LangLoader.JAPANESE))
         );
-        Animation.create(g).draw("lang.us", 0, 25, new Animation.Properties().size(40).center()
+        Animation.create(g).draw("lang.us", 0, 28, new Animation.Properties().size(40).center()
                 .frame(Color.WHITE, ()->LangLoader.LANGUAGE.equals(LangLoader.ENGLISH))
                 .button(i ->this.changeLang(LangLoader.ENGLISH))
         );
-        Animation.create(g).draw("lang.cn", 0, 30, new Animation.Properties().size(40).center()
+        Animation.create(g).draw("lang.cn", 0, 36, new Animation.Properties().size(40).center()
                 .frame(Color.WHITE, ()->LangLoader.LANGUAGE.equals(LangLoader.CHINESE))
                 .button(i ->this.changeLang(LangLoader.CHINESE)));
 
