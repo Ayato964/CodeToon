@@ -7,12 +7,20 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class LangLoader {
+    public static final String JAPANESE = "ja_jp";
+    public static final String ENGLISH = "en_us";
+    public static final String CHINESE = "zh_cn";
+    public static String LANGUAGE;
     private URI filePath;
     private File file;
     public HashMap<String, String> code;
     private static LangLoader INSTANCE;
     public static String tempKey;
     private LangLoader(String lang){
+        loadFile(lang);
+    }
+    private void loadFile(String lang){
+        LANGUAGE = lang;
         code = new HashMap<>();
         try {
             filePath = getClass().getResource("/assets/codetoon/lang/" + lang + ".lang").toURI();
@@ -89,9 +97,10 @@ public class LangLoader {
         }
     }
     public static void create(String lang){
-        if(INSTANCE == null) {
+        if(INSTANCE == null)
             INSTANCE = new LangLoader(lang);
-        }
+        else
+            INSTANCE.loadFile(lang);
     }
 
     public static LangLoader getInstance() {

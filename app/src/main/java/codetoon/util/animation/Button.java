@@ -33,8 +33,6 @@ public class Button implements Decorate, MouseListener {
             x = (p.getAnimation().getX()) * Main.DW;
             y = (p.getAnimation().getY()) * Main.DH;
         }
-        g.drawRect(x, y, w, h);
-
     }
     private int getTextWidth(String mes, Graphics g) {
         int len = 0;
@@ -48,6 +46,7 @@ public class Button implements Decorate, MouseListener {
         if(x < e.getX() && e.getX() < x + w && y < e.getY() && e.getY() < y + h){
             data.action(-1);
             Main.getInstance().removeMouseListener(this);
+            System.out.println(e.getX());
         }
     }
 

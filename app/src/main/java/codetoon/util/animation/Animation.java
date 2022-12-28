@@ -1,6 +1,7 @@
 package codetoon.util.animation;
 
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.awt.geom.Rectangle2D;
 import java.security.KeyStore;
 import java.util.ArrayList;
@@ -8,10 +9,7 @@ import java.util.Properties;
 
 import codetoon.main.*;
 import codetoon.system.CodeToon;
-import codetoon.util.Action;
-import codetoon.util.ContainerData;
-import codetoon.util.IsTick;
-import codetoon.util.TickRegistory;
+import codetoon.util.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +38,14 @@ public abstract class Animation {
 
     public void setY(int y) {
         this.y = y;
+    }
+    public static void removeMouseListener(){
+        MouseListener[] l = Main.getInstance().getMouseListeners();
+        for(MouseListener ll : l){
+            if(ll instanceof Button){
+                Main.getInstance().removeMouseListener(ll);
+            }
+        }
     }
 
     @Contract("_ -> new")
@@ -121,6 +127,10 @@ public abstract class Animation {
         }
         public Properties frame(Color c){
             prop.add(new Frame(c));
+            return this;
+        }
+        public Properties frame(Color c, IsBoolInterface b){
+            prop.add(new Frame(c, b));
             return this;
         }
         public Properties button(Action data){

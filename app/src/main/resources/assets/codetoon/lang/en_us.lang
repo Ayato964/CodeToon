@@ -42,3 +42,14 @@ loser.mes2 = "Your Memory was hacked all.",
 loser.chooser1 = "Continue",
 loser.chooser2 = "Back to Title",
 loser.chooser3 = "Exit Desktop",
+
+
+setting.lang = "言語設定",
+setting.exit = "タイトルへ戻る",
+setting.save = "内容をセーブする",
+
+lang.jp = "日本語",
+lang.us = "英語",
+lang.cn = "中国語",
+lang.exit = "設定へ戻る",
+lang.save = "内容をセーブする",

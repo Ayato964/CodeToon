@@ -41,3 +41,13 @@ loser.mes2 = "全てのメモリーを制圧された...",
 loser.chooser1 = "もう一度遊ぶ",
 loser.chooser2 = "タイトルへ戻る",
 loser.chooser3 = "萎えたから辞める",
+
+setting.lang = "言語設定",
+setting.exit = "タイトルへ戻る",
+setting.save = "内容をセーブする",
+
+lang.jp = "日本語",
+lang.us = "英語",
+lang.cn = "中国語",
+lang.exit = "設定へ戻る",
+lang.save = "内容をセーブする",

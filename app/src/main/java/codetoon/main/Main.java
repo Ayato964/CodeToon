@@ -4,6 +4,7 @@ import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
 import codetoon.util.Tick;
+import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
 
 import java.awt.image.*;
@@ -59,6 +60,7 @@ public class Main extends JFrame{
 
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
+        Animation.removeMouseListener();
         Tick.getInstance().removeAllAnimation();
         displayMap = map;
         try {
