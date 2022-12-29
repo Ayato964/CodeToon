@@ -78,10 +78,7 @@ public class Console extends JFrame implements KeyListener{
         program.insert(program_count, e.getKeyChar());
         program_count ++;
         if(e.getKeyChar() == '\n' && program.charAt(program_count - 2) == '{') {
-          for(int i = 0; i < 4; i ++){
-            program.insert(program_count, ' ');
-            program_count ++;
-          }
+          tabSpace();
         }
       }
       //System.out.println(program.toString());
@@ -90,12 +87,19 @@ public class Console extends JFrame implements KeyListener{
       drawString(program.toString(), 20, 20);
       repaint();
     }
+    public void tabSpace(){
+      for(int i = 0; i < 4; i ++){
+        program.insert(program_count, ' ');
+        program_count ++;
+      }
+    }
     public void setCarsor(KeyEvent e){
       switch(e.getKeyCode()){
         case KeyEvent.VK_LEFT: if(isNotOutOfIndex())program_count --; drawString(program.toString(), 20, 20);break;
         case KeyEvent.VK_RIGHT:if(isNotOutOfLength()) program_count ++; drawString(program.toString(), 20, 20);break;
         case KeyEvent.VK_UP: upCarsour();drawString(program.toString(), 20, 20);break;
         case KeyEvent.VK_DOWN:downCarsour();drawString(program.toString(), 20, 20);break;
+        case KeyEvent.VK_TAB:tabSpace();break;
         
       }
       repaint();
@@ -111,9 +115,9 @@ public class Console extends JFrame implements KeyListener{
       int b = a + getCountStringLine(a) + 2;
       int c = program_count - a;
       if(getCountStringLine(b) >= getCountStringLine(a) -1){
-        program_count = b + c - 1; 
+        program_count = b + c - 1;
     }else{
-        program_count = b + getCountStringLine(b);
+        program_count = b + getCountStringLine(b) - 2;
     }
       
     }
@@ -206,6 +210,7 @@ public class Console extends JFrame implements KeyListener{
   
   @Override
    public void keyTyped(KeyEvent e){
+    System.out.println(e.getKeyCode());
         panel.drawInputKey(e);
        // methods = Indentification.indentification(panel.program.toString(), host);
         if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString())) {
@@ -223,7 +228,8 @@ public class Console extends JFrame implements KeyListener{
    }
   @Override
   public void keyPressed(KeyEvent e){
-      panel.setCarsor(e);
+
+    panel.setCarsor(e);
   }
   @Override
   public void keyReleased(KeyEvent e){
