@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class BooleanArgumet extends Argument<Boolean, String>{
     private static BooleanArgumet INSTANCE = new BooleanArgumet();
 
-    private int begin = 0; //削除された範囲左の値まで;
+    private int begin = 0;
     @Override
     public  Boolean indentification(String s) {
         StringBuilder program = new StringBuilder().append(s);

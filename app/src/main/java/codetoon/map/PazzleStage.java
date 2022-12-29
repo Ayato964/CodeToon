@@ -1,7 +1,6 @@
 package codetoon.map;
 
 import codetoon.main.*;
-import codetoon.server.Server;
 import codetoon.system.*;
 import codetoon.util.animation.Animation;
 

@@ -7,6 +7,7 @@ public class Memories {
 
     public static ArrayList<Memory> memory;
     public static ArrayList<Memory> opponentMemory;
+    private static final Memories instance = new Memories();
 
     public static void setInstance(int size, int x, int y, int w, int h){
         memory = new ArrayList<>();
@@ -22,6 +23,11 @@ public class Memories {
         Variables.createVariable("memory", () -> new MemoryVariable());
 
     }
+
+    public static Memories getInstance() {
+        return instance;
+    }
+
     public static void stopAll(){
         for(Memory memory1 : memory){
             memory1.running = false;

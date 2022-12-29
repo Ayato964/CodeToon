@@ -19,6 +19,9 @@ public class CodeToon{
     public static final Graphics GRAPHICS = Main.getMainGraphics();
     public static final int PARCENT_ARGUMENT = 1098;
     public static final int INFINITY = -100000;
+    private CodeToon(ArrayList<Memory> m){
+        boolean b = m == null;
+    }
 
     public static void gameStart(){
         isGameStart = true;
@@ -26,10 +29,13 @@ public class CodeToon{
         t.start();
     }
     public static void gameObserver(){
+        new CodeToon(Memories.opponentMemory);
         while (isGameStart && !DEBUG){
-            if(Memories.memory != null && Memories.opponentMemory != null) {
+            System.out.print(Memories.opponentMemory == null ? "" : "");
+            if(Memories.opponentMemory != null) {
                 ArrayList<Memory> om = Memories.opponentMemory;
                 ArrayList<Memory> o = Memories.memory;
+                //System.out.println("HEHEHE");
                 if (isAllHacked(om)) {
                     isGameStart = false;
                     Memories.stopAll();
