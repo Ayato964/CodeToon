@@ -27,7 +27,7 @@ public class CodeToon{
     }
     public static void gameObserver(){
         while (isGameStart && !DEBUG){
-            if(Memories.memory != null) {
+            if(Memories.memory != null && Memories.opponentMemory != null) {
                 ArrayList<Memory> om = Memories.opponentMemory;
                 ArrayList<Memory> o = Memories.memory;
                 if (isAllHacked(om)) {
