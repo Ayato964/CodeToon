@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.0.10";
+    public static final String GAME_VERSION = "1.0.11";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
@@ -39,22 +39,21 @@ public class CodeToon{
                 //System.out.println("HEHEHE");
                 if (isAllHacked(om)) {
                     isGameStart = false;
+                    Server.server.sendOpponentCopy();
+                    Server.server.sendMyCopy();
                     Memories.stopAll();
                     Console.getInstance().setVisible(false);
                     Server.server.end();
                     Main.getInstance().run(new Winner());
-
-                    Server.server.sendOpponentCopy();
-                    Server.server.sendMyCopy();
                 }
                 if (isAllHacked(o)) {
                     isGameStart = false;
+                    Server.server.sendOpponentCopy();
+                    Server.server.sendMyCopy();
                     Memories.stopAll();
                     Console.getInstance().setVisible(false);
                     Main.getInstance().run(new Loser());
 
-                    Server.server.sendOpponentCopy();
-                    Server.server.sendMyCopy();
                 }
             }
         }
