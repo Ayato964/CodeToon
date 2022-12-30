@@ -15,7 +15,7 @@ public class Server implements Runnable {
     int opponentPORT = 60000;
     String ipAdress;
 
-    boolean runServer = false;
+    public boolean runServer = false;
 
     Socket sock;
     Socket returnSock;

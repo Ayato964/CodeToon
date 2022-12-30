@@ -24,7 +24,7 @@ public class Reception extends Thread {
     }
 
     public void run() {
-        while(true){
+        while(Server.server.runServer){
         try {
 
             try {
