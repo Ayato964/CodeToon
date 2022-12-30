@@ -43,7 +43,7 @@ public class For extends MyMethod{
         p.action(-1);
         System.out.println(Variables.VARIABLE.getThis(p.id).action());
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
-        //Message.popMessage(methods);
+        Message.popMessage(methods);
         while (BooleanArgumet.getInstance().indentification(bool)){
 
             methods = ConvertSource.convert(inside, host);
@@ -54,6 +54,6 @@ public class For extends MyMethod{
             }
             ConvertVariable.convert(lamda, host).action(-1);
         }
-       // Message.pushMessage();
+        Message.pushMessage();
     }
 }
