@@ -21,7 +21,8 @@ public class Console extends JFrame implements KeyListener{
   private Player host;
 
   private ArrayList<MyMethod> methods;
-  public Console(int x, int y, int w, int h){
+  private static Console INSTANCE;
+  private Console(int x, int y, int w, int h){
     this.x = x * Main.DW;
     this.y = y * Main.DH;
     this.w = w * Main.DW;
@@ -34,6 +35,14 @@ public class Console extends JFrame implements KeyListener{
     pack();
 
     addKeyListener(this);
+  }
+  public static Console getInstance(){
+    if(INSTANCE != null)
+      return INSTANCE;
+    else {
+      INSTANCE  =  new Console(140, 50, 120, 60);
+      return INSTANCE;
+    }
   }
 
   public void setHost(Player h){

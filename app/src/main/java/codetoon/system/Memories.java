@@ -32,8 +32,10 @@ public class Memories {
         for(Memory memory1 : memory){
             memory1.running = false;
         }
-        for (Memory memory1 : opponentMemory){
-            memory1.running = false;
+        if(opponentMemory != null) {
+            for (Memory memory1 : opponentMemory) {
+                memory1.running = false;
+            }
         }
     }
     public static void updateMemory(ArrayList<Memory> m){

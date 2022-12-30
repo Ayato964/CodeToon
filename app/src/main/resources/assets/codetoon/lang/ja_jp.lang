@@ -13,6 +13,7 @@ join.mes1 = "セッションID（相手のIPアドレス）を入力してくだ
 join.mes2 = "タイトルへ戻る",
 
 stage.memory.list = "自分の陣地",
+stage.memory.debug.end = "デバッグを終了する。",
 
 memory.attack.mes1 = "パスワードが設定されているか、パスワードが違うため、攻撃できません。",
 memory.attack.mes2 = "自分の陣地をハッキングするのは愚かなことです。",

@@ -3,12 +3,13 @@ package codetoon.system;
 import codetoon.main.Main;
 import codetoon.map.Loser;
 import codetoon.map.Winner;
+import codetoon.server.Server;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.0.5";
+    public static final String GAME_VERSION = "1.0.8";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
@@ -39,11 +40,14 @@ public class CodeToon{
                 if (isAllHacked(om)) {
                     isGameStart = false;
                     Memories.stopAll();
+                    Console.getInstance().setVisible(false);
+                    Server.server.end();
                     Main.getInstance().run(new Winner());
                 }
                 if (isAllHacked(o)) {
                     isGameStart = false;
                     Memories.stopAll();
+                    Console.getInstance().setVisible(false);
                     Main.getInstance().run(new Loser());
                 }
             }

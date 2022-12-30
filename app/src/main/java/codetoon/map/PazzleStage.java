@@ -2,25 +2,26 @@ package codetoon.map;
 
 import codetoon.main.*;
 import codetoon.system.*;
+import codetoon.util.Action;
 import codetoon.util.animation.Animation;
 
 import java.awt.*;
-/** 
+/**
 実際の先頭画面を描画する、描画スクリーンクラス。
 このクラスには、小クラスとして、Fieldクラスを含んでいる。
 FieldクラスはMemoryをContainerとして収容するものである。
 **/
 public class PazzleStage extends Map{
-    public final int MEMORY_SIZE; 
+    public final int MEMORY_SIZE;
     private final Field field;
     private final Message messageBox;
     private final Console c;
-    
+
     public PazzleStage(int size){
       MEMORY_SIZE = size;
       field = new Field(5, 20, 130, 83);
       field.setMemoryCapability(MEMORY_SIZE);
-      c = new Console(140, 50, 120, 60);
+      c = Console.getInstance();
       c.setVisible(true);
       messageBox = new Message(Main.getMainGraphics(), 140, 20, 60, 80);
       CodeToon.gameStart();
@@ -38,6 +39,13 @@ public class PazzleStage extends Map{
         Animation.create(h).draw("stage.memory.list", 10, 10,
                 new Animation.Properties()
                     .size(40));
+        if(CodeToon.DEBUG){
+            Animation.create(h).draw("stage.memory.debug.end", 0, 10, new Animation.Properties().size(40).center().frame(Color.WHITE).button(i ->{
+                Console.getInstance().setVisible(false);
+                Memories.stopAll();
+                Main.getInstance().run(new Title());
+            }));
+        }
     }
 
     @Override
@@ -48,7 +56,7 @@ public class PazzleStage extends Map{
       messageBox.draw();
       PopUpWindow.popUpWindow.drawPopUpWindow();
     }
-  
+
     private class Field{
       private int x, y, w, h;
       int size;
@@ -66,7 +74,7 @@ public class PazzleStage extends Map{
         for(int i = 0; i < size * size; i ++){
             Memories.get(i).display(g);
         }
-      
+
       }
     }
   }

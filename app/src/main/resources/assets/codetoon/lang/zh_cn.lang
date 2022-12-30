@@ -13,6 +13,7 @@ join.mes1 = "请输入游戏ID（对方的IP地址）",
 join.mes2 = "返回标题",
 
 stage.memory.list = "你的领地",
+stage.memory.debug.end = "デバッグを終了する。",
 
 memory.attack.mes1 = "无法攻击，由于对方设定了密码或密码不正确。",
 memory.attack.mes2 = "攻击自己的领地，这很愚蠢。",
