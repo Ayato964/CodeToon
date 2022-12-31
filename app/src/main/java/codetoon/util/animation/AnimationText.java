@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class AnimationText extends Animation{
     private String msg;
+    private String msgID;
 
     protected AnimationText(Graphics g) {
         super(g);
@@ -24,6 +25,7 @@ public class AnimationText extends Animation{
         super.setY(y);
 
         msg = LangLoader.getInstance().get(value, str);
+        msgID = str;
         //  msg = str;
         myProp = properties;
         properties.set(this, g);
@@ -39,5 +41,8 @@ public class AnimationText extends Animation{
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+    public void setVariable(String[] val){
+        this.msg = LangLoader.getInstance().get(val, msgID);
     }
 }

@@ -20,8 +20,11 @@ public class Observer {
     public void setup(){
         Animation.create(CodeToon.GRAPHICS).draw("observer.category.game", x + 2, y + 4, new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 20));
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyRemaining()}, "observer.remaining", x + 2, y + 8, new Animation.Properties()
+                .changeArgument(() -> new String[]{getEnemyRemaining()})
                 .color(Color.BLACK).font("", Font.ITALIC, 20));
-        Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyHeldMemory()}, "observer.life", x + 2, y + 12, new Animation.Properties().color(Color.BLACK).font("", Font.ITALIC, 20));
+        Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyHeldMemory()}, "observer.life", x + 2, y + 12,
+                new Animation.Properties().changeArgument(() ->new String[]{getEnemyHeldMemory()})
+                .color(Color.BLACK).font("", Font.ITALIC, 20));
     }
     public void draw(@NotNull Graphics g){
         if(isFirst){
@@ -31,7 +34,7 @@ public class Observer {
         g.setColor(Color.WHITE);
         g.fillRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
     }
-    public String getEnemyHeldMemory(){
+    public static @NotNull String getEnemyHeldMemory(){
         int c = 0;
         if(Memories.opponentMemory != null){
             for(Memory m : Memories.opponentMemory){
@@ -46,7 +49,7 @@ public class Observer {
         }
         return "NULL";
     }
-    public String getEnemyRemaining(){
+    public static @NotNull String getEnemyRemaining(){
         int c = 0;
         if(Memories.opponentMemory != null){
             for(Memory m : Memories.opponentMemory){

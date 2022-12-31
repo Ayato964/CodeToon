@@ -155,6 +155,10 @@ public abstract class Animation {
             prop.add(new Center());
             return this;
         }
+        public Properties changeArgument(StringSup sup){
+            prop.add(new ChangeArgument(sup));
+            return this;
+        }
         public Properties color(Color c){
             prop.add(new DisplayColor(c));
             return this;
