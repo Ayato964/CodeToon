@@ -2,6 +2,7 @@ package codetoon.system;
 
 import java.util.ArrayList;
 import codetoon.variable.*;
+import org.checkerframework.checker.units.qual.A;
 
 public class Memories {
 
@@ -37,6 +38,8 @@ public class Memories {
                 memory1.running = false;
             }
         }
+        memory = new ArrayList<>();
+        opponentMemory = new ArrayList<>();
     }
     public static void updateMemory(ArrayList<Memory> m){
         for(Memory memory1 : memory){

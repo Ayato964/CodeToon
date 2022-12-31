@@ -6,15 +6,11 @@ import codetoon.util.Action;
 import codetoon.util.animation.Animation;
 
 import java.awt.*;
-/**
-実際の先頭画面を描画する、描画スクリーンクラス。
-このクラスには、小クラスとして、Fieldクラスを含んでいる。
-FieldクラスはMemoryをContainerとして収容するものである。
-**/
 public class PazzleStage extends Map{
     public final int MEMORY_SIZE;
     private final Field field;
     private final Message messageBox;
+    public final Observer observer;
     private final Console c;
 
     public PazzleStage(int size){
@@ -23,7 +19,9 @@ public class PazzleStage extends Map{
       field.setMemoryCapability(MEMORY_SIZE);
       c = Console.getInstance();
       c.setVisible(true);
-      messageBox = new Message(Main.getMainGraphics(), 140, 20, 60, 80);
+      messageBox = new Message(Main.getMainGraphics(), 140, 65, 60, 40);
+      observer = new Observer(140, 15, 60, 40);
+
       CodeToon.gameStart();
     }
 
@@ -54,6 +52,7 @@ public class PazzleStage extends Map{
       //background(#505050);
       field.display(g);
       messageBox.draw();
+      observer.draw(g);
       PopUpWindow.popUpWindow.drawPopUpWindow();
     }
 
