@@ -15,6 +15,8 @@ join.mes2 = "Back to the Title",
 stage.memory.list = "My Memory List",
 stage.memory.debug.end = "End DEBUG",
 
+console.mes1 = "Only $ methods can be called.",
+
 memory.attack.mes1 = "Can't Attack. Because is setting password or different password on the Memory.",
 memory.attack.mes2 = "Are you kidding me!? Why hacking myself?",
 memory.connection.mes1 = "This memory is hacked by The Enemy",

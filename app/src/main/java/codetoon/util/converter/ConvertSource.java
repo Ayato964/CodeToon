@@ -1,8 +1,11 @@
 package codetoon.util.converter;
 
+import codetoon.method.For;
+import codetoon.method.Methods;
 import codetoon.method.MyMethod;
 import codetoon.method.PrivateVariable;
 import codetoon.system.AbstractLockerPlayer;
+import codetoon.system.Console;
 import codetoon.system.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -87,5 +90,19 @@ public class ConvertSource {
     }
     public static boolean OnRemoveMethod(String s){
         return s.indexOf("remove();") != -1;
+    }
+
+    public static int getMethodCount(ArrayList<MyMethod> methods, Player host) {
+        int have = isHave(Methods.FOR.get(), methods);
+        if( have != -1)
+            return methods.size() + getMethodCount(convert(((For)methods.get(have)).inside, host), host);
+        return methods.size();
+    }
+    public static int isHave(MyMethod s, ArrayList<MyMethod> m){
+        for(int i = 0; i < m.size(); i ++){
+            if(s.getClass() == m.get(i).getClass())
+                return i;
+        }
+        return -1;
     }
 }

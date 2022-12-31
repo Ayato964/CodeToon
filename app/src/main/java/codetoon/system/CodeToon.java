@@ -9,11 +9,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.0.12";
+    public static final String GAME_VERSION = "1.1.0";
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
     public static int MEMORY_SIZE = 5;
     public static final int INSIDE_METHODS = 192010;
+    public static final  int METHOD_MAX_COUNT = 4;
 
     public static final int HOST_MAP = 1101;
 

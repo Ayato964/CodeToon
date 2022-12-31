@@ -4,7 +4,9 @@ import codetoon.main.*;
 import codetoon.util.*;
 import codetoon.method.*;
 import codetoon.regi.*;
+import codetoon.util.animation.Animation;
 import codetoon.util.converter.ConvertSource;
+import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -206,7 +208,7 @@ public class Console extends JFrame implements KeyListener{
     
   }
   /** Program識別 **/
-  public <T extends MyMethod> boolean isHave(RegistoryObject<T> m){
+  public  <T extends MyMethod> boolean isHave(RegistoryObject<T> m){
     if(methods != null){
       for(int i = 0; i < methods.size(); i ++){
         if(methods.get(i).getClass() == m.get().getClass() ){
@@ -224,10 +226,12 @@ public class Console extends JFrame implements KeyListener{
        // methods = Indentification.indentification(panel.program.toString(), host);
         if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString())) {
           methods = ConvertSource.convert(panel.program.toString(), host);
-
-          if(isHave(Methods.END)) {
-            host.endMethod(this, methods, panel.program);
-          }
+          if(isHave(Methods.END))
+            if(ConvertSource.getMethodCount(methods, host) <= 4) {
+              Variables.VARIABLE.deleteAll(host.getID() + "_" + host.getSerialID());
+              host.endMethod(this, methods, panel.program);
+            }else
+              Message.addMessage(new String[]{new StringBuilder().append(CodeToon.METHOD_MAX_COUNT).toString()}, "console.mes1");
           if(isHave(Methods.REMOVE)){
             Methods.REMOVE.get().action(0);
           }

@@ -20,7 +20,7 @@ public class For extends MyMethod{
     String integer;
     String lamda;
     Player host;
-    String inside;
+    public String inside;
 
     @Override
     public Object newInstance() {

@@ -15,6 +15,8 @@ join.mes2 = "返回标题",
 stage.memory.list = "你的领地",
 stage.memory.debug.end = "デバッグを終了する。",
 
+console.mes1 = "メソッドは$つまでしか呼び出せません。",
+
 memory.attack.mes1 = "无法攻击，由于对方设定了密码或密码不正确。",
 memory.attack.mes2 = "攻击自己的领地，这很愚蠢。",
 memory.connection.mes1 = "正在攻击这里！！",

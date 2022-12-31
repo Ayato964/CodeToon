@@ -42,7 +42,7 @@ public abstract class Argument<T, I>  {
     protected T convertVariableTo(String s){
         //Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
         String variable_ID = host.getID() + "_" + host.getSerialID() + "_" + s;
-        System.out.println(variable_ID);
+        //System.out.println(variable_ID);
         if(Variables.VARIABLE.search(variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
             return sample.getClass() == re.action().getClass() ? (T) re.action() : null;
