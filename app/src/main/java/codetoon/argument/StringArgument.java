@@ -1,6 +1,8 @@
 package codetoon.argument;
 
 
+import codetoon.system.Player;
+
 public class StringArgument extends Argument<String, String> {
     private static final StringArgument instance= new StringArgument();
     private StringArgument(){}
@@ -12,6 +14,10 @@ public class StringArgument extends Argument<String, String> {
         }else{
             return convertVariableTo(s);
         }
+    }
+    public String indentification(String s, Player p){
+        host = p;
+        return indentification(s);
     }
 
     public String convertStringAll(StringBuilder s){

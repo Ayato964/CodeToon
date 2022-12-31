@@ -5,15 +5,17 @@ import java.util.HashMap;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.method.*;
+import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import codetoon.variable.*;
 
 public abstract class Argument<T, I>  {
     T sample = getSample();
+    protected Player host;
     public static final int NOT_ARGUMENT = -99999;
     protected final StringBuilder ERROR = new StringBuilder().append("sgsihgrgmkwrgtkrthhjthmmlghmghmls");
     protected Argument(){
-
+        host = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
     } 
     protected int search(char n, StringBuilder obj){
         for(int i = 0; i < obj.length(); i ++){
@@ -38,8 +40,9 @@ public abstract class Argument<T, I>  {
         return Methods.METHODS.get("method_" + builder);
     }
     protected T convertVariableTo(String s){
-        Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
-        String variable_ID = p.getID() + "_" + p.getSerialID() + "_" + s;
+        //Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
+        String variable_ID = host.getID() + "_" + host.getSerialID() + "_" + s;
+        System.out.println(variable_ID);
         if(Variables.VARIABLE.search(variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
             return sample.getClass() == re.action().getClass() ? (T) re.action() : null;
@@ -66,6 +69,7 @@ public abstract class Argument<T, I>  {
     protected HashMap<Integer, String> getVariable(StringBuilder data){
         StringBuilder v = new StringBuilder();
         HashMap<Integer, String> temp = new HashMap<>();
+        temp.put(CodeToon.HOST_MAP, host.getID());
         boolean is = false;
         int c = 0;
         for(int i = 0; i < data.length(); i ++){

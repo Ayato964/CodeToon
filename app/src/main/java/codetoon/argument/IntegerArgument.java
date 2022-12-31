@@ -1,29 +1,13 @@
 package codetoon.argument;
 
+import codetoon.system.Player;
 import codetoon.util.Expr;
 import org.jetbrains.annotations.Contract;
 
 public class IntegerArgument extends Argument<Integer, String> {
     String calcEq = "+-/*";
     private IntegerArgument(){}
-    /*
-    @Override
-    public Integer indentification(String i) {
-        StringBuilder s = new StringBuilder().append(i);
-        boolean isAllInteger = true;
-        for(int c = 0; c < s.length(); c ++){
-            if(!(s.charAt(c) >= '0' && s.charAt(c) <= '9')){
-                isAllInteger = false;
-            }
-        }
-        if(isAllInteger){
-            return Integer.parseInt(i);
-        }else{
-           return convertVariableTo(i) == null ? NOT_ARGUMENT : convertVariableTo(i);
-        }
-    }
 
-     */
     private Integer convert(String i){
         StringBuilder s = new StringBuilder().append(i);
         boolean isAllInteger = true;
@@ -47,6 +31,10 @@ public class IntegerArgument extends Argument<Integer, String> {
         }
         return convert(s);
     }
+    public Integer indentification(String s, Player p){
+        host = p;
+        return indentification(s);
+    }
     public String convertAll(String s){
         StringBuilder equation = new StringBuilder();
         StringBuilder variable = new StringBuilder();
@@ -54,7 +42,7 @@ public class IntegerArgument extends Argument<Integer, String> {
             if (!(s.charAt(i) >= '0' && s.charAt(i) <= '9')){
                 if (isCalcEquation(s.charAt(i))) {
                     if(!variable.isEmpty()) {
-                        int temp = getInstance().indentification(variable.toString());
+                        int temp = getInstance().indentification(variable.toString(), host);
                         variable = new StringBuilder();
                         equation.append(temp);
                         equation.append(s.charAt(i));

@@ -1,5 +1,7 @@
 package codetoon.argument;
 
+import codetoon.system.Player;
+
 import java.util.ArrayList;
 
 
@@ -12,6 +14,10 @@ public class BooleanArgumet extends Argument<Boolean, String>{
         StringBuilder program = new StringBuilder().append(s);
         boolean answer = getInBrackets(program).booleanValue();
         return answer;
+    }
+    public Boolean indentification(String s, Player h){
+        host = h;
+        return indentification(s);
     }
 
     public static BooleanArgumet getInstance() {
@@ -220,10 +226,10 @@ public class BooleanArgumet extends Argument<Boolean, String>{
         } else if (value.toString().equals("false")) {
             return false;
         }else{
-            Integer integer = IntegerArgument.getInstance().indentification(value.toString());
+            Integer integer = IntegerArgument.getInstance().indentification(value.toString(), host);
            // System.out.println(integer);
             if(integer == NOT_ARGUMENT){
-                String s = StringArgument.getInstance().indentification(value.toString());
+                String s = StringArgument.getInstance().indentification(value.toString(), host);
                 if(s != null){
                     return s;
                 }

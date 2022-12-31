@@ -41,10 +41,10 @@ public class For extends MyMethod{
     public void action(int i) {
         PrivateNewVariable p = (PrivateNewVariable) ConvertVariable.convert(integer, host);
         p.action(-1);
-        System.out.println(Variables.VARIABLE.getThis(p.id).action());
+        //System.out.println(Variables.VARIABLE.getThis(p.id).action());
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
         Message.popMessage(methods);
-        while (BooleanArgumet.getInstance().indentification(bool)){
+        while (BooleanArgumet.getInstance().indentification(bool, host)){
 
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){

@@ -30,14 +30,14 @@ public class PrivateNewVariable extends PrivateVariable{
         switch (type){
             case ConvertVariable.STRING :
                 Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<String>(StringArgument.getInstance().indentification(variable)));break;
+                        new CustomVariable<String>(StringArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.INTEGER:
                // System.out.println("newInstance:" + variable);
                 Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(variable)));break;
+                        new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.BOOLEAN:
                 Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable)));break;
+                        new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable, host)));break;
            }
     }
 

@@ -2,6 +2,7 @@ package codetoon.argument;
 
 import codetoon.method.*;
 import codetoon.system.Admin;
+import codetoon.system.Player;
 import codetoon.util.*;
 import codetoon.variable.*;
 
@@ -9,6 +10,10 @@ public class ObjectArgument extends Argument<Object, String> {
     private static final ObjectArgument instance = new ObjectArgument();
     private String percent;
     private ObjectArgument(){}
+    public Object indentification(String s, Player host){
+        this.host = host;
+        return indentification(s);
+    }
     @Override
     public Object indentification(String s) {
         StringBuilder builder = new StringBuilder().append(s);

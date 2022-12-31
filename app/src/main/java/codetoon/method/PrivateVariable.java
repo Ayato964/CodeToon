@@ -12,7 +12,7 @@ public class PrivateVariable extends MyMethod{
     public String id;
     public String name;
     public String variable;
-    Player host;
+    protected Player host;
     @Override
     public Object newInstance() {
         return new PrivateVariable();
@@ -33,6 +33,7 @@ public class PrivateVariable extends MyMethod{
         HashMap<Integer, String> data = new HashMap<>();
        // System.out.println("Variable;;" + variable);
         data.put(0, variable);
+        data.put(CodeToon.HOST_MAP, host.getID());
         Variables.VARIABLE.getThis(id).set(data);
     }
 }

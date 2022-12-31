@@ -1,13 +1,17 @@
 package codetoon.variable;
 
 import codetoon.argument.IntegerArgument;
+import codetoon.argument.ObjectArgument;
 import codetoon.argument.StringArgument;
+import codetoon.system.CodeToon;
+import codetoon.system.Player;
 
 import java.util.HashMap;
 
 public class CustomVariable<T> extends Variable<T>{
     T obj;
     String objString;
+    Player host;
     public CustomVariable(T t){
         obj = t;
     }
@@ -21,15 +25,15 @@ public class CustomVariable<T> extends Variable<T>{
 
     @Override
     public String set(HashMap<Integer, String> map) {
-
+        host =(Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
         objString = map.get(0);
         if (obj instanceof Integer) {
            // System.out.println("Integer:" + objString);
-            obj = (T) IntegerArgument.getInstance().indentification(objString);
+            obj = (T) IntegerArgument.getInstance().indentification(objString, host);
           //  System.out.println(obj);
         }
         if (obj instanceof String) {
-            obj = (T) StringArgument.getInstance().indentification(objString);
+            obj = (T) StringArgument.getInstance().indentification(objString, host);
         }
         return null;
     }
@@ -48,12 +52,12 @@ public class CustomVariable<T> extends Variable<T>{
     public void action(int i) {
         if(objString != null) {
             if (obj instanceof Integer) {
-            //    System.out.println("Integer:" + objString);
-                obj = (T) IntegerArgument.getInstance().indentification(objString);
+               // System.out.println("Integer:" + objString + "    " + host.getID());
+                obj = (T) IntegerArgument.getInstance().indentification(objString, host);
                 System.out.println(obj);
             }
             if (obj instanceof String) {
-                obj = (T) StringArgument.getInstance().indentification(objString);
+                obj = (T) StringArgument.getInstance().indentification(objString, host);
             }
         }
     }
