@@ -17,7 +17,7 @@ public class Attack extends MyMethod{
     private int pass = 0;
     @Override
     public void action(int i) {
-        Memory enemy = (Memory) ObjectArgument.getInstance().indentification(enemyString);
+        Memory enemy = (Memory) ObjectArgument.getInstance().indentification(enemyString, host);
         //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
         Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){
