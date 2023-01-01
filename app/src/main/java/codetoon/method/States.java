@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 
 public class States extends MyMethod{
-    Memory memory;
+    String memoryString;
     @Override
     public Object newInstance() {
         return new States();
@@ -18,12 +18,13 @@ public class States extends MyMethod{
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
-        memory = (Memory) ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
+        memoryString = map.get(CodeToon.PARCENT_ARGUMENT);
         return null;
     }
 
     @Override
     public void action(int i) {
+       Memory memory = (Memory) ObjectArgument.getInstance().indentification(memoryString);
         EnumMemoryStates states = memory.getStates();
         Message.addMessage(new String[]{memory.getName(), memory.getStates().name()}, "method.states.mes");
     }
