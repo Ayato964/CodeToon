@@ -3,6 +3,7 @@ package codetoon.method;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.system.Console;
+import codetoon.system.Player;
 
 import java.util.HashMap;
 
@@ -18,7 +19,7 @@ public class Remove extends MyMethod{
     }
 
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         System.out.println("ソースを全てリセットしました。");
         Console console =((PazzleStage) Main.getInstance().getMap()).getConsole();
         console.panel.setProgram(new StringBuilder());

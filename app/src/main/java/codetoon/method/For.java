@@ -19,7 +19,6 @@ public class For extends MyMethod{
     String bool;
     String integer;
     String lamda;
-    Player host;
     public String inside;
 
     @Override
@@ -32,13 +31,12 @@ public class For extends MyMethod{
         integer = map.get(0);
         bool = map.get(1);
         lamda = map.get(2);
-        host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
         inside = map.get(CodeToon.INSIDE_METHODS);
         return null;
     }
 
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         PrivateNewVariable p = (PrivateNewVariable) ConvertVariable.convert(integer, host);
         p.action(-1);
         //System.out.println(Variables.VARIABLE.getThis(p.id).action());
@@ -49,7 +47,7 @@ public class For extends MyMethod{
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){
                 for(int l = 0; l < methods.size(); l ++){
-                    methods.get(l).action(i);
+                    methods.get(l).action(host);
                 }
             }
             ConvertVariable.convert(lamda, host).action(-1);

@@ -35,8 +35,8 @@ public class Lock extends MyMethod{
         return null;
     }
     @Override
-    public void action(int i) {
-        parcent = (AbstractLockerPlayer) ObjectArgument.getInstance().indentification(percentString);
+    public void action(Player host) {
+        parcent = (AbstractLockerPlayer) ObjectArgument.getInstance().indentification(percentString, host);
         if(parcent != null){
             parcent.setPassWord(IntegerArgument.getInstance().indentification(old_pass), IntegerArgument.getInstance().indentification(new_pass));
 

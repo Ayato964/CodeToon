@@ -5,6 +5,7 @@ import codetoon.argument.ObjectArgument;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.Memory;
 import codetoon.system.Message;
+import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -25,9 +26,9 @@ public class Recovery extends MyMethod{
     }
 
     @Override
-    public void action(int i) {
-        Memory memory = (Memory) ObjectArgument.getInstance().indentification(Stringmemory);
-        int pass =  stringPass != null ?  IntegerArgument.getInstance().indentification(stringPass) : 0;
+    public void action(Player host) {
+        Memory memory = (Memory) ObjectArgument.getInstance().indentification(Stringmemory, host);
+        int pass =  stringPass != null ?  IntegerArgument.getInstance().indentification(stringPass, host) : 0;
 
         memory.recovering(pass);
     }

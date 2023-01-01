@@ -1,6 +1,8 @@
 package codetoon.method;
 
 import java.util.HashMap;
+
+import codetoon.system.Player;
 import codetoon.util.*;
 import codetoon.server.Server;
 import org.jetbrains.annotations.NotNull;
@@ -24,7 +26,7 @@ public class Disconnect extends MyMethod{
     };
     
     @Override
-    public void action(int i){
+    public void action(Player host){
         System.out.println("disconnect");
         Server.server.end();
     };

@@ -12,7 +12,6 @@ public class PrivateVariable extends MyMethod{
     public String id;
     public String name;
     public String variable;
-    protected Player host;
     @Override
     public Object newInstance() {
         return new PrivateVariable();
@@ -23,13 +22,12 @@ public class PrivateVariable extends MyMethod{
         id = map.get(0);
         variable = map.get(1);
         name = map.get(2);
-        host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
 
         return null;
     }
 
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         HashMap<Integer, String> data = new HashMap<>();
        // System.out.println("Variable;;" + variable);
         data.put(0, variable);

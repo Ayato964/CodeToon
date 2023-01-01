@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Loop extends MyMethod{
-    String host;
     String methods;
     StringBuilder program = new StringBuilder();
     String count;
@@ -25,7 +24,6 @@ public class Loop extends MyMethod{
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
-        host = map.get(CodeToon.HOST_MAP);
         count = map.get(0);
         methods = map.get(CodeToon.INSIDE_METHODS);
         program.append(map.get(CodeToon.INSIDE_METHODS));
@@ -35,9 +33,8 @@ public class Loop extends MyMethod{
     }
 
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         int count = IntegerArgument.getInstance().indentification(this.count);
-        Player host = (Player) ObjectArgument.getInstance().indentification(this.host);
         ArrayList<MyMethod> methods = ConvertSource.convert(this.methods, host);
 
         Message.popMessage(methods);
@@ -46,7 +43,7 @@ public class Loop extends MyMethod{
             methods = host.removeBlackList(methods);
             if(!methods.isEmpty()) {
                 for (int c = 0; c < methods.size(); c++) {
-                    methods.get(c).action(c);
+                    methods.get(c).action(host);
                 }
             }
             if(count - 2 == l)

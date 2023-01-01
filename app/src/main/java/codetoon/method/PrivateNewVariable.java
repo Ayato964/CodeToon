@@ -3,6 +3,7 @@ package codetoon.method;
 import codetoon.argument.BooleanArgumet;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.StringArgument;
+import codetoon.system.Player;
 import codetoon.util.converter.ConvertVariable;
 import codetoon.variable.CustomVariable;
 import codetoon.variable.Variables;
@@ -25,7 +26,7 @@ public class PrivateNewVariable extends PrivateVariable{
     }
 
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         System.out.println(variable);
         switch (type){
             case ConvertVariable.STRING :

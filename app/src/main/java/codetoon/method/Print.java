@@ -10,9 +10,8 @@ import codetoon.system.Player;
 public class Print extends MyMethod{
     private String mes;
     private String map;
-    private Player host;
     @Override
-    public void action(int i) {
+    public void action(Player host) {
 
         if(StringArgument.getInstance().indentification(map, host) == null)
             if(IntegerArgument.getInstance().indentification(map, host) == Argument.NOT_ARGUMENT)
@@ -34,7 +33,6 @@ public class Print extends MyMethod{
     @Override
     public String set(HashMap<Integer, String> map) {
         this.map = map.get(0);
-        this.host = (Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
         return map.get(0);
 
     }

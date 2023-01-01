@@ -16,12 +16,12 @@ public class Attack extends MyMethod{
     String hostString;
     private String passString = "0";
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         int pass = 0;
-        Player host =(Player) ObjectArgument.getInstance().indentification(hostString);
         Memory enemy = (Memory) ObjectArgument.getInstance().indentification(enemyString, host);
         if(passString != null){
             pass = IntegerArgument.getInstance().indentification(passString, host);
+
         }
         Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){

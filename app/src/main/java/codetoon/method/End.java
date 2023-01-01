@@ -1,5 +1,7 @@
 package codetoon.method;
 
+import codetoon.system.Player;
+
 import java.util.HashMap;
 
 public class End extends MyMethod {
@@ -7,7 +9,7 @@ public class End extends MyMethod {
     public End() {
     }
     @Override
-    public void action(int i) {
+    public void action(Player host) {
         System.out.println("プログラムを実行しました");
     }
     @Override

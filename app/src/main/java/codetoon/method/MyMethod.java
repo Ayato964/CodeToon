@@ -1,6 +1,8 @@
 package codetoon.method;
 
 import java.util.HashMap;
+
+import codetoon.system.Player;
 import codetoon.util.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,5 +32,8 @@ public abstract class MyMethod implements ContainerDataClass<String, HashMap<Int
     public abstract  String set(@NotNull HashMap<Integer, String> map);
 
     @Override
-    public abstract void action(int i);
+    public void action(int i){
+        action(null);
+    }
+    public abstract void action(Player host);
 }
