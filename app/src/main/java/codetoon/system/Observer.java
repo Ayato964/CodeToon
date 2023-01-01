@@ -25,6 +25,9 @@ public class Observer {
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyHeldMemory()}, "observer.life", x + 2, y + 12,
                 new Animation.Properties().changeArgument(() ->new String[]{getEnemyHeldMemory()})
                 .color(Color.BLACK).font("", Font.ITALIC, 20));
+        Animation.create(CodeToon.GRAPHICS).draw(new String[]{"ei"}, "observer.typing.speed", x + 2, y + 16,
+                new Animation.Properties().changeArgument(() ->new String[]{getEnemyHeldMemory()})
+                        .color(Color.BLACK).font("", Font.ITALIC, 20));
     }
     public void draw(@NotNull Graphics g){
         if(isFirst){

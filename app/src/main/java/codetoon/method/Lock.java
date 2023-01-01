@@ -25,15 +25,12 @@ public class Lock extends MyMethod{
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         percentString = map.get(CodeToon.PARCENT_ARGUMENT);
-        Object t = ObjectArgument.getInstance().indentification(map.get(CodeToon.PARCENT_ARGUMENT));
-        if(t instanceof Player){
-            if(map.get(1) != null){
-                old_pass = map.get(0);
-                new_pass = map.get(1);
-                System.out.println("old:" + old_pass + "   new:" + new_pass);
-            }else{
-                new_pass = map.get(0);
-            }
+        if(map.get(1) != null){
+            old_pass = map.get(0);
+            new_pass = map.get(1);
+            System.out.println("old:" + old_pass + "   new:" + new_pass);
+        }else{
+            new_pass = map.get(0);
         }
         return null;
     }

@@ -95,7 +95,9 @@ public class ConvertSource {
     public static int getMethodCount(ArrayList<MyMethod> methods, Player host) {
         int have = isHave(Methods.FOR.get(), methods);
         if( have != -1)
-            return methods.size() + getMethodCount(convert(((For)methods.get(have)).inside, host), host);
+            return methods.size() + getMethodCount(convert(((For) methods.get(have)).inside, host), host);
+
+
         return methods.size();
     }
     public static int isHave(MyMethod s, ArrayList<MyMethod> m){
