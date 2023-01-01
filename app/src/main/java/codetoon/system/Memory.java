@@ -50,8 +50,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 memory.setRunMethod(methods);
                 memory.runMethod();
                 Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
-                Server.server.sendMyCopy();
                 Server.server.sendOpponentCopy();
+                Server.server.sendMyCopy();
             }
         }
 
