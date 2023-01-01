@@ -13,12 +13,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class Attack extends MyMethod{
     String enemyString;
-    Player host;
-    private int pass = 0;
+    String hostString;
+    private String passString = "0";
     @Override
     public void action(int i) {
+        int pass = 0;
+        Player host =(Player) ObjectArgument.getInstance().indentification(hostString);
         Memory enemy = (Memory) ObjectArgument.getInstance().indentification(enemyString, host);
-        //Memorys.opponentMemory.get(y * CodeToon.MEMORY_SIZE + x).changeColor();
+        if(passString != null){
+            pass = IntegerArgument.getInstance().indentification(passString, host);
+        }
         Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
         if(enemy instanceof Memory){
             ((Memory) enemy).hacking(pass, host.getSerialID());
@@ -30,12 +34,9 @@ public class Attack extends MyMethod{
     }
     @Override
     public String set(@NotNull HashMap<Integer, String> map)
-    {
+    {   passString = map.get(1);
+        hostString = map.get(CodeToon.HOST_MAP);
         enemyString = map.get(0);
-        host =(Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
-        if(map.get(1) != null){
-            pass = IntegerArgument.getInstance().indentification(map.get(1));
-        }
 
         return null;
     }
