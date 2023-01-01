@@ -31,7 +31,7 @@ public abstract class Player implements IsTick, Runnable{
     public void runMethod(){
         if(!method.isEmpty()) {
             for (int i = 0; i < method.size(); i++) {
-                method.get(i).action(i);
+                method.get(i).action(this);
 
             }
         }
