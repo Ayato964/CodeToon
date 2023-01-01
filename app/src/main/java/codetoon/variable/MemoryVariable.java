@@ -28,9 +28,10 @@ public class MemoryVariable extends Variable<Memory> {
     @Override
     public String set(@NotNull HashMap<Integer, String> i) {
       //  System.out.println(i.get(0) + "!!!   " + i.get(1) + "!!!");
+        Player host  = (Player) ObjectArgument.getInstance().indentification(i.get(CodeToon.HOST_MAP));
         int size = ((PazzleStage) Main.getInstance().getMap()).MEMORY_SIZE;
-        int num = IntegerArgument.getInstance().indentification(i.get(0)) +
-                    IntegerArgument.getInstance().indentification(i.get(1)) * size;
+        int num = IntegerArgument.getInstance().indentification(i.get(0), host) +
+                    IntegerArgument.getInstance().indentification(i.get(1), host) * size;
         if(i.get(2) != null) {
             if (i.get(2).equals("enemy")) {
                 returnMemory = Memories.opponentMemory.get(num);

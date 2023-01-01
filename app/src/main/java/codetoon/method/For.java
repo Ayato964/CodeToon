@@ -50,7 +50,7 @@ public class For extends MyMethod{
                     methods.get(l).action(host);
                 }
             }
-            ConvertVariable.convert(lamda, host).action(-1);
+            ConvertVariable.convert(lamda, host).action(host);
         }
         Message.pushMessage();
     }
