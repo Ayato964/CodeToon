@@ -228,8 +228,10 @@ public class Console extends JFrame implements KeyListener{
           methods = ConvertSource.convert(panel.program.toString(), host);
           if(isHave(Methods.END))
             if(ConvertSource.getMethodCount(methods, host) <= 4) {
+              Observer.METHOD_COUNT += ConvertSource.getMethodCount(methods, host);
               Variables.VARIABLE.deleteAll(host.getID() + "_" + host.getSerialID());
               host.endMethod(this, methods, panel.program);
+              Observer.RUNNING_COUNT ++;
             }else
               Message.addMessage(new String[]{new StringBuilder().append(CodeToon.METHOD_MAX_COUNT).toString()}, "console.mes1");
           if(isHave(Methods.REMOVE)){
