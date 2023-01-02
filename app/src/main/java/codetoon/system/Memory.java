@@ -46,12 +46,16 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             Memory memory = (Memory)t;
             if(memory.source != null) {
                 //ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
-                ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
-                memory.setRunMethod(methods);
-                memory.runMethod();
-                Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
-                Server.server.sendOpponentCopy();
-                Server.server.sendMyCopy();
+                if(memory.source != null) {
+                    if(!memory.source.isEmpty()) {
+                        ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
+                        memory.setRunMethod(methods);
+                        memory.runMethod();
+                        Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
+                        Server.server.sendOpponentCopy();
+                        Server.server.sendMyCopy();
+                    }
+                }
             }
         }
 
