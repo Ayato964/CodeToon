@@ -28,6 +28,7 @@ public class Message {
         ArrayList<MyMethod> black = new ArrayList<>();
         black.add(Methods.Attack.get());
         black.add(Methods.Lock.get());
+        black.add(Methods.RECOVERY.get());
         return black;
     }
     public Message(Graphics g, int x, int y, int w, int h){
