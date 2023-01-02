@@ -184,4 +184,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             Message.addMessage("memory.recovery.mes2", Color.BLACK);
         }
     }
+    public boolean equals(Memory obj) {
+        Memory m =  obj;
+        return this.source.equals(m.source) &&
+                this.states.equals(m.states) &&
+                this.getID().equals(m.getID());
+    }
 }

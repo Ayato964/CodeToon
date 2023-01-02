@@ -41,22 +41,26 @@ public class Memories {
         memory = new ArrayList<>();
         opponentMemory = new ArrayList<>();
     }
-    public static void updateMemory(ArrayList<Memory> m){
-        for(Memory memory1 : memory){
-            memory1.running = false;
-        }
-        memory = m;
-        runThread(memory);
+    public static void updateMemory(ArrayList<Memory> beMemory, Memory m, int i){
+            m.running = false;
+            beMemory.remove(i);
+            beMemory.add(i, m);
+            runThread(beMemory.get(i));
     }
-    private static void runThread(ArrayList<Memory> m){
-        for(Memory memory1 : m){
-            memory1.running = true;
-            Thread t = new Thread(memory1);
+    private static void runThread(Memory m){
+            m.running = true;
+            Thread t = new Thread(m);
             t.start();
-        }
     }
     public static Memory get(int i){
         return memory.get(i);
     }
-    
+
+    public static void equalsMemory(ArrayList<Memory> beMemory, ArrayList<Memory> upMemory) {
+        for(int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i ++){
+            if(!beMemory.get(i).equals(upMemory.get(i))){
+                updateMemory(beMemory, upMemory.get(i), i);
+            }
+        }
+    }
 }
