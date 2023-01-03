@@ -51,7 +51,6 @@ public class Memories {
         m.running = false;
         opponentMemory.remove(i);
         opponentMemory.add(i, m);
-        runThread(opponentMemory.get(i));
     }
     private static void runThread(Memory m){
             m.running = true;
@@ -69,6 +68,8 @@ public class Memories {
                     updateMemory(upMemory.get(i), i);
                 }
             }
+        }else {
+            Memories.memory = upMemory;
         }
     }
     public static void equalsOpponentMemory(ArrayList<Memory> upMemory) {
@@ -78,6 +79,8 @@ public class Memories {
                     updateOpponentMemory(upMemory.get(i), i);
                 }
             }
+        }else {
+            Memories.opponentMemory = upMemory;
         }
     }
 }
