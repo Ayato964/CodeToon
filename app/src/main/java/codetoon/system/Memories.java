@@ -58,8 +58,10 @@ public class Memories {
 
     public static void equalsMemory(ArrayList<Memory> beMemory, ArrayList<Memory> upMemory) {
         for(int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i ++){
-            if(!beMemory.get(i).equals(upMemory.get(i))){
-                updateMemory(beMemory, upMemory.get(i), i);
+            if( beMemory != null) {
+                if (!beMemory.get(i).equals(upMemory.get(i))) {
+                    updateMemory(beMemory, upMemory.get(i), i);
+                }
             }
         }
     }
