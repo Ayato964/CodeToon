@@ -188,7 +188,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         Memory m =  obj;
         return  this.eqSource(m)&&
                 this.states.equals(m.states) &&
-                this.getID().equals(m.getID());
+                this.getID().equals(m.getID()) &&
+                this.pass == m.pass;
     }
 
     private boolean eqSource(Memory m) {
