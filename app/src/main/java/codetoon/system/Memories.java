@@ -41,11 +41,17 @@ public class Memories {
         memory = new ArrayList<>();
         opponentMemory = new ArrayList<>();
     }
-    public static void updateMemory(ArrayList<Memory> beMemory, Memory m, int i){
+    public static void updateMemory(Memory m, int i){
             m.running = false;
-            beMemory.remove(i);
-            beMemory.add(i, m);
-            runThread(beMemory.get(i));
+            memory.remove(i);
+            memory.add(i, m);
+            runThread(memory.get(i));
+    }
+    public static void updateOpponentMemory(Memory m, int i){
+        m.running = false;
+        opponentMemory.remove(i);
+        opponentMemory.add(i, m);
+        runThread(opponentMemory.get(i));
     }
     private static void runThread(Memory m){
             m.running = true;
@@ -56,16 +62,21 @@ public class Memories {
         return memory.get(i);
     }
 
-    public static void equalsMemory(ArrayList<Memory> beMemory, ArrayList<Memory> upMemory) {
-        for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
-            if (beMemory != null) {
-                if(!beMemory.isEmpty()) {
-                    if (!beMemory.get(i).equals(upMemory.get(i))) {
-                        updateMemory(beMemory, upMemory.get(i), i);
-                    }
+    public static void equalsMemory(ArrayList<Memory> upMemory) {
+        if(Memories.memory != null) {
+            for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
+                if (!Memories.memory.get(i).equals(upMemory.get(i))) {
+                    updateMemory(upMemory.get(i), i);
                 }
-            } else {
-                beMemory = upMemory;
+            }
+        }
+    }
+    public static void equalsOpponentMemory(ArrayList<Memory> upMemory) {
+        if(Memories.opponentMemory != null) {
+            for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
+                if (!Memories.opponentMemory.get(i).equals(upMemory.get(i))) {
+                    updateOpponentMemory(upMemory.get(i), i);
+                }
             }
         }
     }

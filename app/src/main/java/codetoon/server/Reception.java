@@ -31,9 +31,9 @@ public class Reception extends Thread {
                 testClassWrapper _testWrapper = (testClassWrapper) in.readObject();
                 System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
                     if(isReturnReception){
-                        Memories.equalsMemory(Memories.memory, _testWrapper.memory);
+                        Memories.equalsMemory(_testWrapper.memory);
                     }else{
-                        Memories.equalsMemory(Memories.opponentMemory, _testWrapper.memory);
+                        Memories.equalsOpponentMemory(_testWrapper.memory);
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 
                     }
