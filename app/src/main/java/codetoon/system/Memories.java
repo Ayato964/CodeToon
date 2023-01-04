@@ -90,10 +90,10 @@ public class Memories {
     }
     public static void updateConsoleHost(Memory m){
         Console c = ((PazzleStage)Main.getInstance().getMap()).getConsole();
-        Memory consoleMemory =(Memory) c.getHost();
-        if(consoleMemory.getMemorySirialID() == m.getMemorySirialID()){
-            c.setHost(m);
-        }
+        Memory consoleMemory =(Memory) (c.getHost() instanceof Admin ? null : c.getHost());
+        if(consoleMemory != null)
+            if(consoleMemory.getMemorySirialID() == m.getMemorySirialID())
+                c.setHost(m);
 
     }
 }
