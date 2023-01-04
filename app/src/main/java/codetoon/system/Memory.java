@@ -15,11 +15,13 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.Random;
 
 public class Memory extends AbstractLockerPlayer implements Serializable{
    // public int serialID;
     private StringBuilder source = null;
     EnumMemoryStates states;
+    private final int memorySirialID;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     private final String name = "Memory";
@@ -27,6 +29,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     public Memory(int x, int y, int w, int h, int idC, int idI){
         serialID = Admin.getInstance().getSerialID();
+        memorySirialID = new Random().nextInt(0, 100000000);
         isHostMemory = Server.isHost;
         states = EnumMemoryStates.NONE;
         this.x = x;
@@ -63,6 +66,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     public EnumMemoryStates getStates() {
         return states;
+    }
+
+    public int getMemorySirialID() {
+        return memorySirialID;
     }
 
     public void hacking(int pass, int hostSerialID){

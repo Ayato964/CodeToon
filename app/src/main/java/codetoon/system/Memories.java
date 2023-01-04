@@ -1,6 +1,9 @@
 package codetoon.system;
 
 import java.util.ArrayList;
+
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.variable.*;
 import org.checkerframework.checker.units.qual.A;
 
@@ -21,7 +24,7 @@ public class Memories {
 
           }
         }
-        Variables.createVariable("memory", () -> new MemoryVariable());
+        Variables.VARIABLE.createRegistory("memory", () -> new MemoryVariable());
 
     }
 
@@ -46,11 +49,13 @@ public class Memories {
             memory.remove(i);
             memory.add(i, m);
             runThread(memory.get(i));
+            updateConsoleHost(memory.get(i));
     }
     public static void updateOpponentMemory(Memory m, int i){
         m.running = false;
         opponentMemory.remove(i);
         opponentMemory.add(i, m);
+        updateConsoleHost(opponentMemory.get(i));
     }
     private static void runThread(Memory m){
             m.running = true;
@@ -82,5 +87,13 @@ public class Memories {
         }else {
             Memories.opponentMemory = upMemory;
         }
+    }
+    public static void updateConsoleHost(Memory m){
+        Console c = ((PazzleStage)Main.getInstance().getMap()).getConsole();
+        Memory consoleMemory =(Memory) c.getHost();
+        if(consoleMemory.getMemorySirialID() == m.getMemorySirialID()){
+            c.setHost(m);
+        }
+
     }
 }
