@@ -23,7 +23,6 @@ public class IntegerArgument extends Argument<Integer, String> {
         if(isAllInteger){
             return Integer.parseInt(i);
         }else if(i.indexOf("(") != -1) {
-
             ArrayList<MyMethod> m = ConvertSource.convert(new StringBuilder().append(i).append(";").toString(), host);
             return (Integer) m.get(0).returnAction(host);
         }else{

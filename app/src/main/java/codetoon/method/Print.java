@@ -12,7 +12,6 @@ public class Print extends MyMethod{
     private String map;
     @Override
     public void action(Player host) {
-
         if(StringArgument.getInstance().indentification(map, host) == null)
             if(IntegerArgument.getInstance().indentification(map, host) == Argument.NOT_ARGUMENT)
                 if(BooleanArgumet.getInstance().indentification(map, host) == null)
