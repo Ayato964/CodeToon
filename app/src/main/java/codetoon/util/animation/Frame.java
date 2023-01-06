@@ -1,7 +1,7 @@
 package codetoon.util.animation;
 
 import codetoon.main.Main;
-import codetoon.util.IsBoolInterface;
+import codetoon.util.function.IsBoolInterface;
 
 import java.awt.*;
 

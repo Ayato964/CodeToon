@@ -2,14 +2,12 @@ package codetoon.util.animation;
 
 import java.awt.*;
 import java.awt.event.MouseListener;
-import java.awt.geom.Rectangle2D;
-import java.security.KeyStore;
 import java.util.ArrayList;
-import java.util.Properties;
 
 import codetoon.main.*;
-import codetoon.system.CodeToon;
 import codetoon.util.*;
+import codetoon.util.function.IsBoolInterface;
+import codetoon.util.function.StringSup;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 

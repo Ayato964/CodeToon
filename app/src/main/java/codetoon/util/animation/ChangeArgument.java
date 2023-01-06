@@ -1,6 +1,6 @@
 package codetoon.util.animation;
 
-import codetoon.util.StringSup;
+import codetoon.util.function.StringSup;
 
 import java.awt.*;
 
