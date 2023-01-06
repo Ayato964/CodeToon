@@ -45,7 +45,7 @@ public class Memories {
         opponentMemory = new ArrayList<>();
     }
     public static void updateMemory(Memory m, int i){
-            m.running = false;
+            memory.get(i).running = false;
             memory.remove(i);
             memory.add(i, m);
             runThread(memory.get(i));
