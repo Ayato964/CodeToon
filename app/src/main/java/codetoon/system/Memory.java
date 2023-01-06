@@ -111,7 +111,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         console.setHost(Admin.getInstance());
         Indentification.removeEnd(source);
         this.source = source;
-        if(source.isEmpty()){
+        if(source.isEmpty() && states != EnumMemoryStates.HACKED){
             states = EnumMemoryStates.NONE;
         }else{
             if(states != EnumMemoryStates.HACKED){
