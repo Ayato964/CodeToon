@@ -82,7 +82,7 @@ public class Message {
                     new Animation.Properties()
                             .size(20)
                             .color(c)
-                            .endPosition(instance.x, instance.y, EndPosition.UNDER)
+                            .endPosition(instance.x + 2, instance.y, EndPosition.UNDER)
                             .setWidth(instance.w));
             instance.animations.add(a);
         }

@@ -1,5 +1,6 @@
 package codetoon.util.animation;
 
+import codetoon.main.Main;
 import codetoon.util.Tick;
 
 import java.awt.*;
@@ -10,8 +11,8 @@ public class EndPosition implements Decorate{
     private final int type;
     int x, y;
     public EndPosition(int x, int y, int type) {
-        this.x = x;
-        this.y = y;
+        this.x = x * Main.DW;
+        this.y = y * Main.DH;
         this.type = type;
 
     }
@@ -19,7 +20,8 @@ public class EndPosition implements Decorate{
     public void displayAction(Animation.Properties properties, Graphics g) {
         Animation a = properties.getAnimation();
         if(type == UNDER) {
-            if (a.getX() <= x && a.getY() <= y) {
+            if (a.getX() * Main.DW  <= x && a.getY() * Main.DH <= y) {
+                System.out.println("Over Console");
                 Tick.getInstance().removeAnimation(properties.animationTickRegistory);
             }
         }
