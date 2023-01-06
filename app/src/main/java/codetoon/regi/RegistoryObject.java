@@ -4,7 +4,7 @@ import codetoon.util.*;
 import java.util.HashMap;
 import java.util.function.Supplier;
 
-public class RegistoryObject<T extends ContainerDataClass<?, HashMap<Integer, String>>> {
+public class RegistoryObject<T extends Actions<?, ?>> {
     private T t;
     private final String id;
     public RegistoryObject(String regiID, Supplier<T> sup){
@@ -20,13 +20,16 @@ public class RegistoryObject<T extends ContainerDataClass<?, HashMap<Integer, St
     public String getID(){
         return id;
     }
-    public void run(){
-        t.action(0);
+/*    public void run(){
+        t.action();
     }
-    
+  */
+  /*
     public  void set(HashMap<Integer, String> map){
         if(t.getCount() != 0){
             t.set(map);
         }
     }
+
+   */
 }

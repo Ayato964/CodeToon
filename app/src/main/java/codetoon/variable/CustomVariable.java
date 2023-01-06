@@ -15,10 +15,6 @@ public class CustomVariable<T> extends Variable<T>{
     public CustomVariable(T t){
         obj = t;
     }
-    @Override
-    public int getCount() {
-        return 0;
-    }
     public String getName(){
         return objString;
     }
@@ -49,7 +45,7 @@ public class CustomVariable<T> extends Variable<T>{
     }
 
     @Override
-    public void action(int i) {
+    public void action(Integer i) {
         if(objString != null) {
             if (obj instanceof Integer) {
                // System.out.println("Integer:" + objString + "    " + host.getID());

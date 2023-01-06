@@ -20,11 +20,7 @@ public class MemoryVariable extends Variable<Memory> {
     public boolean setIsArray() {
         return true;
     }
-    @Override
-    public int getCount() {
-        return 2;
-    }
-    
+
     @Override
     public String set(@NotNull HashMap<Integer, String> i) {
       //  System.out.println(i.get(0) + "!!!   " + i.get(1) + "!!!");

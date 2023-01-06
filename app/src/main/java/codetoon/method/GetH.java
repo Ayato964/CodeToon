@@ -1,25 +1,24 @@
 package codetoon.method;
 
+import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class End extends MyMethod {
-
-    public End() {
-    }
-    @Override
-    public void action(Player host) {
-        System.out.println("プログラムを実行しました");
-    }
-    @Override
-    public String set(@NotNull HashMap<Integer, String> map) {
-
-        return null;
-    }
+public class GetH extends MyMethod<Integer>{
     @Override
     public Object newInstance() {
-        return new End();
+        return new GetH();
+    }
+
+    @Override
+    public String set(@NotNull HashMap<Integer, String> map) {
+        return null;
+    }
+
+    @Override
+    public Integer returnAction(Player host) {
+        return CodeToon.MEMORY_SIZE;
     }
 }

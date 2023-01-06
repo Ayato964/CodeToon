@@ -208,7 +208,7 @@ public class Console extends JFrame implements KeyListener{
     
   }
   /** Program識別 **/
-  public  <T extends MyMethod> boolean isHave(RegistoryObject<T> m){
+  public  <T extends MyMethod<?>> boolean isHave(RegistoryObject<T> m){
     if(methods != null){
       for(int i = 0; i < methods.size(); i ++){
         if(methods.get(i).getClass() == m.get().getClass() ){
@@ -235,7 +235,7 @@ public class Console extends JFrame implements KeyListener{
             }else
               Message.addMessage(new String[]{new StringBuilder().append(CodeToon.METHOD_MAX_COUNT).toString()}, "console.mes1");
           if(isHave(Methods.REMOVE)){
-            Methods.REMOVE.get().action(0);
+            Methods.REMOVE.get().action(host);
           }
         }
 

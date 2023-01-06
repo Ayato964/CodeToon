@@ -5,7 +5,7 @@ import codetoon.util.*;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 import java.util.*;
-public class RegistoryList<T extends ContainerDataClass<?,HashMap<Integer, String>>>{
+public class RegistoryList<T extends Actions<?, ?>>{
     private String ID;
     private ArrayList<RegistoryObject<T>> registory;
     public RegistoryList(String ID){

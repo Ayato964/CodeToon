@@ -38,7 +38,7 @@ public class For extends MyMethod{
     @Override
     public void action(Player host) {
         PrivateNewVariable p = (PrivateNewVariable) ConvertVariable.convert(integer, host);
-        p.action(-1);
+        p.action(host);
         //System.out.println(Variables.VARIABLE.getThis(p.id).action());
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
         Message.popMessage(methods);

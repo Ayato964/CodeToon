@@ -1,10 +1,8 @@
 package codetoon.method;
 
 import codetoon.argument.BooleanArgumet;
-import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
-import codetoon.util.Indentification;
 import codetoon.util.converter.ConvertSource;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,7 +31,7 @@ public class If extends MyMethod{
         methods = host.removeBlackList(methods);
         if(isBool){
             for(int c = 0; c < methods.size(); c ++){
-                methods.get(c).action(c);
+                methods.get(c).action(host);
             }
         }
     }

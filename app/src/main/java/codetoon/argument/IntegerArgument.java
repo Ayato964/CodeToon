@@ -1,8 +1,12 @@
 package codetoon.argument;
 
+import codetoon.method.MyMethod;
 import codetoon.system.Player;
 import codetoon.util.Expr;
+import codetoon.util.converter.ConvertSource;
 import org.jetbrains.annotations.Contract;
+
+import java.util.ArrayList;
 
 public class IntegerArgument extends Argument<Integer, String> {
     String calcEq = "+-/*";
@@ -18,6 +22,10 @@ public class IntegerArgument extends Argument<Integer, String> {
         }
         if(isAllInteger){
             return Integer.parseInt(i);
+        }else if(i.indexOf("(") != -1) {
+
+            ArrayList<MyMethod> m = ConvertSource.convert(new StringBuilder().append(i).append(";").toString(), host);
+            return (Integer) m.get(0).returnAction(host);
         }else{
             return convertVariableTo(i) == null ? NOT_ARGUMENT : convertVariableTo(i);
         }
