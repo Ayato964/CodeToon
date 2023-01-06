@@ -38,6 +38,7 @@ observer.typing.speed = "タイピングの平均速度：$文字/s",
 observer.timer = "経過時間",
 observer.count.run = "実行回数:$",
 observer.count.method = "メソッドの試行回数:$",
+observer.timer.count  = "$:$:$",
 
 method.attack.mes = "$に攻撃を仕掛けました",
 method.states.mes = "$のステータス:$",

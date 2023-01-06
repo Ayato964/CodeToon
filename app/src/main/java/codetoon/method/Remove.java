@@ -20,7 +20,6 @@ public class Remove extends MyMethod{
 
     @Override
     public void action(Player host) {
-        System.out.println("ソースを全てリセットしました。");
         Console console =((PazzleStage) Main.getInstance().getMap()).getConsole();
         console.panel.setProgram(new StringBuilder());
         console.panel.resetAll();

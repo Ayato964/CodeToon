@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Observer  implements KeyListener{
     private Console console;
@@ -19,6 +21,21 @@ public class Observer  implements KeyListener{
     private ArrayList<Integer> aveTypingCount = new ArrayList<>();
     int x, y, w, h;
     boolean isFirst = true;
+    private int hour = 0, min = 0, sec = 0;
+    private TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            sec ++;
+            if(sec >= 60){
+                sec -= 60;
+                min ++;
+            }
+            if(min >= 60){
+                min -= 60;
+                hour ++;
+            }
+        }
+    };
     private static Observer instance;
     public Observer(Console c, int x, int y, int w, int h){
         console = c;
@@ -29,7 +46,7 @@ public class Observer  implements KeyListener{
         instance = this;
     }
     public void setup(){
-        Animation.create(CodeToon.GRAPHICS).draw("observer.category.game", x + 2, y + 4, new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 20));
+        Animation.create(CodeToon.GRAPHICS).draw("observer.category.game", x + 2, y + 4, new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 25));
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyRemaining()}, "observer.remaining", x + 2, y + 8, new Animation.Properties()
                 .changeArgument(() -> new String[]{getEnemyRemaining()})
                 .color(Color.BLACK).font("", Font.ITALIC, 20));
@@ -46,12 +63,30 @@ public class Observer  implements KeyListener{
                 new Animation.Properties().changeArgument(() ->new String[]{getRunningCount()})
                         .color(Color.BLACK).font("", Font.ITALIC, 20));
 
-        Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.count.method", x + 2, y + 24,
+        Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.count.method", x + 20, y + 20,
                 new Animation.Properties().changeArgument(() ->new String[]{getMethodCount()})
                         .color(Color.BLACK).font("", Font.ITALIC, 20));
+
+        Animation.create(CodeToon.GRAPHICS).draw( "observer.timer", x + 2, y + 24,
+                new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 25));
+
+        Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.timer.count", x + 20, y + 32, new Animation.Properties()
+                .changeArgument(() -> getTimer())
+                .color(Color.BLACK)
+                .size(80));
+
+
         console.addKeyListener(this);
         Thread t = new Thread(Observer::typingSpeed);
         t.start();
+        Timer timer = new Timer(false);
+        timer.schedule(task,0,  1000);
+    }
+    private String[] getTimer(){
+        return new String[]{new StringBuilder().append(hour).toString(),
+                            new StringBuilder().append(min).toString(),
+                            new StringBuilder().append(sec).toString()
+        };
     }
     private String getTypingAverage(){
         return new StringBuilder().append(average).toString();
