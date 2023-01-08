@@ -193,6 +193,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
     public boolean equals(Memory obj) {
         Memory m =  obj;
+        System.out.println(this.eqSource(m));
         return  this.eqSource(m)&&
                 this.states == m.states &&
                 this.getID().equals(m.getID()) &&
@@ -205,8 +206,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 return false;
             }else if(m.source != null && source == null){
                 return false;
-            } else{
+            } else if(m.source == null && source == null){
                 return true;
+            }else {
+                return false;
             }
         }else{
             return this.source.equals(m.source);
