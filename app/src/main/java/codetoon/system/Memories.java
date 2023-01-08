@@ -70,7 +70,8 @@ public class Memories {
         if(Memories.memory != null) {
             for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
                 if (!Memories.memory.get(i).equals(upMemory.get(i))) {
-                    System.out.println("おや？？？");
+                    System.out.println(Memories.memory.get(i).getSource());
+                    System.out.println(upMemory.get(i).getSource());
                     updateMemory(upMemory.get(i), i);
                 }
             }
