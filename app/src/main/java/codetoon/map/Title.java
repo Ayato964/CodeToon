@@ -24,7 +24,7 @@ public class Title extends Map{
         Animation.createImage(h).draw("other/setting", 190, 90, 13, 13, new Animation.Properties().button(i -> Main.getInstance().run(new Setting())));
 
         Animation.create(h).draw("title.chooser1", 75, 70, new Animation.Properties().size(40)
-                .frame(Color.WHITE, 80, 70, ()->true)
+                .frame(Color.WHITE, 80, 8, ()->true)
                 .button(i->
                 {
                     Server.isHost = true;
@@ -32,16 +32,16 @@ public class Title extends Map{
                     Server.server.startServer(null);
                 }));
         Animation.create(h).draw("title.chooser2", 75, 78, new Animation.Properties().size(40)
-                .frame(Color.WHITE, 80, 70, ()->true)
+                .frame(Color.WHITE, 80, 8, ()->true)
                 .button(i-> {
                     Server.isHost = false;
                     Main.getInstance().run(new JoinServer());
 
                 }));
         Animation.create(h).draw("title.chooser3", 75, 86, new Animation.Properties().size(40)
-                .frame(Color.WHITE, 80, 70, ()->true).button(i->System.exit(-1)));
+                .frame(Color.WHITE, 80, 8, ()->true).button(i->System.exit(-1)));
         Animation.create(h).draw("title.chooser4", 75, 94, new Animation.Properties().size(40)
-                .frame(Color.WHITE, 80, 70, ()->true).button(i->{
+                .frame(Color.WHITE, 80, 8, ()->true).button(i->{
                     CodeToon.DEBUG = true;Main.getInstance().run(new PazzleStage(5));
     }));
     }

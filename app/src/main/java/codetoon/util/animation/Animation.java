@@ -135,6 +135,10 @@ public abstract class Animation {
             prop.add(new Frame(c, w, h, b));
             return this;
         }
+        public Properties frame(Color c,int x, int y, int w, int h, IsBoolInterface b){
+            prop.add(new Frame(c, x, y, w, h, b));
+            return this;
+        }
         public Properties button(Action data){
             prop.add(new Button(data));
             return this;

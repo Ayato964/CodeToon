@@ -51,7 +51,7 @@ public class Tick{
         count = 0;
     }
     public void removeAllAnimation(){
-        animation.clear();
+        animation = new ArrayList<>();
         count = 0;
     }
     public void addAnimation(TickRegistory run_tick){
