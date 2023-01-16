@@ -14,13 +14,16 @@ public class AnimationText extends Animation{
     }
 
     @Override
-    public void draw() {
+    public Animation draw()
+    {
         g.drawString(msg, getX() * Main.DW, getY() * Main.DH);
+        return this;
     }
-    public void draw(String str, int x, int y){
-        draw(str, x, y, new Properties());
+    public Animation draw(String str, int x, int y){
+
+        return draw(str, x, y, new Properties());
     }
-    public void draw(String[] value, String str, int x, int y, Properties properties){
+    public Animation draw(String[] value, String str, int x, int y, Properties properties){
         super.setX(x);
         super.setY(y);
 
@@ -29,10 +32,10 @@ public class AnimationText extends Animation{
         //  msg = str;
         myProp = properties;
         properties.set(this, g);
-        draw();
+        return draw();
     }
-    public void draw(String str, int x, int y, Properties properties){
-        draw(null, str, x, y, properties);
+    public Animation draw(String str, int x, int y, Properties properties){
+        return draw(null, str, x, y, properties);
     }
 
     public String getMsg() {

@@ -27,9 +27,9 @@ public class Title extends Map{
                 .frame(Color.WHITE, 80, 8, ()->true)
                 .button(i->
                 {
-                    Server.isHost = true;
+                   // Server.isHost = true;
                     Main.getInstance().run(new CreateSection());
-                    Server.server.startServer(null);
+                   // Server.server.startServer(null);
                 }));
         Animation.create(h).draw("title.chooser2", 75, 78, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true)

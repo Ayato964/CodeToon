@@ -14,13 +14,14 @@ public class AnimationImage extends Animation{
     }
 
     @Override
-    public void draw() {
+    public Animation draw() {
         g.drawImage(maker.get(), getX() * Main.DW, getY() * Main.DH, w * Main.DW, h * Main.DH, null);
+        return this;
     }
-    public void draw(String imageName, int x, int y, int w, int h){
-        draw(imageName, x, y, w, h, new Properties());
+    public Animation draw(String imageName, int x, int y, int w, int h){
+        return draw(imageName, x, y, w, h, new Properties());
     }
-    public void draw(String imageName, int x, int y, int w, int h, Properties p){
+    public Animation draw(String imageName, int x, int y, int w, int h, Properties p){
         super.setX(x);
         super.setY(y);
         this.w = w;
@@ -29,7 +30,8 @@ public class AnimationImage extends Animation{
 
         myProp = p;
         p.set(this, g);
-        draw();
+        return draw();
+
     }
 
     public int getW() {

@@ -5,6 +5,10 @@ title.chooser3 = "ゲームを終了する",
 title.chooser4 = "デバッグする",
 
 session.difficulty.title = "難易度設定",
+session.difficulty.easy = "初級",
+session.difficulty.normal = "中級",
+session.difficulty.high = "上級",
+session.difficulty.very.high = "超上級",
 session.custom.title = "カスタム設定",
 session.matching.title = "マッチング設定",
 session.matching.host = "このPCをホストとして設定する。",
@@ -12,8 +16,6 @@ session.matching.host.mes1 = "IPアドレス: ",
 session.matching.host.mes2 = "このアドレスを相手に教えてください。",
 session.matching.client.mes1 = "IPアドレスを入力してください。 ",
 session.matching.client.mes2 = "＊このアドレスは対戦相手のものです！！",
-
-
 session.desc.title = "マップ内容",
 session.back.title = "タイトルへ戻る",
 

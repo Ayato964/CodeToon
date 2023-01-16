@@ -3,6 +3,7 @@ package codetoon.util.animation;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import codetoon.main.*;
 import codetoon.util.*;
@@ -53,7 +54,7 @@ public abstract class Animation {
     public static @NotNull AnimationImage createImage(Graphics g){
         return new AnimationImage(g);
     }
-    public abstract void draw();
+    public abstract Animation draw();
 
     public static class Properties implements IsTick {
         private Animation percent;
@@ -64,11 +65,27 @@ public abstract class Animation {
         public TickRegistory<Properties> animationTickRegistory;
         private int count = 0;
         private boolean isEnd = false;
+        private boolean isStart = true;
         public Properties(){
+            this(true);
+        }
+        public Properties(boolean isStart){
+            this.isStart = isStart;
             prop = new ArrayList<>();
             font = new Font("Serif", 0, 12);
             animationTickRegistory = TickRegistory.createTickerAnimation(this, Properties::tick);
             child = null;
+
+        }
+        public void start(){
+            isStart = true;
+        }
+        public void stop(){
+            isStart = false;
+        }
+
+        public boolean isStart() {
+            return isStart;
         }
 
         protected void set(Animation a, @NotNull Graphics g){
@@ -82,15 +99,14 @@ public abstract class Animation {
         }
 
         public static <T extends IsTick> void tick(T t){
-
             Properties p = (Properties) t;
-
-
-            Animation a = p == null ? null : p.percent;
-            p.count ++;
-            if(a != null) {
-                p.set(a, p.g);
-                p.percent.draw();
+            if(p.isStart) {
+                Animation a = p == null ? null : p.percent;
+                p.count++;
+                if (a != null) {
+                    p.set(a, p.g);
+                    p.percent.draw();
+                }
             }
 
         }
@@ -118,9 +134,17 @@ public abstract class Animation {
             prop = p.prop;
             return this;
         }
+        public Properties checkBox(Action t, Action f){
+            prop.add(new CheckButton(t, f));
+            return this;
+        }
 
         public Properties displayTime(int time){
             prop.add(new DisplayTime(time));
+            return this;
+        }
+        public Properties textArea(int w, int h, Color frameColor, ActionString complete){
+            prop.add(new TextArea(w, h, frameColor, complete));
             return this;
         }
         public Properties frame(Color c){

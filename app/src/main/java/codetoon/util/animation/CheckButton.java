@@ -1,4 +1,5 @@
 package codetoon.util.animation;
+import codetoon.main.Main;
 import codetoon.util.Action;
 
 import java.awt.*;
@@ -13,14 +14,15 @@ public class CheckButton implements Decorate, MouseListener {
         t = thisTrue;
         f = thisFalse;
         isChecked = false;
+        Main.getInstance().addMouseListener(this);
     }
     @Override
     public void displayAction(Animation.Properties p, Graphics g) {
         AnimationText text = (AnimationText) p.getAnimation();
         pixW = g.getFontMetrics().charWidth(text.getMsg().charAt(0));
         pixH = g.getFontMetrics().getHeight();
-        x = text.getX() - pixW;
-        y = text.getY() - pixH;
+        x = text.getX() * Main.DW - pixW;
+        y = text.getY() * Main.DH- pixH;
         if (!isChecked) {
             g.setColor(Color.BLACK);
             g.fillRect(x, y, pixW, pixH);
@@ -32,7 +34,7 @@ public class CheckButton implements Decorate, MouseListener {
             g.fillRect(x, y, pixW, pixH);
             g.setColor(Color.BLACK);
             g.drawRect(x, y, pixW, pixH);
-
+            g.setColor(Color.WHITE);
         }
 
 

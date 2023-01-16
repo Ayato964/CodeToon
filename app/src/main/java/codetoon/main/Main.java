@@ -7,6 +7,7 @@ import codetoon.util.Tick;
 import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
 
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.awt.*;
@@ -62,7 +63,9 @@ public class Main extends JFrame{
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
         Animation.removeMouseListener();
-
+        KeyListener[] l = getKeyListeners();
+        for(KeyListener ll : l)
+            removeKeyListener(ll);
         Tick.getInstance().removeAllAnimation();
         displayMap = map;
         try {
