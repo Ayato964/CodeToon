@@ -45,8 +45,6 @@ public class Button implements Decorate, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if(x < e.getX() && e.getX() < x + w && y < e.getY() && e.getY() < y + h){
             data.action(-1);
-            Main.getInstance().removeMouseListener(this);
-            System.out.println(e.getX());
         }
     }
 

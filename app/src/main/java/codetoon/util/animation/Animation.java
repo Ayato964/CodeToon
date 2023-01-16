@@ -40,7 +40,7 @@ public abstract class Animation {
     public static void removeMouseListener(){
         MouseListener[] l = Main.getInstance().getMouseListeners();
         for(MouseListener ll : l){
-            if(ll instanceof Button){
+            if(ll instanceof Button || ll instanceof CheckButton){
                 Main.getInstance().removeMouseListener(ll);
             }
         }

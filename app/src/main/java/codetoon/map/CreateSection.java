@@ -2,10 +2,8 @@ package codetoon.map;
 
 import codetoon.main.Main;
 import codetoon.server.Server;
-import codetoon.util.CheckButton;
 import codetoon.util.ContainerData;
 import codetoon.util.animation.Animation;
-import codetoon.util.animation.AnimationText;
 import codetoon.util.box.Box;
 import codetoon.util.box.ContainerBox;
 import codetoon.util.box.DrawingTextBox;
@@ -72,7 +70,6 @@ public class CreateSection extends Map{
         );
         Animation.create(g).draw("session.matching.host", x + 10, y + 10, new Animation.Properties()
                 .size(30));
-        new CheckButton(g, x + 1, y + 5, 5, "");
     }
     @Override
     public void display(Graphics g) {
