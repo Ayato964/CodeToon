@@ -4,6 +4,7 @@ import codetoon.system.Memories;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.system.Rule;
+import com.jogamp.common.util.cache.TempJarCache;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -100,6 +101,7 @@ public class Server implements Runnable {
         System.out.println("run server");
         if(isHost){
             System.out.println("My Server Property is HOST");
+            CodeToon.RULE = rule;
             setUpServer();
         }else{
             System.out.println("My Server Property is Not Host");
@@ -108,9 +110,10 @@ public class Server implements Runnable {
         }
         if(runServer){
             get_reception();
-            Main.getInstance().run(new PazzleStage(5));
             sendMyCopy();
             try {
+                Thread.sleep(100);
+            Main.getInstance().run(new PazzleStage(rule));
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

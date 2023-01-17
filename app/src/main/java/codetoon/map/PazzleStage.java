@@ -7,7 +7,9 @@ import codetoon.util.animation.Animation;
 
 import java.awt.*;
 public class PazzleStage extends Map{
-    public final int MEMORY_SIZE;
+    public int MEMORY_SIZE;
+    public int MEMORY_W;
+    public int MEMORY_H;
     private final Field field;
     private final Message messageBox;
     public final Observer observer;
@@ -16,19 +18,32 @@ public class PazzleStage extends Map{
     public PazzleStage(int size){
       MEMORY_SIZE = size;
       field = new Field(5, 20, 130, 83);
-      field.setMemoryCapability(MEMORY_SIZE);
+      field.setMemoryCapability(MEMORY_SIZE, MEMORY_SIZE);
       c = Console.getInstance();
       c.setVisible(true);
-      messageBox = new Message(Main.getMainGraphics(), 140, 65, 60, 40);
-      observer = new Observer(c, 140, 15, 60, 40);
-
-      CodeToon.gameStart();
+        messageBox = new Message(Main.getMainGraphics(), 140, 65, 60, 40);
+        observer = new Observer(c, 140, 15, 60, 40);
+        CodeToon.gameStart();
     }
-
+    public PazzleStage(Rule r){
+        MEMORY_W = r.memory_w;
+        MEMORY_H = r.memory_h;
+        MEMORY_SIZE = MEMORY_H * MEMORY_W;
+        if(r.dif != Difficulty.EASY) {
+            field = new Field(5, 20, 130, 83);
+            field.setMemoryCapability(MEMORY_W, MEMORY_H);
+        }else{
+            field = new Field(5, 20, 75, 40);
+            field.setMemoryCapability(MEMORY_W, MEMORY_H);
+        }
+        c = Console.getInstance();
+        c.setVisible(true);
+        messageBox = new Message(Main.getMainGraphics(), 140, 65, 60, 40);
+        observer = new Observer(c, 140, 15, 60, 40);
+        CodeToon.gameStart();
+    }
     public Console getConsole() {
         return c;
-
-
     }
 
     @Override
@@ -58,19 +73,20 @@ public class PazzleStage extends Map{
 
     private class Field{
       private int x, y, w, h;
-      int size;
+      int mw, mh;
       public Field(int x, int y, int w, int h){
         this.x = x * Main.DW;
         this.y = y * Main.DH;
         this.w = w * Main.DW;
         this.h = h * Main.DH;
       }
-      public void setMemoryCapability(int size){
-        this.size = size;
-        Memories.setInstance(size, x, y, w, h);
+      public void setMemoryCapability(int mw, int mh){
+          this.mw = mw;
+          this.mh = mh;
+        Memories.setInstance(mw, mh, x, y, w, h);
       }
       public void display(Graphics g){
-        for(int i = 0; i < size * size; i ++){
+        for(int i = 0; i < mw * mh; i ++){
             Memories.get(i).display(g);
         }
 

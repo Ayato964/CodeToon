@@ -1,5 +1,6 @@
 package codetoon.server;
 import codetoon.system.Admin;
+import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 
 import java.io.IOException;
@@ -33,7 +34,9 @@ public class Reception extends Thread {
                     if(isReturnReception){
                         Memories.equalsMemory(_testWrapper.memory);
                     }else{
-                        Memories.equalsOpponentMemory(_testWrapper.memory);
+                        CodeToon.RULE = _testWrapper.rule;
+                        if(_testWrapper.memory != null)
+                          Memories.equalsOpponentMemory(_testWrapper.memory);
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 
                     }
