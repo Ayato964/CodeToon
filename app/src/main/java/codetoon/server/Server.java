@@ -127,7 +127,7 @@ public class Server implements Runnable {
             try {
                 testClassWrapper testWrapper = new testClassWrapper(Memories.memory == null ? new ArrayList<>() : Memories.memory, rule);
                 myOutStream.reset();
-                System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).showPass());
+                System.out.println("SendCopy!!");
                 myOutStream.writeObject(testWrapper);
 
             } catch (IOException e) {

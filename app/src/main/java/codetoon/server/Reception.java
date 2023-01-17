@@ -30,7 +30,7 @@ public class Reception extends Thread {
 
             try {
                 testClassWrapper _testWrapper = (testClassWrapper) in.readObject();
-                System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
+                //System.out.println("Recive  " + _testWrapper.memory.get(0).getName() + "    " + _testWrapper.memory.get(0).isClient());
                     if(isReturnReception){
                         Memories.equalsMemory(_testWrapper.memory);
                     }else{
@@ -40,7 +40,7 @@ public class Reception extends Thread {
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 
                     }
-                    System.out.println("receivedData: " + Memories.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
+                    //System.out.println("receivedData: " + Memories.memory.get(0).serialID + "    " + Admin.getInstance().getSerialID());
             } catch (ClassNotFoundException e) {
           //      e.printStackTrace();
             }
