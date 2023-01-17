@@ -135,11 +135,11 @@ public class CreateSection extends Map{
         ));
         pack.next();
         pack.add(Animation.create(g).draw("session.matching.host.mes1", x + 3, y + 17, new Animation.Properties(false)
-                .font("", Font.BOLD, 60)
+                .font("", Font.BOLD, 40)
                 .color(Color.WHITE)
         ));
         pack.add(Animation.create(g).draw(address.getHostAddress() +"", x + 65, y + 17, new Animation.Properties(false)
-                .font("", Font.BOLD, 60)
+                .font("", Font.BOLD, 40)
                 .color(RED)
         ));
         pack.add(Animation.create(g).draw("session.matching.host.mes2", x + 3, y + 27, new Animation.Properties(false)
