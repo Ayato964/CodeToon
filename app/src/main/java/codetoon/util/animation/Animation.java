@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.function.BooleanSupplier;
 
 import codetoon.main.*;
 import codetoon.util.*;
@@ -181,6 +182,7 @@ public abstract class Animation {
             prop.add(new Center());
             return this;
         }
+
         public Properties changeArgument(StringSup sup){
             prop.add(new ChangeArgument(sup));
             return this;
@@ -195,6 +197,14 @@ public abstract class Animation {
         }
         public Properties setWidth(int w){
             prop.add(new Width(this, w));
+            return this;
+        }
+        public Properties setChangeText(String text, BooleanSupplier sup){
+            prop.add(new ChangeText(text, sup));
+            return this;
+        }
+        public Properties setChangeText(String[] str, String text, BooleanSupplier sup){
+            prop.add(new ChangeText(str, text, sup));
             return this;
         }
         public int getCount() {

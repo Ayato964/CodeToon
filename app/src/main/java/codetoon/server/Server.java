@@ -3,6 +3,7 @@ import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
+import codetoon.system.Rule;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -14,8 +15,10 @@ public class Server implements Runnable {
     int myPORT = 50000;
     int opponentPORT = 60000;
     String ipAdress;
+    Rule rule;
 
     public boolean runServer = false;
+    public boolean startServer = false;
 
     Socket sock;
     Socket returnSock;
@@ -30,8 +33,11 @@ public class Server implements Runnable {
 
     public static Server server = new Server();
 
-    public void startServer(String _ipAdress){
+
+    public void startServer(String _ipAdress, Rule rule){
         ipAdress = _ipAdress;
+        this.rule = rule;
+        startServer = true;
         Thread thread = new Thread(this);
         thread.start();
     }
@@ -60,8 +66,6 @@ public class Server implements Runnable {
                 sock = new Socket(ipAdress, myPORT);
                 returnSock = new Socket(ipAdress, opponentPORT);
                 System.out.println("connected");
-
-                
                 connect = true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -99,6 +103,7 @@ public class Server implements Runnable {
             setUpServer();
         }else{
             System.out.println("My Server Property is Not Host");
+            System.out.println("Adress : " + ipAdress);
             connect(ipAdress);
         }
         if(runServer){
@@ -117,7 +122,7 @@ public class Server implements Runnable {
 
         if(runServer && !CodeToon.DEBUG) {
             try {
-                testClassWrapper testWrapper = new testClassWrapper(Memories.memory);
+                testClassWrapper testWrapper = new testClassWrapper(Memories.memory, rule);
                 myOutStream.reset();
                 System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).showPass());
                 myOutStream.writeObject(testWrapper);
@@ -131,7 +136,7 @@ public class Server implements Runnable {
     public void sendOpponentCopy() {
         if(runServer && !CodeToon.DEBUG) {
             try {
-                testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory);
+                testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory, rule);
                 opponentOutStream.reset();
                 System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    "  + testWrapper.memory.get(0).isClient());
                 opponentOutStream.writeObject(testWrapper);
@@ -155,6 +160,7 @@ public class Server implements Runnable {
 
     public void stopConnection(){
         runServer = false;
+        startServer = false;
         try {
             svSock.close();
             svReturnSock.close();

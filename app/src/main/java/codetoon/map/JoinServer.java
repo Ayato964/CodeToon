@@ -9,6 +9,7 @@ import codetoon.util.animation.Animation;
 
 import java.awt.*;
 
+@Deprecated(since = "ver.1.3.6")
 public class JoinServer extends Map{
     Graphics g;
     ContainerBox box;
@@ -29,7 +30,7 @@ public class JoinServer extends Map{
             @Override
             public void pressedEntered(InputTextBox box) {
                 System.out.println(box.getString());
-                Server.server.startServer(box.getString());
+                //Server.server.startServer(box.getString());
 
             }
         });

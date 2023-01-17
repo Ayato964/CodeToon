@@ -17,6 +17,9 @@ session.matching.host.mes2 = "このアドレスを相手に教えてくださ�
 session.matching.client.mes1 = "IPアドレスを入力してください。 ",
 session.matching.client.mes2 = "＊このアドレスは対戦相手のものです！！",
 session.desc.title = "マップ内容",
+
+session.create = "マッチメイキングを開始",
+session.loading = "対戦相手を見つけています...",
 session.back.title = "タイトルへ戻る",
 
 join.mes1 = "セッションID（相手のIPアドレス）を入力してください。",
