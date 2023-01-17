@@ -76,23 +76,37 @@ public class CreateSection extends Map{
         );
         Animation.create(g).draw("session.difficulty.easy", x + 33, y + 7, new Animation.Properties()
                 .font("", Font.BOLD, 60)
-                .button(i->rule.dif = Difficulty.EASY)
+                .button(i->{rule.dif = Difficulty.EASY;
+                            rule.memory_w = 3;
+                            rule.memory_h = 3;
+                })
                 .frame(WHITE, x + 33, y + 9, 30, 10, ()->rule.dif == Difficulty.EASY)
         );
         Animation.create(g).draw("session.difficulty.normal", x + 80, y + 7, new Animation.Properties()
                 .font("", Font.BOLD, 60)
-                .button(i->rule.dif = Difficulty.NORMAL)
+                .button(i->{rule.dif = Difficulty.NORMAL;
+                    rule.memory_w = 5;
+                    rule.memory_h = 5;
+                })
                 .frame(WHITE, x + 80, y + 9, 30, 10, ()->rule.dif == Difficulty.NORMAL)
 
         );
         Animation.create(g).draw("session.difficulty.high", x + 33, y + 22, new Animation.Properties()
                 .font("", Font.BOLD, 60)
-                .button(i->rule.dif = Difficulty.HIGH)
+                .button(i-> {rule.dif = Difficulty.HIGH;
+
+                    rule.memory_w = 5;
+                    rule.memory_h = 5;
+                })
                 .frame(WHITE, x + 33, y + 24, 30, 10, ()->rule.dif == Difficulty.HIGH)
         );
         Animation.create(g).draw("session.difficulty.very.high", x + 80, y + 22, new Animation.Properties()
                 .font("", Font.BOLD, 60)
-                .button(i->rule.dif = Difficulty.VERY_HIGH)
+                .button(i->{
+                    rule.dif = Difficulty.VERY_HIGH;
+                    rule.memory_w = 7;
+                    rule.memory_h = 7;
+                })
                 .frame(WHITE, x + 80, y + 24, 30, 10, ()->rule.dif == Difficulty.VERY_HIGH)
         );
 
