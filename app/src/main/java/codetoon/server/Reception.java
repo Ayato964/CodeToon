@@ -39,6 +39,7 @@ public class Reception extends Thread {
                         if(!Server.isHost && CodeToon.RULE == null) {
                             CodeToon.RULE = _testWrapper.rule;
                             Main.getInstance().run(new PazzleStage(CodeToon.RULE));
+                            Server.server.sendMyCopy();
                         }
                         if(!_testWrapper.memory.isEmpty())
                           Memories.equalsOpponentMemory(_testWrapper.memory);
