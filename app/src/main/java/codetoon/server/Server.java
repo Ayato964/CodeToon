@@ -115,6 +115,7 @@ public class Server implements Runnable {
                 Thread.sleep(100);
             Main.getInstance().run(new PazzleStage(rule));
                 Thread.sleep(1000);
+                sendMyCopy();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
