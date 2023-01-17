@@ -28,7 +28,7 @@ public class PazzleStage extends Map{
     public PazzleStage(Rule r){
         MEMORY_W = r.memory_w;
         MEMORY_H = r.memory_h;
-        MEMORY_SIZE = MEMORY_H * MEMORY_W;
+        MEMORY_SIZE = MEMORY_H;
         if(r.dif != Difficulty.EASY) {
             field = new Field(5, 20, 130, 83);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
