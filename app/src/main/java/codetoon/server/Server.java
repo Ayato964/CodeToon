@@ -142,7 +142,7 @@ public class Server implements Runnable {
             try {
                 testClassWrapper testWrapper = new testClassWrapper(Memories.opponentMemory, rule);
                 opponentOutStream.reset();
-                System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    "  + testWrapper.memory.get(0).isClient());
+//                System.out.println("Send Enemy Copy:" + testWrapper.memory.get(0).getName() + "    "  + testWrapper.memory.get(0).isClient());
                 opponentOutStream.writeObject(testWrapper);
 
             } catch (IOException e) {
