@@ -112,7 +112,7 @@ public class Server implements Runnable {
             get_reception();
             sendMyCopy();
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             Main.getInstance().run(new PazzleStage(rule));
                 sendMyCopy();
                 Thread.sleep(1000);
