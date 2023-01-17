@@ -57,7 +57,7 @@ public class CreateSection extends Map{
         difficulty(g, 10, 61, 120, 40);
         descRule(g, 140, 10, 60, 100);
 
-        Animation.create(g).draw("session.create", 10, 120, new Animation.Properties()
+        Animation.create(g).draw("session.create", 10, 110, new Animation.Properties()
                 .font("", Font.BOLD, 32)
                 .center()
                 .frame(WHITE)

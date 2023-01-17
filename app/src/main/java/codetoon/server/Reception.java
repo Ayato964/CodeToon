@@ -35,7 +35,7 @@ public class Reception extends Thread {
                         Memories.equalsMemory(_testWrapper.memory);
                     }else{
                         CodeToon.RULE = _testWrapper.rule;
-                        if(_testWrapper.memory != null)
+                        if(_testWrapper.memory.isEmpty())
                           Memories.equalsOpponentMemory(_testWrapper.memory);
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 

@@ -4,12 +4,12 @@ import codetoon.system.Memories;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
 import codetoon.system.Rule;
-import com.jogamp.common.util.cache.TempJarCache;
 
 import java.io.IOException;
 import java.net.Socket;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
+import java.util.ArrayList;
 
 public class Server implements Runnable {
     public static boolean isHost;
@@ -125,7 +125,7 @@ public class Server implements Runnable {
 
         if(runServer && !CodeToon.DEBUG) {
             try {
-                testClassWrapper testWrapper = new testClassWrapper(Memories.memory, rule);
+                testClassWrapper testWrapper = new testClassWrapper(Memories.memory == null ? new ArrayList<>() : Memories.memory, rule);
                 myOutStream.reset();
                 System.out.println("SendCopy:" + testWrapper.memory.get(0).getName() + "    " + testWrapper.memory.get(0).showPass());
                 myOutStream.writeObject(testWrapper);
