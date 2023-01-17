@@ -61,6 +61,8 @@ public class CodeToon{
         }
     }
     private static boolean isAllHacked(ArrayList<Memory> m){
+        if(m.isEmpty() || m == null)
+            return false;
         for(int i = 0; i < m.size(); i ++){
             if(m.get(i).getStates() != EnumMemoryStates.HACKED){
                 return false;
