@@ -68,7 +68,7 @@ public class Memories {
 
     public static void equalsMemory(ArrayList<Memory> upMemory) {
         if(Memories.memory != null) {
-            for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
+            for (int i = 0; i < CodeToon.RULE.memory_w * CodeToon.RULE.memory_h; i++) {
                 if (!Memories.memory.get(i).equals(upMemory.get(i))) {
                     System.out.println(Memories.memory.get(i).getSource());
                     System.out.println(upMemory.get(i).getSource());
@@ -81,7 +81,7 @@ public class Memories {
     }
     public static void equalsOpponentMemory(ArrayList<Memory> upMemory) {
         if(Memories.opponentMemory != null) {
-            for (int i = 0; i < CodeToon.MEMORY_SIZE * CodeToon.MEMORY_SIZE; i++) {
+            for (int i = 0; i <CodeToon.RULE.memory_w * CodeToon.RULE.memory_h; i++) {
                 if (!Memories.opponentMemory.get(i).equals(upMemory.get(i))) {
                     updateOpponentMemory(upMemory.get(i), i);
                 }

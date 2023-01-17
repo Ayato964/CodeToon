@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class GetW extends MyMethod<Integer>{
     @Override
     public Integer returnAction(Player o) {
-        return CodeToon.MEMORY_SIZE;
+        return CodeToon.RULE.memory_w;
     }
 
     @Override

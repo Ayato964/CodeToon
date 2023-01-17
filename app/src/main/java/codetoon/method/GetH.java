@@ -19,6 +19,6 @@ public class GetH extends MyMethod<Integer>{
 
     @Override
     public Integer returnAction(Player host) {
-        return CodeToon.MEMORY_SIZE;
+        return CodeToon.RULE.memory_h;
     }
 }
