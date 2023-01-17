@@ -110,11 +110,11 @@ public class Server implements Runnable {
         }
         if(runServer){
             get_reception();
-            sendMyCopy();
             try {
-                Thread.sleep(100);
-            Main.getInstance().run(new PazzleStage(rule));
-                sendMyCopy();
+                if(isHost) {
+                    Main.getInstance().run(new PazzleStage(rule));
+                    sendMyCopy();
+                }
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

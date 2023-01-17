@@ -1,4 +1,6 @@
 package codetoon.server;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.system.Admin;
 import codetoon.system.CodeToon;
 import codetoon.system.Memories;
@@ -34,7 +36,10 @@ public class Reception extends Thread {
                     if(isReturnReception){
                         Memories.equalsMemory(_testWrapper.memory);
                     }else{
-                        CodeToon.RULE = _testWrapper.rule;
+                        if(!Server.isHost && CodeToon.RULE == null) {
+                            CodeToon.RULE = _testWrapper.rule;
+                            Main.getInstance().run(new PazzleStage(CodeToon.RULE));
+                        }
                         if(_testWrapper.memory.isEmpty())
                           Memories.equalsOpponentMemory(_testWrapper.memory);
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
