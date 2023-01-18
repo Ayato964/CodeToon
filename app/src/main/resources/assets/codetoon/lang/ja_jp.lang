@@ -26,6 +26,7 @@ join.mes1 = "セッションID（相手のIPアドレス）を入力してくだ
 join.mes2 = "タイトルへ戻る",
 
 stage.memory.list = "自分の陣地",
+stage.enemy.memory.list = "敵の陣地",
 stage.memory.debug.end = "デバッグを終了する。",
 
 console.mes1 = "メソッドは$つまでしか呼び出せません。",

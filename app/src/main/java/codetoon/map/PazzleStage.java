@@ -36,9 +36,9 @@ public class PazzleStage extends Map{
             field = new Field(5, 15, 130, 83);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
         }else{
-            field = new Field(10, 20, 75, 40);
+            field = new Field(10, 70, 75, 40);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
-            enemyField = new Field(10, 70, 75, 40);
+            enemyField = new Field(10, 20, 75, 40);
             enemyField.setEnemyMode(MEMORY_W, MEMORY_H);
         }
         c = Console.getInstance();
@@ -53,10 +53,14 @@ public class PazzleStage extends Map{
 
     @Override
     public void setup(Graphics h) {
-
-        Animation.create(h).draw("stage.memory.list", 10, 10,
-                new Animation.Properties()
-                    .size(40));
+        if(rule.dif != Difficulty.EASY) {
+            Animation.create(h).draw("stage.memory.list", 10, 10,
+                    new Animation.Properties()
+                            .size(40));
+        }else{
+            Animation.create(h).draw("stage.enemy.memory.list", 10, 10, new Animation.Properties().size(40));
+            Animation.create(h).draw("stage.memory.list", 10, 65, new Animation.Properties().size(40));
+        }
         if(CodeToon.DEBUG){
             Animation.create(h).draw("stage.memory.debug.end", 0, 10, new Animation.Properties().size(40).center().frame(Color.WHITE).button(i ->{
                 Console.getInstance().setVisible(false);
@@ -101,10 +105,15 @@ public class PazzleStage extends Map{
               }
           }else{
               if(Memories.opponentMemory != null)
-                  if(!Memories.opponentMemory.isEmpty())
-                      for(int i = 0; i < mh; i ++)
-                           for (int c = 0; c < mw; c++)
-                              Memories.opponentMemory.get(i).display(g, x + i * (w / mw), y + c * (h / mh), w / mw, h / mh);
+                  if(!Memories.opponentMemory.isEmpty()) {
+                      int z = 0;
+                      for (int i = 0; i < mh; i++) {
+                          for (int c = 0; c < mw; c++) {
+                              Memories.opponentMemory.get(z).display(g, x + i * (w / mw), y + c * (h / mh), w / mw, h / mh);
+                              z ++;
+                          }
+                      }
+                  }
           }
       }
 

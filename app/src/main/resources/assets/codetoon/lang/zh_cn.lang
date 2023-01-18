@@ -4,8 +4,11 @@ title.chooser2 = "参加游戏",
 title.chooser3 = "结束游戏",
 title.chooser4 = "修改程序",
 
-
 session.difficulty.title = "難易度設定",
+session.difficulty.easy = "初級",
+session.difficulty.normal = "中級",
+session.difficulty.high = "上級",
+session.difficulty.very.high = "超上級",
 session.custom.title = "カスタム設定",
 session.matching.title = "マッチング設定",
 session.matching.host = "このPCをホストとして設定する。",
@@ -13,11 +16,17 @@ session.matching.host.mes1 = "IPアドレス: ",
 session.matching.host.mes2 = "このアドレスを相手に教えてください。",
 session.matching.client.mes1 = "IPアドレスを入力してください。 ",
 session.matching.client.mes2 = "＊このアドレスは対戦相手のものです！！",
+session.desc.title = "マップ内容",
+
+session.create = "マッチメイキングを開始",
+session.loading = "対戦相手を見つけています...",
+session.back.title = "タイトルへ戻る",
 
 join.mes1 = "请输入游戏ID（对方的IP地址）",
 join.mes2 = "返回标题",
 
 stage.memory.list = "你的领地",
+stage.enemy.memory.list = "敵の陣地",
 stage.memory.debug.end = "デバッグを終了する。",
 
 console.mes1 = "メソッドは$つまでしか呼び出せません。",
