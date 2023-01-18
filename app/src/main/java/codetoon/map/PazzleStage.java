@@ -108,6 +108,7 @@ public class PazzleStage extends Map{
         public void setEnemyMode(int memory_w, int memory_h) {
           this.mw = memory_w;
           mh = memory_h;
+          enemyMode = true;
         }
     }
   }
