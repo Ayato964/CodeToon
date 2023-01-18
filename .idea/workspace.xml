@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1d15aa5-a19b-4e61-afcf-382b3f3ff5cb" name="変更" comment="Ver.1.3.2&#10;&#10;通信バグを修正">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/CheckButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_12_01_16_16_____Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022_12_01_16_16_____Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/CreateSection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/map/Title.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Tick.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/Tick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/assets/codetoon/lang/ja_jp.lang" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/assets/codetoon/lang/ja_jp.lang" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/ImageMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/animation/ImageMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/codetoon/util/lang/LangLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/codetoon/util/lang/LangLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +71,7 @@
       <recent name="C:\Users\takaf\ClassRoom\CodeToon\app\src\main\resources\assets\codetoon\textures\other" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.CodeToon [jar]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="codetoon.main.Main" />
       <module name="CodeToon.app.main" />
@@ -89,6 +84,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="CodeToon [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -103,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CodeToon [jar]" />
         <item itemvalue="アプリケーション.Main" />
       </list>
     </recent_temporary>
