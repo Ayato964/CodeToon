@@ -37,7 +37,6 @@ public class LangLoader {
         if(filePath.toString().indexOf("jar:") != -1) {
             try(InputStream is = ClassLoader.getSystemResourceAsStream("assets/codetoon/lang/" + lang + ".lang")) {
                 reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-                JOptionPane.showMessageDialog(new JFrame(), reader.readLine());
                 readFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
