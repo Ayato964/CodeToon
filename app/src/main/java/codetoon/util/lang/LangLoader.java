@@ -1,9 +1,18 @@
 package codetoon.util.lang;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageFilter;
 import java.io.*;
+import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.HashMap;
 
 public class LangLoader {
@@ -11,8 +20,9 @@ public class LangLoader {
     public static final String ENGLISH = "en_us";
     public static final String CHINESE = "zh_cn";
     public static String LANGUAGE;
-    private URI filePath;
-    private File file;
+    private  Path path;
+    private URI uri;
+    private BufferedReader reader;
     public HashMap<String, String> code;
     private static LangLoader INSTANCE;
     public static String tempKey;
@@ -22,17 +32,32 @@ public class LangLoader {
     private void loadFile(String lang){
         LANGUAGE = lang;
         code = new HashMap<>();
+        URL filePath = getClass().getClassLoader().getResource("assets/codetoon/lang/" + lang + ".lang");
+
+        if(filePath.toString().indexOf("jar:") != -1) {
+            try(InputStream is = ClassLoader.getSystemResourceAsStream("assets/codetoon/lang/" + lang + ".lang")) {
+                reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+                JOptionPane.showMessageDialog(new JFrame(), reader.readLine());
+                readFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            File file = new File(filePath.getFile());
+            readFile(file);
+        }
+
+    }
+    private void readFile(File f){
         try {
-            filePath = getClass().getResource("/assets/codetoon/lang/" + lang + ".lang").toURI();
-            file = new File(filePath);
-            readFile();
-        } catch (URISyntaxException e) {
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(f), StandardCharsets.UTF_8));
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        readFile();
     }
     private void readFile() {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
             //FileReader reader = new FileReader(file);
             StringBuilder b = new StringBuilder();
             int charCode;
