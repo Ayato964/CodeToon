@@ -100,11 +100,11 @@ public class PazzleStage extends Map{
                   Memories.get(i).display(g);
               }
           }else{
-              for(int i = 0; i < mh; i ++) {
-                  for (int c = 0; c < mw; c++) {
-                      Memories.opponentMemory.get(i).display(g, x + i * (w / mw), y + c * (h / mh), w / mw, h / mh);
-                  }
-              }
+              if(Memories.opponentMemory != null)
+                  if(!Memories.opponentMemory.isEmpty())
+                      for(int i = 0; i < mh; i ++)
+                           for (int c = 0; c < mw; c++)
+                              Memories.opponentMemory.get(i).display(g, x + i * (w / mw), y + c * (h / mh), w / mw, h / mh);
           }
       }
 
