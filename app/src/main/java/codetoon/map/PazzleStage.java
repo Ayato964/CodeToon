@@ -35,11 +35,11 @@ public class PazzleStage extends Map{
         if(r.dif != Difficulty.EASY) {
             field = new Field(5, 15, 130, 83);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
-            enemyField = new Field(5, 110, 130, 83);
-            enemyField.setEnemyMode(MEMORY_W, MEMORY_H);
         }else{
-            field = new Field(5, 20, 75, 40);
+            field = new Field(10, 20, 75, 40);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
+            enemyField = new Field(10, 70, 75, 40);
+            enemyField.setEnemyMode(MEMORY_W, MEMORY_H);
         }
         c = Console.getInstance();
         c.setVisible(true);
