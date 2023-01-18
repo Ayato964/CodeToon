@@ -94,6 +94,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         g.setColor(Color.BLACK);
         g.drawRect(x, y, w, h);
     }
+    public void display(@NotNull Graphics g, int x, int y, int w, int h){
+        g.setColor(states.getColor());
+        g.fillRect(x, y, w, h);
+        g.setColor(Color.BLACK);
+        g.drawRect(x, y, w, h);
+    }
 
     @Override
     public String getName(){

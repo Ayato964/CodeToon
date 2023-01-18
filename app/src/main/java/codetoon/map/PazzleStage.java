@@ -95,14 +95,17 @@ public class PazzleStage extends Map{
         Memories.setInstance(mw, mh, x, y, w, h);
       }
       public void display(Graphics g){
-        for(int i = 0; i < mw * mh; i ++){
-            if(!enemyMode)
-                Memories.get(i).display(g);
-            else if(Memories.opponentMemory != null)
-                if(!Memories.opponentMemory.isEmpty())
-                    Memories.opponentMemory.get(i).display(g);
-        }
-
+          if(!enemyMode) {
+              for (int i = 0; i < mw * mh; i++) {
+                  Memories.get(i).display(g);
+              }
+          }else{
+              for(int i = 0; i < mh; i ++) {
+                  for (int c = 0; c < mw; c++) {
+                      Memories.opponentMemory.get(i).display(g, x + i * (w / mw), y + c * (h / mh), w / mw, h / mh);
+                  }
+              }
+          }
       }
 
         public void setEnemyMode(int memory_w, int memory_h) {
