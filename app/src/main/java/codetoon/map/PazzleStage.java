@@ -11,6 +11,8 @@ public class PazzleStage extends Map{
     public int MEMORY_W;
     public int MEMORY_H;
     private final Field field;
+    private Field enemyField;
+    private Rule rule;
     private final Message messageBox;
     public final Observer observer;
     private final Console c;
@@ -26,12 +28,15 @@ public class PazzleStage extends Map{
         CodeToon.gameStart();
     }
     public PazzleStage(Rule r){
+        rule = r;
         MEMORY_W = r.memory_w;
         MEMORY_H = r.memory_h;
         MEMORY_SIZE = MEMORY_H;
         if(r.dif != Difficulty.EASY) {
-            field = new Field(5, 20, 130, 83);
+            field = new Field(5, 15, 130, 83);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
+            enemyField = new Field(5, 110, 130, 83);
+            enemyField.setEnemyMode(MEMORY_W, MEMORY_H);
         }else{
             field = new Field(5, 20, 75, 40);
             field.setMemoryCapability(MEMORY_W, MEMORY_H);
@@ -66,6 +71,8 @@ public class PazzleStage extends Map{
     public void display(Graphics g){
       //background(#505050);
       field.display(g);
+      if(rule.dif == Difficulty.EASY)
+          enemyField.display(g);
       messageBox.draw();
       observer.draw(g);
       PopUpWindow.popUpWindow.drawPopUpWindow();
@@ -74,6 +81,7 @@ public class PazzleStage extends Map{
     private class Field{
       private int x, y, w, h;
       int mw, mh;
+      boolean enemyMode = false;
       public Field(int x, int y, int w, int h){
         this.x = x * Main.DW;
         this.y = y * Main.DH;
@@ -88,9 +96,18 @@ public class PazzleStage extends Map{
       }
       public void display(Graphics g){
         for(int i = 0; i < mw * mh; i ++){
-            Memories.get(i).display(g);
+            if(!enemyMode)
+                Memories.get(i).display(g);
+            else if(Memories.opponentMemory != null)
+                if(!Memories.opponentMemory.isEmpty())
+                    Memories.opponentMemory.get(i).display(g);
         }
 
       }
+
+        public void setEnemyMode(int memory_w, int memory_h) {
+          this.mw = memory_w;
+          mh = memory_h;
+        }
     }
   }
