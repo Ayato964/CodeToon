@@ -79,6 +79,7 @@ public class CreateSection extends Map{
                 .button(i->{rule.dif = Difficulty.EASY;
                             rule.memory_w = 3;
                             rule.memory_h = 3;
+                            rule.isShowingOpponentMemory = true;
                 })
                 .frame(WHITE, x + 33, y + 9, 30, 10, ()->rule.dif == Difficulty.EASY)
         );
@@ -97,6 +98,7 @@ public class CreateSection extends Map{
 
                     rule.memory_w = 5;
                     rule.memory_h = 5;
+                    rule.isSettingMemoryPassword = true;
                 })
                 .frame(WHITE, x + 33, y + 24, 30, 10, ()->rule.dif == Difficulty.HIGH)
         );
@@ -106,6 +108,7 @@ public class CreateSection extends Map{
                     rule.dif = Difficulty.VERY_HIGH;
                     rule.memory_w = 7;
                     rule.memory_h = 7;
+                    rule.isSettingMemoryPassword = true;
                 })
                 .frame(WHITE, x + 80, y + 24, 30, 10, ()->rule.dif == Difficulty.VERY_HIGH)
         );

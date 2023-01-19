@@ -7,6 +7,9 @@ public class Rule implements Serializable {
     public int memory_w;
     public int memory_h;
     public Difficulty dif;
+    public boolean isShowingOpponentMemory = false;
+    public boolean isSettingMemoryPassword = false;
+
     private Rule(){}
     public static Rule getInstance(){
         return instance;

@@ -27,6 +27,7 @@ join.mes2 = "返回标题",
 
 stage.memory.list = "你的领地",
 stage.enemy.memory.list = "敵の陣地",
+stage.memory.pass = "全メモリーの初期パスワードは$です。",
 stage.memory.debug.end = "デバッグを終了する。",
 
 console.mes1 = "メソッドは$つまでしか呼び出せません。",

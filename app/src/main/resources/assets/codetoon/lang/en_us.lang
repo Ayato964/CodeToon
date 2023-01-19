@@ -28,6 +28,7 @@ join.mes2 = "Back to the Title",
 
 stage.memory.list = "My Memory List",
 stage.enemy.memory.list = "Enemy Memory List",
+stage.memory.pass = "全メモリーの初期パスワードは$です。",
 stage.memory.debug.end = "End DEBUG",
 
 console.mes1 = "Only $ methods can be called.",

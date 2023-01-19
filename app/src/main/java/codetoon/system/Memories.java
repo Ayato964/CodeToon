@@ -13,11 +13,12 @@ public class Memories {
     public static ArrayList<Memory> opponentMemory;
     private static final Memories instance = new Memories();
 
-    public static void setInstance(int mw, int mh, int x, int y, int w, int h){
+    public static void setInstance(int mw, int mh, int x, int y, int w, int h, int pass){
         memory = new ArrayList<>();
         for(int i = 0; i < mh; i ++){
           for(int c = 0; c < mw; c ++){
             Memory t = new Memory(x + i * (w / mw), y + c * (h / mh), w / mw, h / mh, i, c);
+            t.pass = pass;
             Thread th = new Thread(t);
             th.start();
             memory.add(t);

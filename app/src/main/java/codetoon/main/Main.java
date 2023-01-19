@@ -56,8 +56,6 @@ public class Main extends JFrame{
         Main m = new Main("CodeToon");
         m.setVisible(true);
         m.run(new Title());
-        //Tick.getInstance();
-       // System.out.println("Tick Loaded");
     }
 
     public void run(Map map){
