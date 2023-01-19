@@ -1,15 +1,21 @@
 package codetoon.util.animation;
 
 import codetoon.main.Main;
+import codetoon.map.PazzleStage;
+import codetoon.system.CodeToon;
 import codetoon.system.Message;
 
 import javax.net.ssl.SNIHostName;
 import java.awt.*;
 
 public class Width implements Decorate{
+    public static final int UPPER = 0;
+    public static final int UNDER = 1;
     int w;
+    private final int layout;
     boolean isFirst = true;
-    public Width(Animation.Properties properties, int w) {
+    public Width(int layout, int w) {
+        this.layout = layout;
         this.w = w;
     }
 
@@ -23,13 +29,14 @@ public class Width implements Decorate{
         for(int i = 0; i < builder.length(); i ++){
             c += g.getFontMetrics().charWidth(builder.charAt(i));
             if(c >= w * Main.DW){
-                Message.shiftMessage();
+                if(Main.getInstance().getMap() instanceof PazzleStage)
+                   Message.shiftMessage();
                 builder.insert(i, '\n');
                 row ++;
                 c = 0;
             }
         }
-        if(isFirst) {
+        if(layout == UPPER) {
             boolean isFirstMsg = true;
             for (String str : builder.toString().split("\n")) {
                 if (isFirstMsg) {
@@ -40,6 +47,23 @@ public class Width implements Decorate{
                 } else {
                     Animation.Properties p = new Animation.Properties().copy(properties);
                     Animation.create(g).draw(str, a.getX(), a.getY() - g.getFontMetrics().getHeight() / 4 * row, p);
+                    properties.setChild(p);
+                    row--;
+                }
+            }
+        }else{
+            boolean isFirstMsg = true;
+            int tmpRow = row;
+            for( String str : builder.toString().split("\n")){
+                if (isFirstMsg) {
+                    properties.getAnimation().myProp.setAllPosition(properties.getAnimation().getX(),
+                            properties.getAnimation().getY() + g.getFontMetrics().getHeight() / 4 * (tmpRow - row));
+                    text.setMsg(str);
+                    isFirstMsg = false;
+                    row --;
+                } else {
+                    Animation.Properties p = new Animation.Properties().copy(properties);
+                    Animation.create(g).draw(str, a.getX(), a.getY() + g.getFontMetrics().getHeight() / 4 * (tmpRow - row), p);
                     properties.setChild(p);
                     row--;
                 }

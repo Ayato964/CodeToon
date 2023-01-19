@@ -7,9 +7,11 @@ import codetoon.system.Rule;
 import codetoon.util.ContainerData;
 import codetoon.util.animation.Animation;
 import codetoon.util.animation.AnimationsPack;
+import codetoon.util.animation.Width;
 import codetoon.util.box.Box;
 import codetoon.util.box.ContainerBox;
 import codetoon.util.box.DrawingTextBox;
+import codetoon.util.lang.LangLoader;
 
 import java.awt.*;
 import java.net.InetAddress;
@@ -27,6 +29,9 @@ public class CreateSection extends Map{
     public CreateSection(){
         rule = Rule.create();
         rule.dif = Difficulty.EASY;
+        rule.memory_w = 3;
+        rule.memory_h = 3;
+        rule.isShowingOpponentMemory = true;
         isHost = false;
         try {
             address = InetAddress.getLocalHost();
@@ -79,6 +84,7 @@ public class CreateSection extends Map{
                 .button(i->{rule.dif = Difficulty.EASY;
                             rule.memory_w = 3;
                             rule.memory_h = 3;
+                            rule.isSettingMemoryPassword = false;
                             rule.isShowingOpponentMemory = true;
                 })
                 .frame(WHITE, x + 33, y + 9, 30, 10, ()->rule.dif == Difficulty.EASY)
@@ -88,6 +94,8 @@ public class CreateSection extends Map{
                 .button(i->{rule.dif = Difficulty.NORMAL;
                     rule.memory_w = 5;
                     rule.memory_h = 5;
+                    rule.isShowingOpponentMemory = false;
+                    rule.isSettingMemoryPassword = false;
                 })
                 .frame(WHITE, x + 80, y + 9, 30, 10, ()->rule.dif == Difficulty.NORMAL)
 
@@ -98,6 +106,7 @@ public class CreateSection extends Map{
 
                     rule.memory_w = 5;
                     rule.memory_h = 5;
+                    rule.isShowingOpponentMemory = false;
                     rule.isSettingMemoryPassword = true;
                 })
                 .frame(WHITE, x + 33, y + 24, 30, 10, ()->rule.dif == Difficulty.HIGH)
@@ -108,6 +117,7 @@ public class CreateSection extends Map{
                     rule.dif = Difficulty.VERY_HIGH;
                     rule.memory_w = 7;
                     rule.memory_h = 7;
+                    rule.isShowingOpponentMemory = false;
                     rule.isSettingMemoryPassword = true;
                 })
                 .frame(WHITE, x + 80, y + 24, 30, 10, ()->rule.dif == Difficulty.VERY_HIGH)
@@ -120,7 +130,50 @@ public class CreateSection extends Map{
                 .frame(Color.WHITE,x, y + h - 3,  w, h, ()->true)
         );
 
+        Animation.create(g).draw(new String[]{rule.dif.toString()}, "session.desc.difficulty", x, y + 10, new Animation.Properties()
+                        .size(32)
+                        .color(WHITE)
+                        .changeArgument(()->new String[]{rule.dif.toString()})
 
+                );
+        Animation.create(g).draw(new String[]{new StringBuilder().append(rule.memory_w).toString(),
+                new StringBuilder().append(rule.memory_h).toString()}, "session.desc.memory.size", x, y + 20, new Animation.Properties()
+                .size(32)
+                .color(WHITE)
+                .changeArgument(()->new String[]{new StringBuilder().append(rule.memory_w).toString(),
+                        new StringBuilder().append(rule.memory_h).toString()})
+
+        );
+        Animation.create(g).draw(new String[]{"false"}, "session.desc.show.opponent", x, y + 30, new Animation.Properties()
+                .size(32)
+                .color(WHITE)
+                .setWidth(w - 2)
+                .changeArgument(()-> new String[]{new StringBuilder().append(rule.isShowingOpponentMemory).toString()})
+        );
+        Animation.create(g).draw(new String[]{"false"}, "session.desc.give.firstpass", x, y + 40, new Animation.Properties()
+                .size(32)
+                .color(WHITE)
+                .setWidth(w - 2)
+                .changeArgument(()-> new String[]{new StringBuilder().append(rule.isSettingMemoryPassword).toString()})
+        );
+        /*
+        Animation.create(g).draw(new String[]{""}, "session.desc.map", x , y + 50, new Animation.Properties()
+                        .size(22)
+                        .color(WHITE)
+                        .setWidth(w - 2)
+                .changeArgument(()->new String[]{LangLoader.getInstance().get(null, "session.map." + getDif())})
+        );
+
+         */
+    }
+    private String getDif(){
+        return switch (rule.dif){
+
+            case EASY -> "easy";
+            case NORMAL -> "normal";
+            case HIGH -> "high";
+            case VERY_HIGH -> "very.high";
+        };
     }
     private void matching(Graphics g, int x, int y, int w, int h){
         Animation.create(g).draw("session.matching.title", x, y, new Animation.Properties()

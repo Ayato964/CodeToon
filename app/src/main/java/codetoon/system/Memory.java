@@ -8,6 +8,7 @@ import codetoon.util.Indentification;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import codetoon.server.Server;
+import codetoon.util.animation.Animation;
 import codetoon.util.converter.ConvertSource;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +21,7 @@ import java.util.Random;
 public class Memory extends AbstractLockerPlayer implements Serializable{
    // public int serialID;
     private StringBuilder source = null;
+    boolean isFirst;
     EnumMemoryStates states;
     private final int memorySirialID;
     int x, y, w, h, idI, idC;
@@ -32,12 +34,34 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         memorySirialID = new Random().nextInt(0, 100000000);
         isHostMemory = Server.isHost;
         states = EnumMemoryStates.NONE;
+        isFirst = true;
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
         this.idI = idI;
         this.idC = idC;
+
+    }
+    public void setup(Graphics g){
+        if(isFirst) {
+            Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
+                    new Animation.Properties()
+                                     .drawIf(()->pass != 0)
+            );
+            Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new Animation.Properties()
+                    .drawIf(() ->{
+                        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+                        Console c = p.getConsole();
+                        if(c.getHost() instanceof  Memory){
+                            if(((Memory)c.getHost()).memorySirialID == memorySirialID)
+                                return true;
+                        }
+                        return false;
+                    })
+            );
+            isFirst = false;
+        }
     }
 
     public StringBuilder getSource() {
@@ -89,6 +113,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
 
     public void display(@NotNull Graphics g){
+        setup(g);
         g.setColor(states.getColor());
         g.fillRect(x, y, w, h);
         g.setColor(Color.BLACK);

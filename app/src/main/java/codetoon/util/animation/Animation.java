@@ -67,6 +67,7 @@ public abstract class Animation {
         private int count = 0;
         private boolean isEnd = false;
         private boolean isStart = true;
+        private BooleanSupplier bool;
         public Properties(){
             this(true);
         }
@@ -101,6 +102,11 @@ public abstract class Animation {
 
         public static <T extends IsTick> void tick(T t){
             Properties p = (Properties) t;
+            if(p.bool != null)
+                if(p.bool.getAsBoolean())
+                    p.start();
+                else
+                    p.stop();
             if(p.isStart) {
                 Animation a = p == null ? null : p.percent;
                 p.count++;
@@ -110,6 +116,15 @@ public abstract class Animation {
                 }
             }
 
+        }
+        public void removeChild(){
+            if(child != null)
+                child.removeAll();
+        }
+        public void removeAll(){
+            animationTickRegistory.remove();
+            if(child != null)
+                child.removeAll();
         }
         public int setAllPosition(int x, int y){
             percent.x = x;
@@ -142,6 +157,10 @@ public abstract class Animation {
 
         public Properties displayTime(int time){
             prop.add(new DisplayTime(time));
+            return this;
+        }
+        public Properties drawIf(BooleanSupplier b){
+            bool = b;
             return this;
         }
         public Properties textArea(int w, int h, Color frameColor, ActionString complete){
@@ -196,9 +215,16 @@ public abstract class Animation {
             return this;
         }
         public Properties setWidth(int w){
-            prop.add(new Width(this, w));
+            prop.add(new Width(Width.UPPER, w));
             return this;
         }
+        /*
+        public Properties setWidth(int layout, int w){
+            prop.add(new Width(layout, w));
+            return  this;
+        }
+
+         */
         public Properties setChangeText(String text, BooleanSupplier sup){
             prop.add(new ChangeText(text, sup));
             return this;

@@ -9,14 +9,27 @@ session.difficulty.easy = "初級",
 session.difficulty.normal = "中級",
 session.difficulty.high = "上級",
 session.difficulty.very.high = "超上級",
+
 session.custom.title = "カスタム設定",
+
 session.matching.title = "マッチング設定",
 session.matching.host = "このPCをホストとして設定する。",
 session.matching.host.mes1 = "IPアドレス: ",
 session.matching.host.mes2 = "このアドレスを相手に教えてください。",
 session.matching.client.mes1 = "IPアドレスを入力してください。 ",
 session.matching.client.mes2 = "＊このアドレスは対戦相手のものです！！",
+
 session.desc.title = "マップ内容",
+session.desc.difficulty ="難易度:$",
+session.desc.memory.size = "メモリーのサイズ: $ X $",
+session.desc.show.opponent = "相手のメモリーの閲覧許可:$",
+session.desc.give.firstpass = "初期パスワードの発行許可:$",
+session.desc.map = "マップ詳細:$",
+
+session.map.easy = "このマップは、初心者もしくはCODETOONのルールを把握してもらうための、チュートリアルな難易度である。",
+session.map.normal = "このマップは、ある程度ルールとプログラム言語を理解した人向けの難易度である。メモリーの数が拡張され、相手のメモリーが見えなくなるので注意。",
+session.map.high = "このマップは、ルールを理解し、メモリーの使用を理解した人向けの難易度である。中級に加えて、メモリーに初期パスワードが発行されているので注意。",
+session.map.very.high = "このマップは、最大難易度である。アルゴリズムに理解を持ち、タイピングが早い人向け。メモリーがさらに拡張されている。",
 
 session.create = "マッチメイキングを開始",
 session.loading = "対戦相手を見つけています...",

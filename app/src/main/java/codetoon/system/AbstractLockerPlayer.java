@@ -11,7 +11,6 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
         if(Admin.getInstance().getSerialID() == serialID) {
             if (this.pass == old_pass) {
                 this.pass = pass;
-
                 Message.addMessage(new String[]{getName(), "" +pass},"memory.pass.mes1", Color.RED);
             } else {
                 Message.addMessage(new String[]{getName()},"memory.pass.mes2", Color.RED);
