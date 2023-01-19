@@ -145,15 +145,15 @@ public class CreateSection extends Map{
 
         );
         Animation.create(g).draw(new String[]{"false"}, "session.desc.show.opponent", x, y + 30, new Animation.Properties()
-                .size(32)
+                .size(30)
                 .color(WHITE)
-                .setWidth(w - 2)
+             //   .setWidth(w - 2)
                 .changeArgument(()-> new String[]{new StringBuilder().append(rule.isShowingOpponentMemory).toString()})
         );
         Animation.create(g).draw(new String[]{"false"}, "session.desc.give.firstpass", x, y + 40, new Animation.Properties()
-                .size(32)
+                .size(30)
                 .color(WHITE)
-                .setWidth(w - 2)
+               // .setWidth(w - 2)
                 .changeArgument(()-> new String[]{new StringBuilder().append(rule.isSettingMemoryPassword).toString()})
         );
         /*
