@@ -53,13 +53,15 @@ public class PazzleStage extends Map{
 
     @Override
     public void setup(Graphics h) {
-        if(rule.dif != Difficulty.EASY) {
-            Animation.create(h).draw("stage.memory.list", 10, 10,
-                    new Animation.Properties()
-                            .size(40));
-        }else{
-            Animation.create(h).draw("stage.enemy.memory.list", 10, 10, new Animation.Properties().size(40));
-            Animation.create(h).draw("stage.memory.list", 10, 65, new Animation.Properties().size(40));
+        if(!CodeToon.DEBUG) {
+            if (rule.dif != Difficulty.EASY) {
+                Animation.create(h).draw("stage.memory.list", 10, 10,
+                        new Animation.Properties()
+                                .size(40));
+            } else {
+                Animation.create(h).draw("stage.enemy.memory.list", 10, 10, new Animation.Properties().size(40));
+                Animation.create(h).draw("stage.memory.list", 10, 65, new Animation.Properties().size(40));
+            }
         }
         if(CodeToon.DEBUG){
             Animation.create(h).draw("stage.memory.debug.end", 0, 10, new Animation.Properties().size(40).center().frame(Color.WHITE).button(i ->{
@@ -75,8 +77,9 @@ public class PazzleStage extends Map{
     public void display(Graphics g){
       //background(#505050);
       field.display(g);
-      if(rule.dif == Difficulty.EASY)
-          enemyField.display(g);
+      if(rule != null)
+         if(rule.dif == Difficulty.EASY)
+              enemyField.display(g);
       messageBox.draw();
       observer.draw(g);
       PopUpWindow.popUpWindow.drawPopUpWindow();

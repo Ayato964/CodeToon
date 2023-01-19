@@ -12,8 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+@Deprecated(since = "Ver.1.3.13")
 public class Loop extends MyMethod{
+
     String methods;
     StringBuilder program = new StringBuilder();
     String count;

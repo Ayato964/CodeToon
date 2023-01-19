@@ -2,24 +2,21 @@ package codetoon.method;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
-import codetoon.server.Server;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.CodeToon;
-import codetoon.system.Message;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.HashMap;
 
-public class Lock extends MyMethod{
+public class SetPass extends MyMethod{
     private AbstractLockerPlayer parcent = null;
     private String percentString;
     private String new_pass = "0";
     private String old_pass = "0";
     @Override
     public Object newInstance() {
-        return new Lock();
+        return new SetPass();
     }
 
     @Override

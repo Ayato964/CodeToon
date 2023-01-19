@@ -1,6 +1,6 @@
 title.title = CODETOON,
-title.chooser1 = "Create new Session",
-title.chooser2 = "Join session",
+title.chooser1 = "Multi Play",
+title.chooser2 = "Single Play",
 title.chooser3 = "Back to the Desktop",
 title.chooser4 = "Debug",
 

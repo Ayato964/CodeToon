@@ -13,7 +13,7 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
     public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
-    public static final RegistoryObject<MyMethod<?>> Lock = METHODS.createRegistory("method_lock", Lock::new);
+    public static final RegistoryObject<MyMethod<?>> SETPASS = METHODS.createRegistory("method_setPass", SetPass::new);
     public static final RegistoryObject<MyMethod<?>> PRINT = METHODS.createRegistory("method_print", Print::new);
     public static final RegistoryObject<MyMethod<?>> RANDOM = METHODS.createRegistory("method_random", Random::new);
     public static final RegistoryObject<MyMethod<?>> REMOVE = METHODS.createRegistory("method_remove", Remove::new);

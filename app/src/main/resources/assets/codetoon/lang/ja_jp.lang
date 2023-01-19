@@ -1,6 +1,6 @@
 title.title = CODETOON,
-title.chooser1 = "新規でセッションを作成する",
-title.chooser2 = "セッションに参加する",
+title.chooser1 = "2人で遊ぶ",
+title.chooser2 = "1人で遊ぶ",
 title.chooser3 = "ゲームを終了する",
 title.chooser4 = "デバッグする",
 

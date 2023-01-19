@@ -1,6 +1,6 @@
 title.title = CODETOON,
-title.chooser1 = "新的游戏",
-title.chooser2 = "参加游戏",
+title.chooser1 = "１人で遊ぶ",
+title.chooser2 = "２人で遊ぶ",
 title.chooser3 = "结束游戏",
 title.chooser4 = "修改程序",
 

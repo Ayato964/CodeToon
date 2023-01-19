@@ -27,7 +27,7 @@ public class Message {
     private ArrayList<MyMethod> getBlackList() {
         ArrayList<MyMethod> black = new ArrayList<>();
         black.add(Methods.Attack.get());
-        black.add(Methods.Lock.get());
+        black.add(Methods.SETPASS.get());
         black.add(Methods.RECOVERY.get());
         return black;
     }
