@@ -91,9 +91,15 @@ public class ConvertSource {
     public static boolean OnRemoveMethod(String s){
         return s.indexOf("remove();") != -1;
     }
+    public static boolean OnCallMethod(String s){
+        return s.indexOf("call(") != -1;
+    }
 
     public static int getMethodCount(ArrayList<MyMethod> methods, Player host) {
         int have = isHave(Methods.FOR.get(), methods);
+        int run = isHave(Methods.CALL.get(), methods);
+        if(run != -1)
+            return 3;
         if( have != -1)
             return methods.size() + getMethodCount(convert(((For) methods.get(have)).inside, host), host);
 

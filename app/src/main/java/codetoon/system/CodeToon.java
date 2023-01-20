@@ -13,7 +13,6 @@ public class CodeToon{
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
-    public static int MEMORY_SIZE = 5;
     public static final int INSIDE_METHODS = 192010;
     public static final  int METHOD_MAX_COUNT = 4;
 
@@ -23,7 +22,6 @@ public class CodeToon{
     public static final int PARCENT_ARGUMENT = 1098;
     public static final int INFINITY = -100000;
     private CodeToon(ArrayList<Memory> m){
-        boolean b = m == null;
     }
 
     public static void gameStart(){
@@ -63,8 +61,8 @@ public class CodeToon{
     private static boolean isAllHacked(ArrayList<Memory> m){
         if(m.isEmpty() || m == null)
             return false;
-        for(int i = 0; i < m.size(); i ++){
-            if(m.get(i).getStates() != EnumMemoryStates.HACKED){
+        for (Memory memory : m) {
+            if (memory.getStates() != EnumMemoryStates.HACKED) {
                 return false;
             }
         }

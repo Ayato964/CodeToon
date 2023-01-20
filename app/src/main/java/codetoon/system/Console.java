@@ -75,8 +75,10 @@ public class Console extends JFrame implements KeyListener{
       drawString(program.isEmpty() ? "" : program.toString(), 20, 30);
     }
 
-    public void setProgram(StringBuilder program) {
+    public void setProgram(StringBuilder program, int c)
+    {
       this.program = program;
+      program_count = c;
     }
 
     /** テキストエディタ作成 **/
@@ -224,7 +226,7 @@ public class Console extends JFrame implements KeyListener{
    // System.out.println(e.getKeyCode());
         panel.drawInputKey(e);
        // methods = Indentification.indentification(panel.program.toString(), host);
-        if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString())) {
+        if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString()) || ConvertSource.OnCallMethod(panel.program.toString())) {
           methods = ConvertSource.convert(panel.program.toString(), host);
           if(isHave(Methods.END))
             if(ConvertSource.getMethodCount(methods, host) <= 4) {
@@ -237,6 +239,8 @@ public class Console extends JFrame implements KeyListener{
           if(isHave(Methods.REMOVE)){
             Methods.REMOVE.get().action(host);
           }
+          if(isHave(Methods.CALL))
+            methods.get(0).action(host);
         }
 
         //System.out.println(methods == null);

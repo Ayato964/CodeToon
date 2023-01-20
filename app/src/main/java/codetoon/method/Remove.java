@@ -21,7 +21,7 @@ public class Remove extends MyMethod{
     @Override
     public void action(Player host) {
         Console console =((PazzleStage) Main.getInstance().getMap()).getConsole();
-        console.panel.setProgram(new StringBuilder());
+        console.panel.setProgram(new StringBuilder(), 0);
         console.panel.resetAll();
     }
 }

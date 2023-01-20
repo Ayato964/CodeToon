@@ -1,11 +1,7 @@
 package codetoon.system;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.io.Serializable;
-
 import codetoon.method.*;
-import codetoon.server.Server;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import org.jetbrains.annotations.NotNull;

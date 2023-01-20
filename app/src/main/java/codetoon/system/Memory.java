@@ -70,8 +70,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
                         Console c = p.getConsole();
                         if(c.getHost() instanceof  Memory){
-                            if(((Memory)c.getHost()).memorySirialID == memorySirialID)
-                                return true;
+                            return ((Memory) c.getHost()).memorySirialID == memorySirialID;
                         }
                         return false;
                     })
@@ -89,15 +88,13 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             Memory memory = (Memory)t;
             if(memory.source != null) {
                 //ArrayList<MyMethod> methods = Indentification.indentification(memory.source.toString(), memory);
-                if(memory.source != null) {
-                    if(!memory.source.isEmpty()) {
-                        ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
-                        memory.setRunMethod(methods);
-                        memory.runMethod();
-                        Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
-                        Server.server.sendOpponentCopy();
-                        Server.server.sendMyCopy();
-                    }
+                if(!memory.source.isEmpty()) {
+                    ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
+                    memory.setRunMethod(methods);
+                    memory.runMethod();
+                    Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
+                    Server.server.sendOpponentCopy();
+                    Server.server.sendMyCopy();
                 }
             }
         }
@@ -170,9 +167,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         Server.server.sendOpponentCopy();
         Server.server.sendMyCopy();
     }
-    public int showPass(){
-        return pass;
-    }
+
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
         m.add(Methods.CONNECT.get());
@@ -204,9 +199,9 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if (pass == 0 || pass == password) {
             Message.addMessage(new String[]{p.getConsole().getHost().getName()},"memory.connection.mes5", Color.BLACK);
             p.getConsole().setHost(this);
-            p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder());
+            p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder(), 0);
         } else {
-            p.getConsole().panel.setProgram(new StringBuilder());
+            p.getConsole().panel.setProgram(new StringBuilder(), 0);
             Message.addMessage("memory.connection.mes4", Color.BLACK);
 
         }
@@ -215,11 +210,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     @Override
     public boolean isClient() {
-        if(isHostMemory == Server.isHost){
-            return true;
-        }else{
-            return false;
-        }
+        return isHostMemory == Server.isHost;
     }
 
 
@@ -239,24 +230,17 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         }
     }
     public boolean equals(Memory obj) {
-        Memory m =  obj;
-        return  this.eqSource(m)&&
-                this.states == m.states &&
-                this.getID().equals(m.getID()) &&
-                this.pass == m.pass;
+        return  this.eqSource(obj)&&
+                this.states == obj.states &&
+                this.getID().equals(obj.getID()) &&
+                this.pass == obj.pass;
     }
 
     private boolean eqSource(Memory m) {
         if(m.source == null || source == null){
             if(m.source == null && source != null){
                 return false;
-            }else if(m.source != null && source == null){
-                return false;
-            } else if(m.source == null && source == null){
-                return true;
-            }else {
-                return false;
-            }
+            }else return m.source == null;
         }else{
             return this.source.toString().equals(m.source.toString());
         }

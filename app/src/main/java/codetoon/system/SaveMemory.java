@@ -40,7 +40,6 @@ public class SaveMemory extends Memory{
         if(source != null) {
             if(!source.isEmpty()) {
                 ArrayList<MyMethod> methods = ConvertSource.convert(source.toString(), this);
-                System.out.println(methods.size() + "<-MemorySize");
                 setRunMethod(methods);
                 runMethod();
                 Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
