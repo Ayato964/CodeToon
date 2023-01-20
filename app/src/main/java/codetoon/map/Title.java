@@ -40,10 +40,13 @@ public class Title extends Map{
                 }));
         Animation.create(h).draw("title.chooser3", 75, 86, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true).button(i->System.exit(-1)));
+
         Animation.create(h).draw("title.chooser4", 75, 94, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true).button(i->{
                     CodeToon.DEBUG = true;Main.getInstance().run(new PazzleStage(5));
     }));
+
+
     }
     public void display(Graphics g){
  //       box.draw();
