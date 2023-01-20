@@ -1,5 +1,6 @@
 package codetoon.method;
 
+import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 
 public class Call extends MyMethod<Object>{
     String percent;
+    String pass = "0";
     @Override
     public Object newInstance() {
         return new Call();
@@ -18,6 +20,8 @@ public class Call extends MyMethod<Object>{
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         percent = map.get(CodeToon.PARCENT_ARGUMENT);
+        if(map.get(0) != null)
+          pass = map.get(0);
         return null;
     }
 
@@ -25,7 +29,7 @@ public class Call extends MyMethod<Object>{
     public void action(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(percent, host);
         if(m instanceof SaveMemory){
-            if(m.getSource() != null) {
+            if(m.getSource() != null && m.pass == IntegerArgument.getInstance().indentification(pass, host)) {
                 StringBuilder s = m.getSource();
                 PazzleStage p = (PazzleStage) Main.getInstance().getMap();
                 Console c = p.getConsole();

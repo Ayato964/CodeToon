@@ -28,6 +28,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     public  Color color = Color.WHITE;
     private final String name = "Memory";
     private final boolean isHostMemory;
+    private Animation lock;
+    private Animation connect;
 
     public Memory(int x, int y, int w, int h, int idC, int idI){
         serialID = Admin.getInstance().getSerialID();
@@ -46,8 +48,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     public Memory(Information m){
         this(m.x, m.y, m.w, m.h, m.idC, m.idI);
         memorySirialID = m.memorySerial;
-        isFirst = false;
         serialID = m.serial;
+        pass = m.pass;
 
     }
 
@@ -61,11 +63,11 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     public void setup(Graphics g){
         if(isFirst) {
-            Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
+            lock = Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
                     new Animation.Properties()
                                      .drawIf(()->pass != 0)
             );
-            Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new Animation.Properties()
+            connect = Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new Animation.Properties()
                     .drawIf(() ->{
                         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
                         Console c = p.getConsole();
@@ -77,6 +79,10 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             );
             isFirst = false;
         }
+    }
+    public void removeAnimation(){
+        lock.myProp.removeAll();
+        connect.myProp.removeAll();
     }
 
     public StringBuilder getSource() {
@@ -253,6 +259,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     protected class Information{
         int x, y, w, h, idI, idC;
         int memorySerial, serial;
+        int pass;
         public Information(){
             this.x = Memory.this.x;
             this.y = Memory.this.y;
@@ -262,6 +269,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             this.idC = Memory.this.idC;
             this.memorySerial = Memory.this.memorySirialID;
             serial = Memory.this.serialID;
+            pass = Memory.this.pass;
         }
     }
 }
