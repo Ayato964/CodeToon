@@ -58,7 +58,7 @@ public class Memories {
         opponentMemory.add(i, m);
         updateConsoleHost(opponentMemory.get(i));
     }
-    private static void runThread(Memory m){
+   public static void runThread(Memory m){
             m.running = true;
             Thread t = new Thread(m);
             t.start();

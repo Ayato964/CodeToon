@@ -5,6 +5,7 @@ import java.awt.*;
 public enum EnumMemoryStates {
     NONE(Color.WHITE),
     HACKED(Color.RED),
+    SAVEMODE(Color.YELLOW),
     USED(Color.GREEN);
     private Color c;
 

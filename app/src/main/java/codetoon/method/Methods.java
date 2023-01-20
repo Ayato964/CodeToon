@@ -12,12 +12,16 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> GET_W = METHODS.createRegistory("method_getW", GetW::new);
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
-    public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
+    //public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
+
+    public static final RegistoryObject<MyMethod<?>> MODE = METHODS.createRegistory("method_mode", Mode::new);
     public static final RegistoryObject<MyMethod<?>> SETPASS = METHODS.createRegistory("method_setPass", SetPass::new);
     public static final RegistoryObject<MyMethod<?>> PRINT = METHODS.createRegistory("method_print", Print::new);
     public static final RegistoryObject<MyMethod<?>> RANDOM = METHODS.createRegistory("method_random", Random::new);
     public static final RegistoryObject<MyMethod<?>> REMOVE = METHODS.createRegistory("method_remove", Remove::new);
     public static final RegistoryObject<MyMethod<?>> RECOVERY = METHODS.createRegistory("method_recovery", Recovery::new);
+    public static final RegistoryObject<MyMethod<?>> RUN = METHODS.createRegistory("method_run", Run::new);
+
     public static final RegistoryObject<MyMethod<?>> STATES = METHODS.createRegistory("method_states", States::new);
 }
 

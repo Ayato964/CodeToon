@@ -20,10 +20,10 @@ import java.util.Random;
 
 public class Memory extends AbstractLockerPlayer implements Serializable{
    // public int serialID;
-    private StringBuilder source = null;
+    protected StringBuilder source = null;
     boolean isFirst;
     EnumMemoryStates states;
-    private final int memorySirialID;
+    protected int memorySirialID;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
     private final String name = "Memory";
@@ -43,6 +43,22 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         this.idC = idC;
 
     }
+    public Memory(Information m){
+        this(m.x, m.y, m.w, m.h, m.idC, m.idI);
+        memorySirialID = m.memorySerial;
+        isFirst = false;
+        serialID = m.serial;
+
+    }
+
+    public int getIdC() {
+        return idC;
+    }
+
+    public int getIdI() {
+        return idI;
+    }
+
     public void setup(Graphics g){
         if(isFirst) {
             Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
@@ -243,6 +259,25 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             }
         }else{
             return this.source.toString().equals(m.source.toString());
+        }
+    }
+
+    public Information getInfo() {
+        return new Information();
+    }
+
+    protected class Information{
+        int x, y, w, h, idI, idC;
+        int memorySerial, serial;
+        public Information(){
+            this.x = Memory.this.x;
+            this.y = Memory.this.y;
+            this.w = Memory.this.w;
+            this.h = Memory.this.h;
+            this.idI = Memory.this.idI;
+            this.idC = Memory.this.idC;
+            this.memorySerial = Memory.this.memorySirialID;
+            serial = Memory.this.serialID;
         }
     }
 }
