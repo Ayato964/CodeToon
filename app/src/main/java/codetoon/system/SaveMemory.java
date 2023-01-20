@@ -16,7 +16,7 @@ public class SaveMemory extends Memory{
         memorySirialID = info.memorySerial;
         states = EnumMemoryStates.SAVEMODE;
         serialID = info.serial;
-        isFirst = false;
+        pass = info.pass;
     }
 
     @Override
