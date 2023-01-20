@@ -25,12 +25,12 @@ public class Mode extends MyMethod<Object>{
     @Override
     public void action(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(memoryStr, host);
-        if(enumStr.equals("Save")){
+        if(enumStr.equals("SAVE")){
             memory.running = false;
             Memories.memory.remove(memory.getIdC() * memory.getIdI());
             Memories.memory.add(memory.getIdC() * memory.getIdI(), new SaveMemory(memory.getInfo()));
         }
-        if(enumStr.equals("Normal")){
+        if(enumStr.equals("NORMAL")){
             memory.running = true;
             Memories.memory.remove(memory.getIdC() * memory.getIdI());
             Memories.memory.add(memory.getIdC() * memory.getIdI(), new Memory(memory.getInfo()));
