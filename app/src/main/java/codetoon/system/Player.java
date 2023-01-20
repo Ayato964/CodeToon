@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import codetoon.method.*;
 import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
+import codetoon.util.animation.Animation;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -13,6 +14,8 @@ public abstract class Player implements IsTick, Runnable{
     ArrayList<MyMethod> blackList = new ArrayList<>();
     protected TickRegistory<Player> ticker;
 
+    protected Animation lock;
+    protected Animation connect;
 
     public Player(){
         blackList(blackList);

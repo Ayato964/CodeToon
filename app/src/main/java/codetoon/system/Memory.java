@@ -14,6 +14,7 @@ import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Random;
@@ -28,8 +29,6 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     public  Color color = Color.WHITE;
     private final String name = "Memory";
     private final boolean isHostMemory;
-    private Animation lock;
-    private Animation connect;
 
     public Memory(int x, int y, int w, int h, int idC, int idI){
         serialID = Admin.getInstance().getSerialID();
