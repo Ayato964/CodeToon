@@ -8,6 +8,7 @@ import codetoon.util.converter.ConvertSource;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class SaveMemory extends Memory{
@@ -46,6 +47,26 @@ public class SaveMemory extends Memory{
                 Server.server.sendOpponentCopy();
                 Server.server.sendMyCopy();
             }
+        }
+    }
+
+    @Override
+    public void hacking(int pass, int hostSerialID) {
+        System.out.println(serialID +"   " + hostSerialID);
+        if(serialID != hostSerialID && states != EnumMemoryStates.HACKED) {
+            if (pass == this.pass) {
+                states = EnumMemoryStates.HACKED;
+                this.pass = 0;
+                serialID = hostSerialID;
+                removeAnimation();
+                Memories.memory.remove(getIdC() * getIdI());
+                Memories.memory.add(getIdC() * getIdI(), new Memory(getInfo()));
+                Memories.runThread(Memories.memory.get(getIdC() * getIdI()));
+            } else {
+                Message.addMessage("memory.attack.mes1", Color.BLACK);
+            }
+        }else{
+            Message.addMessage("memory.attack.mes2");
         }
     }
 }
