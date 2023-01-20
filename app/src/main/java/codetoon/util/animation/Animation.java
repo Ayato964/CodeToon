@@ -2,6 +2,7 @@ package codetoon.util.animation;
 
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.function.BooleanSupplier;
@@ -15,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 //import javax.swing.plaf.ColorUIResource;
 
-public abstract class Animation {
+public abstract class Animation implements Serializable {
     private int x, y;
     public Properties myProp;
     protected Graphics g;
