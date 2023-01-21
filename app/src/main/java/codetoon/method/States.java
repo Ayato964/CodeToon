@@ -16,7 +16,7 @@ public class States extends MyMethod{
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
-        percent = map.get(0);
+        percent = map.get(CodeToon.PARCENT_ARGUMENT);
         return null;
     }
 
