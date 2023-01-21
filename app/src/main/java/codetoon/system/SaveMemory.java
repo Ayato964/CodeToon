@@ -1,5 +1,7 @@
 package codetoon.system;
 
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.method.MyMethod;
 import codetoon.server.Server;
 import codetoon.util.Indentification;
@@ -59,9 +61,11 @@ public class SaveMemory extends Memory{
                 this.pass = 0;
                 serialID = hostSerialID;
                 removeAnimation();
-                Memories.memory.remove(getIdC() * getIdI());
-                Memories.memory.add(getIdC() * getIdI(), new Memory(getInfo()));
-                Memories.runThread(Memories.memory.get(getIdC() * getIdI()));
+
+                PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+                Memories.memory.remove(p.MEMORY_W * getIdI() + getIdC());
+                Memories.memory.add(p.MEMORY_W * getIdI() + getIdC(), new Memory(getInfo()));
+                Memories.runThread(Memories.memory.get(p.MEMORY_W * getIdI() + getIdC()));
             } else {
                 Message.addMessage("memory.attack.mes1", Color.BLACK);
             }

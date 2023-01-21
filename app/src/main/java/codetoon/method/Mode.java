@@ -2,6 +2,8 @@ package codetoon.method;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.main.Main;
+import codetoon.map.PazzleStage;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,20 +32,21 @@ public class Mode extends MyMethod<Object>{
     @Override
     public void action(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(memoryStr, host);
+        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
         if(memory.pass == IntegerArgument.getInstance().indentification(pass, host))
         {
             if (enumStr.equals("SAVE")) {
                 memory.running = false;
                 memory.removeAnimation();
-                Memories.memory.remove(memory.getIdC() * memory.getIdI());
-                Memories.memory.add(memory.getIdC() * memory.getIdI(), new SaveMemory(memory.getInfo()));
+                Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
+                Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new SaveMemory(memory.getInfo()));
             }
             if (enumStr.equals("NORMAL")) {
                 memory.running = true;
                 memory.removeAnimation();
-                Memories.memory.remove(memory.getIdC() * memory.getIdI());
-                Memories.memory.add(memory.getIdC() * memory.getIdI(), new Memory(memory.getInfo()));
-                Memories.runThread(Memories.memory.get(memory.getIdC() * memory.getIdI()));
+                Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
+                Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new Memory(memory.getInfo()));
+                Memories.runThread(Memories.memory.get(p.MEMORY_W * memory.getIdI() + memory.getIdC()));
             }
         }else{
             Message.addMessage(new String[]{memory.getName()}, "memory.pass.mes2");
