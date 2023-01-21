@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class SaveMemory extends Memory{
     public SaveMemory(Information info) {
-        super(info.x, info.y, info.w, info.h, info.idI, info.idC);
+        super(info.x, info.y, info.w, info.h, info.idC, info.idI);
         memorySirialID = info.memorySerial;
         states = EnumMemoryStates.SAVEMODE;
         serialID = info.serial;
