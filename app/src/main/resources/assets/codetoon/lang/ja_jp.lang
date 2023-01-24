@@ -59,6 +59,8 @@ memory.pass.mes1 = "$に$のパスワードを設定しました。",
 memory.pass.mes2 = "$のパスワードが違います。",
 memory.pass.mes3 = "$が所有しているメモリーではないため、パスワードを変更できません。",
 
+mode.change.error.opponent = "相手のメモリーのモードは変更できません。"
+
 observer.category.game = "ゲーム",
 observer.life = "相手が保有しているメモリーの数:$",
 observer.remaining = "相手の残りのメモリー数:$",

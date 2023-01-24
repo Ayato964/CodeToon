@@ -60,6 +60,9 @@ memory.pass.mes1 = "Successful set password for $ !! Password is $",
 memory.pass.mes2 = "Different password for $",
 memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
 
+
+mode.change.error.opponent = "相手のメモリーのモードは変更できません。"
+
 observer.category.game = "Game",
 observer.life = "Number of Memories held by Enemy:$",
 observer.remaining = "Number of Memories remaining for Enemy:$",

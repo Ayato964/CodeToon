@@ -1,10 +1,7 @@
 package codetoon.method;
 
 import codetoon.argument.ObjectArgument;
-import codetoon.system.CodeToon;
-import codetoon.system.Memory;
-import codetoon.system.Player;
-import codetoon.system.SaveMemory;
+import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -26,7 +23,8 @@ public class Run extends MyMethod<Object>{
     public void action(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(memory, host);
         if(m instanceof SaveMemory){
-            System.out.println("SSSSSSSSS");
+            SaveMemory mm = (SaveMemory) m;
+            mm.isClickedRun = true;
             m.run();
         }
     }

@@ -11,9 +11,11 @@ import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SaveMemory extends Memory{
+public class SaveMemory extends Memory implements Serializable {
+    public boolean isClickedRun = false;
     public SaveMemory(Information info) {
         super(info.x, info.y, info.w, info.h, info.idC, info.idI);
         memorySirialID = info.memorySerial;
@@ -41,11 +43,12 @@ public class SaveMemory extends Memory{
     @Override
     public void run() {
         if(source != null) {
-            if(!source.isEmpty()) {
+            if(!source.isEmpty() && isClickedRun) {
                 ArrayList<MyMethod> methods = ConvertSource.convert(source.toString(), this);
                 setRunMethod(methods);
                 runMethod();
                 Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
+                isClickedRun = false;
                 Server.server.sendOpponentCopy();
                 Server.server.sendMyCopy();
             }

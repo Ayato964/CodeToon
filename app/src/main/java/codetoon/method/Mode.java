@@ -36,10 +36,14 @@ public class Mode extends MyMethod<Object>{
         if(memory.pass == IntegerArgument.getInstance().indentification(pass, host))
         {
             if (enumStr.equals("SAVE")) {
-                memory.running = false;
-                memory.removeAnimation();
-                Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
-                Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new SaveMemory(memory.getInfo()));
+                if(memory.getStates() != EnumMemoryStates.HACKED) {
+                    memory.running = false;
+                    memory.removeAnimation();
+                    Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
+                    Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new SaveMemory(memory.getInfo()));
+                }else{
+                    Message.addMessage("mode.change.error.opponent");
+                }
             }
             if (enumStr.equals("NORMAL")) {
                 memory.running = true;
