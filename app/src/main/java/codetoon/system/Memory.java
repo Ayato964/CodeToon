@@ -20,8 +20,6 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class Memory extends AbstractLockerPlayer implements Serializable{
-    protected Animation lock;
-    protected Animation connect;
    // public int serialID;
     protected StringBuilder source = null;
     boolean isFirst;
