@@ -29,6 +29,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     protected int memorySirialID;
     int x, y, w, h, idI, idC;
     public  Color color = Color.WHITE;
+    boolean isRemoveAnimation = false;
     private final String name = "Memory";
     private final boolean isHostMemory;
 
@@ -67,6 +68,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             lock = Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
                     new Animation.Properties()
                                      .drawIf(()->pass != 0)
+                            .remove(()->isRemoveAnimation)
             );
             connect = Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new Animation.Properties()
                     .drawIf(() ->{
@@ -77,13 +79,13 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                         }
                         return false;
                     })
+                    .remove(()->isRemoveAnimation)
             );
             isFirst = false;
         }
     }
     public void removeAnimation(){
-        lock.myProp.removeAll();
-        connect.myProp.removeAll();
+        isRemoveAnimation = true;
     }
 
     public StringBuilder getSource() {

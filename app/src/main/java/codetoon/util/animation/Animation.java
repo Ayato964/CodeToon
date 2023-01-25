@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 
 import codetoon.main.*;
 import codetoon.util.*;
@@ -260,6 +261,10 @@ public abstract class Animation implements Serializable {
             return true;
         }
 
+        public Properties remove(BooleanSupplier sup) {
+            prop.add(new Remove(sup));
+            return this;
+        }
     }
 
 }
