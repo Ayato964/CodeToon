@@ -10,13 +10,16 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 }
-
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
+    implementation 'org.python:jython-slim:2.7.3'
     implementation 'org.jetbrains:annotations:20.1.0'
 
     // Use JUnit Jupiter for testing.
@@ -30,15 +33,6 @@ application {
     // Define the main class for the application.
     mainClass = 'codetoon.main.Main'
 }
-/*
-sourceSets {
-    main{
-        resources {
-            srcDir "src/main/"
-        }
-    }
-}
-*/
 jar{
     manifest {
         attributes 'Main-Class': 'codetoon.main.Main'

@@ -34,9 +34,8 @@ public class Title extends Map{
         Animation.create(h).draw("title.chooser2", 75, 78, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true)
                 .button(i-> {
-                //    Server.isHost = false;
-                //    Main.getInstance().run(new JoinServer());
-
+                    CodeToon.DEBUG = true;
+                    Main.getInstance().run(new PythonSetup(5));
                 }));
         Animation.create(h).draw("title.chooser3", 75, 86, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true).button(i->System.exit(-1)));
@@ -48,6 +47,8 @@ public class Title extends Map{
 
 
     }
+
+
     public void display(Graphics g){
  //       box.draw();
   }
