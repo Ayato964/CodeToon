@@ -29,7 +29,7 @@ public class Call extends MyMethod<Object>{
     public void action(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(percent, host);
         if(m.getSerialID() != Admin.getInstance().getSerialID()){
-            Message.addMessage("");
+            Message.addMessage("savememory.call.error");
         }else if(m instanceof SaveMemory){
             if(m.getSource() != null && m.pass == IntegerArgument.getInstance().indentification(pass, host)) {
                 StringBuilder s = m.getSource();
