@@ -60,6 +60,7 @@ memory.pass.mes1 = "Successful set password for $ !! Password is $",
 memory.pass.mes2 = "Different password for $",
 memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
 savememory.run.error = "相手のMemoryを実行できません。",
+savememory.run.error = "相手のMemoryのソースを呼び出せません。",
 
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
 

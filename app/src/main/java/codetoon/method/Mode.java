@@ -53,7 +53,7 @@ public class Mode extends MyMethod<Object>{
                 Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
             }
         }else{
-            Message.addMessage(new String[]{memory.getName()}, "memory.pass.mes2");
+            Message.addMessage(new String[]{memory.getName()}, "memory.connection.mes4");
         }
     }
 }
