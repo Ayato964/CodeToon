@@ -58,7 +58,7 @@ memory.recovery.mes3 = "リカバリーに成功しました！！",
 memory.pass.mes1 = "$に$のパスワードを設定しました。",
 memory.pass.mes2 = "$のパスワードが違います。",
 memory.pass.mes3 = "$が所有しているメモリーではないため、パスワードを変更できません。",
-
+savememory.run.error = "相手のMemoryを実行できません。",
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
 
 observer.category.game = "ゲーム",

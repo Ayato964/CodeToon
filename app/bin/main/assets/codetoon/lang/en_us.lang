@@ -1,18 +1,50 @@
 title.title = CODETOON,
-title.chooser1 = "Create new Session",
-title.chooser2 = "Join session",
+title.chooser1 = "Multi Play",
+title.chooser2 = "Single Play",
 title.chooser3 = "Back to the Desktop",
 title.chooser4 = "Debug",
 
-session.mes1 = "Match making...",
-session.mes2 = "your IP is this",
-session.mes3 = "Please tell opponent to input this IP",
+
+session.difficulty.title = "Difficulty",
+session.difficulty.easy = "Easy",
+session.difficulty.normal = "Normal",
+session.difficulty.high = "High",
+session.difficulty.very.high = "Very High",
+
+session.custom.title = "Custom Setting",
+
+session.matching.title = "Match Setting",
+session.matching.host = "Set Host to this PC",
+session.matching.host.mes1 = "IP Adress: ",
+session.matching.host.mes2 = "Please tell Opponent to this IP",
+session.matching.client.mes1 = "Please input opponent IP ",
+session.matching.client.mes2 = "＊IP belongs to the Opponent",
+
+session.desc.title = "Map Data",
+session.desc.difficulty ="難易度:$",
+session.desc.memory.size = "メモリーのサイズ: $ X $",
+session.desc.show.opponent = "相手のメモリーの閲覧許可:$",
+session.desc.give.firstpass = "初期パスワードの発行許可:$",
+session.desc.map = "マップ詳細:$",
+
+session.map.easy = "このマップは、初心者もしくはCODETOONのルールを把握してもらうための、チュートリアルな難易度である。",
+session.map.normal = "このマップは、ある程度ルールとプログラム言語を理解した人向けの難易度である。メモリーの数が拡張され、相手のメモリーが見えなくなるので注意。",
+session.map.high = "このマップは、ルールを理解し、メモリーの使用を理解した人向けの難易度である。中級に加えて、メモリーに初期パスワードが発行されているので注意。",
+session.map.very.high = "このマップは、最大難易度である。アルゴリズムに理解を持ち、タイピングが早い人向け。メモリーがさらに拡張されている。",
+
+session.create = "Begin Matching",
+session.loading = "Matching now.....",
 session.back.title = "Back to the Title",
 
 join.mes1 = "Please input IP here in the opponent",
 join.mes2 = "Back to the Title",
 
 stage.memory.list = "My Memory List",
+stage.enemy.memory.list = "Enemy Memory List",
+stage.memory.pass = "全メモリーの初期パスワードは$です。",
+stage.memory.debug.end = "End DEBUG",
+
+console.mes1 = "Only $ methods can be called.",
 
 memory.attack.mes1 = "Can't Attack. Because is setting password or different password on the Memory.",
 memory.attack.mes2 = "Are you kidding me!? Why hacking myself?",
@@ -27,6 +59,41 @@ memory.recovery.mes3 = "recovery is successful",
 memory.pass.mes1 = "Successful set password for $ !! Password is $",
 memory.pass.mes2 = "Different password for $",
 memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
+savememory.run.error = "相手のMemoryを実行できません。",
+
+mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
+
+observer.category.game = "Game",
+observer.life = "Number of Memories held by Enemy:$",
+observer.remaining = "Number of Memories remaining for Enemy:$",
+observer.typing.speed = "Average typing speed：$ string/sec",
+observer.timer = "Time",
+observer.count.run = "Running:$",
+observer.count.method = "Running of Method:$",
+observer.timer.count  = "$:$:$",
 
 method.attack.mes = "Was attacked to $",
 method.states.mes = "States of $:$",
+
+winner.mes1 = "YOU WIN!!!",
+winner.mes2 = "You attacked all Memory  of enemy.",
+winner.chooser1 = "Back to Title",
+winner.chooser2 = "Continue",
+
+
+loser.mes1 = "You LOSE!!",
+loser.mes2 = "Your Memory was hacked all.",
+loser.chooser1 = "Continue",
+loser.chooser2 = "Back to Title",
+loser.chooser3 = "Exit Desktop",
+
+
+setting.lang = "Language Setting",
+setting.exit = "Back to Title",
+setting.save = "Save",
+
+lang.jp = "Japanese",
+lang.us = "English(US)",
+lang.cn = "Chinese",
+lang.exit = "Back to Setting",
+lang.save = "Save",

@@ -42,16 +42,20 @@ public class SaveMemory extends Memory implements Serializable {
 
     @Override
     public void run() {
-        if(source != null) {
-            if(!source.isEmpty() && isClickedRun) {
-                ArrayList<MyMethod> methods = ConvertSource.convert(source.toString(), this);
-                setRunMethod(methods);
-                runMethod();
-                Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
-                isClickedRun = false;
-                Server.server.sendOpponentCopy();
-                Server.server.sendMyCopy();
+        if(serialID == Admin.getInstance().getSerialID()) {
+            if (source != null) {
+                if (!source.isEmpty() && isClickedRun) {
+                    ArrayList<MyMethod> methods = ConvertSource.convert(source.toString(), this);
+                    setRunMethod(methods);
+                    runMethod();
+                    Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
+                    isClickedRun = false;
+                    Server.server.sendOpponentCopy();
+                    Server.server.sendMyCopy();
+                }
             }
+        }else{
+            Message.addMessage("savememory.run.error");
         }
     }
 
