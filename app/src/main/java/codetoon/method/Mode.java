@@ -39,8 +39,8 @@ public class Mode extends MyMethod<Object>{
                 if(memory.getStates() != EnumMemoryStates.HACKED) {
                     memory.running = false;
                     memory.removeAnimation();
-                    Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
-                    Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new SaveMemory(memory.getInfo()));
+                    Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
+                    Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new SaveMemory(memory.getInfo()));
                 }else{
                     Message.addMessage("mode.change.error.opponent");
                 }
@@ -48,9 +48,9 @@ public class Mode extends MyMethod<Object>{
             if (enumStr.equals("NORMAL")) {
                 memory.running = true;
                 memory.removeAnimation();
-                Memories.memory.remove(p.MEMORY_W * memory.getIdI() + memory.getIdC());
-                Memories.memory.add(p.MEMORY_W * memory.getIdI() + memory.getIdC(), new Memory(memory.getInfo()));
-                Memories.runThread(Memories.memory.get(p.MEMORY_W * memory.getIdI() + memory.getIdC()));
+                Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
+                Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new Memory(memory.getInfo()));
+                Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
             }
         }else{
             Message.addMessage(new String[]{memory.getName()}, "memory.pass.mes2");

@@ -66,9 +66,9 @@ public class SaveMemory extends Memory implements Serializable {
                 removeAnimation();
 
                 PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-                Memories.memory.remove(p.MEMORY_W * getIdI() + getIdC());
-                Memories.memory.add(p.MEMORY_W * getIdI() + getIdC(), new Memory(getInfo()));
-                Memories.runThread(Memories.memory.get(p.MEMORY_W * getIdI() + getIdC()));
+                Memories.memory.remove(p.MEMORY_H * getIdC() + getIdI());
+                Memories.memory.add(p.MEMORY_H * getIdC() + getIdI(), new Memory(getInfo()));
+                Memories.runThread(Memories.memory.get(p.MEMORY_H * getIdC() + getIdI()));
             } else {
                 Message.addMessage("memory.attack.mes1", Color.BLACK);
             }

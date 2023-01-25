@@ -22,6 +22,8 @@ public class PazzleStage extends Map{
 
     public PazzleStage(int size){
       MEMORY_SIZE = size;
+      MEMORY_W = size;
+      MEMORY_H = size;
       field = new Field(5, 20, 130, 83);
       field.setMemoryCapability(MEMORY_SIZE, MEMORY_SIZE, 0);
       c = Console.getInstance();
