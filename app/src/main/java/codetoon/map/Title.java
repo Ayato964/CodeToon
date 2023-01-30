@@ -5,11 +5,16 @@ import codetoon.system.CodeToon;
 import codetoon.util.*;
 import codetoon.main.*;
 import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationImage;
 import codetoon.util.box.Box;
 import codetoon.util.box.DrawingTextBox;
 import codetoon.util.box.ContainerBox;
 
 import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class Title extends Map{
     private ContainerBox box;
     public Title(){
@@ -23,6 +28,16 @@ public class Title extends Map{
                 new Animation.Properties().font("", Font.ITALIC, 32));
         Animation.createImage(h).draw("other/setting", 190, 90, 13, 13, new Animation.Properties().button(i -> Main.getInstance().run(new Setting())));
 
+        AnimationImage.createImage(h).draw("title/icon", 170, 90, 13, 13, new Animation.Properties()
+                .button(i ->{
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://code-toon.netlify.app/"));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    }
+                }));
         Animation.create(h).draw("title.chooser1", 75, 70, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true)
                 .button(i->
