@@ -1,9 +1,13 @@
 package codetoon.method;
 
+import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 import codetoon.system.Memory;
+import codetoon.system.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class AbstractGetMemory extends MyMethod<Memory>{
 
@@ -20,5 +24,19 @@ public abstract class AbstractGetMemory extends MyMethod<Memory>{
         }
         return null;
     }
+
+    @Override
+    public String set(@NotNull HashMap<Integer, String> map) {
+        return null;
+    }
+
+    @Override
+    public Memory returnAction(Player host) {
+        Memory m = (Memory) host;
+        int id = m.getIdI() * CodeToon.RULE.memory_w + m.getIdC();
+        return returnAction(getMyMemories(m), id);
+
+    }
+    public abstract Memory returnAction(ArrayList<Memory> memory, int id);
 
 }

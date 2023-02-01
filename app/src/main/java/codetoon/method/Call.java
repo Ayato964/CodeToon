@@ -35,7 +35,7 @@ public class Call extends MyMethod<Object>{
                 StringBuilder s = m.getSource();
                 PazzleStage p = (PazzleStage) Main.getInstance().getMap();
                 Console c = p.getConsole();
-                c.panel.setProgram(s, 0);
+                c.panel.setProgram(new StringBuilder().append(s), 0);
             }else{
                 Message.addMessage("memory.connection.mes4");
             }

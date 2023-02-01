@@ -49,7 +49,10 @@ public class Admin extends Player implements Serializable {
 
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
-
+        m.add(Methods.GET_UP_MEMORY.get());
+        m.add(Methods.GET_DOWN_MEMORY.get());
+        m.add(Methods.GET_LEFT_MEMORY.get());
+        m.add(Methods.GET_RIGHT_MEMORY.get());
     }
 
     @Override

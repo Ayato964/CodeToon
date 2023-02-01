@@ -13,6 +13,9 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> GET_W = METHODS.createRegistory("method_getW", GetW::new);
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
     public static final RegistoryObject<MyMethod<?>> GET_UP_MEMORY = METHODS.createRegistory("method_getUpMemory", GetUpMemory::new);
+    public static final RegistoryObject<MyMethod<?>> GET_DOWN_MEMORY = METHODS.createRegistory("method_getDownMemory", GetDownMemory::new);
+    public static final RegistoryObject<MyMethod<?>> GET_LEFT_MEMORY = METHODS.createRegistory("method_getLeftMemory", GetLeftMemory::new);
+    public static final RegistoryObject<MyMethod<?>> GET_RIGHT_MEMORY = METHODS.createRegistory("method_getRightMemory", GetRightMemory::new);
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
     //public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
 
