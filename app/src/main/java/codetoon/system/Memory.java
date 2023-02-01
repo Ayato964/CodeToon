@@ -177,6 +177,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
 
     @Override
     protected void blackList(ArrayList<MyMethod> m) {
+
         m.add(Methods.CONNECT.get());
     }
 

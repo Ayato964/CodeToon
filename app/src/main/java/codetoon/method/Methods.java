@@ -12,6 +12,7 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> FOR = METHODS.createRegistory("method_for", For::new);
     public static final RegistoryObject<MyMethod<?>> GET_W = METHODS.createRegistory("method_getW", GetW::new);
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
+    public static final RegistoryObject<MyMethod<?>> GET_UP_MEMORY = METHODS.createRegistory("method_getUpMemory", GetUpMemory::new);
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
     //public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
 

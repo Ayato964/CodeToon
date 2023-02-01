@@ -47,6 +47,7 @@ public class Memories {
     }
     public static void updateMemory(Memory m, int i){
             memory.get(i).running = false;
+            memory.get(i).pass = m.pass;
             memory.remove(i);
             memory.add(i, m);
             runThread(memory.get(i));

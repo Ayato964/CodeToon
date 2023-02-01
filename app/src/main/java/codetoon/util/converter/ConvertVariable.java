@@ -18,7 +18,7 @@ public class ConvertVariable {
     public static final int STRING = 0;
     public static final int INTEGER = 1;
     public static final int BOOLEAN = 2;
-    public static final int OBJECT= 3;
+    public static final int MEMORY= 3;
     private static final int EXISTING = -1;
     public static PrivateVariable convert(String divide, Player host) {
         StringBuilder div = new StringBuilder().append(divide);
@@ -62,6 +62,8 @@ public class ConvertVariable {
             return removeType(INTEGER, divide, 0, c);
         if (type.equals("boolean"))
             return removeType(BOOLEAN, divide, 0, c);
+        if(type.equals("Memory"))
+            return removeType(MEMORY, divide, 0, c);
         return getType(divide, c + 1);
     }
     private static int removeType(int type, StringBuilder divide, int begin, int end){

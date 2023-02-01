@@ -2,7 +2,9 @@ package codetoon.method;
 
 import codetoon.argument.BooleanArgumet;
 import codetoon.argument.IntegerArgument;
+import codetoon.argument.ObjectArgument;
 import codetoon.argument.StringArgument;
+import codetoon.system.Memory;
 import codetoon.system.Player;
 import codetoon.util.converter.ConvertVariable;
 import codetoon.variable.CustomVariable;
@@ -39,6 +41,11 @@ public class PrivateNewVariable extends PrivateVariable{
             case ConvertVariable.BOOLEAN:
                 Variables.VARIABLE.createRegistory(id, () ->
                         new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable, host)));break;
+            case ConvertVariable.MEMORY:System.out.println(id);
+                Variables.VARIABLE.createRegistory(id, ()->
+                        new CustomVariable<Memory>(((Memory)ObjectArgument.getInstance().indentification(variable, host)))
+                        );break;
+
            }
     }
 
