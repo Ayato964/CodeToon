@@ -83,10 +83,19 @@ public class Observer  implements KeyListener{
         timer.schedule(task,0,  1000);
     }
     private String[] getTimer(){
-        return new String[]{new StringBuilder().append(hour).toString(),
-                            new StringBuilder().append(min).toString(),
-                            new StringBuilder().append(sec).toString()
-        };
+        StringBuilder h = new StringBuilder();
+        StringBuilder m = new StringBuilder();
+        StringBuilder s = new StringBuilder();
+        if(hour < 10)
+            h.append("0");
+        if(min < 10)
+            m.append("0");
+        if(sec < 10)
+            s.append("0");
+        h.append(hour);
+        m.append(min);
+        s.append(sec);
+        return new String[]{h.toString(),m.toString(), s.toString()};
     }
     private String getTypingAverage(){
         return new StringBuilder().append(average).toString();
