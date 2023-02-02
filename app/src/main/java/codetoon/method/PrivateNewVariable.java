@@ -41,7 +41,7 @@ public class PrivateNewVariable extends PrivateVariable{
             case ConvertVariable.BOOLEAN:
                 Variables.VARIABLE.createRegistory(id, () ->
                         new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable, host)));break;
-            case ConvertVariable.MEMORY:System.out.println(id);
+            case ConvertVariable.MEMORY:
                 Variables.VARIABLE.createRegistory(id, ()->
                         new CustomVariable<Memory>(((Memory)ObjectArgument.getInstance().indentification(variable, host)))
                         );break;

@@ -16,13 +16,14 @@ public class ConvertMethod {
     public static @Nullable MyMethod convert(@NotNull String s, Player host){
         StringBuilder percent = null;
         StringBuilder builder = new StringBuilder();
+        boolean begin = false;
+        int beginCount = 0;
         for(int i = 0; i < s.length(); i ++){
             if(s.charAt(i) == '('){
-                if(Methods.METHODS.search("method_" + builder)){
-                    return addArgumentToMethod(Methods.METHODS.get("method_" + builder), percent, s, host);
-                }
+                begin = true;
+                beginCount ++;
             }
-            if(s.charAt(i) == '.'){
+            if(s.charAt(i) == '.' && !begin){
                 if(percent == null){
                     percent = builder;
                 }else{
@@ -33,8 +34,18 @@ public class ConvertMethod {
             }else{
                 builder.append(s.charAt(i));
             }
+            if(s.charAt(i) == ')'){
+                beginCount --;
+                if(beginCount == 0)
+                    begin = false;
+            }
         }
-        return null;
+        String me = builder.substring(0, builder.indexOf("("));
+        if(Methods.METHODS.search("method_" + me))
+            return addArgumentToMethod(Methods.METHODS.get("method_" + me), percent, s, host);
+        else
+            return null;
+
     }
 
     private static MyMethod addArgumentToMethod(MyMethod myMethod, StringBuilder percent, String s, @NotNull  Player host) {

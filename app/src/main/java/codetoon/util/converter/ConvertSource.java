@@ -1,9 +1,6 @@
 package codetoon.util.converter;
 
-import codetoon.method.For;
-import codetoon.method.Methods;
-import codetoon.method.MyMethod;
-import codetoon.method.PrivateVariable;
+import codetoon.method.*;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.Console;
 import codetoon.system.Player;
@@ -104,7 +101,7 @@ public class ConvertSource {
             return methods.size() + getMethodCount(convert(((For) methods.get(have)).inside, host), host);
 
 
-        return methods.size();
+        return methods.size() - (isHave(new PrivateVariable(), methods) != -1 ? 1 : 0) - (isHave(new PrivateNewVariable(), methods) != -1 ? 1 : 0);
     }
     public static int isHave(MyMethod s, ArrayList<MyMethod> m){
         for(int i = 0; i < m.size(); i ++){
