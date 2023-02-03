@@ -51,7 +51,7 @@ public class For extends MyMethod{
             ConvertVariable.convert(lamda, host).action(host);
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

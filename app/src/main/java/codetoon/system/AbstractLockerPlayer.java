@@ -2,14 +2,17 @@ package codetoon.system;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public abstract class AbstractLockerPlayer extends Player implements Serializable {
+    private ArrayList<Integer> history = new ArrayList<>();
     public int serialID;
     //SUCSESS
     public int pass = 0;
     public void setPassWord(int old_pass, int pass) {
         if(Admin.getInstance().getSerialID() == serialID) {
             if (this.pass == old_pass) {
+                history.add(this.pass);
                 this.pass = pass;
                 Message.addMessage(new String[]{getName(), "" +pass},"memory.pass.mes1", Color.RED);
             } else {
@@ -27,5 +30,9 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
 
     public boolean getPass(int p) {
         return pass == p;
+    }
+
+    public Integer getBeforePass() {
+        return history.get(history.size() - 1);
     }
 }

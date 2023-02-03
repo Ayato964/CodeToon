@@ -12,6 +12,7 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> FOR = METHODS.createRegistory("method_for", For::new);
     public static final RegistoryObject<MyMethod<?>> GET_W = METHODS.createRegistory("method_getW", GetW::new);
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
+    public static final RegistoryObject<MyMethod<?>> GET_BEFORE_PASS = METHODS.createRegistory("method_getBeforePass", GetBeforePass::new);
     public static final RegistoryObject<MyMethod<?>> GET_UP_MEMORY = METHODS.createRegistory("method_getUpMemory", GetUpMemory::new);
     public static final RegistoryObject<MyMethod<?>> GET_DOWN_MEMORY = METHODS.createRegistory("method_getDownMemory", GetDownMemory::new);
     public static final RegistoryObject<MyMethod<?>> GET_LEFT_MEMORY = METHODS.createRegistory("method_getLeftMemory", GetLeftMemory::new);
