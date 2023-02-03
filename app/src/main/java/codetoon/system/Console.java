@@ -62,6 +62,7 @@ public class Console extends JFrame implements KeyListener{
   public class ConsolePanel extends JLabel{
     private final BufferedImage image;
     private final Graphics g;
+    private int indentKey = 0;
     private int program_count;
     private StringBuilder program;
     Font font = new Font("Serif", Font.PLAIN, 32);
@@ -84,15 +85,18 @@ public class Console extends JFrame implements KeyListener{
     /** テキストエディタ作成 **/
 
     public void drawInputKey(KeyEvent e){
+      indentKey = getIndent();
       if(e.getKeyChar() == KeyEvent.VK_BACK_SPACE){
         program.deleteCharAt(program_count - 1);
         program_count --;
-      }else{
+         }else{
+
         program.insert(program_count, e.getKeyChar());
         program_count ++;
-        if(e.getKeyChar() == '\n' && program.charAt(program_count - 2) == '{') {
-          tabSpace();
-        }
+        if(e.getKeyChar() == '\n')
+          for(int i = 0; i < indentKey; i ++)
+            tabSpace();
+
       }
       //System.out.println(program.toString());
       
@@ -100,6 +104,16 @@ public class Console extends JFrame implements KeyListener{
       drawString(program.toString(), 20, 20);
       repaint();
     }
+
+    private int getIndent() {
+      int c = 0;
+      for(int i = 0; i < program.length(); i ++)
+        if(program.charAt(i) == '{')
+          c++;
+
+      return c;
+    }
+
     public void tabSpace(){
       for(int i = 0; i < 4; i ++){
         program.insert(program_count, ' ');
@@ -124,15 +138,12 @@ public class Console extends JFrame implements KeyListener{
       return program_count < program.length();
     }
     private void downCarsour(){
-      int a = getEnterPoint(program_count);
-      int b = a + getCountStringLine(a) + 2;
-      int c = program_count - a;
-      if(getCountStringLine(b) >= getCountStringLine(a) -1){
-        program_count = b + c - 1;
-    }else{
-        program_count = b + getCountStringLine(b) - 2;
-    }
-      
+      int enter = program.indexOf("\n", program_count) + 1;
+      if(enter != -1) {
+        int nextEnter = program.indexOf("\n", enter);
+        program_count = nextEnter == -1 ? program.length() - 1 : nextEnter;
+      }
+
     }
     private void upCarsour(){
       int a = getEnterPoint(program_count);
@@ -177,7 +188,7 @@ public class Console extends JFrame implements KeyListener{
 
     }
     public void drawString(){
-      drawString(program.isEmpty() ? " " : program.toString(), 20, 30);
+       drawString(program.isEmpty() ? " " : program.toString(), 20, 30);
     }
     private void drawString(@NotNull String str, int x, int y){
       int yy = y;
