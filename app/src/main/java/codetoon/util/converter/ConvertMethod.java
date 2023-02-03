@@ -17,13 +17,19 @@ public class ConvertMethod {
         StringBuilder percent = null;
         StringBuilder builder = new StringBuilder();
         boolean begin = false;
+        boolean insideBegin = false;
         int beginCount = 0;
+        int insideCount = 0;
         for(int i = 0; i < s.length(); i ++){
             if(s.charAt(i) == '('){
                 begin = true;
                 beginCount ++;
             }
-            if(s.charAt(i) == '.' && !begin){
+            if(s.charAt(i) == '{'){
+                insideBegin = true;
+                insideCount ++;
+            }
+            if(s.charAt(i) == '.' && !begin && !insideBegin){
                 if(percent == null){
                     percent = builder;
                 }else{
@@ -38,6 +44,11 @@ public class ConvertMethod {
                 beginCount --;
                 if(beginCount == 0)
                     begin = false;
+            }
+            if(s.charAt(i) == '}'){
+                insideCount --;
+                if(insideCount == 0)
+                    insideBegin = false;
             }
         }
         String me = builder.substring(0, builder.indexOf("("));

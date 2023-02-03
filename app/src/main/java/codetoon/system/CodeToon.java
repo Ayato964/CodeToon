@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.6.1";
+    public static final String GAME_VERSION = "1.6.5";
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;

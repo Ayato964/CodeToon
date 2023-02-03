@@ -17,6 +17,9 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> GET_LEFT_MEMORY = METHODS.createRegistory("method_getLeftMemory", GetLeftMemory::new);
     public static final RegistoryObject<MyMethod<?>> GET_RIGHT_MEMORY = METHODS.createRegistory("method_getRightMemory", GetRightMemory::new);
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
+    public static final RegistoryObject<MyMethod<?>> IS_HACKED = METHODS.createRegistory("method_isHacked", IsHacked::new);
+    public static final RegistoryObject<MyMethod<?>> IS_LOCKED = METHODS.createRegistory("method_isLocked", IsLocked::new);
+
     //public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
 
     public static final RegistoryObject<MyMethod<?>> MODE = METHODS.createRegistory("method_mode", Mode::new);
@@ -27,7 +30,7 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> RECOVERY = METHODS.createRegistory("method_recovery", Recovery::new);
     public static final RegistoryObject<MyMethod<?>> RUN = METHODS.createRegistory("method_run", Run::new);
 
-    public static final RegistoryObject<MyMethod<?>> STATES = METHODS.createRegistory("method_states", States::new);
+ //   public static final RegistoryObject<MyMethod<?>> STATES = METHODS.createRegistory("method_states", States::new);
 }
 
 

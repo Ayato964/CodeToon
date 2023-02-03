@@ -7,6 +7,7 @@ import codetoon.util.*;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class MyMethod<T> implements Actions<Player, T>, Setter{
+    T t;
     public MyMethod(){
     
     }

@@ -24,7 +24,10 @@ public class IntegerArgument extends Argument<Integer, String> {
             return Integer.parseInt(i);
         }else if(i.indexOf("(") != -1) {
             ArrayList<MyMethod> m = ConvertSource.convert(new StringBuilder().append(i).append(";").toString(), host);
-            return (Integer) m.get(0).returnAction(host);
+            if(m.get(0).returnAction(host) instanceof Integer)
+                return (Integer) m.get(0).returnAction(host);
+            else
+                return NOT_ARGUMENT;
         }else{
             return convertVariableTo(i) == null ? NOT_ARGUMENT : convertVariableTo(i);
         }

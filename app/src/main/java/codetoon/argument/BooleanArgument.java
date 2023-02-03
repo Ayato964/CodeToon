@@ -1,7 +1,9 @@
 package codetoon.argument;
 
+import codetoon.method.MyMethod;
 import codetoon.system.Admin;
 import codetoon.system.Player;
+import codetoon.util.converter.ConvertSource;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -124,9 +126,14 @@ public class BooleanArgument extends Argument<Boolean, String> {
         if(b.isEmpty()){
             if(a.equals("true")|| a.equals("false"))
                 return a.toString();
-            else
-                return new StringBuilder().append(convertVariableTo(a.toString())).toString();
-        }else{
+            else {
+                if (a.indexOf("(") != -1) {
+                    ArrayList<MyMethod> m = ConvertSource.convert(new StringBuilder().append(a).append(";").toString(), host);
+                    return new StringBuilder().append(m.get(0).returnAction(host)).toString();
+                } else
+                    return new StringBuilder().append(convertVariableTo(a.toString())).toString();
+            }
+            }else{
             int intA = IntegerArgument.getInstance().indentification(a.toString(), host);
             int intB = IntegerArgument.getInstance().indentification(b.toString(), host);
             //System.out.println("A:" + intA + "  B:" + intB + "  term:" + terms);

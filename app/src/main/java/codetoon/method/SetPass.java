@@ -33,6 +33,7 @@ public class SetPass extends MyMethod{
     }
     @Override
     public void action(Player host) {
+        System.out.println(percentString + "<----");
         parcent = (AbstractLockerPlayer) ObjectArgument.getInstance().indentification(percentString, host);
         if(parcent != null){
             parcent.setPassWord(IntegerArgument.getInstance().indentification(old_pass), IntegerArgument.getInstance().indentification(new_pass));

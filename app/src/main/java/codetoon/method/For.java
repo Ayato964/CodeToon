@@ -1,7 +1,9 @@
 package codetoon.method;
 
 import codetoon.argument.BooleanArgument;
+import codetoon.server.Server;
 import codetoon.system.CodeToon;
+import codetoon.system.Memories;
 import codetoon.system.Message;
 import codetoon.system.Player;
 import codetoon.util.converter.ConvertSource;
@@ -47,6 +49,16 @@ public class For extends MyMethod{
                 }
             }
             ConvertVariable.convert(lamda, host).action(host);
+
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if(!host.running)
+                break;
+            Server.server.sendMyCopy();
+            Server.server.sendOpponentCopy();
         }
         Message.pushMessage();
     }
