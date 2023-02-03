@@ -1,17 +1,11 @@
 package codetoon.util.converter;
 
-import codetoon.argument.BooleanArgumet;
-import codetoon.argument.IntegerArgument;
-import codetoon.argument.StringArgument;
 import codetoon.method.PrivateNewVariable;
 import codetoon.method.PrivateVariable;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
-import codetoon.variable.CustomVariable;
-import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
-import javax.print.DocFlavor;
 import java.util.HashMap;
 
 public class ConvertVariable {

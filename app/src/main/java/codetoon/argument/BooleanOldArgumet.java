@@ -2,11 +2,9 @@ package codetoon.argument;
 
 import codetoon.system.Player;
 
-import java.util.ArrayList;
-
-
-public class BooleanArgumet extends Argument<Boolean, String>{
-    private static BooleanArgumet INSTANCE = new BooleanArgumet();
+@Deprecated(since = "1.6.1")
+public class BooleanOldArgumet extends Argument<Boolean, String>{
+    private static BooleanOldArgumet INSTANCE = new BooleanOldArgumet();
 
     private int begin = 0;
     @Override
@@ -20,8 +18,8 @@ public class BooleanArgumet extends Argument<Boolean, String>{
         return indentification(s);
     }
 
-    public static BooleanArgumet getInstance() {
-        return new BooleanArgumet();
+    public static BooleanOldArgumet getInstance() {
+        return new BooleanOldArgumet();
     }
     private StringBuilder getCalcAnd(StringBuilder s){
         boolean before;
@@ -127,7 +125,7 @@ public class BooleanArgumet extends Argument<Boolean, String>{
             }
         }
         if(end != 0){
-            return new BooleanArgumet().indentification(s.substring(begin, end));
+            return new BooleanOldArgumet().indentification(s.substring(begin, end));
         }
         s.delete(count, count + b.length());
         System.out.println(s);
@@ -166,7 +164,7 @@ public class BooleanArgumet extends Argument<Boolean, String>{
             c = i;
         }
         if(end != 0){
-            return new BooleanArgumet().indentification(s.substring(begin, end));
+            return new BooleanOldArgumet().indentification(s.substring(begin, end));
         }
         s.delete(c, count + 1);
         System.out.println(s);

@@ -2,7 +2,7 @@ package codetoon.util;
 
 import java.util.*;
 
-import codetoon.argument.BooleanArgumet;
+import codetoon.argument.BooleanArgument;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.StringArgument;
 import codetoon.main.Main;
@@ -193,7 +193,7 @@ public class Indentification{
                         break;
                     case BOOLEAN:
                         Variables.createVariable(variable_ID, () ->
-                                new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable.toString())));
+                                new CustomVariable<Boolean>(BooleanArgument.getInstance().indentification(variable.toString())));
                         break;
                 }
             }

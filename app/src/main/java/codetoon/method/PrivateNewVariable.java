@@ -1,6 +1,6 @@
 package codetoon.method;
 
-import codetoon.argument.BooleanArgumet;
+import codetoon.argument.BooleanArgument;
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.argument.StringArgument;
@@ -40,7 +40,7 @@ public class PrivateNewVariable extends PrivateVariable{
                         new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.BOOLEAN:
                 Variables.VARIABLE.createRegistory(id, () ->
-                        new CustomVariable<Boolean>(BooleanArgumet.getInstance().indentification(variable, host)));break;
+                        new CustomVariable<Boolean>(BooleanArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.MEMORY:
                 Variables.VARIABLE.createRegistory(id, ()->
                         new CustomVariable<Memory>(((Memory)ObjectArgument.getInstance().indentification(variable, host)))

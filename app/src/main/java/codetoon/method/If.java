@@ -1,6 +1,6 @@
 package codetoon.method;
 
-import codetoon.argument.BooleanArgumet;
+import codetoon.argument.BooleanArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import codetoon.util.converter.ConvertSource;
@@ -20,7 +20,7 @@ public class If extends MyMethod{
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
-        isBool = BooleanArgumet.getInstance().indentification(map.get(0));
+        isBool = BooleanArgument.getInstance().indentification(map.get(0));
         inside = map.get(CodeToon.INSIDE_METHODS);
         return null;
     }

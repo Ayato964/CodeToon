@@ -1,15 +1,11 @@
 package codetoon.method;
 
-import codetoon.argument.BooleanArgumet;
-import codetoon.argument.IntegerArgument;
-import codetoon.argument.ObjectArgument;
-import codetoon.argument.StringArgument;
+import codetoon.argument.BooleanArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Message;
 import codetoon.system.Player;
 import codetoon.util.converter.ConvertSource;
 import codetoon.util.converter.ConvertVariable;
-import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -42,7 +38,7 @@ public class For extends MyMethod{
         //System.out.println(Variables.VARIABLE.getThis(p.id).action());
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
         Message.popMessage(methods);
-        while (BooleanArgumet.getInstance().indentification(bool, host)){
+        while (BooleanArgument.getInstance().indentification(bool, host)){
 
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){
