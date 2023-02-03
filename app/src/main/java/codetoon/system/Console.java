@@ -1,10 +1,8 @@
 package codetoon.system;
 
 import codetoon.main.*;
-import codetoon.util.*;
 import codetoon.method.*;
 import codetoon.regi.*;
-import codetoon.util.animation.Animation;
 import codetoon.util.converter.ConvertSource;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
@@ -18,7 +16,7 @@ import java.util.*;
 
 /** ユーザーがプログラムを打ち込むインターフェース **/
 public class Console extends JFrame implements KeyListener{
-  private int x, y, w, h;
+  private final int x, y, w, h;
   public ConsolePanel panel;
   private Player host;
 
@@ -121,13 +119,24 @@ public class Console extends JFrame implements KeyListener{
       }
     }
     public void setCarsor(KeyEvent e){
-      switch(e.getKeyCode()){
-        case KeyEvent.VK_LEFT: if(isNotOutOfIndex())program_count --; drawString(program.toString(), 20, 20);break;
-        case KeyEvent.VK_RIGHT:if(isNotOutOfLength()) program_count ++; drawString(program.toString(), 20, 20);break;
-        case KeyEvent.VK_UP: upCarsour();drawString(program.toString(), 20, 20);break;
-        case KeyEvent.VK_DOWN:downCarsour();drawString(program.toString(), 20, 20);break;
-        case KeyEvent.VK_TAB:tabSpace();break;
-        
+      switch (e.getKeyCode()) {
+        case KeyEvent.VK_LEFT -> {
+          if (isNotOutOfIndex()) program_count--;
+          drawString(program.toString(), 20, 20);
+        }
+        case KeyEvent.VK_RIGHT -> {
+          if (isNotOutOfLength()) program_count++;
+          drawString(program.toString(), 20, 20);
+        }
+        case KeyEvent.VK_UP -> {
+          upCarsour();
+          drawString(program.toString(), 20, 20);
+        }
+        case KeyEvent.VK_DOWN -> {
+          downCarsour();
+          drawString(program.toString(), 20, 20);
+        }
+        case KeyEvent.VK_TAB -> tabSpace();
       }
       repaint();
     }
@@ -187,9 +196,6 @@ public class Console extends JFrame implements KeyListener{
       return i;
 
     }
-    public void drawString(){
-       drawString(program.isEmpty() ? " " : program.toString(), 20, 30);
-    }
     private void drawString(@NotNull String str, int x, int y){
       int yy = y;
       reset();
@@ -223,8 +229,8 @@ public class Console extends JFrame implements KeyListener{
   /** Program識別 **/
   public  <T extends MyMethod<?>> boolean isHave(RegistoryObject<T> m){
     if(methods != null){
-      for(int i = 0; i < methods.size(); i ++){
-        if(methods.get(i).getClass() == m.get().getClass() ){
+      for (MyMethod method : methods) {
+        if (method.getClass() == m.get().getClass()) {
           return true;
         }
       }
