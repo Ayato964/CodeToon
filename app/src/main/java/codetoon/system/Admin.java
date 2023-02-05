@@ -5,8 +5,12 @@ import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.server.Server;
 import codetoon.util.TickRegistory;
+import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationImage;
+import codetoon.util.lang.LangLoader;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
+import org.python.compiler.Code;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,8 +19,14 @@ import java.util.Random;
 public class Admin extends Player implements Serializable {
     private static final Admin instance = new Admin();
     private int serialID;
+    private Console c;
+    boolean isFirst = true;
     private Admin(){
+        super();
         serialID = new Random().nextInt(10000, 999999);
+        running =true;
+        Thread t = new Thread(this::run);
+        t.start();
     }
     @Override
     public int getSerialID() {
@@ -39,12 +49,26 @@ public class Admin extends Player implements Serializable {
 
     @Override
     public void endMethod(@NotNull Console console, ArrayList<MyMethod> methods, StringBuilder source) {
+        c = console;
         setRunMethod(methods);
-        runMethod();
         console.panel.resetAll();
-        Variables.VARIABLE.deleteAll(getID() + "_" + getSerialID());
-        Server.server.sendMyCopy();
-        Server.server.sendOpponentCopy();
+
+        if(console.panel.getProgram().isEmpty())
+            console.panel.setProgram(new StringBuilder()
+                    .append(LangLoader.getInstance().get(null, "console.execute.process"))
+                            .append("\n")
+                            .append(LangLoader.getInstance().get(null, "console.execute.loading"))
+
+
+                    , 0);
+        c.isLoading = true;
+    }
+
+    @Override
+    public void run() {
+        while (running) {
+            ticker.run_tick();
+        }
     }
 
     @Override
@@ -67,7 +91,20 @@ public class Admin extends Player implements Serializable {
     }
 
     public static <T> void tick(T t){
+        Admin a = (Admin) t;
         if(CodeToon.isGameStart) {
+            if(!a.method.isEmpty()) {
+                a.isLoading = true;
+                a.runMethod();
+                a.isLoading = false;
+                a.method = new ArrayList<>();
+                a.c.panel.resetAll();
+                a.c.isLoading = false;
+                Variables.VARIABLE.deleteAll(a.getID() + "_" + a.getSerialID());
+
+                Server.server.sendMyCopy();
+                Server.server.sendOpponentCopy();
+            }
 
         }
     }

@@ -1,17 +1,24 @@
 package codetoon.util.animation;
 
-import javax.swing.*;
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.URL;
 
 public class ImageMaker {
     public Image subImage;
-    public Image percentImage;
+    public BufferedImage percentImage;
     public ImageMaker(String str){
         URL filePath =  getClass().getClassLoader().getResource("assets/codetoon/textures/" + str + ".png");
-        ImageIcon icon = new ImageIcon(filePath);
-        percentImage = icon.getImage();
-        subImage = percentImage;
+        try {
+            percentImage = ImageIO.read(filePath);
+            subImage = percentImage.getSubimage(0, 0, 120, 120);
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     public Image get(){

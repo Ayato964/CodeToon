@@ -62,7 +62,7 @@ public abstract class Animation implements Serializable {
     public static class Properties implements IsTick {
         private Animation percent;
         private Properties child;
-        private ArrayList<Decorate> prop;
+        protected ArrayList<Decorate> prop;
         private Graphics g;
         private Font font;
         public TickRegistory<Properties> animationTickRegistory;

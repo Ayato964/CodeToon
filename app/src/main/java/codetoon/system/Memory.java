@@ -9,6 +9,7 @@ import codetoon.util.IsTick;
 import codetoon.util.TickRegistory;
 import codetoon.server.Server;
 import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationImage;
 import codetoon.util.converter.ConvertSource;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
@@ -64,11 +65,11 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     public void setup(Graphics g){
         if(isFirst) {
             lock = Animation.createImage(g).draw("other/lock", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH,
-                    new Animation.Properties()
+                    new AnimationImage.PropertiesImage()
                                      .drawIf(()->pass != 0)
                             .remove(()->isRemoveAnimation)
             );
-            connect = Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new Animation.Properties()
+            connect = Animation.createImage(g).draw("other/target", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new AnimationImage.PropertiesImage()
                     .drawIf(() ->{
                         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
                         Console c = p.getConsole();
@@ -79,6 +80,12 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                     })
                     .remove(()->isRemoveAnimation)
             );
+            Animation.createImage(g).draw("other/loading2", x / Main.DW, y / Main.DH, w / Main.DW, h / Main.DH, new AnimationImage.PropertiesImage()
+                    .animation()
+                    .drawIf(() -> isLoading)
+                    .remove(() -> isRemoveAnimation)
+            );
+
             isFirst = false;
         }
     }
@@ -98,7 +105,9 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 if(!memory.source.isEmpty()) {
                     ArrayList<MyMethod> methods = ConvertSource.convert(memory.source.toString(), memory);
                     memory.setRunMethod(methods);
+                    memory.isLoading = true;
                     memory.runMethod();
+                    memory.isLoading = false;
                     Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
                     Server.server.sendOpponentCopy();
                     Server.server.sendMyCopy();
@@ -204,15 +213,18 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
     private void connect(int password){
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-        if (pass == 0 || pass == password) {
-            Message.addMessage(new String[]{p.getConsole().getHost().getName()},"memory.connection.mes5", Color.BLACK);
-            p.getConsole().setHost(this);
-            p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder(), 0);
-        } else {
-            p.getConsole().panel.setProgram(new StringBuilder(), 0);
-            Message.addMessage("memory.connection.mes4", Color.BLACK);
+        if(!isLoading) {
+            if (pass == 0 || pass == password) {
+                Message.addMessage(new String[]{p.getConsole().getHost().getName()}, "memory.connection.mes5", Color.BLACK);
+                p.getConsole().setHost(this);
+                p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder(), 0);
+            } else {
+                p.getConsole().panel.setProgram(new StringBuilder(), 0);
+                Message.addMessage("memory.connection.mes4", Color.BLACK);
 
-        }
+            }
+        }else
+            Message.addMessage("memory.connection.error.loading");
     }
 
 

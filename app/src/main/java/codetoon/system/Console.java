@@ -19,6 +19,7 @@ public class Console extends JFrame implements KeyListener{
   private final int x, y, w, h;
   public ConsolePanel panel;
   private Player host;
+  public boolean isLoading = false;
 
   private ArrayList<MyMethod> methods;
   private static Console INSTANCE;
@@ -74,10 +75,20 @@ public class Console extends JFrame implements KeyListener{
       drawString(program.isEmpty() ? "" : program.toString(), 20, 30);
     }
 
+    public Graphics getGraphic() {
+      return g;
+    }
+
     public void setProgram(StringBuilder program, int c)
     {
       this.program = program;
       program_count = c;
+      drawString(program.toString(), 20, 20);
+      repaint();
+    }
+
+    public StringBuilder getProgram() {
+      return program;
     }
 
     /** テキストエディタ作成 **/
@@ -222,7 +233,7 @@ public class Console extends JFrame implements KeyListener{
       }
       program_count = 0;
       drawString(program.isEmpty() ? "" : program.toString(),20, 30);
-
+      repaint();
     }
     
   }
@@ -240,32 +251,32 @@ public class Console extends JFrame implements KeyListener{
   
   @Override
    public void keyTyped(KeyEvent e){
-   // System.out.println(e.getKeyCode());
-        panel.drawInputKey(e);
-       // methods = Indentification.indentification(panel.program.toString(), host);
-        if(ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString()) || ConvertSource.OnCallMethod(panel.program.toString())) {
-          methods = ConvertSource.convert(panel.program.toString(), host);
-          if(isHave(Methods.END))
-            if(ConvertSource.getMethodCount(methods, host) <= 4) {
-              Observer.METHOD_COUNT += ConvertSource.getMethodCount(methods, host);
-              Variables.VARIABLE.deleteAll(host.getID() + "_" + host.getSerialID());
-              host.endMethod(this, methods, panel.program);
-              Observer.RUNNING_COUNT ++;
-            }else
-              Message.addMessage(new String[]{new StringBuilder().append(CodeToon.METHOD_MAX_COUNT).toString()}, "console.mes1");
-          if(isHave(Methods.REMOVE)){
-            Methods.REMOVE.get().action(host);
-          }
-          if(isHave(Methods.CALL))
-            methods.get(0).action(host);
+    if(!isLoading) {
+      panel.drawInputKey(e);
+      // methods = Indentification.indentification(panel.program.toString(), host);
+      if (ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString()) || ConvertSource.OnCallMethod(panel.program.toString())) {
+        methods = ConvertSource.convert(panel.program.toString(), host);
+        if (isHave(Methods.END))
+          if (ConvertSource.getMethodCount(methods, host) <= 4) {
+            Observer.METHOD_COUNT += ConvertSource.getMethodCount(methods, host);
+            Variables.VARIABLE.deleteAll(host.getID() + "_" + host.getSerialID());
+            host.endMethod(this, methods, panel.program);
+            Observer.RUNNING_COUNT++;
+          } else
+            Message.addMessage(new String[]{new StringBuilder().append(CodeToon.METHOD_MAX_COUNT).toString()}, "console.mes1");
+        if (isHave(Methods.REMOVE)) {
+          Methods.REMOVE.get().action(host);
         }
-
+        if (isHave(Methods.CALL))
+          methods.get(0).action(host);
+      }
+    }
         //System.out.println(methods == null);
    }
   @Override
   public void keyPressed(KeyEvent e){
-
-    panel.setCarsor(e);
+    if(!isLoading)
+      panel.setCarsor(e);
   }
   @Override
   public void keyReleased(KeyEvent e){

@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public abstract class Player implements IsTick, Runnable{
     protected Animation lock;
     protected Animation connect;
+    boolean isLoading = false;
 
     public boolean running = true;
     ArrayList<MyMethod> method = new ArrayList<>();

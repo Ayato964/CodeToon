@@ -4,6 +4,7 @@ import codetoon.main.*;
 import codetoon.system.*;
 import codetoon.util.Action;
 import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationImage;
 
 import java.awt.*;
 import java.util.Random;
@@ -84,6 +85,7 @@ public class PazzleStage extends Map{
                 Main.getInstance().run(new Title());
             }));
         }
+
     }
 
     @Override
