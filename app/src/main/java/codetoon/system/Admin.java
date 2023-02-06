@@ -51,17 +51,6 @@ public class Admin extends Player implements Serializable {
     public void endMethod(@NotNull Console console, ArrayList<MyMethod> methods, StringBuilder source) {
         c = console;
         setRunMethod(methods);
-        console.panel.resetAll();
-
-        if(console.panel.getProgram().isEmpty())
-            console.panel.setProgram(new StringBuilder()
-                    .append(LangLoader.getInstance().get(null, "console.execute.process"))
-                            .append("\n")
-                            .append(LangLoader.getInstance().get(null, "console.execute.loading"))
-
-
-                    , 0);
-        c.isLoading = true;
     }
 
     @Override
@@ -95,13 +84,23 @@ public class Admin extends Player implements Serializable {
         if(CodeToon.isGameStart) {
             if(!a.method.isEmpty()) {
                 a.isLoading = true;
+                a.c.isLoading = true;
+                a.c.panel.resetAll();
+                if(a.c.panel.getProgram().isEmpty())
+                    a.c.panel.setProgram(new StringBuilder()
+                                    .append(LangLoader.getInstance().get(null, "console.execute.process"))
+                                    .append("\n")
+                                    .append(LangLoader.getInstance().get(null, "console.execute.loading"))
+
+
+                            , 0);
                 a.runMethod();
                 a.isLoading = false;
-                a.method = new ArrayList<>();
-                a.c.panel.resetAll();
                 a.c.isLoading = false;
-                Variables.VARIABLE.deleteAll(a.getID() + "_" + a.getSerialID());
+                a.method = new ArrayList<>();
 
+                a.c.panel.resetAll();
+                Variables.VARIABLE.deleteAll(a.getID() + "_" + a.getSerialID());
                 Server.server.sendMyCopy();
                 Server.server.sendOpponentCopy();
             }

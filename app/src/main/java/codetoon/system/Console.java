@@ -257,7 +257,7 @@ public class Console extends JFrame implements KeyListener{
       if (ConvertSource.OnEndMethod(panel.program.toString()) || ConvertSource.OnRemoveMethod(panel.program.toString()) || ConvertSource.OnCallMethod(panel.program.toString())) {
         methods = ConvertSource.convert(panel.program.toString(), host);
         if (isHave(Methods.END))
-          if (ConvertSource.getMethodCount(methods, host) <= 4) {
+          if (ConvertSource.getMethodCount(methods, host) <= 6) {
             Observer.METHOD_COUNT += ConvertSource.getMethodCount(methods, host);
             Variables.VARIABLE.deleteAll(host.getID() + "_" + host.getSerialID());
             host.endMethod(this, methods, panel.program);
