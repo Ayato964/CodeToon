@@ -29,7 +29,7 @@ public class PrivateVariable extends MyMethod{
     @Override
     public void action(Player host) {
         HashMap<Integer, String> data = new HashMap<>();
-       // System.out.println("Variable;;" + variable);
+        System.out.println("Variable;;" + host.getID());
         data.put(0, variable);
         data.put(CodeToon.HOST_MAP, host.getID());
         Variables.VARIABLE.getThis(id).set(data);

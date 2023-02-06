@@ -98,11 +98,11 @@ public class Admin extends Player implements Serializable {
                 a.isLoading = false;
                 a.c.isLoading = false;
                 a.method = new ArrayList<>();
-
                 a.c.panel.resetAll();
                 Variables.VARIABLE.deleteAll(a.getID() + "_" + a.getSerialID());
                 Server.server.sendMyCopy();
                 Server.server.sendOpponentCopy();
+                System.out.println("SSSSS");
             }
 
         }

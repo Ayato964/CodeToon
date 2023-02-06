@@ -24,7 +24,7 @@ public class CustomVariable<T> extends Variable<T>{
         host =(Player) ObjectArgument.getInstance().indentification(map.get(CodeToon.HOST_MAP));
         objString = map.get(0);
         if (obj instanceof Integer) {
-           // System.out.println("Integer:" + objString);
+            System.out.println("Integer:" + objString + "    " + host.getID());
             obj = (T) IntegerArgument.getInstance().indentification(objString, host);
           //  System.out.println(obj);
         }
@@ -48,7 +48,6 @@ public class CustomVariable<T> extends Variable<T>{
     public void action(Integer i) {
         if(objString != null) {
             if (obj instanceof Integer) {
-               // System.out.println("Integer:" + objString + "    " + host.getID());
                 obj = (T) IntegerArgument.getInstance().indentification(objString, host);
                 System.out.println(obj);
             }

@@ -38,7 +38,7 @@ public class ObjectArgument extends Argument<Object, String> {
         : Admin.getInstance()
         : isArgument(builder)
         : isMethod(builder);
-        System.out.println(ObjName.toString() + "   " + s);
+       // System.out.println(ObjName.toString() + "   " + s);
            if(!ObjName.toString().equals(ERROR.toString())){
                 if(ObjName instanceof MyMethod){
                     ArrayList<MyMethod> m = ConvertSource.convert(new StringBuilder().append(builder).append(";").toString(), host);

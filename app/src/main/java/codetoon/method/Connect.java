@@ -10,6 +10,7 @@ import codetoon.argument.*;
 
 public class Connect extends MyMethod  {
     String memoryString;
+    String strPass = "0";
     int pass = 0;
     @Override
     public Object newInstance() {
@@ -21,7 +22,7 @@ public class Connect extends MyMethod  {
         System.out.println(map.get(CodeToon.PARCENT_ARGUMENT));
         memoryString = map.get(CodeToon.PARCENT_ARGUMENT);
         if(map.get(0) != null){
-            pass = IntegerArgument.getInstance().indentification(map.get(0)).intValue();
+            strPass = map.get(0);
         }
         return null;
     }
@@ -29,6 +30,7 @@ public class Connect extends MyMethod  {
     @Override
     public void action(Player host) {
         Memory memory = (Memory)ObjectArgument.getInstance().indentification(memoryString);
+        pass = IntegerArgument.getInstance().indentification(strPass, host);
         memory.connection(pass);
     }
 

@@ -45,10 +45,13 @@ public class For extends MyMethod{
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){
                 for(int l = 0; l < methods.size(); l ++){
+                    System.out.println("For + " + l + ":" + host.getName());
                     methods.get(l).action(host);
                 }
             }
-            ConvertVariable.convert(lamda, host).action(host);
+//            ConvertVariable.convert(lamda, host).action(host);
+            ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
+            System.out.println("ForEnd:" + host.getName());
 
             try {
                 Thread.sleep(1);

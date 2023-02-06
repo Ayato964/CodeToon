@@ -213,7 +213,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
     }
     private void connect(int password){
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-        //if(!isLoading) {
+        if(!isLoading) {
             if (pass == 0 || pass == password) {
                 Message.addMessage(new String[]{p.getConsole().getHost().getName()}, "memory.connection.mes5", Color.BLACK);
                 p.getConsole().setHost(this);
@@ -223,8 +223,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 Message.addMessage("memory.connection.mes4", Color.BLACK);
 
             }
-       // }else
-         //   Message.addMessage("memory.connection.error.loading");
+        }else
+            Message.addMessage("memory.connection.error.loading");
     }
 
 
