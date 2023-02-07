@@ -37,20 +37,26 @@ public class Mode extends MyMethod<Object>{
         {
             if (enumStr.equals("SAVE")) {
                 if(memory.getStates() != EnumMemoryStates.HACKED) {
-                    memory.running = false;
-                    memory.removeAnimation();
-                    Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
-                    Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new SaveMemory(memory.getInfo()));
+                    if(memory.getSerialID() == Admin.getInstance().getSerialID()) {
+                        memory.running = false;
+                        memory.removeAnimation();
+                        Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
+                        Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new SaveMemory(memory.getInfo()));
+                    }
                 }else{
                     Message.addMessage("mode.change.error.opponent");
                 }
             }
             if (enumStr.equals("NORMAL")) {
-                memory.running = true;
-                memory.removeAnimation();
-                Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
-                Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new Memory(memory.getInfo()));
-                Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
+                if(memory.getStates() != EnumMemoryStates.HACKED) {
+                    if(memory.getSerialID() == Admin.getInstance().getSerialID()) {
+                        memory.running = true;
+                        memory.removeAnimation();
+                        Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
+                        Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new Memory(memory.getInfo()));
+                        Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
+                    }
+                }
             }
         }else{
             Message.addMessage(new String[]{memory.getName()}, "memory.connection.mes4");
