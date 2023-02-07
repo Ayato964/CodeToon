@@ -45,7 +45,7 @@ public abstract class Argument<T, I>  {
         System.out.println(variable_ID + "    Argument");
         if(Variables.VARIABLE.search(variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
-            return sample.getClass() == re.action().getClass() ? (T) re.action() : null;
+            return sample.getClass() == re.returnAction(host).getClass() ? (T) re.returnAction(host) : null;
             //return  (T) re.action();
         }else{
             return null;

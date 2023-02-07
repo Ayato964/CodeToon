@@ -36,7 +36,7 @@ public class Tick{
                 }
             }
         };
-        timer.scheduleAtFixedRate(task, 0,1);
+        timer.scheduleAtFixedRate(task, 0,5);
 
     }
     public void removeAnimation(TickRegistory regi){

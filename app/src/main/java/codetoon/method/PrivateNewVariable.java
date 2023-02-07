@@ -29,13 +29,13 @@ public class PrivateNewVariable extends PrivateVariable{
 
     @Override
     public void action(Player host) {
-        System.out.println(variable);
+        //System.out.println(variable);
         switch (type){
             case ConvertVariable.STRING :
                 Variables.VARIABLE.createRegistory(id, () ->
                         new CustomVariable<String>(StringArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.INTEGER:
-               // System.out.println("newInstance:" + variable);
+                System.out.println("newInstance:" + variable);
                 Variables.VARIABLE.createRegistory(id, () ->
                         new CustomVariable<Integer>(IntegerArgument.getInstance().indentification(variable, host)));break;
             case ConvertVariable.BOOLEAN:

@@ -70,7 +70,7 @@ public class Observer  implements KeyListener{
         Animation.create(CodeToon.GRAPHICS).draw( "observer.timer", x + 2, y + 24,
                 new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 25));
 
-        Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.timer.count", x + 20, y + 32, new Animation.Properties()
+        Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.timer.count", x + 10, y + 32, new Animation.Properties()
                 .changeArgument(() -> getTimer())
                 .color(Color.BLACK)
                 .size(80));

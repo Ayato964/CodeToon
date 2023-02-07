@@ -40,7 +40,7 @@ public class MemoryVariable extends Variable<Memory> {
 
     }
     @Override
-    public Memory action() {
+    public Memory returnAction(Player p) {
 
         return returnMemory;
     }

@@ -51,9 +51,9 @@ public class ObjectArgument extends Argument<Object, String> {
                     
                     if(v.isArray){
                         v.set(percent == null ? getVariable(builder) : getVariable(builder, percent));
-                        return  v.action();
+                        return  v.returnAction(host);
                     }
-                    return  v.action();
+                    return  v.returnAction(host);
                 }
                 if(ObjName instanceof Admin){
                     return  ObjName;
@@ -75,7 +75,7 @@ public class ObjectArgument extends Argument<Object, String> {
         if(Variables.VARIABLE.search(variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
             //return sample.getClass() == re.action().getClass() ? (T) re.action() : null;
-            return   re.action();
+            return   re.returnAction(host);
         }else{
             return null;
         }

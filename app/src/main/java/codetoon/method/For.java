@@ -6,6 +6,7 @@ import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 import codetoon.system.Message;
 import codetoon.system.Player;
+import codetoon.util.converter.ConvertMethod;
 import codetoon.util.converter.ConvertSource;
 import codetoon.util.converter.ConvertVariable;
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +46,7 @@ public class For extends MyMethod{
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){
                 for(int l = 0; l < methods.size(); l ++){
-                    System.out.println("For + " + l + ":" + host.getName());
+                    //System.out.println("For + " + l + ":" + host.getName());
                     methods.get(l).action(host);
                 }
             }
