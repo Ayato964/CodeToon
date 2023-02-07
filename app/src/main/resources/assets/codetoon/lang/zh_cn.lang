@@ -62,6 +62,8 @@ memory.pass.mes2 = "$的密码错误。",
 memory.pass.mes3 = "$不是你的领域，所以无法修改密码。",
 
 mode.change.error.opponent = "无法更改对手的领域模式。",
+memory.mode.error.notmyself ="このメモリーは自分が所有しているものではありません。",
+memory.mode.error.haveenemy = "$はハッキングされています！！",
 
 observer.category.game = "游戏",
 observer.life = "对手拥有领域的数量:$",

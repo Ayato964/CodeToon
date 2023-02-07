@@ -63,6 +63,8 @@ memory.pass.mes3 = "$が所有しているメモリーではないため、パ�
 savememory.run.error = "相手のMemoryを実行できません。",
 savememory.call.error = "相手のMemoryのソースを呼び出せません。",
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
+memory.mode.error.notmyself = "このメモリーは自分が所有しているものではありません。",
+memory.mode.error.haveenemy = "$はハッキングされています！！",
 
 observer.category.game = "ゲーム",
 observer.life = "相手が保有しているメモリーの数:$",

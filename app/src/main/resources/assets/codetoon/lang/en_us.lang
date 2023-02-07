@@ -62,7 +62,8 @@ memory.recovery.mes3 = "recovery is successful",
 memory.pass.mes1 = "Successful set password for $ !! Password is $",
 memory.pass.mes2 = "Different password for $",
 memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
-
+memory.mode.error.notmyself = "このメモリーは自分が所有しているものではありません。",
+memory.mode.error.haveenemy = "$はハッキングされています！！",
 
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
 

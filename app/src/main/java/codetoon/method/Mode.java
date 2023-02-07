@@ -33,31 +33,28 @@ public class Mode extends MyMethod<Object>{
     public void action(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(memoryStr, host);
         PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-        if(memory.pass == IntegerArgument.getInstance().indentification(pass, host))
-        {
-            if (enumStr.equals("SAVE")) {
-                if(memory.getStates() != EnumMemoryStates.HACKED) {
-                    if(memory.getSerialID() == Admin.getInstance().getSerialID()) {
+        if (memory.pass == IntegerArgument.getInstance().indentification(pass, host)) {
+            if (memory.getStates() != EnumMemoryStates.HACKED) {
+                if (memory.getSerialID() == Admin.getInstance().getSerialID()) {
+                    if (enumStr.equals("SAVE")) {
                         memory.running = false;
                         memory.removeAnimation();
                         Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
                         Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new SaveMemory(memory.getInfo()));
+                    } else {
+                        Message.addMessage("mode.change.error.opponent");
                     }
-                }else{
-                    Message.addMessage("mode.change.error.opponent");
-                }
-            }
-            if (enumStr.equals("NORMAL")) {
-                if(memory.getStates() != EnumMemoryStates.HACKED) {
-                    if(memory.getSerialID() == Admin.getInstance().getSerialID()) {
+                    if (enumStr.equals("NORMAL")) {
                         memory.running = true;
                         memory.removeAnimation();
                         Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
                         Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new Memory(memory.getInfo()));
                         Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
                     }
-                }
-            }
+                }else
+                    Message.addMessage("memory.mode.error.notmyself");
+            }else
+                Message.addMessage(new String[]{memory.getName()}, "memory.mode.error.haveenemy");
         }else{
             Message.addMessage(new String[]{memory.getName()}, "memory.connection.mes4");
         }
