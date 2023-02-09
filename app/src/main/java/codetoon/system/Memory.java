@@ -217,7 +217,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
             if (pass == 0 || pass == password) {
                 Message.addMessage(new String[]{p.getConsole().getHost().getName()}, "memory.connection.mes5", Color.BLACK);
                 p.getConsole().setHost(this);
-                p.getConsole().panel.setProgram(getSource() != null ? getSource() : new StringBuilder(), 0);
+                p.getConsole().panel.setProgram(getSource() != null ? new StringBuilder().append(getSource()) : new StringBuilder(), 0);
+                method.clear();
             } else {
                 p.getConsole().panel.setProgram(new StringBuilder(), 0);
                 Message.addMessage("memory.connection.mes4", Color.BLACK);
