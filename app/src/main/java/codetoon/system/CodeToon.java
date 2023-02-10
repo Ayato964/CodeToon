@@ -55,6 +55,11 @@ public class CodeToon{
                     Main.getInstance().run(new Loser());
 
                 }
+                try {
+                    Thread.sleep(2);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 Server.server.sendOpponentCopy();
                 Server.server.sendMyCopy();
             }
