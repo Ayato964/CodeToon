@@ -11,6 +11,7 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> DISCONNECT = METHODS.createRegistory("method_disconnect", Disconnect::new);
     public static final RegistoryObject<MyMethod<?>> END = METHODS.createRegistory("method_end", End::new);
     public static final RegistoryObject<MyMethod<?>> FOR = METHODS.createRegistory("method_for", For::new);
+   // public static final RegistoryObject<MyMethod<?>> GET = METHODS.createRegistory("method_get", Get::new);
     public static final RegistoryObject<MyMethod<?>> GET_W = METHODS.createRegistory("method_getW", GetW::new);
     public static final RegistoryObject<MyMethod<?>> GET_H = METHODS.createRegistory("method_getH", GetH::new);
     public static final RegistoryObject<MyMethod<?>> GET_BEFORE_PASS = METHODS.createRegistory("method_getBeforePass", GetBeforePass::new);
@@ -23,9 +24,11 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> IS_LOCKED = METHODS.createRegistory("method_isLocked", IsLocked::new);
 
     //public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
-
-    public static final RegistoryObject<MyMethod<?>> MODE = METHODS.createRegistory("method_mode", Mode::new);
+   // public static final RegistoryObject<MyMethod<?>> PUT = METHODS.createRegistory("method_put", Put::new);
     public static final RegistoryObject<MyMethod<?>> SETPASS = METHODS.createRegistory("method_setPass", SetPass::new);
+    public static final RegistoryObject<MyMethod<?>> SET_NORMAL_MODE = METHODS.createRegistory("method_setNormalMode", SetNormalMode::new);
+    public static final RegistoryObject<MyMethod<?>> SET_SAVE_MODE = METHODS.createRegistory("method_setSaveMode", SetSaveMode::new);
+    //public static final RegistoryObject<MyMethod<?>> SET_HASH_MODE = METHODS.createRegistory("method_setHashMode", SetHashMode::new);
     public static final RegistoryObject<MyMethod<?>> PRINT = METHODS.createRegistory("method_print", Print::new);
     public static final RegistoryObject<MyMethod<?>> RANDOM = METHODS.createRegistory("method_random", Random::new);
     public static final RegistoryObject<MyMethod<?>> REMOVE = METHODS.createRegistory("method_remove", Remove::new);

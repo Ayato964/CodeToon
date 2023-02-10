@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+@Deprecated(since = "1.7.0")
 public class InputTextBox extends Box implements KeyListener {
     private StringBuilder texts;
     private  int textCount;

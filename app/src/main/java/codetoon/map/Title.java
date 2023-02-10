@@ -1,14 +1,10 @@
 package codetoon.map;
 
-import codetoon.server.Server;
 import codetoon.system.CodeToon;
-import codetoon.system.Rule;
-import codetoon.util.*;
 import codetoon.main.*;
+import codetoon.system.Rule;
 import codetoon.util.animation.Animation;
 import codetoon.util.animation.AnimationImage;
-import codetoon.util.box.Box;
-import codetoon.util.box.DrawingTextBox;
 import codetoon.util.box.ContainerBox;
 
 import java.awt.*;
@@ -17,7 +13,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class Title extends Map{
-    private ContainerBox box;
     public Title(){
 
   }
@@ -56,7 +51,7 @@ public class Title extends Map{
                 }));
         Animation.create(h).draw("title.chooser3", 70, 86, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true).button(i->System.exit(-1)));
-/*
+
         Animation.create(h).draw("title.chooser4", 70, 94, new Animation.Properties().size(40)
                 .frame(Color.WHITE, 80, 8, ()->true).button(i->{
                     Rule r = Rule.create();
@@ -67,7 +62,7 @@ public class Title extends Map{
                     CodeToon.RULE = r;
                     CodeToon.DEBUG = true;Main.getInstance().run(new PazzleStage(r));
     }));
- */
+
 
     }
 

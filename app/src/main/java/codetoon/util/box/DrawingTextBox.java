@@ -5,6 +5,8 @@ import codetoon.util.ContainerData;
 import codetoon.util.animation.Animation;
 
 import java.awt.*;
+
+@Deprecated(since = "1.7.0")
 public class DrawingTextBox extends Box {
     private String mes;
     private Font font;

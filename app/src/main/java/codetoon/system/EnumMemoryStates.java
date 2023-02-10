@@ -6,7 +6,8 @@ public enum EnumMemoryStates {
     NONE(Color.WHITE),
     HACKED(Color.RED),
     SAVEMODE(Color.YELLOW),
-    USED(Color.GREEN);
+    USED(Color.GREEN),
+    HASHMODE(Color.ORANGE);
     private Color c;
 
     private EnumMemoryStates(Color col) {

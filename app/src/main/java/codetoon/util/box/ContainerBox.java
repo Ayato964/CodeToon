@@ -4,9 +4,11 @@ import java.awt.event.MouseEvent;
 import java.util.*;
 import codetoon.main.*;
 import codetoon.util.ContainerData;
+import jdk.jfr.Description;
 
 import javax.swing.event.MouseInputListener;
 
+@Deprecated(since = "1.7.0")
 public class ContainerBox implements Container<Box>, MouseInputListener {
     int x, y, width, height;
     ArrayList<Box> box;

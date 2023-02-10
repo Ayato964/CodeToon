@@ -55,6 +55,8 @@ public class CodeToon{
                     Main.getInstance().run(new Loser());
 
                 }
+                Server.server.sendOpponentCopy();
+                Server.server.sendMyCopy();
             }
         }
     }

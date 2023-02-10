@@ -9,20 +9,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Mode extends MyMethod<Object>{
+public abstract class Mode extends MyMethod<Object>{
     String memoryStr;
-    String enumStr;
     String pass = "0";
 
-    @Override
-    public Object newInstance() {
-        return new Mode();
-    }
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         memoryStr = map.get(CodeToon.PARCENT_ARGUMENT);
-        enumStr = map.get(0);
         if(map.get(1) != null)
             pass = map.get(1);
 
@@ -32,31 +26,25 @@ public class Mode extends MyMethod<Object>{
     @Override
     public void action(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(memoryStr, host);
-        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-        if (memory.pass == IntegerArgument.getInstance().indentification(pass, host)) {
-            if (memory.getStates() != EnumMemoryStates.HACKED) {
-                if (memory.getSerialID() == Admin.getInstance().getSerialID()) {
-                    if (enumStr.equals("SAVE")) {
-                        memory.running = false;
-                        memory.removeAnimation();
-                        Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
-                        Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new SaveMemory(memory.getInfo()));
-                    } else {
-                        Message.addMessage("mode.change.error.opponent");
-                    }
-                    if (enumStr.equals("NORMAL")) {
-                        memory.running = true;
-                        memory.removeAnimation();
-                        Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
-                        Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), new Memory(memory.getInfo()));
-                        Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
-                    }
-                }else
+        if (memory.pass == IntegerArgument.getInstance().indentification(pass, host))
+            if (memory.getStates() != EnumMemoryStates.HACKED)
+                if (memory.getSerialID() == Admin.getInstance().getSerialID())
+                    change(host, memory);
+                else
                     Message.addMessage("memory.mode.error.notmyself");
-            }else
+            else
                 Message.addMessage(new String[]{memory.getName()}, "memory.mode.error.haveenemy");
-        }else{
+        else
             Message.addMessage(new String[]{memory.getName()}, "memory.connection.mes4");
-        }
     }
+    protected void changeMemory(Memory memory, Memory newMemory, boolean isRunning){
+        PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+        memory.running = isRunning;
+        memory.removeAnimation();
+        Memories.memory.remove(p.MEMORY_H * memory.getIdC() + memory.getIdI());
+        Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), newMemory);
+        if(isRunning)
+            Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
+    }
+    protected abstract void change(Player host, Memory memory);
 }

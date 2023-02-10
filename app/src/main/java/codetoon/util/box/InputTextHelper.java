@@ -4,7 +4,7 @@ import codetoon.util.ContainerData;
 import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
-
+@Deprecated(since = "1.7.0")
 public abstract class InputTextHelper implements ContainerData<Box, Integer> {
 
     private InputTextBox box;

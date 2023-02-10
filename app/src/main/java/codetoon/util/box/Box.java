@@ -5,7 +5,7 @@ import codetoon.util.ContainerData;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-
+@Deprecated(since = "1.7.0")
 public abstract class Box {
     private int x, y, w, h;
 

@@ -64,6 +64,10 @@ memory.pass.mes2 = "Different password for $",
 memory.pass.mes3 = "Can't change Password! because $ isn't have this memory",
 memory.mode.error.notmyself = "このメモリーは自分が所有しているものではありません。",
 memory.mode.error.haveenemy = "$はハッキングされています！！",
+hash.error.mes1 = "$にはコネクトできません。",
+hash.error.notnull = "$はすでにHashMapがセットされています",
+hash.success.set.hash = "$に$と$のHashをセットしました。",
+hash.set.success = "$にデータをセットしました",
 
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
 

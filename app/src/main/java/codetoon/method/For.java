@@ -61,8 +61,6 @@ public class For extends MyMethod{
             }
             if(!host.running)
                 break;
-            Server.server.sendMyCopy();
-            Server.server.sendOpponentCopy();
         }
         Message.pushMessage();
     }
