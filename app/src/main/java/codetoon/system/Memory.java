@@ -180,8 +180,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         }
 
         console.panel.resetAll();
-        Server.server.sendOpponentCopy();
-        Server.server.sendMyCopy();
+        //Server.server.sendOpponentCopy();
+        //Server.server.sendMyCopy();
     }
 
     @Override

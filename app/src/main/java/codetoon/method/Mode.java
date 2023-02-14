@@ -17,9 +17,8 @@ public abstract class Mode extends MyMethod<Object>{
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         memoryStr = map.get(CodeToon.PARCENT_ARGUMENT);
-        if(map.get(1) != null)
-            pass = map.get(1);
-
+        if(map.get(0) != null)
+            pass = map.get(0);
         return null;
     }
 

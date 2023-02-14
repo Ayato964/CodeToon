@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class Server implements Runnable {
     public static boolean isHost;
+    public static boolean IS_SEND = false;
     int myPORT = 50000;
     int opponentPORT = 60000;
     String ipAdress;
@@ -39,6 +40,10 @@ public class Server implements Runnable {
         ipAdress = _ipAdress;
         this.rule = rule;
         startServer = true;
+        if(isHost)
+            IS_SEND = true;
+
+
         Thread thread = new Thread(this);
         thread.start();
     }

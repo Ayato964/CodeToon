@@ -40,9 +40,13 @@ public class Reception extends Thread {
                             CodeToon.RULE = _testWrapper.rule;
                             Main.getInstance().run(new PazzleStage(CodeToon.RULE));
                             Server.server.sendMyCopy();
+                        }else {
+                            if (!_testWrapper.memory.isEmpty()) {
+                                Memories.equalsOpponentMemory(_testWrapper.memory);
+                                Server.IS_SEND = true;
+                            }
                         }
-                        if(!_testWrapper.memory.isEmpty())
-                          Memories.equalsOpponentMemory(_testWrapper.memory);
+
                        // System.out.println("Repaired!!" + Memories.opponentMemory.get(0).showPass());
 
                     }

@@ -31,7 +31,7 @@ public class Put extends MyMethod<Object>{
         Memory m = (Memory) ObjectArgument.getInstance().indentification(strMemory, host);
         if(m instanceof HashMemory<?,?>){
             HashMemory memory = (HashMemory) m;
-            memory.set(changeToArgument(host, memory.t, a), changeToArgument(host, memory.v, a));
+            memory.set(changeToArgument(host, memory.t, a), changeToArgument(host, memory.v, b));
         }
     }
 }

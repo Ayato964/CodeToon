@@ -36,8 +36,8 @@ public class SaveMemory extends Memory implements Serializable {
         Indentification.removeEnd(source);
         this.source = source;
         console.panel.resetAll();
-        Server.server.sendOpponentCopy();
-        Server.server.sendMyCopy();
+        //Server.server.sendOpponentCopy();
+        //Server.server.sendMyCopy();
     }
 
     @Override

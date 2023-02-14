@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.7.0";
+    public static final String GAME_VERSION = "1.7.8";
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
@@ -31,6 +31,11 @@ public class CodeToon{
     }
     public static void gameObserver(){
         new CodeToon(Memories.opponentMemory);
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         while (isGameStart && !DEBUG){
             System.out.print(Memories.opponentMemory == null ? "" : "");
             if(Memories.opponentMemory != null) {
@@ -55,13 +60,17 @@ public class CodeToon{
                     Main.getInstance().run(new Loser());
 
                 }
-                try {
-                    Thread.sleep(2);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                if(Server.IS_SEND){
+                    try {
+                        Thread.sleep(2);
+                        Server.IS_SEND = false;
+                        Server.server.sendOpponentCopy();
+                        Server.server.sendMyCopy();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+
                 }
-                Server.server.sendOpponentCopy();
-                Server.server.sendMyCopy();
             }
         }
     }

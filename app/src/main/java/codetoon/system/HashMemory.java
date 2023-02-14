@@ -20,12 +20,13 @@ public class HashMemory<T, V> extends Memory{
         states = EnumMemoryStates.HASHMODE;
         serialID = info.serial;
         pass = info.pass;
-        hash = new HashMap();
+        hash = new HashMap<T, V>();
         t = exT;
         v = exV;
     }
     public void set(T a, V b){
         hash.put(a, b);
+        System.out.println(hash.get(a));
         Message.addMessage(new String[]{getName()}, "hash.set.success");
     }
     public V get(String a, Player host){
@@ -62,11 +63,10 @@ public class HashMemory<T, V> extends Memory{
             Message.addMessage("memory.attack.mes2");
         }
     }
-    protected Object changeToArgument(Player host, Object t, String a) {
+    protected Object changeToArgument(Player host, T t, String a) {
         if(t.getClass() == "string".getClass())
-            return StringArgument.getInstance().indentification(a, host);
+            return new StringBuilder().append("\"").append(StringArgument.getInstance().indentification(a, host)).append("\"").toString();
         if(t.getClass() == Integer.class) {
-            System.out.println("YESSSSSSSS");
             return IntegerArgument.getInstance().indentification(a, host);
         }
         if(t.getClass() == Class.class)

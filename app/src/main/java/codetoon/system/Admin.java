@@ -100,8 +100,8 @@ public class Admin extends Player implements Serializable {
                 a.method = new ArrayList<>();
                 a.c.panel.resetAll();
                 Variables.VARIABLE.deleteAll(a.getID() + "_" + a.getSerialID());
-                Server.server.sendMyCopy();
-                Server.server.sendOpponentCopy();
+                //Server.server.sendMyCopy();
+                //Server.server.sendOpponentCopy();
                 System.out.println("SSSSS");
             }
 

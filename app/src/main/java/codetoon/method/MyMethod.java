@@ -43,10 +43,11 @@ public abstract class MyMethod<T> implements Actions<Player, T>, Setter{
     }
     protected Object changeToArgument(Player host, Object t, String a) {
         if(t.getClass() == "string".getClass())
-            return StringArgument.getInstance().indentification(a, host);
-        if(t.getClass() == Integer.class)
+            return new StringBuilder().append("\"").append(StringArgument.getInstance().indentification(a, host)).append("\"").toString();
+        if(t.getClass() == Integer.class) {
             return IntegerArgument.getInstance().indentification(a, host);
-        if(t.getClass() == Class.class)
+        }
+        if(t.getClass() == Boolean.class)
             return BooleanArgument.getInstance().indentification(a, host);
         return ObjectArgument.getInstance().indentification(a, host);
     }
