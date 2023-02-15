@@ -20,7 +20,7 @@ public class HashMemory<T, V> extends Memory{
         states = EnumMemoryStates.HASHMODE;
         serialID = info.serial;
         pass = info.pass;
-        hash = new HashMap<T, V>();
+        hash = new HashMap<>();
         t = exT;
         v = exV;
     }
@@ -71,7 +71,7 @@ public class HashMemory<T, V> extends Memory{
     }
     protected Object changeToArgument(Player host, T t, String a) {
         if(t.getClass() == "string".getClass())
-            return new StringBuilder().append("\"").append(StringArgument.getInstance().indentification(a, host)).append("\"").toString();
+            return "\"" + StringArgument.getInstance().indentification(a, host) + "\"";
         if(t.getClass() == Integer.class) {
             return IntegerArgument.getInstance().indentification(a, host);
         }

@@ -22,6 +22,9 @@ public class Methods {
     public static final RegistoryObject<MyMethod<?>> IF = METHODS.createRegistory("method_if", If::new);
     public static final RegistoryObject<MyMethod<?>> IS_HACKED = METHODS.createRegistory("method_isHacked", IsHacked::new);
     public static final RegistoryObject<MyMethod<?>> IS_LOCKED = METHODS.createRegistory("method_isLocked", IsLocked::new);
+    public static final RegistoryObject<MyMethod<?>> IS_NORMAL_MEMORY = METHODS.createRegistory("method_isNormalMemory", IsNormalMemory::new);
+    public static final RegistoryObject<MyMethod<?>> IS_SAVE_MEMORY = METHODS.createRegistory("method_isSaveMemory", IsSaveMemory::new);
+    public static final RegistoryObject<MyMethod<?>> IS_HASH_MEMORY = METHODS.createRegistory("method_isHashMemory", IsHashMemory::new);
 
    // public static final RegistoryObject<MyMethod<?>> LOOP = METHODS.createRegistory("method_loop", Loop::new);
     public static final RegistoryObject<MyMethod<?>> PUT = METHODS.createRegistory("method_put", Put::new);
