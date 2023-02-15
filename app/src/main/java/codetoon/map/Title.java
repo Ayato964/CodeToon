@@ -28,10 +28,8 @@ public class Title extends Map{
         AnimationImage.createImage(h).draw("title/icon", 170, 90, 13, 13, new AnimationImage.PropertiesImage().of(1280, 1280)
                 .button(i ->{
                     try {
-                        Desktop.getDesktop().browse(new URI("https://code-toon.netlify.app/"));
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (URISyntaxException e) {
+                        Desktop.getDesktop().browse(new URI("https://github.com/Ayato964/CodeToon/wiki"));
+                    } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 }));
