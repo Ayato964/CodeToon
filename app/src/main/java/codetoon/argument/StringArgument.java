@@ -1,7 +1,11 @@
 package codetoon.argument;
 
 
+import codetoon.method.MyMethod;
 import codetoon.system.Player;
+import codetoon.util.converter.ConvertSource;
+
+import java.util.ArrayList;
 
 public class StringArgument extends Argument<String, String> {
     private static final StringArgument instance= new StringArgument();
@@ -11,6 +15,14 @@ public class StringArgument extends Argument<String, String> {
         StringBuilder builder = new StringBuilder().append(s);
         if(builder.charAt(0) == '\"'){
              return convertStringAll(builder);
+        }else if(builder.indexOf("(") != -1) {
+            ArrayList<MyMethod> m = ConvertSource.convert(builder.append(";").toString(), host);
+            if(!m.isEmpty())
+                if (m.get(0) != null)
+                    return (String) m.get(0).returnAction(host);
+                else return null;
+                else return null;
+
         }else{
             return convertVariableTo(s);
         }

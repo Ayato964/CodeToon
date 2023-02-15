@@ -116,6 +116,7 @@ public class Server implements Runnable {
             try {
                 if(isHost) {
                     Main.getInstance().run(new PazzleStage(rule));
+                    Thread.sleep(2);
                     sendMyCopy();
                 }
                 Thread.sleep(1000);
