@@ -43,7 +43,6 @@ public class Reception extends Thread {
                         }else {
                             if (!_testWrapper.memory.isEmpty()) {
                                 Memories.equalsOpponentMemory(_testWrapper.memory);
-                                Server.IS_SEND = true;
                             }
                         }
 

@@ -40,8 +40,6 @@ public class Server implements Runnable {
         ipAdress = _ipAdress;
         this.rule = rule;
         startServer = true;
-        if(isHost)
-            IS_SEND = true;
 
 
         Thread thread = new Thread(this);

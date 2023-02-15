@@ -133,6 +133,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 this.pass = 0;
                 serialID = hostSerialID;
                 //   System.out.println("Hacked");
+                Server.server.sendMyCopy();
+                Server.server.sendOpponentCopy();
             } else {
                 Message.addMessage("memory.attack.mes1", Color.BLACK);
             }
@@ -219,6 +221,9 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 p.getConsole().setHost(this);
                 p.getConsole().panel.setProgram(getSource() != null ? new StringBuilder().append(getSource()) : new StringBuilder(), 0);
                 method.clear();
+                source = new StringBuilder();
+                Server.server.sendOpponentCopy();
+                Server.server.sendMyCopy();
             } else {
                 p.getConsole().panel.setProgram(new StringBuilder(), 0);
                 Message.addMessage("memory.connection.mes4", Color.BLACK);
@@ -243,6 +248,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 method = new ArrayList<>();
                 source = new StringBuilder();
                 Message.addMessage("memory.recovery.mes3", Color.BLACK);
+                Server.server.sendMyCopy();
+                Server.server.sendOpponentCopy();
             }else{
                 Message.addMessage("memory.recovery.mes1", Color.BLACK);
             }
