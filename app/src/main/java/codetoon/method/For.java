@@ -59,8 +59,10 @@ public class For extends MyMethod{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            if(!host.running)
+            if(!host.running || host.DEAD_CHORD) {
+                host.DEAD_CHORD = false;
                 break;
+            }
         }
         Message.pushMessage();
     }
