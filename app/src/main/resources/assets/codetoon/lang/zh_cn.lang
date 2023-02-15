@@ -68,6 +68,7 @@ hash.error.mes1 = "$にはコネクトできません。",
 hash.error.notnull = "$はすでにHashMapがセットされています",
 hash.success.set.hash = "$に$と$のHashをセットしました。",
 hash.set.success = "$にデータをセットしました",
+hash.set.error = "$にはパスワードが設定されているか、パスワードが違うため、データをセットできません。",
 
 observer.category.game = "游戏",
 observer.life = "对手拥有领域的数量:$",

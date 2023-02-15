@@ -24,13 +24,19 @@ public class HashMemory<T, V> extends Memory{
         t = exT;
         v = exV;
     }
-    public void set(T a, V b){
-        hash.put(a, b);
-        System.out.println(hash.get(a));
-        Message.addMessage(new String[]{getName()}, "hash.set.success");
+    public void set(T a, V b, int pass){
+        if(this.pass == pass) {
+            hash.put(a, b);
+            System.out.println(hash.get(a));
+            Message.addMessage(new String[]{getName()}, "hash.set.success");
+        }else
+            Message.addMessage(new String[]{getName()},"hash.set.error");
     }
-    public V get(String a, Player host){
-        return hash.get(changeToArgument(host, t, a));
+    public V get(String a, int pass, Player host){
+        if(this.pass == pass)
+            return hash.get(changeToArgument(host, t, a));
+        else
+            return null;
     }
 
     @Override
@@ -71,6 +77,7 @@ public class HashMemory<T, V> extends Memory{
         }
         if(t.getClass() == Class.class)
             return BooleanArgument.getInstance().indentification(a, host);
+
         return ObjectArgument.getInstance().indentification(a, host);
     }
 }

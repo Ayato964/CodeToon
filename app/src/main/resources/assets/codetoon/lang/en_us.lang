@@ -68,6 +68,7 @@ hash.error.mes1 = "$にはコネクトできません。",
 hash.error.notnull = "$はすでにHashMapがセットされています",
 hash.success.set.hash = "$に$と$のHashをセットしました。",
 hash.set.success = "$にデータをセットしました",
+hash.set.error = "$にはパスワードが設定されているか、パスワードが違うため、データをセットできません。",
 
 mode.change.error.opponent = "相手のメモリーのモードは変更できません。",
 

@@ -69,7 +69,7 @@ memory.mode.error.notmyself = "このメモリーは自分が所有している�
 memory.mode.error.haveenemy = "$はハッキングされています！！",
 hash.success.set.hash = "$に$と$のHashをセットしました。",
 hash.set.success = "$にデータをセットしました",
-
+hash.set.error = "$にはパスワードが設定されているか、パスワードが違うため、データをセットできません。",
 observer.category.game = "ゲーム",
 observer.life = "相手が保有しているメモリーの数:$",
 observer.remaining = "相手の残りのメモリー数:$",
