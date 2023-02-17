@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public abstract class AbstractLockerPlayer extends Player implements Serializable {
-    private ArrayList<Integer> history = new ArrayList<>();
+    protected ArrayList<Integer> history = new ArrayList<>();
     public int serialID;
     //SUCSESS
     public int pass = 0;
@@ -37,6 +37,6 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
     }
 
     public Integer getBeforePass() {
-        return history.get(history.size() - 1);
+        return history.get(history.size() - 1) == null ? 0 : history.get(history.size() - 1);
     }
 }

@@ -130,6 +130,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
         if(serialID != hostSerialID && states != EnumMemoryStates.HACKED) {
             if (pass == this.pass) {
                 states = EnumMemoryStates.HACKED;
+                history.add(this.pass);
                 this.pass = 0;
                 serialID = hostSerialID;
                 //   System.out.println("Hacked");
