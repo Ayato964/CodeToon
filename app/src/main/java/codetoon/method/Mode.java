@@ -4,6 +4,7 @@ import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
+import codetoon.server.Server;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,6 +45,9 @@ public abstract class Mode extends MyMethod<Object>{
         Memories.memory.add(p.MEMORY_H * memory.getIdC() + memory.getIdI(), newMemory);
         if(isRunning)
             Memories.runThread(Memories.memory.get(p.MEMORY_H * memory.getIdC() + memory.getIdI()));
+
+        Server.server.sendMyCopy();
+        Server.server.sendOpponentCopy();
     }
     protected abstract void change(Player host, Memory memory);
 }

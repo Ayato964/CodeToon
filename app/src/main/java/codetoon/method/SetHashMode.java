@@ -1,5 +1,6 @@
 package codetoon.method;
 
+import codetoon.server.Server;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,5 +39,6 @@ public class SetHashMode extends Mode{
                 changeMemory(memory, new HashMemory<Integer, Memory>(memory.getInfo(), 0,new Memory(Memories.get(0).getInfo())), false);
             if(a.equals("Memory") && b.equals("Integer"))
                 changeMemory(memory, new HashMemory<Memory, Integer>(memory.getInfo(), new Memory(Memories.get(0).getInfo()), 0), false);
+
     }
 }
