@@ -10,6 +10,9 @@ import org.jetbrains.annotations.NotNull;
 public class MemoryVariable extends Variable<Memory> {
 
     Memory returnMemory;
+    String strW;
+    String strH;
+    String strS;
     public MemoryVariable (){
     }
     @Override
@@ -24,24 +27,26 @@ public class MemoryVariable extends Variable<Memory> {
     @Override
     public String set(@NotNull HashMap<Integer, String> i) {
       //  System.out.println(i.get(0) + "!!!   " + i.get(1) + "!!!");
-        Player host  = (Player) ObjectArgument.getInstance().indentification(i.get(CodeToon.HOST_MAP));
-        int size = ((PazzleStage) Main.getInstance().getMap()).MEMORY_SIZE;
-        int num = IntegerArgument.getInstance().indentification(i.get(0), host) +
-                    IntegerArgument.getInstance().indentification(i.get(1), host) * size;
-        if(i.get(2) != null) {
-            if (i.get(2).equals("enemy")) {
-                returnMemory = Memories.opponentMemory.get(num);
-            }
-        }else {
-            returnMemory = Memories.memory.get(num);
-        }
 
+        strW = i.get(0);
+        strH = i.get(1);
+        if(i.get(2) != null)
+            strS = i.get(2);
         return null;
 
     }
     @Override
     public Memory returnAction(Player p) {
 
+        int num = IntegerArgument.getInstance().indentification(strW, p) +
+                IntegerArgument.getInstance().indentification(strH, p) * CodeToon.RULE.memory_h;
+        if(strS != null) {
+            if (strS.equals("enemy")) {
+                returnMemory = Memories.opponentMemory.get(num);
+            }
+        }else {
+            returnMemory = Memories.memory.get(num);
+        }
         return returnMemory;
     }
     
