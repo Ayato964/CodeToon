@@ -108,6 +108,7 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                     memory.isLoading = true;
                     memory.runMethod();
                     memory.isLoading = false;
+                    memory.DEAD_CHORD = false;
                     Variables.VARIABLE.deleteAll(memory.getID() + "_" + memory.getSerialID());
                 }
             }

@@ -48,20 +48,20 @@ public class For extends MyMethod{
                 for(int l = 0; l < methods.size(); l ++){
                     //System.out.println("For + " + l + ":" + host.getName());
                     methods.get(l).action(host);
+                    if(!host.running || host.DEAD_CHORD)
+                        break;
                 }
             }
 //            ConvertVariable.convert(lamda, host).action(host);
             ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
-            System.out.println("ForEnd:" + host.getName());
+            //System.out.println("ForEnd:" + host.getName());
+            if(!host.running || host.DEAD_CHORD)
+                break;
 
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            }
-            if(!host.running || host.DEAD_CHORD) {
-                host.DEAD_CHORD = false;
-                break;
             }
         }
         Message.pushMessage();

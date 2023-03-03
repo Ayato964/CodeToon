@@ -15,7 +15,7 @@ public abstract class Argument<T, I>  {
     public static final int NOT_ARGUMENT = -99999;
     protected final StringBuilder ERROR = new StringBuilder().append("sgsihgrgmkwrgtkrthhjthmmlghmghmls");
     protected Argument(){
-        host = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
+        //host = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
     } 
     protected int search(char n, StringBuilder obj){
         for(int i = 0; i < obj.length(); i ++){
@@ -42,7 +42,7 @@ public abstract class Argument<T, I>  {
     protected T convertVariableTo(String s){
         //Player p = ((PazzleStage) Main.getInstance().getMap()).getConsole().getHost();
         String variable_ID = host.getID() + "_" + host.getSerialID() + "_" + s;
-        System.out.println(variable_ID + "    Argument");
+        //System.out.println(variable_ID + "    Argument");
         if(Variables.VARIABLE.search(variable_ID)){
             Variable<?> re =  Variables.VARIABLE.getThis(variable_ID);
             return sample.getClass() == re.returnAction(host).getClass() ? (T) re.returnAction(host) : null;

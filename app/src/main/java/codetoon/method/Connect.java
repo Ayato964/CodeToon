@@ -29,7 +29,7 @@ public class Connect extends MyMethod  {
 
     @Override
     public void action(Player host) {
-        Memory memory = (Memory)ObjectArgument.getInstance().indentification(memoryString);
+        Memory memory = (Memory)ObjectArgument.getInstance().indentification(memoryString, host);
         pass = IntegerArgument.getInstance().indentification(strPass, host);
         memory.connection(pass);
     }
