@@ -1,6 +1,7 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.EnumMemoryStates;
 import codetoon.system.Memory;
@@ -9,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class IsNormalMemory extends MyMethod<Boolean>{
+public class IsNormalMemory extends MyMethod<Boolean> {
     String m;
     @Override
     public Object newInstance() {

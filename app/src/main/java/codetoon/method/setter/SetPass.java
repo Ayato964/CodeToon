@@ -1,7 +1,8 @@
-package codetoon.method;
+package codetoon.method.setter;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
@@ -9,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class SetPass extends MyMethod{
+public class SetPass extends MyMethod {
     private AbstractLockerPlayer parcent = null;
     private String percentString;
     private String new_pass = "0";

@@ -1,15 +1,16 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
+import codetoon.method.MyMethod;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Call extends MyMethod<Object>{
+public class Call extends MyMethod<Object> {
     String percent;
     String pass = "0";
     @Override

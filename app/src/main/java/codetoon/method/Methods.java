@@ -1,10 +1,13 @@
 package codetoon.method;
 
+import codetoon.method.getter.*;
+import codetoon.method.setter.*;
+import codetoon.method.voider.*;
 import codetoon.regi.*;
 
 public class Methods {
     public static final RegistoryList<MyMethod<?>> METHODS = new RegistoryList<>("methods");
-    public static final RegistoryObject<MyMethod<?>> Attack = METHODS.createRegistory("method_attack", Attack::new);
+    public static final RegistoryObject<MyMethod<?>> Attack = METHODS.createRegistory("method_attack", codetoon.method.voider.Attack::new);
     public static final RegistoryObject<MyMethod<?>> BLANK = METHODS.createRegistory("method_blank", Blank::new);
     public static final RegistoryObject<MyMethod<?>> CONNECT = METHODS.createRegistory("method_connect", Connect::new);
     public static final RegistoryObject<MyMethod<?>> CALL = METHODS.createRegistory("method_call", Call::new);

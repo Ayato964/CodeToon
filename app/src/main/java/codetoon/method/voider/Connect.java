@@ -1,14 +1,12 @@
-package codetoon.method;
+package codetoon.method.voider;
 
-import java.awt.*;
-import java.io.Serializable;
 import java.util.HashMap;
+
+import codetoon.method.MyMethod;
 import codetoon.system.*;
-import codetoon.map.*;
-import codetoon.main.*;
 import codetoon.argument.*;
 
-public class Connect extends MyMethod  {
+public class Connect extends MyMethod {
     String memoryString;
     String strPass = "0";
     int pass = 0;

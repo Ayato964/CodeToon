@@ -1,10 +1,11 @@
-package codetoon.method;
+package codetoon.method.voider;
 
+import codetoon.method.MyMethod;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Blank  extends  MyMethod{
+public class Blank  extends MyMethod {
     @Override
     public void action(Object o) {
 

@@ -1,13 +1,14 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class GetBeforePass extends MyMethod<Integer>{
+public class GetBeforePass extends MyMethod<Integer> {
     String pMemory;
     String pass;
 

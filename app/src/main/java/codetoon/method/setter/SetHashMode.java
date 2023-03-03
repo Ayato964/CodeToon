@@ -1,12 +1,12 @@
-package codetoon.method;
+package codetoon.method.setter;
 
-import codetoon.server.Server;
+import codetoon.method.voider.Mode;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class SetHashMode extends Mode{
+public class SetHashMode extends Mode {
     String a = "Integer", b = "String";
     @Override
     public Object newInstance() {

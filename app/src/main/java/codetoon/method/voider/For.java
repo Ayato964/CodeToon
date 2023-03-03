@@ -1,12 +1,11 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import codetoon.argument.BooleanArgument;
-import codetoon.server.Server;
+import codetoon.method.MyMethod;
+import codetoon.method.PrivateNewVariable;
 import codetoon.system.CodeToon;
-import codetoon.system.Memories;
 import codetoon.system.Message;
 import codetoon.system.Player;
-import codetoon.util.converter.ConvertMethod;
 import codetoon.util.converter.ConvertSource;
 import codetoon.util.converter.ConvertVariable;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class For extends MyMethod{
+public class For extends MyMethod {
     String bool;
     String integer;
     String lamda;

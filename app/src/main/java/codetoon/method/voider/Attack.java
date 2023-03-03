@@ -1,17 +1,15 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import java.awt.*;
 import java.util.HashMap;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
-import codetoon.main.Main;
-import codetoon.map.PazzleStage;
-import codetoon.server.Server;
+import codetoon.method.MyMethod;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
-public class Attack extends MyMethod{
+public class Attack extends MyMethod {
     String enemyString;
     String hostString;
     private String passString = "0";

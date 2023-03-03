@@ -1,16 +1,15 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
-import codetoon.system.AbstractLockerPlayer;
+import codetoon.method.MyMethod;
 import codetoon.system.Memory;
-import codetoon.system.Message;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Recovery extends MyMethod{
+public class Recovery extends MyMethod {
     private String Stringmemory;
     private String stringPass;
     @Override

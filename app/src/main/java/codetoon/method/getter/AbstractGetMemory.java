@@ -1,5 +1,6 @@
-package codetoon.method;
+package codetoon.method.getter;
 
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.Memories;
 import codetoon.system.Memory;
@@ -9,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class AbstractGetMemory extends MyMethod<Memory>{
+public abstract class AbstractGetMemory extends MyMethod<Memory> {
 
     protected ArrayList<Memory> getMyMemories(Memory m){
         for(Memory memory : Memories.memory){

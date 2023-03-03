@@ -1,12 +1,13 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.IntegerArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Random extends MyMethod<Integer>{
+public class Random extends MyMethod<Integer> {
     private String v1;
     private String v2;
     @Override

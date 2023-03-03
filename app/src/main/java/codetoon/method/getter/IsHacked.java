@@ -1,6 +1,7 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.EnumMemoryStates;
 import codetoon.system.Memory;
@@ -9,24 +10,22 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class IsLocked extends MyMethod<Boolean>{
+public class IsHacked extends MyMethod<Boolean> {
     String strMemory;
     @Override
-    public Boolean returnAction(Player host) {
-        Memory memory = (Memory) ObjectArgument.getInstance().indentification(strMemory, host);
-        System.out.println(memory.getName() + "<----" + memory.pass);
-        return memory.pass != 0;
+    public Boolean returnAction(Player o) {
+        Memory memory = (Memory) ObjectArgument.getInstance().indentification(strMemory, o);
+        return memory.getStates() == EnumMemoryStates.HACKED;
     }
 
     @Override
     public Object newInstance() {
-        return new IsLocked();
+        return new IsHacked();
     }
 
     @Override
     public String set(@NotNull HashMap<Integer, String> map) {
         strMemory = map.get(CodeToon.PARCENT_ARGUMENT);
-
         return null;
     }
 }

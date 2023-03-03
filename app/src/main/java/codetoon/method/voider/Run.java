@@ -1,12 +1,13 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Run extends MyMethod<Object>{
+public class Run extends MyMethod<Object> {
     String memory;
     @Override
     public Object newInstance() {

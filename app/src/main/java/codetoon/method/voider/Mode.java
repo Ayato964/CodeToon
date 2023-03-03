@@ -1,18 +1,19 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
 import codetoon.main.Main;
 import codetoon.map.PazzleStage;
+import codetoon.method.MyMethod;
 import codetoon.server.Server;
 import codetoon.system.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public abstract class Mode extends MyMethod<Object>{
-    String memoryStr;
-    String pass = "0";
+public abstract class Mode extends MyMethod<Object> {
+    protected String memoryStr;
+    protected String pass = "0";
 
 
     @Override

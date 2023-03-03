@@ -1,6 +1,7 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import codetoon.argument.BooleanArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import codetoon.util.converter.ConvertSource;
@@ -9,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class If extends MyMethod{
+public class If extends MyMethod {
     boolean isBool;
     ArrayList<MyMethod> methods;
     String inside;

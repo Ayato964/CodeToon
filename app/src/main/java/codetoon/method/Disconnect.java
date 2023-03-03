@@ -6,7 +6,7 @@ import codetoon.system.Player;
 import codetoon.util.*;
 import codetoon.server.Server;
 import org.jetbrains.annotations.NotNull;
-
+@Deprecated(since = "1.7.21")
 public class Disconnect extends MyMethod{
     public Disconnect(){
     

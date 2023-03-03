@@ -1,12 +1,13 @@
-package codetoon.method;
+package codetoon.method.voider;
 
 import java.util.HashMap;
 import codetoon.argument.*;
+import codetoon.method.MyMethod;
 import codetoon.system.Message;
 import codetoon.system.Player;
 import codetoon.argument.BooleanArgument;
 
-public class Print extends MyMethod{
+public class Print extends MyMethod {
     private String mes;
     private String map;
     @Override

@@ -1,17 +1,17 @@
-package codetoon.method;
+package codetoon.method.setter;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.HashMemory;
 import codetoon.system.Memory;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
-import org.python.modules._hashlib;
 
 import java.util.HashMap;
 
-public class Put extends MyMethod<Object>{
+public class Put extends MyMethod<Object> {
     String strMemory;
     String a, b;
     String pass = "0";

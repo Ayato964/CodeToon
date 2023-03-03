@@ -1,5 +1,6 @@
-package codetoon.method;
+package codetoon.method.setter;
 
+import codetoon.method.voider.Mode;
 import codetoon.system.Memory;
 import codetoon.system.Player;
 

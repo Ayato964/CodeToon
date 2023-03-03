@@ -1,7 +1,8 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.argument.IntegerArgument;
 import codetoon.argument.ObjectArgument;
+import codetoon.method.MyMethod;
 import codetoon.system.CodeToon;
 import codetoon.system.HashMemory;
 import codetoon.system.Memory;
@@ -10,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Get extends MyMethod<Object>{
+public class Get extends MyMethod<Object> {
     String strMemory;
     String a;
     String pass = "0";

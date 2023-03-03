@@ -1,8 +1,7 @@
 package codetoon.util.converter;
 
 import codetoon.method.*;
-import codetoon.system.AbstractLockerPlayer;
-import codetoon.system.Console;
+import codetoon.method.voider.For;
 import codetoon.system.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

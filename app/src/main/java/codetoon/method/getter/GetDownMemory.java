@@ -1,15 +1,13 @@
-package codetoon.method;
+package codetoon.method.getter;
 
 import codetoon.system.CodeToon;
 import codetoon.system.Memory;
-import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
-import org.python.compiler.Code;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GetDownMemory extends AbstractGetMemory{
+public class GetDownMemory extends AbstractGetMemory {
     @Override
     public Object newInstance() {
         return new GetDownMemory();

@@ -15,7 +15,6 @@ import codetoon.util.function.StringSup;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-//import javax.swing.plaf.ColorUIResource;
 
 public abstract class Animation implements Serializable {
     private int x, y;

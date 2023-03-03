@@ -1,14 +1,12 @@
-package codetoon.method;
+package codetoon.method.getter;
 
-import codetoon.system.CodeToon;
 import codetoon.system.Memory;
-import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GetUpMemory extends AbstractGetMemory{
+public class GetUpMemory extends AbstractGetMemory {
     @Override
     public Object newInstance() {
         return new GetUpMemory();
