@@ -248,6 +248,8 @@ public class Memory extends AbstractLockerPlayer implements Serializable{
                 states = EnumMemoryStates.NONE;
                 method = new ArrayList<>();
                 source = new StringBuilder();
+                isRemoveAnimation = false;
+                isFirst = true;
                 Message.addMessage("memory.recovery.mes3", Color.BLACK);
                 Server.server.sendMyCopy();
                 Server.server.sendOpponentCopy();
