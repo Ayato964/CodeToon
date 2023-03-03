@@ -33,8 +33,9 @@ public class Get extends MyMethod<Object> {
     public Object returnAction(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(strMemory, host);
         int p = IntegerArgument.getInstance().indentification(pass, host);
-        if(m instanceof HashMemory<?,?>)
-            return ((HashMemory) m).get(a, p, host);
+        if(m != null)
+            if(m instanceof HashMemory<?,?>)
+                return ((HashMemory) m).get(a, p, host);
         return null;
     }
 }

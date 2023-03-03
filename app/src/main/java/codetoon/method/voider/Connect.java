@@ -29,7 +29,9 @@ public class Connect extends MyMethod {
     public void action(Player host) {
         Memory memory = (Memory)ObjectArgument.getInstance().indentification(memoryString, host);
         pass = IntegerArgument.getInstance().indentification(strPass, host);
-        memory.connection(pass);
+        if(memory != null) {
+            memory.connection(pass);
+        }
     }
 
     

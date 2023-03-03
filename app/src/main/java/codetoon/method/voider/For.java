@@ -37,7 +37,6 @@ public class For extends MyMethod {
     public void action(Player host) {
         PrivateNewVariable p = (PrivateNewVariable) ConvertVariable.convert(integer, host);
         p.action(host);
-        //System.out.println(Variables.VARIABLE.getThis(p.id).action());
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
         Message.popMessage(methods);
         while (BooleanArgument.getInstance().indentification(bool, host)){
@@ -51,9 +50,7 @@ public class For extends MyMethod {
                         break;
                 }
             }
-//            ConvertVariable.convert(lamda, host).action(host);
             ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
-            //System.out.println("ForEnd:" + host.getName());
             if(!host.running || host.DEAD_CHORD)
                 break;
 

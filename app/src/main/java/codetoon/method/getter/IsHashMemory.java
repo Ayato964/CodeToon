@@ -26,6 +26,9 @@ public class IsHashMemory extends MyMethod<Boolean> {
     @Override
     public Boolean returnAction(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(m, host);
-        return memory.getStates() == EnumMemoryStates.HASHMODE;
+        if(memory != null)
+            return memory.getStates() == EnumMemoryStates.HASHMODE;
+        else
+            return false;
     }
 }

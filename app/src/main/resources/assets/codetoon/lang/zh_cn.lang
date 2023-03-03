@@ -46,6 +46,7 @@ console.mes1 = "最多只能呼出$个指令。",
 console.execute.process = "プロセスを実行中です...",
 console.execute.loading = "完了するまでしばらくお待ちください。",
 
+memory.error.mes = "メモリーが見つかりません。",
 memory.attack.mes1 = "无法攻击，由于对方设定了密码或密码不正确。",
 memory.attack.mes2 = "攻击自己的领地，这很愚蠢。",
 memory.connection.mes1 = "正在攻击这里！！",

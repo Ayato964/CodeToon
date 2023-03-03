@@ -48,6 +48,7 @@ console.mes1 = "Only $ methods can be called.",
 console.execute.process = "プロセスを実行中です...",
 console.execute.loading = "完了するまでしばらくお待ちください。",
 
+memory.error.mes = "メモリーが見つかりません。",
 memory.attack.mes1 = "Can't Attack. Because is setting password or different password on the Memory.",
 memory.attack.mes2 = "Are you kidding me!? Why hacking myself?",
 memory.connection.mes1 = "This memory is hacked by The Enemy",

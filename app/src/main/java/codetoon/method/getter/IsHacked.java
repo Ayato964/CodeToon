@@ -15,7 +15,10 @@ public class IsHacked extends MyMethod<Boolean> {
     @Override
     public Boolean returnAction(Player o) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(strMemory, o);
-        return memory.getStates() == EnumMemoryStates.HACKED;
+        if(memory != null)
+            return memory.getStates() == EnumMemoryStates.HACKED;
+        else
+            return false;
     }
 
     @Override

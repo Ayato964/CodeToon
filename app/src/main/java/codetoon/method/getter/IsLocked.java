@@ -14,8 +14,11 @@ public class IsLocked extends MyMethod<Boolean> {
     @Override
     public Boolean returnAction(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(strMemory, host);
-        System.out.println(memory.getName() + "<----" + memory.pass);
-        return memory.pass != 0;
+        //System.out.println(memory.getName() + "<----" + memory.pass);
+        if(memory != null)
+            return memory.pass != 0;
+        else
+            return false;
     }
 
     @Override

@@ -26,6 +26,9 @@ public class IsNormalMemory extends MyMethod<Boolean> {
     @Override
     public Boolean returnAction(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(m, host);
-        return memory.getStates() == EnumMemoryStates.NONE || memory.getStates() == EnumMemoryStates.USED;
+        if(memory != null)
+            return memory.getStates() == EnumMemoryStates.NONE || memory.getStates() == EnumMemoryStates.USED;
+        else
+            return false;
     }
 }
