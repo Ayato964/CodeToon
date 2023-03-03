@@ -15,15 +15,12 @@ public class Attack extends MyMethod {
     private String passString = "0";
     @Override
     public void action(Player host) {
-        int pass = 0;
+        int pass;
         Memory enemy = (Memory) ObjectArgument.getInstance().indentification(enemyString, host);
-        if(passString != null){
-            pass = IntegerArgument.getInstance().indentification(passString, host);
-
-        }
-        Message.addMessage(new String[]{enemy.getName()},"method.attack.mes", Color.black);
-        if(enemy instanceof Memory){
-            ((Memory) enemy).hacking(pass, host.getSerialID());
+        pass = IntegerArgument.getInstance().indentification(passString, host);
+        if(enemy != null) {
+            Message.addMessage(new String[]{enemy.getName()}, "method.attack.mes", Color.black);
+            enemy.hacking(pass, host.getSerialID());
         }
     }
     @Override
@@ -32,7 +29,9 @@ public class Attack extends MyMethod {
     }
     @Override
     public String set(@NotNull HashMap<Integer, String> map)
-    {   passString = map.get(1);
+    {
+        if(map.get(1) != null)
+            passString = map.get(1);
         hostString = map.get(CodeToon.HOST_MAP);
         enemyString = map.get(0);
 

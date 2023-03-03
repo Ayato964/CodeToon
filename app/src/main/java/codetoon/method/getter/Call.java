@@ -29,16 +29,18 @@ public class Call extends MyMethod<Object> {
     @Override
     public void action(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(percent, host);
-        if(m.getSerialID() != Admin.getInstance().getSerialID()){
-            Message.addMessage("savememory.call.error");
-        }else if(m instanceof SaveMemory){
-            if(m.getSource() != null && m.pass == IntegerArgument.getInstance().indentification(pass, host)) {
-                StringBuilder s = m.getSource();
-                PazzleStage p = (PazzleStage) Main.getInstance().getMap();
-                Console c = p.getConsole();
-                c.panel.setProgram(new StringBuilder().append(s), 0);
-            }else{
-                Message.addMessage("memory.connection.mes4");
+        if (m != null) {
+            if (m.getSerialID() != Admin.getInstance().getSerialID()) {
+                Message.addMessage("savememory.call.error");
+            } else if (m instanceof SaveMemory) {
+                if (m.getSource() != null && m.pass == IntegerArgument.getInstance().indentification(pass, host)) {
+                    StringBuilder s = m.getSource();
+                    PazzleStage p = (PazzleStage) Main.getInstance().getMap();
+                    Console c = p.getConsole();
+                    c.panel.setProgram(new StringBuilder().append(s), 0);
+                } else {
+                    Message.addMessage("memory.connection.mes4");
+                }
             }
         }
     }

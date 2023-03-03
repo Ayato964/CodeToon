@@ -20,11 +20,11 @@ public class StringArgument extends Argument<String, String> {
             if(!m.isEmpty())
                 if (m.get(0) != null)
                     return (String) m.get(0).returnAction(host);
-                else return null;
-                else return null;
+                else return "";
+                else return "";
 
         }else{
-            return convertVariableTo(s);
+            return convertVariableTo(s) == null ? "" : convertVariableTo(s);
         }
     }
     public String indentification(String s, Player p){

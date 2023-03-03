@@ -37,9 +37,15 @@ public class MemoryVariable extends Variable<Memory> {
     }
     @Override
     public Memory returnAction(Player p) {
-
-        int num = IntegerArgument.getInstance().indentification(strW, p) +
-                IntegerArgument.getInstance().indentification(strH, p) * CodeToon.RULE.memory_h;
+        int a = IntegerArgument.getInstance().indentification(strW, p);
+        int b = IntegerArgument.getInstance().indentification(strH, p);
+        if(a >= CodeToon.RULE.memory_w || b >= CodeToon.RULE.memory_h){
+            //a = 0;
+            //b = 0;
+            Message.addMessage("memory.error.mes");
+            return null;
+        }
+        int num =  a + b * CodeToon.RULE.memory_h;
         if(strS != null) {
             if (strS.equals("enemy")) {
                 returnMemory = Memories.opponentMemory.get(num);

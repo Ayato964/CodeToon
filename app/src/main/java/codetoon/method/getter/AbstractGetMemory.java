@@ -33,10 +33,12 @@ public abstract class AbstractGetMemory extends MyMethod<Memory> {
 
     @Override
     public Memory returnAction(Player host) {
-        Memory m = (Memory) host;
-        int id = m.getIdI() * CodeToon.RULE.memory_w + m.getIdC();
-        return returnAction(getMyMemories(m), id);
-
+        if(host instanceof Memory) {
+            Memory m = (Memory) host;
+            int id = m.getIdI() * CodeToon.RULE.memory_w + m.getIdC();
+            return returnAction(getMyMemories(m), id);
+        }
+        return null;
     }
     public abstract Memory returnAction(ArrayList<Memory> memory, int id);
 

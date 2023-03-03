@@ -28,7 +28,7 @@ public class Recovery extends MyMethod {
     public void action(Player host) {
         Memory memory = (Memory) ObjectArgument.getInstance().indentification(Stringmemory, host);
         int pass =  stringPass != null ?  IntegerArgument.getInstance().indentification(stringPass, host) : 0;
-
-        memory.recovering(pass);
+        if(memory != null)
+            memory.recovering(pass);
     }
 }

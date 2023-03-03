@@ -16,12 +16,15 @@ public class GetBeforePass extends MyMethod<Integer> {
     public Integer returnAction(Player host) {
         Memory m = (Memory) ObjectArgument.getInstance().indentification(pMemory, host);
         int p = IntegerArgument.getInstance().indentification(pass, host);
-        if(m.pass == p && m.getSerialID() == Admin.getInstance().getSerialID())
-            return m.getBeforePass();
-        else {
-            Message.addMessage("memory.connection.mes4");
-            return -1;
+        if(m != null) {
+            if (m.pass == p && m.getSerialID() == Admin.getInstance().getSerialID())
+                return m.getBeforePass();
+            else {
+                Message.addMessage("memory.connection.mes4");
+                return -1;
+            }
         }
+        return null;
     }
 
     @Override

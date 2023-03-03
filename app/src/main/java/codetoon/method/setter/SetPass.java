@@ -5,6 +5,7 @@ import codetoon.argument.ObjectArgument;
 import codetoon.method.MyMethod;
 import codetoon.system.AbstractLockerPlayer;
 import codetoon.system.CodeToon;
+import codetoon.system.Message;
 import codetoon.system.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,9 +36,8 @@ public class SetPass extends MyMethod {
     @Override
     public void action(Player host) {
         parcent = (AbstractLockerPlayer) ObjectArgument.getInstance().indentification(percentString, host);
-        if(parcent != null){
+        if(parcent != null)
             parcent.setPassWord(IntegerArgument.getInstance().indentification(old_pass, host), IntegerArgument.getInstance().indentification(new_pass, host));
 
-        }
     }
 }
