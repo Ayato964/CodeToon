@@ -8,6 +8,14 @@ import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 
+/**
+ *   <p>This class converts strings entered in the {@link codetoon.system.Console} to the Integer type.</p>
+ *
+ * @since Beta.0.5.10
+ * @see Argument
+ * @see codetoon.system.Console
+ * @author Ayato
+ */
 public class IntegerArgument extends Argument<Integer, String> {
     String calcEq = "+-/*";
     private IntegerArgument(){}

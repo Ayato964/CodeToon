@@ -6,7 +6,14 @@ import codetoon.system.Player;
 import codetoon.util.converter.ConvertSource;
 
 import java.util.ArrayList;
-
+/**
+ *   <p>This class converts strings entered in the {@link codetoon.system.Console} to the String type.</p>
+ *
+ * @since Beta.0.4.0
+ * @see Argument
+ * @see codetoon.system.Console
+ * @author Ayato
+ */
 public class StringArgument extends Argument<String, String> {
     private static final StringArgument instance= new StringArgument();
     private StringArgument(){}

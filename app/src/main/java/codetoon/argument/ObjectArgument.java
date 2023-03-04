@@ -10,7 +10,14 @@ import codetoon.variable.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ *   <p>This class converts strings entered in the {@link codetoon.system.Console} to the Object type.</p>
+ *
+ * @since Beta.0.5.0
+ * @see Argument
+ * @see codetoon.system.Console
+ * @author Ayato
+ */
 public class ObjectArgument extends Argument<Object, String> {
     private static final ObjectArgument instance = new ObjectArgument();
     private String percent;

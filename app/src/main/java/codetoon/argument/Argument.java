@@ -2,13 +2,28 @@ package codetoon.argument;
 
 import java.util.HashMap;
 
-import codetoon.main.Main;
-import codetoon.map.PazzleStage;
 import codetoon.method.*;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
 import codetoon.variable.*;
 
+/**
+ * <p>This class converts strings entered in the {@link codetoon.system.Console} to the appropriate type.</p>
+ *
+ * <p>Since this class is an abstract type, use {@link IntegerArgument}, {@link StringArgument}, {@link BooleanArgument}  or {@link ObjectArgument}.</p>
+ * When inheriting, write a program to convert to {@link  #indentification}.
+ * Also, {@link  #getSample} is used for comparison in the convertVariableTo function.
+ * Please store the object you wish to convert as a sample.
+ * @since Beta.0.4.0
+ * @see codetoon.system.Console
+ * @see IntegerArgument
+ * @see StringArgument
+ * @see BooleanArgument
+ * @see ObjectArgument
+ * @author Ayato
+ * @param <T> Output type
+ * @param <I> Input type
+ */
 public abstract class Argument<T, I>  {
     T sample = getSample();
     protected Player host;

@@ -12,6 +12,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * <p>This class converts strings entered in the {@link codetoon.system.Console} to the Boolean type.</p>
+ *
+ * @since 1.7.0
+ * @see Argument
+ * @see codetoon.system.Console
+ * @author Ayato
+ */
 public class BooleanArgument extends Argument<Boolean, String> {
     private static final int BEGIN = 0;
     private static final int END = 1;
