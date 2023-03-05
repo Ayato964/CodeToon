@@ -42,14 +42,13 @@ public class Message {
     }
     public static void popMessage(ArrayList<MyMethod> method){
         instance.met = method;
-        instance.popCount --;
-        if(instance.popCount == 0)
-            instance.isViewMessage = false;
+        instance.popCount ++;
+        instance.isViewMessage = false;
     }
     public static void pushMessage(){
-
-        instance.isViewMessage = true;
-        instance.popCount ++;
+        instance.popCount --;
+        if(instance.popCount == 0)
+            instance.isViewMessage = true;
     }
     private boolean isPop(){
         if(!isViewMessage && !met.isEmpty()){
