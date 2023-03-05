@@ -14,14 +14,19 @@ public abstract class AbstractLockerPlayer extends Player implements Serializabl
     public void setPassWord(int old_pass, int pass) {
         if(Admin.getInstance().getSerialID() == serialID) {
             if (this.pass == old_pass) {
-                history.add(this.pass);
-                this.pass = pass;
-                Server.server.sendOpponentCopy();
-                Server.server.sendMyCopy();
-                Message.addMessage(new String[]{getName(), "" +pass},"memory.pass.mes1", Color.RED);
+                if(pass > 1000 && pass < 10000) {
+                    history.add(this.pass);
+                    this.pass = pass;
+                    Server.server.sendOpponentCopy();
+                    Server.server.sendMyCopy();
+                    Message.addMessage(new String[]{getName(), "" + pass}, "memory.pass.mes1", Color.RED);
+                }else{
+                    Message.addMessage(new String[]{getName()},"memory.pass.mes3");
+                }
             } else {
                 Message.addMessage(new String[]{getName()},"memory.pass.mes2", Color.RED);
             }
+
         }else{
             Message.addMessage(new String[]{Admin.getInstance().getName()},"memory.pass.mes3");
         }
