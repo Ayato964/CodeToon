@@ -50,9 +50,10 @@ public class For extends MyMethod {
                         break l2;
                 }
             }
-            ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
             if(!host.running || host.DEAD_CHORD)
                 break l1;
+            ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
+
 
             try {
                 Thread.sleep(1);

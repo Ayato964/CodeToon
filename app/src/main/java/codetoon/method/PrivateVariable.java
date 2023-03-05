@@ -3,6 +3,8 @@ package codetoon.method;
 import codetoon.argument.ObjectArgument;
 import codetoon.system.CodeToon;
 import codetoon.system.Player;
+import codetoon.util.Actions;
+import codetoon.variable.Variable;
 import codetoon.variable.Variables;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,7 +34,10 @@ public class PrivateVariable extends MyMethod{
        // System.out.println("Variable;;" + host.getID());
         data.put(0, variable);
         data.put(CodeToon.HOST_MAP, host.getID());
-        Variables.VARIABLE.getThis(id).set(data);
-        Variables.VARIABLE.getThis(id).returnAction(host);
+        Variable<?> a = Variables.VARIABLE.getThis(id);
+        if(a != null) {
+            Variables.VARIABLE.getThis(id).set(data);
+            Variables.VARIABLE.getThis(id).returnAction(host);
+        }
     }
 }
