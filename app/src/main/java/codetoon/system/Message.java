@@ -19,7 +19,7 @@ public class Message {
     ArrayList<MyMethod> met = new ArrayList<>();
     ArrayList<MyMethod> blackList = getBlackList();
 
-
+    private int popCount = 0;
 
     private boolean isViewMessage = true;
     private Graphics graphics;
@@ -42,10 +42,14 @@ public class Message {
     }
     public static void popMessage(ArrayList<MyMethod> method){
         instance.met = method;
-        instance.isViewMessage = false;
+        instance.popCount --;
+        if(instance.popCount == 0)
+            instance.isViewMessage = false;
     }
     public static void pushMessage(){
+
         instance.isViewMessage = true;
+        instance.popCount ++;
     }
     private boolean isPop(){
         if(!isViewMessage && !met.isEmpty()){

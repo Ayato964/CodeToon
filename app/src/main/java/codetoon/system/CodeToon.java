@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.8.0";
+    public static final String GAME_VERSION = "1.8.1";
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
