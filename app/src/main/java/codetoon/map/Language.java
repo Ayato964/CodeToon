@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class Language extends Map{
 
     @Override
-    public void setup(Graphics g) throws UnknownHostException {
+    public void setup(Graphics g){
         Animation.create(g).draw("lang.jp", 0, 20, new Animation.Properties().size(40).center()
                 .frame(Color.WHITE, ()->LangLoader.LANGUAGE.equals(LangLoader.JAPANESE))
                 .button(i ->this.changeLang(LangLoader.JAPANESE))

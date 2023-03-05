@@ -86,11 +86,7 @@ public class Main extends JFrame{
             removeKeyListener(ll);
         Tick.getInstance().removeAllAnimation();
         displayMap = map;
-        try {
-            displayMap.setup(g);
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
+        displayMap.setup(g);
         displayMap.display(g);
         repaint();
     }
