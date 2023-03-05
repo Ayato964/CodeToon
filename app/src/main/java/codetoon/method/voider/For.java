@@ -39,20 +39,20 @@ public class For extends MyMethod {
         p.action(host);
         ArrayList<MyMethod> methods = ConvertSource.convert(inside, host);
         Message.popMessage(methods);
-        while (BooleanArgument.getInstance().indentification(bool, host)){
+        l1: while (BooleanArgument.getInstance().indentification(bool, host)){
 
             methods = ConvertSource.convert(inside, host);
             if(!methods.isEmpty()){
-                for(int l = 0; l < methods.size(); l ++){
+                l2: for(int l = 0; l < methods.size(); l ++){
                     //System.out.println("For + " + l + ":" + host.getName());
                     methods.get(l).action(host);
                     if(!host.running || host.DEAD_CHORD)
-                        break;
+                        break l2;
                 }
             }
             ConvertSource.convert(new StringBuilder().append(lamda).append(";").toString(), host).get(0).action(host);
             if(!host.running || host.DEAD_CHORD)
-                break;
+                break l1;
 
             try {
                 Thread.sleep(1);

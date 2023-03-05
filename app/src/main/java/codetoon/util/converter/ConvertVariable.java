@@ -17,7 +17,7 @@ public class ConvertVariable {
     public static PrivateVariable convert(String divide, Player host) {
         StringBuilder div = new StringBuilder().append(divide);
         int type = getType(div, 0);
-        System.out.println(type);
+        //System.out.println(type);
         int serial = host.getSerialID();
         ContainerVariable data = new ContainerVariable(div);
         String id = host.getID() + "_" + serial + "_" + data.name;
