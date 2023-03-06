@@ -85,9 +85,10 @@ public class Main extends JFrame{
         for(KeyListener ll : l)
             removeKeyListener(ll);
         Tick.getInstance().removeAllAnimation();
+        Tick.getInstance().display.remove(displayMap);
         displayMap = map;
         displayMap.setup(g);
-        displayMap.display(g);
+        Tick.getInstance().display.add(displayMap);
         repaint();
     }
     public Map getMap(){

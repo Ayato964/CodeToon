@@ -1,6 +1,7 @@
 package codetoon.util;
 
 import codetoon.main.Main;
+import codetoon.system.Background;
 import codetoon.system.CodeToon;
 
 import java.io.Serializable;
@@ -9,21 +10,24 @@ import java.util.*;
 public class Tick{
     private static final Tick INSTANCE = new Tick();
     private ArrayList<TickRegistory> animation = new ArrayList<>();
+    public ArrayList<Display> display;
     private int count = 0;
     private float animationCount = 0;
     private Tick(){
-
+        display = new ArrayList<>();
+        display.add(Background.getInstance());
         Timer timer = new Timer(false);
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
 
                 animationCount += 1;
-                if(animationCount / 1000 >= 0.05 ) {
+                if(animationCount / 1000 >= 0.03 ) {
                     animationCount = 0;
-                    Main.getMainGraphics().clearRect(0, 0, 2000, 1500);
+                    for(Display d : display){
+                        d.display(Main.getMainGraphics());
+                    }
 
-                    Main.getInstance().displayMap.display(Main.getMainGraphics());
                     if (!animation.isEmpty()) {
                         while (count < animation.size()) {
                             animation.get(count).run_tick();

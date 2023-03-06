@@ -21,6 +21,17 @@ public class ImageMaker {
         }
 
     }
+    public ImageMaker(String str, int w, int h){
+        URL filePath =  getClass().getClassLoader().getResource("assets/codetoon/textures/" + str + ".png");
+        try {
+            percentImage = ImageIO.read(filePath);
+            subImage = percentImage.getSubimage(0, 0, w, h);
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public Image get(){
         return subImage;
     }
