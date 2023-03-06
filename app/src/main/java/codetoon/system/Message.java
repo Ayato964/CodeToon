@@ -63,14 +63,14 @@ public class Message {
         return true;
     }
     public void draw(){
-        graphics.setColor(Color.WHITE);
+        graphics.setColor(CodeToon.categoryBg);
         graphics.fillRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
     }
     public static void addMessage(String str){
         addMessage(null, str);
     }
     public static void addMessage(String[] values, String str){
-        addMessage(values, str, Color.BLACK);
+        addMessage(values, str, CodeToon.textColor);
     }
 
 

@@ -2,6 +2,7 @@ package codetoon.map;
 
 import codetoon.main.Main;
 import codetoon.server.Server;
+import codetoon.system.CodeToon;
 import codetoon.system.Difficulty;
 import codetoon.system.Rule;
 import codetoon.util.ContainerData;
@@ -65,6 +66,7 @@ public class CreateSection extends Map{
         Animation.create(g).draw("session.create", 10, 110, new Animation.Properties()
                 .font("", Font.BOLD, 32)
                 .center()
+                .background(CodeToon.categoryBg)
                 .frame(WHITE)
                 .button(i -> {
                     System.out.println("ServerStarted");
@@ -77,7 +79,8 @@ public class CreateSection extends Map{
     }private void difficulty(Graphics g, int x, int y, int w, int h){
         Animation.create(g).draw("session.difficulty.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
-                .frame(Color.WHITE,x, y + h - 3,  w, h, ()->true)
+                .background(CodeToon.categoryBg, x, y, w, h)
+                .frame(Color.WHITE,x, y,  w, h, ()->true)
         );
         Animation.create(g).draw("session.difficulty.easy", x + 33, y + 7, new Animation.Properties()
                 .font("", Font.BOLD, 60)
@@ -127,7 +130,8 @@ public class CreateSection extends Map{
     private void descRule(Graphics g, int x, int y, int w, int h){
         Animation.create(g).draw("session.desc.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
-                .frame(Color.WHITE,x, y + h - 3,  w, h, ()->true)
+                .background(CodeToon.categoryBg, x, y , w, h)
+                .frame(Color.WHITE,x, y,  w, h, ()->true)
         );
 
         Animation.create(g).draw(new String[]{rule.dif.toString()}, "session.desc.difficulty", x, y + 10, new Animation.Properties()
@@ -178,7 +182,8 @@ public class CreateSection extends Map{
     private void matching(Graphics g, int x, int y, int w, int h){
         Animation.create(g).draw("session.matching.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
-                .frame(Color.WHITE,x, y + h - 3,  w, h, ()->true)
+                .background(CodeToon.categoryBg, x, y, w, h)
+                .frame(Color.WHITE,x, y,  w, h, ()->true)
         );
         AnimationsPack pack = AnimationsPack.create();
         pack.add(Animation.create(g).draw("session.matching.client.mes1", x + 3, y + 17, new Animation.Properties(false)

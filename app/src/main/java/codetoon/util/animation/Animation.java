@@ -147,6 +147,18 @@ public abstract class Animation implements Serializable {
             prop.add(new DecorateFont(font, font_type, size));
             return this;
         }
+        public Properties background(Color r){
+            prop.add(new CategoryBackground(r));
+            return this;
+        }
+        public Properties background(Color r, int x, int y){
+            prop.add(new CategoryBackground(r, x, y));
+            return this;
+        }
+        public Properties background(Color r, int x, int y, int w, int h){
+            prop.add(new CategoryBackground(r, x, y, w, h));
+            return this;
+        }
         public Properties copy(Properties p){
             prop = p.prop;
             return this;

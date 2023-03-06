@@ -3,6 +3,7 @@ package codetoon.system;
 import codetoon.main.Main;
 import codetoon.util.animation.Animation;
 import org.jetbrains.annotations.NotNull;
+import org.python.compiler.Code;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -46,33 +47,33 @@ public class Observer  implements KeyListener{
         instance = this;
     }
     public void setup(){
-        Animation.create(CodeToon.GRAPHICS).draw("observer.category.game", x + 2, y + 4, new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 25));
+        Animation.create(CodeToon.GRAPHICS).draw("observer.category.game", x + 2, y + 4, new Animation.Properties().color(CodeToon.textColor).font("", Font.BOLD, 25));
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyRemaining()}, "observer.remaining", x + 2, y + 8, new Animation.Properties()
                 .changeArgument(() -> new String[]{getEnemyRemaining()})
-                .color(Color.BLACK).font("", Font.ITALIC, 20));
+                .color(CodeToon.textColor).font("", Font.ITALIC, 20));
 
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{this.getEnemyHeldMemory()}, "observer.life", x + 2, y + 12,
                 new Animation.Properties().changeArgument(() ->new String[]{getEnemyHeldMemory()})
-                .color(Color.BLACK).font("", Font.ITALIC, 20));
+                .color(CodeToon.textColor).font("", Font.ITALIC, 20));
 
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.typing.speed", x + 2, y + 16,
                 new Animation.Properties().changeArgument(() ->new String[]{getTypingAverage()})
-                        .color(Color.BLACK).font("", Font.ITALIC, 20));
+                        .color(CodeToon.textColor).font("", Font.ITALIC, 20));
 
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.count.run", x + 2, y + 20,
                 new Animation.Properties().changeArgument(() ->new String[]{getRunningCount()})
-                        .color(Color.BLACK).font("", Font.ITALIC, 20));
+                        .color(CodeToon.textColor).font("", Font.ITALIC, 20));
 
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.count.method", x + 20, y + 20,
                 new Animation.Properties().changeArgument(() ->new String[]{getMethodCount()})
-                        .color(Color.BLACK).font("", Font.ITALIC, 20));
+                        .color(CodeToon.textColor).font("", Font.ITALIC, 20));
 
         Animation.create(CodeToon.GRAPHICS).draw( "observer.timer", x + 2, y + 24,
-                new Animation.Properties().color(Color.BLACK).font("", Font.BOLD, 25));
+                new Animation.Properties().color(CodeToon.textColor).font("", Font.BOLD, 25));
 
         Animation.create(CodeToon.GRAPHICS).draw(new String[]{""}, "observer.timer.count", x + 10, y + 32, new Animation.Properties()
                 .changeArgument(() -> getTimer())
-                .color(Color.BLACK)
+                .color(CodeToon.textColor)
                 .size(80));
 
 
@@ -111,7 +112,7 @@ public class Observer  implements KeyListener{
             isFirst = false;
             setup();
         }
-        g.setColor(Color.WHITE);
+        g.setColor(CodeToon.categoryBg);
         g.fillRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
     }
 

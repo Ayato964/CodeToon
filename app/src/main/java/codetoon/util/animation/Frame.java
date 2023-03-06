@@ -5,7 +5,7 @@ import codetoon.util.function.IsBoolInterface;
 
 import java.awt.*;
 
-public class Frame implements Decorate{
+public class Frame extends DecorateTextLib implements Decorate{
     int w = 0, h = 0, x = 0, y = 0;
     Color color;
     IsBoolInterface bool;
@@ -36,7 +36,7 @@ public class Frame implements Decorate{
                 y = y == 0 ? p.getAnimation().getY() * Main.DH : y;
                 w = w == 0 ? getTextWidth(text.getMsg(), g) : w;
                 h = h == 0 ? g.getFontMetrics().getHeight() : h;
-                g.drawRect(x, y - h, w, h);
+                g.drawRect(x, y - g.getFontMetrics().getHeight(), w, h);
             }
             if (p.getAnimation() instanceof AnimationImage) {
                 AnimationImage ani = (AnimationImage) p.getAnimation();
@@ -47,14 +47,6 @@ public class Frame implements Decorate{
                 g.drawRect(x, y, w, h);
             }
         }
-    }
-
-    private int getTextWidth(String mes, Graphics g) {
-        int len = 0;
-        for(int i = 0; i < mes.length(); i ++){
-           len += g.getFontMetrics().charWidth(mes.charAt(i));
-        }
-        return len;
     }
 
 }

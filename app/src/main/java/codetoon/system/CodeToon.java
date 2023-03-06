@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.8.5";
+    public static final String GAME_VERSION = "1.8.11";
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
@@ -23,6 +23,18 @@ public class CodeToon{
     public static final Graphics GRAPHICS = Main.getMainGraphics();
     public static final int PARCENT_ARGUMENT = 1098;
     public static final int INFINITY = -100000;
+
+    /**
+     * Draw graphics rule
+     */
+    public static Color categoryBg = new Color(0xa0292929, true);
+
+
+    public static Color frameColor = new Color(255, 255, 255);
+
+
+    public static Color textColor = textColor = new Color(255, 255, 255);
+
     private CodeToon(ArrayList<Memory> m){
     }
 
