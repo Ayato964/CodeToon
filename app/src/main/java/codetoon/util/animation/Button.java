@@ -2,16 +2,17 @@ package codetoon.util.animation;
 
 import codetoon.main.Main;
 import codetoon.util.Action;
+import codetoon.util.lang.MouseAction;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class Button implements Decorate, MouseListener {
-    Action data;
+    MouseAction data;
     Graphics g;
     int x, y, w, h;
-    public Button(Action data){
+    public Button(MouseAction data){
         this.data = data;
         Main.getInstance().addMouseListener(this);
     }
@@ -44,7 +45,7 @@ public class Button implements Decorate, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(x < e.getX() && e.getX() < x + w && y < e.getY() && e.getY() < y + h){
-            data.action(-1);
+            data.action(e);
         }
     }
 

@@ -71,7 +71,7 @@ public class CreateSection extends Map{
                 .button(i -> {
                     System.out.println("ServerStarted");
                     Server.server.startServer(Server.isHost == true ? null : ipAdress, rule);
-                }).setChangeText("session.loading", () -> Server.server.startServer)
+                }).setChangeText(() ->"session.loading", () -> Server.server.startServer)
                 .color(WHITE)
         );
 
@@ -186,11 +186,11 @@ public class CreateSection extends Map{
                 .frame(Color.WHITE,x, y,  w, h, ()->true)
         );
         AnimationsPack pack = AnimationsPack.create();
-        pack.add(Animation.create(g).draw("session.matching.client.mes1", x + 3, y + 17, new Animation.Properties(false)
+        pack.add(Animation.create(g).draw("session.matching.client.mes1", x + 3, y + 17, new Animation.Properties(true)
                 .size(40)
                 .textArea(90, 10, Color.WHITE, mes -> {ipAdress = mes;})
         ));
-        pack.add(Animation.create(g).draw("session.matching.client.mes2", x + 3, y + 27, new Animation.Properties(false)
+        pack.add(Animation.create(g).draw("session.matching.client.mes2", x + 3, y + 27, new Animation.Properties(true)
                 .font("", Font.BOLD, 28)
                 .color(RED)
         ));

@@ -23,6 +23,7 @@ import java.net.UnknownHostException;
  * @see #display(Graphics)
  * @author Ayato
  */
+
 public abstract class Map implements Display, Setup{
     public Map(){
     }

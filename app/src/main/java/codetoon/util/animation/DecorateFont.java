@@ -6,7 +6,7 @@ public class DecorateFont implements Decorate{
     private String font;
     private int fontStyle;
     private int size;
-    private  Font f;
+    public   Font f;
     public DecorateFont(String str, int font_style, int size){
         font = str;
         fontStyle = font_style;

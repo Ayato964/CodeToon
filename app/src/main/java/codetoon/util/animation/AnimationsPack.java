@@ -1,6 +1,5 @@
 package codetoon.util.animation;
 
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 
@@ -28,11 +27,13 @@ public class AnimationsPack {
 
     }
     public void next(){
-        next = create(id + 1);
+        if(next == null)
+            next = create(id + 1);
+        else
+            next.next();
     }
     public void set(int id){
         stopAll();
-
         if(this.id != id) {
             if (next != null) {
                 next.set(id);

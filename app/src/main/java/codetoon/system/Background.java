@@ -7,6 +7,7 @@ import codetoon.util.animation.ImageMaker;
 import java.awt.*;
 
 public class Background implements Display {
+    public BackgroundMode mode = BackgroundMode.COLOR_ANIMATION;
     private static final Background instance = new Background();
     private ImageMaker bgImage;
 
@@ -21,6 +22,24 @@ public class Background implements Display {
     @Override
     public void display(Graphics g) {
         Rectangle r = Main.DESCTOP_BOUNDS;
-        g.drawImage(bgImage.get(), 0, 0, Main.getInstance().getWidth(), Main.getInstance().getHeight(), null);
+        switch (mode) {
+            case COLOR_ANIMATION : g.drawImage(bgImage.get(), 0, 0, r.width, r.height, null);break;
+            case DARK:g.setColor(Color.BLACK); g.fillRect(0, 0, r.width, r.height);break;
+            case GRAY :g.setColor(Color.GRAY); g.fillRect(0, 0, r.width, r.height);break;
+        }
+    }
+    public enum BackgroundMode{
+        COLOR_ANIMATION("detail.video.bg.def"),
+        DARK("detail.video.bg.dark"),
+        GRAY("detail.video.bg.gray");
+
+        private String a;
+        BackgroundMode(String i) {
+            a = i;
+        }
+
+        public String get() {
+            return a;
+        }
     }
 }

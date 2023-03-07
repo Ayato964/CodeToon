@@ -43,7 +43,10 @@ public class AnimationText extends Animation{
     }
 
     public void setMsg(String msg) {
-        this.msg = msg;
+        this.msg = LangLoader.getInstance().get(null, msg);
+    }
+    public void setMsg(String[] s, String mes){
+        this.msg = LangLoader.getInstance().get(s, mes);
     }
     public void setVariable(String[] val){
         this.msg = LangLoader.getInstance().get(val, msgID);

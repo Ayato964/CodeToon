@@ -26,10 +26,11 @@ public class CategoryBackground extends DecorateTextLib implements Decorate {
             x = p.getAnimation().getX() * Main.DW;
             y = p.getAnimation().getY() * Main.DH;
         }
-        if(w == -1 * Main.DW && h == -1 * Main.DH){
-            w = getTextWidth(((AnimationText)p.getAnimation()).getMsg(), g);
+        if(h == -1 * Main.DH)
             h = g.getFontMetrics().getHeight();
-        }
+        if(w == -1 * Main.DW)
+            w = getTextWidth(((AnimationText)p.getAnimation()).getMsg(), g);
+
         g.setColor(color);
         g.fillRect(x, y - g.getFontMetrics().getHeight(), w , h );
     }

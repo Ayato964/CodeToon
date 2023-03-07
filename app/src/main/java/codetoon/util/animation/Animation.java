@@ -12,6 +12,7 @@ import codetoon.main.*;
 import codetoon.util.*;
 import codetoon.util.function.IsBoolInterface;
 import codetoon.util.function.StringSup;
+import codetoon.util.lang.MouseAction;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -118,6 +119,15 @@ public abstract class Animation implements Serializable {
             }
 
         }
+        public int searchProp(Decorate d){
+            int i = -1;
+            for(int c = 0; c < prop.size(); c ++){
+                if(prop.get(c).getClass() == d.getClass()){
+                    i = c;
+                }
+            }
+            return i;
+        }
         public void removeChild(){
             if(child != null)
                 child.removeAll();
@@ -196,7 +206,7 @@ public abstract class Animation implements Serializable {
             prop.add(new Frame(c, x, y, w, h, b));
             return this;
         }
-        public Properties button(Action data){
+        public Properties button(MouseAction data){
             prop.add(new Button(data));
             return this;
         }
@@ -238,11 +248,11 @@ public abstract class Animation implements Serializable {
         }
 
          */
-        public Properties setChangeText(String text, BooleanSupplier sup){
+        public Properties setChangeText(MessageSup text, BooleanSupplier sup){
             prop.add(new ChangeText(text, sup));
             return this;
         }
-        public Properties setChangeText(String[] str, String text, BooleanSupplier sup){
+        public Properties setChangeText(String[] str, MessageSup text, BooleanSupplier sup){
             prop.add(new ChangeText(str, text, sup));
             return this;
         }
