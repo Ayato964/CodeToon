@@ -3,6 +3,7 @@ package codetoon.main;
 import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
+import codetoon.system.SaveSystem;
 import codetoon.util.Tick;
 import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
@@ -67,6 +68,7 @@ public class Main extends JFrame{
         LangLoader.create("ja_jp");
         System.out.println();
         Main m = new Main("CodeToon");
+        SaveSystem.getInstance().load();
         m.setVisible(true);
         m.run(new Title());
     }
@@ -79,7 +81,6 @@ public class Main extends JFrame{
      * @param map
      */
     public void run(Map map){
-        g.clearRect(0, 0, getWidth(), getHeight());
         Animation.removeMouseListener();
         KeyListener[] l = getKeyListeners();
         for(KeyListener ll : l)

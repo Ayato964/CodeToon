@@ -51,7 +51,7 @@ public class AnimationSuggest {
     }
     private int display(int start){
         int s = 0;
-        for(int i = start; i < count && list.get(i) != null; i ++){
+        for(int i = start; i < count && i < list.size(); i ++){
             list.get(i).setX(x);
             list.get(i).setY(y + s);
             list.get(i).myProp.start();
@@ -61,9 +61,9 @@ public class AnimationSuggest {
                 end();
             }));
             g.setFont(f);
-            s += g.getFontMetrics().getHeight() / Main.DH;
+            s += g.getFontMetrics().getHeight() / Main.DH + 1;
         }
-        for(int i = start; i < count && list.get(i) != null; i ++){
+        for(int i = start; i < count && i < list.size(); i ++){
             replaceProperties(list.get(i).myProp, new CategoryBackground(CodeToon.categoryBg, list.get(i).getX(), list.get(i).getY(), width, -1));
             replaceProperties(list.get(i).myProp, new DecorateFont(f.getFontName(), 0, f.getSize()));
         }

@@ -15,6 +15,7 @@ public class Tick{
     private float animationCount = 0;
     private Tick(){
         display = new ArrayList<>();
+
         display.add(Background.getInstance());
         Timer timer = new Timer(false);
         TimerTask task = new TimerTask() {
@@ -24,8 +25,10 @@ public class Tick{
                 animationCount += 1;
                 if(animationCount / 1000 >= 0.03 ) {
                     animationCount = 0;
-                    for(Display d : display){
-                        d.display(Main.getMainGraphics());
+
+                    Iterator<Display> d = display.iterator();
+                    while (d.hasNext()){
+                        d.next().display(Main.getMainGraphics());
                     }
 
                     if (!animation.isEmpty()) {

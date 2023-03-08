@@ -8,6 +8,7 @@ import codetoon.util.animation.Animation;
 import codetoon.util.animation.AnimationSuggest;
 import codetoon.util.animation.AnimationText;
 import codetoon.util.animation.AnimationsPack;
+import codetoon.util.lang.LangLoader;
 
 import java.awt.*;
 import java.net.UnknownHostException;
@@ -70,10 +71,21 @@ public class Setting extends Map{
 
 
 
-        pack.add(Animation.create(g).draw("summary.language", x, y + 10,
+        pack.add(Animation.create(g).draw("detail.text.lang.mes", x, y + 10,
                 new Animation.Properties(false).font("", Font.PLAIN, 32)
                         .color(CodeToon.textColor)
         ));
+        pack.add(
+                Animation.create(g).draw("detail.text.lang." + LangLoader.LANGUAGE, x + 35, y + 10,
+                        new Animation.Properties(false).font("", 0, 32).frame(CodeToon.frameColor).color(CodeToon.textColor)
+                                .button(e->{
+                                    AnimationSuggest as = AnimationSuggest.create(g, e.getX() / Main.DW, e.getY() / Main.DH + 10, 20, 10, 32);
+                                    LangLoader.setLangSuggest(g, as);
+                                    as.show();
+                                })
+                                .setChangeText(()->"detail.text.lang." + LangLoader.LANGUAGE, ()->true)
+                )
+        );
 
     }
 
@@ -103,7 +115,7 @@ public class Setting extends Map{
         );
 
          */
-        Animation.create(g).draw("summary.language", x, y + 45,
+        Animation.create(g).draw("summary.text", x, y + 45,
                 new Animation.Properties().font("", Font.PLAIN, 50)
                         .color(CodeToon.textColor)
                         .button(i->{category = Category.LANGUAGE;action.action(0);})

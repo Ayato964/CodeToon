@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 public class Button implements Decorate, MouseListener {
     MouseAction data;
     Graphics g;
+    Animation.Properties p;
     int x, y, w, h;
     public Button(MouseAction data){
         this.data = data;
@@ -19,7 +20,7 @@ public class Button implements Decorate, MouseListener {
     @Override
     public void displayAction(Animation.Properties p, Graphics g) {
         this.g = g;
-
+        this.p = p;
         if(p.getAnimation() instanceof AnimationText){
             AnimationText text = (AnimationText) p.getAnimation();
             w = getTextWidth(text.getMsg(), g) ;
@@ -44,7 +45,7 @@ public class Button implements Decorate, MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(x < e.getX() && e.getX() < x + w && y < e.getY() && e.getY() < y + h){
+        if(x < e.getX() && e.getX() < x + w && y < e.getY() && e.getY() < y + h && p.isStart()){
             data.action(e);
         }
     }

@@ -19,7 +19,7 @@ public class Title extends Map{
 
     @Override
     public void setup(Graphics h) {
-        Animation.createImage(h).draw("title/title", 45, 0, 80, 80, new AnimationImage.PropertiesImage().of(468, 468).center());
+        Animation.createImage(h).draw("title/logo", 55, 10, 160, 30, new AnimationImage.PropertiesImage().of(4090, 676).center());
         Animation.create(h).draw("Version." + CodeToon.GAME_VERSION, 160, 110,
                 new Animation.Properties().font("", Font.ITALIC, 32));
         Animation.createImage(h).draw("other/setting", 190, 90, 13, 13,  new AnimationImage.PropertiesImage().of(120, 120).button(i -> Main.getInstance().run(new Setting())));

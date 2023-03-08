@@ -6,7 +6,7 @@ import codetoon.util.lang.LangLoader;
 
 import java.awt.*;
 import java.net.UnknownHostException;
-
+@Deprecated(since = "1.8.17")
 public class Language extends Map{
 
     @Override

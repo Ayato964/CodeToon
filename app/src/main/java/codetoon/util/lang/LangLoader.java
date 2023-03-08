@@ -1,6 +1,12 @@
 package codetoon.util.lang;
 
+import codetoon.main.Main;
+import codetoon.system.CodeToon;
+import codetoon.util.animation.Animation;
+import codetoon.util.animation.AnimationSuggest;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageFilter;
 import java.io.*;
@@ -13,12 +19,14 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LangLoader {
-    public static final String JAPANESE = "ja_jp";
-    public static final String ENGLISH = "en_us";
-    public static final String CHINESE = "zh_cn";
+    private static final String[] list = {"ja_jp", "en_us", "zh_cn"};
+    public static final String JAPANESE = list[0];
+    public static final String ENGLISH = list[1];
+    public static final String CHINESE = list[2];
     public static String LANGUAGE;
     private  Path path;
     private URI uri;
@@ -126,7 +134,17 @@ public class LangLoader {
         else
             INSTANCE.loadFile(lang);
     }
-
+    public static int langCount(){
+        return 3;
+    }
+    public static AnimationSuggest setLangSuggest(Graphics g, AnimationSuggest as){
+        for(String l : list){
+            as.add("detail.text.lang." + l, new Animation.Properties().color(CodeToon.textColor), e ->{
+               LangLoader.create(l);
+            });
+        }
+        return as;
+    }
     public static LangLoader getInstance() {
         return INSTANCE;
     }
