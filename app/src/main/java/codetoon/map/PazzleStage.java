@@ -119,7 +119,9 @@ public class PazzleStage extends Map{
       public void display(Graphics g){
           if(!enemyMode) {
               for (int i = 0; i < mw * mh; i++) {
-                  Memories.get(i).display(g);
+                  Memory m = Memories.get(i);
+                  if(m != null)
+                      m.display(g);
               }
           }else{
               if(Memories.opponentMemory != null)

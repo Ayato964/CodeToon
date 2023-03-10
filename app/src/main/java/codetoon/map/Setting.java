@@ -4,14 +4,11 @@ import codetoon.main.Main;
 import codetoon.system.Background;
 import codetoon.system.CodeToon;
 import codetoon.util.Action;
-import codetoon.util.animation.Animation;
-import codetoon.util.animation.AnimationSuggest;
-import codetoon.util.animation.AnimationText;
-import codetoon.util.animation.AnimationsPack;
+import codetoon.util.InputColorSup;
+import codetoon.util.animation.*;
 import codetoon.util.lang.LangLoader;
 
 import java.awt.*;
-import java.net.UnknownHostException;
 
 public class Setting extends Map{
     private Category category = Category.VIDEO;
@@ -60,6 +57,31 @@ public class Setting extends Map{
                                 .frame(CodeToon.frameColor)
                 )
         );
+        AnimationColorChooser.create(pack, g, "detail.video.framecolor.mes", x, y + 20, new InputColorSup() {
+            @Override
+            public Color getColor() {
+                return CodeToon.frameColor;
+            }
+
+            @Override
+            public void setColor(Color c) {
+                CodeToon.frameColor = c;
+            }
+        }).isStart(true).show();
+
+        AnimationColorChooser.create(pack, g, "detail.video.categorybg.mes", x, y + 30, new InputColorSup() {
+            @Override
+            public Color getColor() {
+                return CodeToon.categoryBg;
+            }
+
+            @Override
+            public void setColor(Color c) {
+                int alpha = CodeToon.categoryBg.getAlpha();
+                Color n = new Color(c.getRed(), c.getGreen(), c.getBlue(), alpha);
+                CodeToon.categoryBg = n;
+            }
+        }).isStart(true).show();
         pack.next();
 
         pack.add(Animation.create(g).draw("summary.music", x, y + 10,
@@ -86,7 +108,58 @@ public class Setting extends Map{
                                 .setChangeText(()->"detail.text.lang." + LangLoader.LANGUAGE, ()->true)
                 )
         );
+        AnimationColorChooser.create(pack, g, "detail.text.color.mes", x, y + 20, new InputColorSup() {
+            @Override
+            public Color getColor() {
+                return CodeToon.textColor;
+            }
 
+            @Override
+            public void setColor(Color c) {
+                CodeToon.textColor = c;
+            }
+        }).isStart(false).show();
+
+/*
+        pack.add(
+                Animation.create(g).draw("detail.text.color.mes", x, y + 20, new Animation.Properties(false).font("", 0, 32).color(CodeToon.textColor))
+        );
+        pack.add(
+                Animation.create(g).draw("detail.text.color.r", x + 35, y + 20, new Animation.Properties(false).font("", 0, 32).color(CodeToon.textColor))
+        );
+        pack.add(
+                Animation.create(g).draw("" + CodeToon.textColor.getRed(), x + 40, y + 20,
+                        new Animation.Properties(false).font("", 0, 32)
+                                .textArea(10, 6, CodeToon.frameColor, mes -> {
+                                    Color c = new Color(Integer.parseInt(mes), CodeToon.textColor.getGreen(), CodeToon.textColor.getBlue());
+                                    CodeToon.textColor = c;
+                                })
+                        )
+        ); pack.add(
+                Animation.create(g).draw("detail.text.color.g", x + 50, y + 20, new Animation.Properties(false).font("", 0, 32).color(CodeToon.textColor))
+        );
+        pack.add(
+                Animation.create(g).draw("" + CodeToon.textColor.getGreen(), x + 55, y + 20,
+                        new Animation.Properties(false).font("", 0, 32)
+                                .textArea(10, 6, CodeToon.frameColor, mes -> {
+                                    Color c = new Color(CodeToon.textColor.getRed(), Integer.parseInt(mes), CodeToon.textColor.getBlue());
+                                    CodeToon.textColor = c;
+                                })
+                )
+        ); pack.add(
+                Animation.create(g).draw("detail.text.color.b", x + 65, y + 20, new Animation.Properties(false).font("", 0, 32).color(CodeToon.textColor))
+        );
+        pack.add(
+                Animation.create(g).draw("" + CodeToon.textColor.getBlue(), x + 70, y + 20,
+                        new Animation.Properties(false).font("", 0, 32)
+                                .textArea(10, 6, CodeToon.frameColor, mes -> {
+                                    Color c = new Color(CodeToon.textColor.getRed(), CodeToon.textColor.getGreen(), Integer.parseInt(mes));
+                                    CodeToon.textColor = c;
+                                })
+                )
+        );
+
+ */
     }
 
     private void summary(Graphics g,int x, int y, int w, int h){
@@ -115,6 +188,7 @@ public class Setting extends Map{
         );
 
          */
+
         Animation.create(g).draw("summary.text", x, y + 45,
                 new Animation.Properties().font("", Font.PLAIN, 50)
                         .color(CodeToon.textColor)

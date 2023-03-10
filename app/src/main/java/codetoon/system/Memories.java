@@ -65,7 +65,7 @@ public class Memories {
             t.start();
     }
     public static Memory get(int i){
-        return memory.get(i);
+        return i < memory.size() ? memory.get(i) : null;
     }
 
     public static void equalsMemory(ArrayList<Memory> upMemory) {

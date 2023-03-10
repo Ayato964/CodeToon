@@ -67,12 +67,12 @@ public class CreateSection extends Map{
                 .font("", Font.BOLD, 32)
                 .center()
                 .background(CodeToon.categoryBg)
-                .frame(WHITE)
+                .frame(CodeToon.frameColor)
                 .button(i -> {
                     System.out.println("ServerStarted");
                     Server.server.startServer(Server.isHost == true ? null : ipAdress, rule);
                 }).setChangeText(() ->"session.loading", () -> Server.server.startServer)
-                .color(WHITE)
+                .color(CodeToon.textColor)
         );
 
 
@@ -80,7 +80,8 @@ public class CreateSection extends Map{
         Animation.create(g).draw("session.difficulty.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
                 .background(CodeToon.categoryBg, x, y, w, h)
-                .frame(Color.WHITE,x, y,  w, h, ()->true)
+                .frame(CodeToon.frameColor,x, y,  w, h, ()->true)
+                .color(CodeToon.textColor)
         );
         Animation.create(g).draw("session.difficulty.easy", x + 33, y + 7, new Animation.Properties()
                 .font("", Font.BOLD, 60)
@@ -90,7 +91,8 @@ public class CreateSection extends Map{
                             rule.isSettingMemoryPassword = false;
                             rule.isShowingOpponentMemory = true;
                 })
-                .frame(WHITE, x + 33, y + 9, 30, 10, ()->rule.dif == Difficulty.EASY)
+                .frame(CodeToon.frameColor, x + 33, y + 9, 30, 10, ()->rule.dif == Difficulty.EASY)
+                .color(CodeToon.textColor)
         );
         Animation.create(g).draw("session.difficulty.normal", x + 80, y + 7, new Animation.Properties()
                 .font("", Font.BOLD, 60)
@@ -100,8 +102,8 @@ public class CreateSection extends Map{
                     rule.isShowingOpponentMemory = false;
                     rule.isSettingMemoryPassword = false;
                 })
-                .frame(WHITE, x + 80, y + 9, 30, 10, ()->rule.dif == Difficulty.NORMAL)
-
+                .frame(CodeToon.frameColor, x + 80, y + 9, 30, 10, ()->rule.dif == Difficulty.NORMAL)
+                .color(CodeToon.textColor)
         );
         Animation.create(g).draw("session.difficulty.high", x + 33, y + 22, new Animation.Properties()
                 .font("", Font.BOLD, 60)
@@ -112,7 +114,8 @@ public class CreateSection extends Map{
                     rule.isShowingOpponentMemory = false;
                     rule.isSettingMemoryPassword = true;
                 })
-                .frame(WHITE, x + 33, y + 24, 30, 10, ()->rule.dif == Difficulty.HIGH)
+                .frame(CodeToon.frameColor, x + 33, y + 24, 30, 10, ()->rule.dif == Difficulty.HIGH)
+                .color(CodeToon.textColor)
         );
         Animation.create(g).draw("session.difficulty.very.high", x + 80, y + 22, new Animation.Properties()
                 .font("", Font.BOLD, 60)
@@ -123,7 +126,8 @@ public class CreateSection extends Map{
                     rule.isShowingOpponentMemory = false;
                     rule.isSettingMemoryPassword = true;
                 })
-                .frame(WHITE, x + 80, y + 24, 30, 10, ()->rule.dif == Difficulty.VERY_HIGH)
+                .frame(CodeToon.frameColor, x + 80, y + 24, 30, 10, ()->rule.dif == Difficulty.VERY_HIGH)
+                .color(CodeToon.textColor)
         );
 
     }
@@ -131,32 +135,33 @@ public class CreateSection extends Map{
         Animation.create(g).draw("session.desc.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
                 .background(CodeToon.categoryBg, x, y , w, h)
-                .frame(Color.WHITE,x, y,  w, h, ()->true)
+                .frame(CodeToon.frameColor,x, y,  w, h, ()->true)
+                .color(CodeToon.textColor)
         );
 
         Animation.create(g).draw(new String[]{rule.dif.toString()}, "session.desc.difficulty", x, y + 10, new Animation.Properties()
                         .size(32)
-                        .color(WHITE)
+                        .color(CodeToon.textColor)
                         .changeArgument(()->new String[]{rule.dif.toString()})
 
                 );
         Animation.create(g).draw(new String[]{new StringBuilder().append(rule.memory_w).toString(),
                 new StringBuilder().append(rule.memory_h).toString()}, "session.desc.memory.size", x, y + 20, new Animation.Properties()
                 .size(32)
-                .color(WHITE)
+                .color(CodeToon.textColor)
                 .changeArgument(()->new String[]{new StringBuilder().append(rule.memory_w).toString(),
                         new StringBuilder().append(rule.memory_h).toString()})
 
         );
         Animation.create(g).draw(new String[]{"false"}, "session.desc.show.opponent", x, y + 30, new Animation.Properties()
                 .size(30)
-                .color(WHITE)
+                .color(CodeToon.textColor)
              //   .setWidth(w - 2)
                 .changeArgument(()-> new String[]{new StringBuilder().append(rule.isShowingOpponentMemory).toString()})
         );
         Animation.create(g).draw(new String[]{"false"}, "session.desc.give.firstpass", x, y + 40, new Animation.Properties()
                 .size(30)
-                .color(WHITE)
+                .color(CodeToon.textColor)
                // .setWidth(w - 2)
                 .changeArgument(()-> new String[]{new StringBuilder().append(rule.isSettingMemoryPassword).toString()})
         );
@@ -183,12 +188,14 @@ public class CreateSection extends Map{
         Animation.create(g).draw("session.matching.title", x, y, new Animation.Properties()
                 .font("", Font.BOLD, 32)
                 .background(CodeToon.categoryBg, x, y, w, h)
-                .frame(Color.WHITE,x, y,  w, h, ()->true)
+                .frame(CodeToon.frameColor,x, y,  w, h, ()->true)
+                .color(CodeToon.textColor)
         );
         AnimationsPack pack = AnimationsPack.create();
         pack.add(Animation.create(g).draw("session.matching.client.mes1", x + 3, y + 17, new Animation.Properties(true)
                 .size(40)
-                .textArea(90, 10, Color.WHITE, mes -> {ipAdress = mes;})
+                .textArea(90, 10, CodeToon.frameColor, mes -> {ipAdress = mes;})
+                .color(CodeToon.textColor)
         ));
         pack.add(Animation.create(g).draw("session.matching.client.mes2", x + 3, y + 27, new Animation.Properties(true)
                 .font("", Font.BOLD, 28)
@@ -197,7 +204,7 @@ public class CreateSection extends Map{
         pack.next();
         pack.add(Animation.create(g).draw("session.matching.host.mes1", x + 3, y + 17, new Animation.Properties(false)
                 .font("", Font.BOLD, 40)
-                .color(Color.WHITE)
+                .color(CodeToon.textColor)
         ));
         pack.add(Animation.create(g).draw(address.getHostAddress() +"", x + 65, y + 17, new Animation.Properties(false)
                 .font("", Font.BOLD, 40)

@@ -110,11 +110,14 @@ detail.video.bg.dark = "ダークモード",
 detail.video.bg.gray = "グレーモード",
 
 detail.video.categorybg.mes = "カテゴリー背景:",
-detail.video.categorybg.r = "$",
-detail.video.categorybg.g = "$",
-detail.video.categorybg.b = "$",
+detail.video.framecolor.mes = "フレームの色:",
 
 detail.text.lang.mes = "使用言語",
 detail.text.lang.ja_jp = "日本語",
 detail.text.lang.en_us = "英語",
 detail.text.lang.zh_cn = "中国語",
+
+detail.text.color.mes = "テキストの色",
+detail.text.color.r = "R:",
+detail.text.color.g = "G:",
+detail.text.color.b = "B:",

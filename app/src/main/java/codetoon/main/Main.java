@@ -4,6 +4,7 @@ import javax.swing.*;
 import codetoon.map.*;
 import codetoon.map.Map;
 import codetoon.system.SaveSystem;
+import codetoon.util.Display;
 import codetoon.util.Tick;
 import codetoon.util.animation.Animation;
 import codetoon.util.lang.LangLoader;
@@ -12,6 +13,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.*;
 import java.awt.*;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * <p>This class is the main class of CodeToon.</p>
@@ -86,11 +88,20 @@ public class Main extends JFrame{
         for(KeyListener ll : l)
             removeKeyListener(ll);
         Tick.getInstance().removeAllAnimation();
-        Tick.getInstance().display.remove(displayMap);
+        map.setup(g);
+        ArrayList<Display> d =  copyList(Tick.getInstance().display);
+        d.remove(displayMap);
+        d.add(map);
         displayMap = map;
-        displayMap.setup(g);
-        Tick.getInstance().display.add(displayMap);
+        Tick.getInstance().display = d;
         repaint();
+    }
+    public <T> ArrayList<T> copyList(ArrayList<T> a){
+        ArrayList<T> array = new ArrayList<>();
+        for(T t : a){
+            array.add(t);
+        }
+        return array;
     }
     public Map getMap(){
         return displayMap;

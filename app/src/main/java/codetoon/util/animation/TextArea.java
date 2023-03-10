@@ -26,7 +26,7 @@ public class TextArea implements KeyListener, MouseListener, Decorate {
         fc = frameColor;
         change = false;
         beforeChange = false;
-        mes = new StringBuilder().append(">");
+        mes = new StringBuilder();
         Main.getInstance().addMouseListener(this);
     }
     @Override
@@ -49,7 +49,7 @@ public class TextArea implements KeyListener, MouseListener, Decorate {
                 Main.getInstance().addKeyListener(this);
             else {
                 Main.getInstance().removeKeyListener(this);
-                comp.action(mes.delete(0, 1).toString());
+                comp.action(mes.toString());
             }
         }
     }
