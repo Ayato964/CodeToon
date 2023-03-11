@@ -97,6 +97,7 @@ loser.chooser3 = "萎えたから辞める",
 
 setting.lang = "言語設定",
 setting.exit = "タイトルへ戻る",
+setting.changed = "適用する",
 setting.save = "内容をセーブする",
 summary.title = "設定",
 summary.video = "グラフィック",
@@ -117,7 +118,9 @@ detail.text.lang.ja_jp = "日本語",
 detail.text.lang.en_us = "英語",
 detail.text.lang.zh_cn = "中国語",
 
-detail.text.color.mes = "テキストの色",
+detail.text.color.mes = "テキストの色:",
+detail.text.important.color.mes = "重要テキストの色:",
+
 detail.text.color.r = "R:",
 detail.text.color.g = "G:",
 detail.text.color.b = "B:",

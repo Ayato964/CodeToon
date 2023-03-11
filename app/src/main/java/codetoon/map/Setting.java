@@ -7,6 +7,7 @@ import codetoon.util.Action;
 import codetoon.util.InputColorSup;
 import codetoon.util.animation.*;
 import codetoon.util.lang.LangLoader;
+import org.python.compiler.Code;
 
 import java.awt.*;
 
@@ -21,7 +22,10 @@ public class Setting extends Map{
     @Override
     public void setup(Graphics g){
 
-        Animation.create(g).draw("setting.exit", 10, 115, new Animation.Properties().size(40).background(CodeToon.categoryBg).button(i -> Main.getInstance().run(new Title())).frame(CodeToon.textColor));
+        Animation.create(g).draw("setting.exit", 10, 115, new Animation.Properties().size(40).background(CodeToon.categoryBg).button(i -> Main.getInstance().run(new Title())).frame(CodeToon.frameColor).color(CodeToon.textColor));
+        Animation.create(g).draw("setting.changed", 50, 115, new Animation.Properties()
+                .center()
+                .size(40).background(CodeToon.categoryBg).button(i -> Main.getInstance().run(new Setting())).frame(CodeToon.frameColor).color(CodeToon.textColor));
 
         setting(g, 80, 20, 120, 90);
         summary(g, 5, 20, 60, 90);
@@ -119,6 +123,17 @@ public class Setting extends Map{
                 CodeToon.textColor = c;
             }
         }).isStart(false).show();
+        AnimationColorChooser.create(pack, g, "detail.text.important.color.mes", x, y + 30, new InputColorSup() {
+            @Override
+            public Color getColor() {
+                return CodeToon.textIMPORTANTColor;
+            }
+
+            @Override
+            public void setColor(Color c) {
+                CodeToon.textIMPORTANTColor = c;
+            }
+        }).isStart(false).show();
 
 /*
         pack.add(
@@ -171,12 +186,12 @@ public class Setting extends Map{
         );
         Animation.create(g).draw("summary.video", x, y + 15,
                 new Animation.Properties().font("", Font.PLAIN, 50)
-                        .color(CodeToon.textColor)
                         .button(i-> {
                             category = Category.VIDEO;
                             action.action(0);
                         })
                         .frame(CodeToon.frameColor,x, y + 15, w, 15, ()-> category == Category.VIDEO)
+                        .color(CodeToon.textColor)
         );
         /*
         Animation.create(g).draw("summary.music", x, y + 30,
@@ -191,9 +206,10 @@ public class Setting extends Map{
 
         Animation.create(g).draw("summary.text", x, y + 45,
                 new Animation.Properties().font("", Font.PLAIN, 50)
-                        .color(CodeToon.textColor)
                         .button(i->{category = Category.LANGUAGE;action.action(0);})
                         .frame(CodeToon.frameColor,x, y + 45, w, 15, ()-> category == Category.LANGUAGE)
+                        .color(CodeToon.textColor)
+
         );
     }
 

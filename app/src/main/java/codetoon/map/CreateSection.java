@@ -13,6 +13,7 @@ import codetoon.util.box.Box;
 import codetoon.util.box.ContainerBox;
 import codetoon.util.box.DrawingTextBox;
 import codetoon.util.lang.LangLoader;
+import org.python.compiler.Code;
 
 import java.awt.*;
 import java.net.InetAddress;
@@ -21,10 +22,14 @@ import java.net.UnknownHostException;
 import static java.awt.Color.RED;
 import static java.awt.Color.WHITE;
 
+/**
+ * This map is create matching server of battle.
+ * This class extends {@link Map}!
+ *
+ */
 public class CreateSection extends Map{
     Rule rule;
     InetAddress address;
-    ContainerBox backTitle;
     boolean isHost;
     private String ipAdress;
     public CreateSection(){
@@ -41,24 +46,13 @@ public class CreateSection extends Map{
     }
     @Override
     public void setup(Graphics g) {
-        backTitle = new ContainerBox(10, 100, 50, 10, new ContainerData<Box, Integer>() {
-            @Override
-            public void action(int i) {
-                if(Server.server.startServer)
-                    Server.server.stopConnection();
-                Main.getInstance().run(new Title());
-            }
-
-            @Override
-            public int getCount() {
-                return 1;
-            }
-
-            @Override
-            public Box set(Integer integer) {
-                return new DrawingTextBox("session.back.title");
-            }
-        });
+        Animation.create(g).draw("setting.exit", 10, 110,new Animation.Properties()
+                .font("", 0, 40)
+                .background(CodeToon.categoryBg)
+                .frame(CodeToon.frameColor)
+                .color(CodeToon.textColor)
+                .button(e -> Main.getInstance().run(new Title()))
+        );
         matching(g, 10, 20, 120, 40);
         difficulty(g, 10, 61, 120, 40);
         descRule(g, 140, 10, 60, 100);
@@ -199,7 +193,7 @@ public class CreateSection extends Map{
         ));
         pack.add(Animation.create(g).draw("session.matching.client.mes2", x + 3, y + 27, new Animation.Properties(true)
                 .font("", Font.BOLD, 28)
-                .color(RED)
+                .color(CodeToon.textIMPORTANTColor)
         ));
         pack.next();
         pack.add(Animation.create(g).draw("session.matching.host.mes1", x + 3, y + 17, new Animation.Properties(false)
@@ -208,11 +202,11 @@ public class CreateSection extends Map{
         ));
         pack.add(Animation.create(g).draw(address.getHostAddress() +"", x + 65, y + 17, new Animation.Properties(false)
                 .font("", Font.BOLD, 40)
-                .color(RED)
+                .color(CodeToon.textIMPORTANTColor)
         ));
         pack.add(Animation.create(g).draw("session.matching.host.mes2", x + 3, y + 27, new Animation.Properties(false)
                 .font("", Font.BOLD, 28)
-                .color(RED)
+                .color(CodeToon.textIMPORTANTColor)
         ));
         Animation.create(g).draw("session.matching.host", x + 10, y + 10, new Animation.Properties()
                 .size(30)
@@ -228,7 +222,5 @@ public class CreateSection extends Map{
     }
     @Override
     public void display(Graphics g) {
-        backTitle.draw();
-
     }
 }

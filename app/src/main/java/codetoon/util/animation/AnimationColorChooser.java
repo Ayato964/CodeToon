@@ -33,24 +33,24 @@ public class AnimationColorChooser {
     public void show(){
         boolean b = pack == null;
                 Animation t = Animation.create(g).draw(title, x, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
-                Animation r = Animation.create(g).draw("detail.text.color.r", x + 35, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
-                Animation rc = Animation.create(g).draw("" + target.getColor().getRed(), x + 40, y,
+                Animation r = Animation.create(g).draw("detail.text.color.r", x + 50, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
+                Animation rc = Animation.create(g).draw("" + target.getColor().getRed(), x + 55, y,
                         new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor)
                                 .textArea(10, 6, CodeToon.frameColor, mes -> {
                                     Color c = new Color(Math.min(Integer.parseInt(mes), 255), target.getColor().getGreen(), target.getColor().getBlue());
                                     target.setColor(c);
                                 })
                 );
-                Animation green = Animation.create(g).draw("detail.text.color.g", x + 50, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
-                Animation greenc = Animation.create(g).draw("" + target.getColor().getGreen(), x + 55, y,
+                Animation green = Animation.create(g).draw("detail.text.color.g", x + 65, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
+                Animation greenc = Animation.create(g).draw("" + target.getColor().getGreen(), x + 70, y,
                         new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor)
                                 .textArea(10, 6, CodeToon.frameColor, mes -> {
                                     Color c = new Color(target.getColor().getRed(), Math.min(Integer.parseInt(mes), 255), target.getColor().getBlue());
                                     target.setColor(c);
                                 })
                 );
-                Animation blue = Animation.create(g).draw("detail.text.color.b", x + 65, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
-                Animation bluec = Animation.create(g).draw("" + target.getColor().getBlue(), x + 70, y,
+                Animation blue = Animation.create(g).draw("detail.text.color.b", x + 80, y, new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor));
+                Animation bluec = Animation.create(g).draw("" + target.getColor().getBlue(), x + 85, y,
                         new Animation.Properties(isStart).font("", 0, 32).color(CodeToon.textColor)
                                 .textArea(10, 6, CodeToon.frameColor, mes -> {
                                     Color c = new Color(target.getColor().getRed(), target.getColor().getGreen(), Math.min(Integer.parseInt(mes), 255));

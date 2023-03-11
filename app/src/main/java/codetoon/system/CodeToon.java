@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class CodeToon{
-    public static final String GAME_VERSION = "1.8.21";
+    public static final String GAME_VERSION = "1.8.22";
     public static Rule RULE;
     public static boolean isGameStart = false;
     public static boolean DEBUG = false;
@@ -33,7 +33,8 @@ public class CodeToon{
     public static Color frameColor = new Color(255, 255, 255);
 
 
-    public static Color textColor = textColor = new Color(255, 255, 255);
+    public static Color textColor = new Color(255, 255, 255);
+    public static Color textIMPORTANTColor = new Color(255, 120, 0);
 
     private CodeToon(ArrayList<Memory> m){
     }
