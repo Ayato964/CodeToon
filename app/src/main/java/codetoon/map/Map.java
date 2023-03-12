@@ -27,6 +27,8 @@ import java.net.UnknownHostException;
 public abstract class Map implements Display, Setup{
     public Map(){
     }
+    @Override
     public abstract void setup(Graphics g);
+    @Override
     public abstract void display(Graphics g);
   }

@@ -169,6 +169,14 @@ public abstract class Animation implements Serializable {
             prop.add(new CategoryBackground(r, x, y, w, h));
             return this;
         }
+        public Properties backgroundCenter(Color c, int w, int h){
+            prop.add(new BackgroundCenter(c, w, h));
+            return this;
+        }
+        public Properties backgroundCenter(Color c, int w, int h, IsBoolInterface b){
+            prop.add(new BackgroundCenter(c, w, h, b));
+            return this;
+        }
         public Properties copy(Properties p){
             prop = p.prop;
             return this;
@@ -204,6 +212,14 @@ public abstract class Animation implements Serializable {
         }
         public Properties frame(Color c,int x, int y, int w, int h, IsBoolInterface b){
             prop.add(new Frame(c, x, y, w, h, b));
+            return this;
+        }
+        public Properties frameCenter(Color c, int w, int h){
+            prop.add(new FrameCenter(c, w, h));
+            return this;
+        }
+        public Properties frameCenter(Color c, int w, int h, IsBoolInterface b){
+            prop.add(new FrameCenter(c, w, h, b));
             return this;
         }
         public Properties button(MouseAction data){

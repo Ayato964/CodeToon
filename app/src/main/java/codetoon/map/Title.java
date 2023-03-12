@@ -1,11 +1,13 @@
 package codetoon.map;
 
+import codetoon.system.Background;
 import codetoon.system.CodeToon;
 import codetoon.main.*;
 import codetoon.system.Rule;
 import codetoon.util.animation.Animation;
 import codetoon.util.animation.AnimationImage;
 import codetoon.util.box.ContainerBox;
+import org.python.compiler.Code;
 
 import java.awt.*;
 import java.io.IOException;
@@ -19,7 +21,12 @@ public class Title extends Map{
 
     @Override
     public void setup(Graphics h) {
-        Animation.createImage(h).draw("title/logo", 55, 10, 160, 30, new AnimationImage.PropertiesImage().of(4090, 676).center());
+        if(Background.getInstance().mode== Background.BackgroundMode.COLOR_ANIMATION) {
+            Animation.createImage(h).draw("title/logo", 55, 10, 160, 30,
+                    new AnimationImage.PropertiesImage().of(4090, 676).center());
+        }else {
+            Animation.createImage(h).draw("title/title",55,0,80,80,new AnimationImage.PropertiesImage().of(468,468).center());
+        }
         Animation.create(h).draw("Version." + CodeToon.GAME_VERSION, 160, 110,
                 new Animation.Properties().font("", Font.ITALIC, 32));
         Animation.createImage(h).draw("other/setting", 190, 90, 13, 13,  new AnimationImage.PropertiesImage().of(120, 120).button(i -> Main.getInstance().run(new Setting())));
@@ -33,9 +40,12 @@ public class Title extends Map{
                         throw new RuntimeException(e);
                     }
                 }));
+        AnimationImage.createImage(h).draw("other/help",170,70,13,13,new AnimationImage.PropertiesImage().of(120,120).button(e -> Main.getInstance().run(new Setting())));
         Animation.create(h).draw("title.chooser1", 70, 70, new Animation.Properties().size(40)
-                .background(CodeToon.categoryBg, -1, -1, 80, 8)
-                .frame(CodeToon.frameColor, 80, 8, ()->true).color(CodeToon.textColor)
+                .backgroundCenter(CodeToon.categoryBg, 80, 8)
+                .frameCenter(CodeToon.frameColor, 80, 8)
+                .center()
+                .color(CodeToon.textColor)
                 .button(i->
                 {
                    // Server.isHost = true;
@@ -43,19 +53,19 @@ public class Title extends Map{
                    // Server.server.startServer(null);
                 }));
         Animation.create(h).draw("title.chooser2", 70, 78, new Animation.Properties().size(40)
-                .background(CodeToon.categoryBg, -1, -1, 80, 8)
-                .frame(CodeToon.frameColor, 80, 8, ()->true).color(CodeToon.textColor)
+                .backgroundCenter(CodeToon.categoryBg,  80, 8)
+                .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor)
                 .button(i-> {
                     CodeToon.DEBUG = true;
                     Main.getInstance().run(new PythonSetup(5));
                 }));
         Animation.create(h).draw("title.chooser3", 70, 86, new Animation.Properties().size(40)
-                .background(CodeToon.categoryBg, -1, -1, 80, 8)
-                .frame(CodeToon.frameColor, 80, 8, ()->true).color(CodeToon.textColor).button(i->System.exit(-1)));
+                .backgroundCenter(CodeToon.categoryBg, 80, 8)
+                .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor).button(i->System.exit(-1)));
 
         Animation.create(h).draw("title.chooser4", 70, 94, new Animation.Properties().size(40)
-                .background(CodeToon.categoryBg, -1, -1, 80, 8)
-                .frame(CodeToon.frameColor, 80, 8, ()->true).color(CodeToon.textColor).button(i->{
+                .backgroundCenter(CodeToon.categoryBg, 80, 8)
+                .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor).button(i->{
                     Rule r = Rule.create();
                     r.memory_w = 5;
                     r.memory_h = 5;
