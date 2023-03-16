@@ -55,17 +55,18 @@ public class Title extends Map{
         Animation.create(h).draw("title.chooser2", 70, 78, new Animation.Properties().size(40)
                 .backgroundCenter(CodeToon.categoryBg,  80, 8)
                 .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor)
+                        .center()
                 .button(i-> {
                     CodeToon.DEBUG = true;
                     Main.getInstance().run(new PythonSetup(5));
                 }));
         Animation.create(h).draw("title.chooser3", 70, 86, new Animation.Properties().size(40)
                 .backgroundCenter(CodeToon.categoryBg, 80, 8)
-                .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor).button(i->System.exit(-1)));
+                .frameCenter(CodeToon.frameColor, 80, 8).center().color(CodeToon.textColor).button(i->System.exit(-1)));
 
         Animation.create(h).draw("title.chooser4", 70, 94, new Animation.Properties().size(40)
                 .backgroundCenter(CodeToon.categoryBg, 80, 8)
-                .frameCenter(CodeToon.frameColor, 80, 8).color(CodeToon.textColor).button(i->{
+                .frameCenter(CodeToon.frameColor, 80, 8).center().color(CodeToon.textColor).button(i->{
                     Rule r = Rule.create();
                     r.memory_w = 5;
                     r.memory_h = 5;
